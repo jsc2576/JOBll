@@ -99,7 +99,7 @@
             <div class="row">
               <div class="wrap-hero-content">
                   <div class="hero-content">
-                    <h1>JOBll</h1>
+                    <a href = "/testmember">JOBll</a>
                     <br>
                     <span class="typed"></span>
                   </div>
