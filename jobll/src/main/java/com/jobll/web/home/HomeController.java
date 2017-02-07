@@ -21,29 +21,29 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class HomeController {
-	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
+
+	private static final Logger logger = LoggerFactory
+			.getLogger(HomeController.class);
+
 	@Autowired
 	private HomeService homeService;
-	
-	
-	
+
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping("/")
 	public String home(Locale locale, Model model) {
-		
+
 		return "home";
 	}
-	
-	@RequestMapping(value = "/testquery" , method = {RequestMethod.GET})
-	public String regProduct(@ModelAttribute Home entity, HttpServletRequest request, BindingResult errors) throws Exception {
-		//ModelAndView mav = new ModelAndView("home");
-		
+
+	@RequestMapping(value = "/testquery", method = { RequestMethod.GET })
+	public String regProduct(@ModelAttribute Home entity,
+			HttpServletRequest request, BindingResult errors) throws Exception {
+		// ModelAndView mav = new ModelAndView("home");
+
 		homeService.create(entity);
-					
+
 		return "home";
 	}
 }
