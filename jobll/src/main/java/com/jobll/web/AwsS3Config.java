@@ -47,10 +47,7 @@ public class AwsS3Config {
 		accessKey = "AKIAJKEQIYAL35KYQORA";
 		secretKey = "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";
 		bucketName = "elasticbeanstalk-ap-northeast-2-190235634467";
-<<<<<<< HEAD
-		String test = "test";
-=======
->>>>>>> 26d2e9a570db56d6a258eb2a214e569be48061e8
+
 		
 		AWSCredentials credentials = new BasicAWSCredentials(accessKey, secretKey);
 
