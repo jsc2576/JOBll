@@ -105,7 +105,7 @@ public class AttchFileService {
 		attchFile.setReg_date(commonUtil.getCurrentDtime());
 
 		//DB에 정보 저장
-		this.create(attchFile);
+		//this.create(attchFile);
 		
 		
 		//DB에 저장된 객체 반환
