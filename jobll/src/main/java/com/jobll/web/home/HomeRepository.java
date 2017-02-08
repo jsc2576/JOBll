@@ -9,15 +9,13 @@ import com.jobll.web.home.Home;
 @Repository
 public class HomeRepository {
 
-	 @Autowired
-	 SqlSession sqlSession;
+	@Autowired
+	SqlSession sqlSession;
 
-    public int create(Home entity) throws Exception{
+	public int create(Home entity) throws Exception {
 
 		return sqlSession.insert("com.jobll.web.home.Home.create", entity);
 
-    }
-
- 
+	}
 
 }
