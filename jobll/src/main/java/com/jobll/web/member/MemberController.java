@@ -1,4 +1,4 @@
-package com.jobll.web.home;
+package com.jobll.web.member;
 
 import java.util.Locale;
 
@@ -16,34 +16,21 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-/**
- * Handles requests for the application home page.
- */
 @Controller
-public class HomeController {
+@RequestMapping(value="/login")
+public class MemberController {
 
 	private static final Logger logger = LoggerFactory
-			.getLogger(HomeController.class);
+			.getLogger(MemberController.class);
 
 	@Autowired
-	private HomeService homeService;
+	private MemberService memberService;
 
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
 	@RequestMapping("/")
-	public String home(Locale locale, Model model) {
+	public String member(Locale locale, Model model) {
 
 		return "home";
 	}
 
-	@RequestMapping(value = "/testquery", method = { RequestMethod.GET })
-	public String regProduct(@ModelAttribute Home entity,
-			HttpServletRequest request, BindingResult errors) throws Exception {
-		// ModelAndView mav = new ModelAndView("home");
-
-		homeService.create(entity);
-
-		return "home";
-	}
+	
 }

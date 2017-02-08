@@ -10,6 +10,5 @@ public class JobllApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(JobllApplication.class, args);
 	}
-	
 
 }

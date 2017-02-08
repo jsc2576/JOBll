@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
 
-@Repository("product")
+@Repository("home")
 public class Home implements Serializable {
 	/**
 	 * 
