@@ -1,4 +1,4 @@
-package com.jobll.web.member;
+package com.jobll.web.user;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,25 +10,25 @@ import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 
 @Repository
-public class MemberRepositoryImpl {
+public class UserRepositoryImpl {
 	@Autowired
     SqlSession sqlSession;
 	
-	public List<HashMap<String, Object>> select(Member entity) throws Exception{
+	public List<HashMap<String, Object>> select(User entity) throws Exception{
 		List<HashMap<String, Object>> selectList = new ArrayList<HashMap<String, Object>>();
-		selectList  = sqlSession.selectList("com.jobll.web.member.Member.select");
+		selectList  = sqlSession.selectList("com.jobll.web.user.User.select");
 		return selectList ;
 	}
-	public List<HashMap<String, Object>> read(Member entity){
+	public List<HashMap<String, Object>> read(User entity){
 		return null;
 	}
-	public int create(Member entity){
+	public int create(User entity){
 		return 1;
 	};
-	public int edit(Member entity){
+	public int edit(User entity){
 		return 1;
 	};
-	public int delete(Member entity){
+	public int delete(User entity){
 		return 1;
 	};
 

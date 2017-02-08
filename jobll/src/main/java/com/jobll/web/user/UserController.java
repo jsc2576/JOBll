@@ -1,4 +1,4 @@
-package com.jobll.web.member;
+package com.jobll.web.user;
 
 import java.util.Locale;
 
@@ -18,16 +18,16 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping(value="/login")
-public class MemberController {
+public class UserController {
 
 	private static final Logger logger = LoggerFactory
-			.getLogger(MemberController.class);
+			.getLogger(UserController.class);
 
 	@Autowired
-	private MemberService memberService;
+	private UserService memberService;
 
 	@RequestMapping("/")
-	public String member(Locale locale, Model model) {
+	public String user(Locale locale, Model model) {
 
 		return "home";
 	}
