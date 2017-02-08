@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jobll.web.attchfile.AttchFile">
+
+	<insert  id="create" parameterType ="com.jobll.web.attchfile.AttchFile">
+	INSERT INTO attch_file(
+            attch_file_idx, 
+            file_path, 
+            attch_file_nm, 
+            attch_file_vol, 
+            reg_date, 
+            file_typ, 
+            reg_usr_id)
+    VALUES (
+				(select nextval('public.attch_file_idx_seq')),
+				#{file_path},
+				#{attch_file_nm},
+				#{attch_file_vol},
+				#{reg_date},
+				#{file_typ},
+				#{reg_usr_id}
+			)
+	</insert>
+	<select id="findAll" resultType="com.jobll.web.attchfile.AttchFile" parameterType ="com.jobll.web.attchfile.AttchFile">
+		select * from attch_file
+	</select>
+	<select id="readByIdx" resultType="com.jobll.web.attchfile.AttchFile" parameterType ="com.jobll.web.attchfile.AttchFile">
+		select * from attch_file where attch_file_idx = #{attch_file_idx};
+	</select>
+	<select id="readByPath" resultType="com.jobll.web.attchfile.AttchFile" parameterType ="com.jobll.web.attchfile.AttchFile">
+		select * from attch_file where file_path = #{file_path} and attch_file_nm = #{attch_file_nm} 
+	</select>
+	<update id="updateByIdx" parameterType ="com.jobll.web.attchfile.AttchFile">
+		update attch_file set 
+			file_path=#{file_path},
+            attch_file_nm=#{attch_file_nm}, 
+            attch_file_vol=#{attch_file_vol}, 
+            reg_date=#{reg_date}, 
+            file_typ=#{file_typ}, 
+            reg_usr_id=#{reg_usr_id}
+			where attch_file_idx = #{attch_file_idx}
+	</update>
+	<update id="updateByPath" parameterType ="hashMap">
+		update attch_file set file_path=#{data.file_path}           
+			where file_path = #{finder.file_path}
+	</update>
+</mapper>

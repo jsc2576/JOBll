@@ -1,5 +1,6 @@
 package com.jobll.web.home;
 
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -42,8 +45,19 @@ public class HomeController {
 			HttpServletRequest request, BindingResult errors) throws Exception {
 		// ModelAndView mav = new ModelAndView("home");
 
-		homeService.create(entity);
+		//homeService.create(entity);
 
 		return "home";
 	}
+	@RequestMapping(value = "/testUpLoad", method = { RequestMethod.GET })
+	public String testUpLoad(@ModelAttribute Home entity,
+			HttpServletRequest request, BindingResult errors) throws Exception {
+		// ModelAndView mav = new ModelAndView("home");
+
+	//	homeService.create(entity);
+
+		return "upLoadTest";
+	}
+	
+	
 }

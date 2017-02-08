@@ -3,7 +3,7 @@
 <mapper namespace="com.jobll.web.home.Home">
 
 	<insert id="create" parameterType="com.jobll.web.home.Home">
-		insert into testdb(
+		insert into jobll_db(
 			test_idx
 		)
 		values (
@@ -15,7 +15,7 @@
 	<select id="findOne" parameterType="com.jobll.web.home.Home" resultType="com.jobll.web.home.Home">
 		select
 			*
-		from testdb
+		from jobll_db
 		where
 		test_idx = #{test_idx}
 	</select>
