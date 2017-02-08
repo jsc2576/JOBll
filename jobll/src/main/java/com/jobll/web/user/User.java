@@ -1,11 +1,15 @@
 package com.jobll.web.user;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
-@Repository("user_Info")
-public class User implements Serializable {
+
+@Repository("user_info")
+public class User implements Serializable, UserDetails {
 
 	private Integer user_idx;
 	private String user_id;
@@ -17,7 +21,10 @@ public class User implements Serializable {
 	private String user_grade;
 	private String user_company;
 	private Integer user_valid;
+	
 	//10EA Column
+	 private Collection<? extends GrantedAuthority> authorities;
+
 	public Integer getuser_idx() {
 		return user_idx;
 	}
@@ -79,6 +86,47 @@ public class User implements Serializable {
 		this.user_valid = user_valid;
 	}
 	
+	
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+         return authorities;
+    }
+
+
+    public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
+         this.authorities = authorities;
+    }
+	@Override
+	public String getPassword() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 
 	
 

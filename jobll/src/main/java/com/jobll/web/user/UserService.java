@@ -1,4 +1,4 @@
-package com.jobll.web.user;
+/*package com.jobll.web.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,4 +24,15 @@ public interface UserService {
 	public int edit(User entity);
 	public int delete(User entity);
 
+}*/
+
+package com.jobll.web.user;
+import java.util.Collection;
+ 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetailsService;
+ 
+public interface UserService extends UserDetailsService {
+     Collection<GrantedAuthority> getAuthorities(String username);
 }
+

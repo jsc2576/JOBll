@@ -17,18 +17,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping(value="/login")
+@RequestMapping(value="/login" , method = {RequestMethod.GET})
 public class UserController {
 
 	private static final Logger logger = LoggerFactory
 			.getLogger(UserController.class);
 
 	@Autowired
-	private UserService memberService;
+	private UserService userService;
 
 	@RequestMapping("/")
 	public String user(Locale locale, Model model) {
-
+		logger.debug("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+		
 		return "home";
 	}
 
