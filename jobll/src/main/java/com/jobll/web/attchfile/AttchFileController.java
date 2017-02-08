@@ -26,7 +26,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.jobll.web.AwsS3Config;
 import com.jobll.web.home.Home;
 import com.jobll.web.home.HomeService;
-import com.jobll.web.user.UserService;
+//import com.jobll.web.user.UserService;
 
 /**
  * 파일 첨부 테스트를 위한 Controller 파일 업로드 웹에서의 사용 예제(클라이언트)와 파일 업로드 서비스(서버) 사용 예제입니다.
