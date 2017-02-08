@@ -125,13 +125,13 @@
                   <div class="wrap-about">
                     <div class="w-content">
                       <p class="head-about">
-                        Design is the method of putting form and content together. Design, just as art, has multiple definitions there is no single definition. Design can be art. Design can be aesthetics. Design is so simple, that's why it is so complicated.
+                     	jobll's homepage content example
                       </p>
                       
                       <h5 class="name">
-                        M. Reza
+                        jobll
                       </h5>
-                      <img alt="signature" src="/resources/images/signature.png">
+                   <!--  <img alt="signature" src="/resources/images/signature.png"> -->
                     </div>
                   </div>
                 </div>
@@ -142,47 +142,17 @@
                       <div class="wrap-about">
                         <table class="w-content">
                           <tr>
-                            <td class="title">Name </td>
+                            <td class="title">Team </td>
                             <td class="break">:</td>
-                            <td> M. Reza</td>
-                          </tr>
-                          <tr>
-                            <td class="title">Phone </td>
-                            <td class="break">:</td>
-                            <td> +62 8678 999 012</td>
-                          </tr>
-                          <tr>
-                            <td class="title">Email </td>
-                            <td class="break">:</td>
-                            <td> bdgpixel@gmail.com</td>
-                          </tr>
-                          <tr>
-                            <td class="title">Address </td>
-                            <td class="break">:</td>
-                            <td> Cipamokolan street 102 , Bandung, Indonesia</td>
-                          </tr>
-                          <tr>
-                            <td class="title">Skype </td>
-                            <td class="break">:</td>
-                            <td> bdgpixel</td>
-                          </tr>
-                          <tr>
-                            <td class="title">Dribbble </td>
-                            <td class="break">:</td>
-                            <td> Muh-Reza</td>
-                          </tr>
-                          <tr>
-                            <td class="title">Behance</td>
-                            <td class="break">:</td>
-                            <td> m-reza</td>
-                          </tr>
+                            <td> jobll</td>
+                          </tr>                     
                         </table>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <!--/.OWL CAROUSEL2 END-->
+             <!--/.OWL CAROUSEL2 END-->
             </div>
           </div>
         </section>
@@ -194,83 +164,13 @@
             <div class="row">
               <div class="col-md-3">
                 <h3 class="title-small">
-                  <span>Work</span>
+                  <span>jobll</span>
                 </h3>
                 <p class="content-detail">
-                  Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. <br><br>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros.
+                  jobll's content
                 </p>
               </div>
-              <div class="col-md-9 content-right">
-                <!--PORTFOLIO IMAGE-->
-                <ul class="portfolio-image">
-                  <li class="col-md-6">
-                    <a href="/resources/images/bw-1.png"><img alt="image" src="/resources/images/bw-1.png">
-                      <div class="decription-wrap">
-                        <div class="image-bg">
-                           <p class="desc">My Resume</p>
-                        </div>
-
-                      </div>
-                    </a>
-                  </li>
-                  <li class="col-md-6">
-                    <a href="/resources/images/bw-2.png"><img alt="image" src="/resources/images/bw-2.png">
-                      <div class="decription-wrap">
-                        <div class="image-bg">
-                          <p class="desc">
-                            Pangirutan
-                          </p>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="col-md-6">
-                    <a href="/resources/images/bw-3.png"><img alt="image" src="/resources/images/bw-3.png">
-                      <div class="decription-wrap">
-                        <div class="image-bg">
-                          <p class="desc">
-                            Black Mug
-                          </p>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="col-md-6">
-                    <a href="/resources/images/bw-4.png"><img alt="image" src="/resources/images/bw-4.png">
-                      <div class="decription-wrap">
-                        <div class="image-bg">
-                          <p class="desc">
-                            Notebook Mockup
-                          </p>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="col-md-6">
-                    <a href="/resources/images/bw-5.png"><img alt="image" src="/resources/images/bw-5.png">
-                      <div class="decription-wrap">
-                        <div class="image-bg">
-                          <p class="desc">
-                            Presentation
-                          </p>  
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="col-md-6">
-                    <a href="/resources/images/bw-6.png"><img alt="image" src="/resources/images/bw-6.png">
-                      <div class="decription-wrap">
-                        <div class="image-bg">
-                          <p class="desc">
-                            Letter Branding
-                          </p>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                </ul>
-                <!--/.PORTFOLIO IMAGE END-->
-              </div>
+              
             </div>
           </div>
         </section>
@@ -282,105 +182,13 @@
             <div class="row">
               <div class="col-md-3">
                 <h3 class="title-small">
-                  <span>Services</span>
+                  <span>jobll</span>
                 </h3>
                 <p class="content-detail">
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                  jobll's content
                 </p>
               </div>
-              <div class="col-md-9 content-right">
-                <div class="row">
-                  <ul class="listing-item">
-                    <li>
-                      <div class="col-md-4 col-sm-4">
-                        <h3 class="icon-use">
-                          c
-                        </h3>
-                        <p class="head-sm">
-                          MARKETING
-                        </p>
-                        <p class="text-grey">
-                          Typi non habent claritatem insitam est usus legentis in iis qui facit eorum claritatem. 
-                        </p>
-                      </div>
-                    </li>
-
-                    <li>
-                      <div class="col-md-4 col-sm-4">
-                        <h3 class="icon-use">
-                          b
-                        </h3>
-                        <p class="head-sm">
-                          WEB DESIGN
-                        </p>
-                        <p class="text-grey">
-                          Typi non habent claritatem insitam est usus legentis in iis qui facit eorum claritatem. 
-                        </p>
-                      </div>
-                    </li>
-
-                    <li>
-                      <div class="col-md-4 col-sm-4">
-                        <h3 class="icon-use">
-                          d
-                        </h3>
-                        <p class="head-sm">
-                          UI
-                        </p>
-                        <p class="text-grey">
-                          Typi non habent claritatem insitam est usus legentis in iis qui facit eorum claritatem. 
-                        </p>
-                      </div>
-                    </li>
-                  </ul>
-
-                  <ul class="listing-item">
-                    <li>
-                      <div class="col-md-4 col-sm-4">
-                        <p class="icon-use">
-                          f
-                        </p>
-                        <p class="head-sm">
-                          DIRECTOR
-                        </p>
-                        <p class="text-grey">
-                          Typi non habent claritatem insitam est usus legentis in iis qui facit eorum claritatem. 
-                        </p>
-                      </div>
-                    </li>
-
-                    <li>
-                      <div class="col-md-4 col-sm-4">
-                        <h3 class="icon-use">
-                          p
-                        </h3>
-                        <p class="head-sm">
-                          UX DESIGN
-                        </p>
-                        <p class="text-grey">
-                          Typi non habent claritatem insitam est usus legentis in iis qui facit eorum claritatem. 
-                        </p>
-                      </div>
-                    </li>
-
-                    <li>
-                      <div class="col-md-4 col-sm-4">
-                        <h3 class="icon-use">
-                          m
-                        </h3>
-                        <p class="head-sm">
-                          FRONT END
-                        </p>
-                        <p class="text-grey">
-                          Typi non habent claritatem insitam est usus legentis in iis qui facit eorum claritatem. 
-                        </p>
-                      </div>
-                    </li>
-                  </ul>
-
-                </div>
-              </div>
-            </div>
+          	</div>
           </div>
         </section>
         <!--/.SERVICES END-->
