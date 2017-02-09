@@ -85,7 +85,7 @@ public class AwsS3Config {
 		
 		public String multipartFileUpload(MultipartFile multipartFile, String S3path) throws IOException {
 			
-			String path = "D:/test"+"/"+multipartFile.getOriginalFilename();
+			String path = multipartFile.getOriginalFilename();
 			File file = new File(path);
 			multipartFile.transferTo(file);
 			if (fileUpload(file, S3path)) {
