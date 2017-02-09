@@ -53,24 +53,7 @@ public class AttchFileController {
 	
 	
 	
-	@RequestMapping(value = "/testFileUpLoadRun" , method = {RequestMethod.POST})
-	public ModelAndView testUpLoadQuery(@ModelAttribute Home entity, HttpServletRequest request, BindingResult errors) throws Exception {
-		ModelAndView mav = new ModelAndView("upLoadTest");
-		
-		// 파일 정보를 담은 객체 리스트를 반환해줍니다.
-		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest)request;
-		List<MultipartFile> files = multipartRequest.getFiles("uploadFile");
-		/**
-		 * 스토리지의 실제 경로입니다. 이 부분은 실제 경로 이므로 an, you, my, image, video 나눠줄때 어떻게
-		 * 나눌지 따로 생각해보아야 합니다. 스토리지 상 경로 결정 가능
-		 */
-		List<AttchFile> attchFile = new ArrayList<AttchFile>();
-		
-		
-		attchFile = attchFileService.uploadFiles(files, "");
-					
-		return mav;
-	}
+	
 
 	/**
 	 * 웹으로 파일 업로드 테스트 하기 위한 페이지입니다.

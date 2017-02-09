@@ -16,7 +16,7 @@
 			</div>
         	<p><button type="submit">등록</button></p>
 		</form>
-		<p><a href="/">메인홈페이지가기</a></p>
+		<p><a href="/">메인홈페이지가기  ${ entity.test2 }</a></p>
 	</body>
 	<script src="/resources/js/jquery-1.9.1.min.js"></script>
 	<script src="/resources/js/upLoadTest/product.insertProduct.js"></script>

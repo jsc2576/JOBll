@@ -4,8 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.jobll.web.attchfile.AttchFile;
-import com.jobll.web.attchfile.AttchFileService;
 import com.jobll.web.home.HomeRepository;
 import com.jobll.web.home.Home;
 
@@ -18,9 +16,6 @@ public class HomeService {
 
 	@Autowired
 	HomeRepository homeRepository;
-	
-	@Autowired
-	private AttchFileService attchFileService;
 
 	public int create(Home entity, List<MultipartFile> files) throws Exception {
 		Random random = new Random();

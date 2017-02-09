@@ -3,6 +3,7 @@ package com.jobll.web;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
@@ -22,14 +23,21 @@ import com.amazonaws.ClientConfiguration;
 import com.amazonaws.Protocol;
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.regions.*;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.Bucket;
+import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.CopyObjectRequest;
 import com.amazonaws.services.s3.model.GeneratePresignedUrlRequest;
 import com.amazonaws.services.s3.model.GetObjectRequest;
 import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.S3Object;
+
+import org.springframework.core.io.ClassPathResource; 
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 
 @Component
 public class AwsS3Config {
@@ -53,8 +61,11 @@ public class AwsS3Config {
 
 		ClientConfiguration clientConfig = new ClientConfiguration();
 		clientConfig.setProtocol(Protocol.HTTP);
+		
 		this.conn = new AmazonS3Client(credentials, clientConfig);
 		conn.setEndpoint("s3-ap-northeast-2.amazonaws.com");
+		//conn.setRegion(Region.getRegion(Regions.fromName(bucketName)));
+
 	}
 	
 	// Bucket List
@@ -85,9 +96,17 @@ public class AwsS3Config {
 		
 		public String multipartFileUpload(MultipartFile multipartFile, String S3path) throws IOException {
 			
-			String path = multipartFile.getOriginalFilename();
-			File file = new File(path);
-			multipartFile.transferTo(file);
+			//File file = new File(multipartFile.getOriginalFilename());
+			//multipartFile.transferTo(file);
+			
+			File file = new File("/var/lib/tomcat8/webapps/ROOT/resources/images/"+multipartFile.getOriginalFilename());
+			file.createNewFile(); 
+			
+			FileOutputStream fos = new FileOutputStream(file);
+		    fos.write(multipartFile.getBytes());
+		    fos.close(); 
+			    
+			    
 			if (fileUpload(file, S3path)) {
 				// return getMPFileURL(multipartFile,S3path);
 				// 미리 서명 받은 url을 반환받아야 할때 사용되는데
@@ -96,7 +115,6 @@ public class AwsS3Config {
 			} else {
 				return "false";
 			}
-
 		}
 
 		/**
@@ -115,7 +133,7 @@ public class AwsS3Config {
 			String path = S3path + file.getName();
 			if (file == null || (fis = new FileInputStream(file)) == null) {
 				return false;
-			} else if (conn.putObject(this.bucketName, path, fis, new ObjectMetadata()) == null) {
+			} else if (conn.putObject(new PutObjectRequest(this.bucketName, path, fis, new ObjectMetadata())) == null) {
 				fis.close();
 				return false;
 			} else {

@@ -18,6 +18,22 @@ public class Home implements Serializable {
 	 */
 	
 	private Integer test_idx;
+	private String test;
+	private boolean test2;
+	
+	
+	public boolean isTest2() {
+		return test2;
+	}
+	public void setTest2(boolean test2) {
+		this.test2 = test2;
+	}
+	public String getTest() {
+		return test;
+	}
+	public void setTest(String test) {
+		this.test = test;
+	}
 	public Integer getTest_idx() {
 		return test_idx;
 	}
