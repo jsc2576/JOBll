@@ -1,12 +1,11 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="utf-8">
     <title>JOBll - Project</title>
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-    <meta content="Bodo - Simple One Page Personal" name="description">
-    <meta content="BdgPixel" name="author">
+    <meta http-equiv="Content-Type" Content="text/html; charset=utf-8" />
     <!--Fav-->
     <link href="images/favicon.ico" rel="shortcut icon">
     
@@ -51,31 +50,13 @@
               <span>Home</span>
             </a>
             <a data-scroll="" href="#about">
-              <span>About</span>
+              <span>회원정보</span>
             </a>
             <a data-scroll="" href="#work">
-              <span>Work</span>
+              <span>게시판</span>
             </a>
-             <a data-scroll="" href="#services">
-              <span>Services</span>
-            </a>
-            <a data-scroll="" href="#employement">
-              <span>Employement</span>
-            </a>
-            <a data-scroll="" href="#skill">
-              <span>Skills</span>
-            </a>
-            <a data-scroll="" href="#education">
-              <span>Education</span>
-            </a>
-            <a data-scroll="" href="#testimonial">
-              <span>Testimonial</span>
-            </a>
-            <a data-scroll="" href="#blog">
-              <span>Blog</span>
-            </a>
-            <a data-scroll="" href="#contact">
-              <span>Contact</span>
+             <A href="/fileUpLoad">
+              <span>파일첨부</span>
             </a>
           </div>
         </nav>

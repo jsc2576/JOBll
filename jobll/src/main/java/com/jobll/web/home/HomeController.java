@@ -53,37 +53,4 @@ public class HomeController {
 
 		return "home";
 	}
-
-	@RequestMapping(value = "/testquery", method = { RequestMethod.GET })
-	public String regProduct(@ModelAttribute Home entity,
-			HttpServletRequest request, BindingResult errors) throws Exception {
-		// ModelAndView mav = new ModelAndView("home");
-
-		//homeService.create(entity);
-
-		return "home";
-	}
-	@RequestMapping(value = "/testUpLoad", method = { RequestMethod.GET })
-	public String testUpLoad(@ModelAttribute Home entity,
-			HttpServletRequest request, BindingResult errors) throws Exception {
-		// ModelAndView mav = new ModelAndView("home");
-
-	//	homeService.create(entity);
-
-		return "upLoadTest";
-	}
-	
-	@RequestMapping(value = "/testFileUpLoadRun" , method = {RequestMethod.POST})
-	public ModelAndView testUpLoadQuery(@ModelAttribute Home entity, HttpServletRequest request, BindingResult errors) throws Exception {
-		
-		
-		// 파일 정보를 담은 객체 리스트를 반환해줍니다.
-		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest)request;
-		List<MultipartFile> multipartFile = multipartRequest.getFiles("uploadFile");
-		
-		attchFileService.uploadFiles(multipartFile, "");
-		ModelAndView mav = new ModelAndView("upLoadTest");
-		return mav;
-	}
-
 }
