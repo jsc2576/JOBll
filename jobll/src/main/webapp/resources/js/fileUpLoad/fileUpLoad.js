@@ -11,3 +11,15 @@ function addUpload(){
 	img_num++;
 	$("#uploads").append('<p/><input type="file" id="file-upload"  name="uploadFile" /></p> ');
 }
+
+function fileUpload() {
+	$('#fileUpLoadForm').ajaxForm	({
+		url: "/testFileUpLoadRun",
+		enctype: "multipart/form-data",
+		success: function(result)	{
+			alert("success!");
+		}
+	});
+	$("#fileForm").submit();
+}
+

@@ -94,15 +94,15 @@
         <!--/.HOME END-->
 
         <!--FILE UP LOAD -->
-        <section id="about">
+        <section id="file-upload-tag">
           <div class="col-md-12 col-xs-12 no-pad">
-          <form action="/testFileUpLoadRun" method="post" enctype="multipart/form-data">
+          <form id ="fileUpLoadForm"  method="post" enctype="multipart/form-data">
         	<input type="button" value="추가" onclick="addUpload()"/>
 			<input type="button" value="제거" onclick="delUpload()"/>
 			<div id="uploads">
 			<p><input type="file" id="file-upload"  name="uploadFile" /></p>
 			</div>
-        	<p><button type="submit">등록</button></p>
+        	<p><button onclick ="fileUpload()">등록</button></p>
 		</form>
           </div>
         </section>
@@ -110,6 +110,7 @@
     
 
     <script src="/resources/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="/resources/js/jquery.form.min.js" type="text/javascript"></script>
     <script src="/resources/js/jquery.appear.js" type="text/javascript"></script>
     <script src="/resources/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="/resources/js/classie.js" type="text/javascript"></script>

@@ -66,16 +66,17 @@ public class AttchFileController {
 	}
 	
 	@RequestMapping(value = "/testFileUpLoadRun" , method = {RequestMethod.POST})
-	public ModelAndView testUpLoadQuery(@ModelAttribute Home entity, HttpServletRequest request, BindingResult errors) throws Exception {
+	@ResponseBody
+	public AttchFile productList (@ModelAttribute AttchFile entity, HttpServletRequest request, BindingResult errors) throws Exception {
+		if (errors.hasErrors()) {
+			LOGGER.debug(errors.toString());
+		}	
 		
-		
-		// 파일 정보를 담은 객체 리스트를 반환해줍니다.
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest)request;
 		List<MultipartFile> multipartFile = multipartRequest.getFiles("uploadFile");
 		
 		attchFileService.uploadFiles(multipartFile, "");
-		ModelAndView mav = new ModelAndView("fileUpLoad/fileUpLoad");
-		return mav;
+		return entity;
 	}
 
 }
