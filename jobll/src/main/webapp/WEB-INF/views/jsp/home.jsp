@@ -115,7 +115,13 @@
         <!--ABOUT-->
         <section id="about">
           <div class="col-md-6 col-xs-12 no-pad">
-            <div class="bg-about"></div>
+            <div class="bg-about">
+            	<form action="<%=request.getContextPath() %>/member/sessionLogin.jsp"method="post">
+            		ID<input type="text" name="id" size="20">
+            		PW<input type="password" name="password" size="20">
+            		<input type="submit" value="Login">
+            	</form>
+            </div>
           </div>
           <div class="col-md-6 col-sm-12 col-xs-12 white-col">
             <div class="row">
