@@ -64,7 +64,6 @@ public class AwsS3Config {
 		
 		this.conn = new AmazonS3Client(credentials, clientConfig);
 		conn.setEndpoint("s3-ap-northeast-2.amazonaws.com");
-		//conn.setRegion(Region.getRegion(Regions.fromName(bucketName)));
 
 	}
 	
@@ -96,10 +95,10 @@ public class AwsS3Config {
 		
 		public String multipartFileUpload(MultipartFile multipartFile, String S3path) throws IOException {
 			
-			//File file = new File(multipartFile.getOriginalFilename());
-			//multipartFile.transferTo(file);
-			
+			/* aws server용 코드
 			File file = new File("/var/lib/tomcat8/webapps/ROOT/resources/images/"+multipartFile.getOriginalFilename());
+			*/
+			File file = new File(multipartFile.getOriginalFilename());
 			file.createNewFile(); 
 			
 			FileOutputStream fos = new FileOutputStream(file);

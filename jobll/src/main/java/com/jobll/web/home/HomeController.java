@@ -82,16 +82,7 @@ public class HomeController {
 		List<MultipartFile> multipartFile = multipartRequest.getFiles("uploadFile");
 		
 		attchFileService.uploadFiles(multipartFile, "");
-		//File file = new File("/usr/share/tomcat8/webapps/resources");
-		//file.createNewFile(); 
-		
-		//FileOutputStream fos = new FileOutputStream(file);
-	   // fos.write(multipartFile.get(0).getBytes());
-	   // fos.close();
-	    
-		//entity.setTest2(file.isDirectory());
 		ModelAndView mav = new ModelAndView("upLoadTest");
-		//mav.addObject("entity", entity);
 		return mav;
 	}
 
