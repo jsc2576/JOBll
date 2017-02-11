@@ -40,5 +40,5 @@ public class Home implements Serializable {
 	public void setTest_idx(Integer test_idx) {
 		this.test_idx = test_idx;
 	}
-	
+	//test
 }
