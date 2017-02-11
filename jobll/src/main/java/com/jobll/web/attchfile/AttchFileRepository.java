@@ -19,22 +19,22 @@ public class AttchFileRepository {
 	
 	//파일 업로드
 	public int create(AttchFile entity) throws Exception {
-		int result =sqlSession.insert("com.youanmy.web.attchfile.AttchFile.create", entity); 
+		int result =sqlSession.insert("com.jobll.web.attchfile.AttchFile.create", entity); 
 		return result;
 	}
 	//파일 리스트 뽑기
 	public List<AttchFile> findAll(AttchFile entity) throws Exception {
-		List<AttchFile> list = sqlSession.selectList("com.youanmy.web.attchfile.AttchFile.findAll",entity);
+		List<AttchFile> list = sqlSession.selectList("com.jobll.web.attchfile.AttchFile.findAll",entity);
 		return list;
 	}
 	//파일 정보 객체 하나 뽑기
 	public AttchFile readByIdx(AttchFile entity) throws Exception {
-		AttchFile result = sqlSession.selectOne("com.youanmy.web.attchfile.AttchFile.readByIdx",entity);
+		AttchFile result = sqlSession.selectOne("com.jobll.web.attchfile.AttchFile.readByIdx",entity);
 		return result;
 	}
 	//파일 정보 업데이트
 	public int updateByIdx(AttchFile entity) throws Exception {
-		int result = sqlSession.update("com.youanmy.web.attchfile.AttchFile.updateByIdx",entity);
+		int result = sqlSession.update("com.jobll.web.attchfile.AttchFile.updateByIdx",entity);
 		// TODO Auto-generated method stub
 		return result;
 	}
@@ -44,11 +44,11 @@ public class AttchFileRepository {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("data",data);
 		map.put("finder",finder);
-		int result = sqlSession.update("com.youanmy.web.attchfile.AttchFile.updateByPath",map);
+		int result = sqlSession.update("com.jobll.web.attchfile.AttchFile.updateByPath",map);
 		return result;
 	}
 	public AttchFile readByPath(AttchFile entity) throws Exception {
-		AttchFile result = sqlSession.selectOne("com.youanmy.web.attchfile.AttchFile.readByPath",entity);
+		AttchFile result = sqlSession.selectOne("com.jobll.web.attchfile.AttchFile.readByPath",entity);
 		return result;
 	}
 }

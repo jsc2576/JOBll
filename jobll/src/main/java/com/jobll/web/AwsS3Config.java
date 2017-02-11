@@ -107,9 +107,8 @@ public class AwsS3Config {
 			    
 			    
 			if (fileUpload(file, S3path)) {
-				// return getMPFileURL(multipartFile,S3path);
-				// 미리 서명 받은 url을 반환받아야 할때 사용되는데
-				// 현재는 쓰이지 않고 경로와 파일명만 반환됩니다.
+				//s3업로드 후 서버에 생성된 파일을 삭제 합니다.
+				file.delete();
 				return (S3path + file.getName());
 			} else {
 				return "false";
@@ -139,33 +138,6 @@ public class AwsS3Config {
 				fis.close();
 				return true;
 			}
-		}
-
-		/**
-		 * 여러개의 멀티파일을 업로드 하기 위해 만든 메소드입니다. 반드시 사용하지 않아도 되는 메소드입니다.
-		 * 
-		 * @param fileList
-		 * @param S3path
-		 * @return
-		 * @throws IOException
-		 */
-		public boolean fileListUpload(List<MultipartFile> fileList, String S3path) throws IOException {
-
-			List<MultipartFile> list = fileList;
-			boolean result = false;
-
-			if (fileList == null || fileList.size() == 0) {
-				return result;
-			}
-
-			for (int i = 0; i < list.size(); i++) {
-				if ((result = multipartFileUpload(list.get(i), S3path).equals("true"))) {
-					continue;
-				} else {
-					break;
-				}
-			}
-			return result;
 		}
 
 		/**

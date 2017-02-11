@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
@@ -26,7 +27,7 @@ import com.jobll.web.CommonUtil;
 @Service
 public class AttchFileService {
 	
-	//protected static final Logger LOGGER = LoggerFactory.getLogger(AttchFileService.class);
+	protected static final Logger LOGGER = LoggerFactory.getLogger(AttchFileService.class);
 
 	@Autowired
 	private AwsS3Config awsS3Config;
@@ -36,58 +37,81 @@ public class AttchFileService {
 	@Autowired
 	private AttchFileRepository attchFileRepository;
 	
-
-	public List<AttchFile> uploadFiles(List<MultipartFile> list, String S3path ) throws Exception{
+	/**
+	 * 업로드 파일 체그 설정 입니다.
+	 */
+	public List<AttchFile> uploadFiles(List<MultipartFile> list) throws Exception{
 		List<AttchFile> mlist = new ArrayList<AttchFile>();
 		AttchFile uploadFile ;
-		String path = S3path;
+		
 		for(int i=0;i<list.size();i++){
-			//업로드 경로가 정해져있는지 없는지 체크 후 없으면 temp로 이동
-			if(path.equals("")){
-				uploadFile = this.uploadTemp(list.get(i));
-			}else{
-				uploadFile = this.upload(list.get(i),path);
-			}
+			uploadFile = this.uploadPathSetting(list.get(i));
+			
 			//업로드 체크
 			if(uploadFile==null){
-				//LOGGER.debug("JSH:IT's WORNG FILE TYPE!!! file name : "+list.get(i).getOriginalFilename());
-			}else{
+				LOGGER.debug("Upload error, File name : "+list.get(i).getOriginalFilename());
+			}else {
 				mlist.add(uploadFile);
-				//LOGGER.info(mlist.get(i).getReg_date()+":"+mlist.get(i).getAttch_file_nm()+"is uploaded complete");
 			}
 		}
 		return mlist;
 	}
-
-	public AttchFile uploadTemp(MultipartFile file) throws Exception {
-		AttchFile result=null ;
+	/**
+	 * 업로드 파일 경로 설정 입니다.
+	 */
+	public AttchFile uploadPathSetting(MultipartFile file) throws Exception {
+		AttchFile result= null;
 		String y = commonUtil.getCurrentDtime().substring(0, 4);
 		String md = commonUtil.getCurrentDtime().substring(4, 8);
-		result = upload(file, "temp/"+y+"/"+md+"/");
+		
+		StringTokenizer file_type  = new StringTokenizer(file.getOriginalFilename());
+		String find_file_type = null;
+		
+		//확장자 분류 조건
+		String[] images = {"bmp","rle","jpg","gif","png","psd","pdd","tif","pdf","raw","ai","eps",
+				"svg","iff","fpx","frm","pcx","pct","pic","pxr","sct","tga","vda","icb","vst"};
+		String[] vedio = {"avi","mp4","mpg","mpeg","mpe","wmv","asf","asx","flv","rm","mov","dat"};
+		String[] audio = {"mp3","ogg","wma","wav","au","rm","mid","flac"};
+		//확장자 추출
+		while(file_type.hasMoreTokens()) {  
+			find_file_type = file_type.nextToken(".");
+        }  
+		
+		if(images.equals(find_file_type))
+			result = upload(file, "image/"+y+"/"+md+"/");
+		else if(vedio.equals(find_file_type))
+			result = upload(file, "video/"+y+"/"+md+"/");
+		else if(audio.equals(find_file_type))
+			result = upload(file, "audio/"+y+"/"+md+"/");
+		else
+			result = upload(file, "others/"+y+"/"+md+"/");
+		
 		return result;
 	}
+	/**
+	 * 업로드 파일 경로 설정 입니다.
+	 */
 	public AttchFile upload(MultipartFile file, String S3path) throws Exception{
-
-		
-		
 		//aws 스토리지 연결
 		//파일 업로드 후 path 저장
 		String path = "false";
-		if(file.getContentType()==null){
-			//LOGGER.debug("파일 형식이 없네요//정수찬이 넘겨주는 request때 생긴 예외처리");
+		
+		//파일 형식이 없는 경우
+		if(file.getContentType()== null)
 			return null;
-		}
+		
 		//파일 업로드 할때 밀리초_파일명 형식으로 저장합니다.
 		S3path+=(new SimpleDateFormat("yyyyMMddHHmmssSSS")).format(new Date(System.currentTimeMillis()))+"_";
-		//이것은 실제 업로드 되는 로직부분입니다. type이 이미지나 영상일때만 업로드합니다.
+		
+		//이것은 실제 업로드 되는 로직부분입니다.
 		path = awsS3Config.multipartFileUpload(file, S3path);
+		
 		//업로드가 실패되면 경로가 아닌 false가 반환됩니다.
 		if(path.equals("false")){
 			return null;
 		}
 		
 		AttchFile attchFile = new AttchFile();
-
 		/*
 		 * 업로드 완료후 
 		 * Attach 정보를 객체에 담습니다.
@@ -97,15 +121,26 @@ public class AttchFileService {
 		attchFile.setAttch_file_nm(file.getOriginalFilename());
 		attchFile.setAttch_file_vol((int)file.getSize());
 		attchFile.setFile_path(path);
-		if(file.getContentType().split("/")[0].equals("video")){
-			attchFile.setFile_typ(3);
-		}else if(file.getContentType().split("/")[0].equals("image")){
+		if(file.getContentType().split("/")[0].equals("image")){
 			attchFile.setFile_typ(1);
 		}
+		else if(file.getContentType().split("/")[0].equals("audio")){
+			attchFile.setFile_typ(2);
+		}
+		else if(file.getContentType().split("/")[0].equals("vedio")){
+			attchFile.setFile_typ(3);
+		}
+		else
+			attchFile.setFile_typ(4);
+		
+		//test용 임시 idx 지정
+		attchFile.setUsr_id("bbk");
+		attchFile.setSigned_url("");
+		
 		attchFile.setReg_date(commonUtil.getCurrentDtime());
 
 		//DB에 정보 저장
-		//this.create(attchFile);
+		this.create(attchFile);
 		
 		
 		//DB에 저장된 객체 반환
@@ -113,8 +148,8 @@ public class AttchFileService {
 	}
 	
 	public int create(AttchFile entity) throws Exception {
-		int id = attchFileRepository.create(entity);
-		return id;
+		int success = attchFileRepository.create(entity);
+		return success;
 	}
 
 	public List<AttchFile> findAll(AttchFile entity) throws Exception {
