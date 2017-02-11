@@ -64,7 +64,14 @@ public class AttchFileController {
 	public String goAttchFileUpload() throws Exception {
 		return "fileUpLoad/fileUpLoad";
 	}
-	
+	/**
+	 * 파일 첨부 업로드입니다. MultipartHttpServletRequest로
+	 * 요청을 받은 후 파일첨부 서비스를 사용합니다.
+	 * 
+	 * @param request
+	 * @return entity
+	 * @throws Exception
+	 */
 	@RequestMapping(value = "/testFileUpLoadRun" , method = {RequestMethod.POST})
 	@ResponseBody
 	public AttchFile productList (@ModelAttribute AttchFile entity, HttpServletRequest request, BindingResult errors) throws Exception {
@@ -75,7 +82,7 @@ public class AttchFileController {
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest)request;
 		List<MultipartFile> multipartFile = multipartRequest.getFiles("uploadFile");
 		
-		attchFileService.uploadFiles(multipartFile, "");
+		attchFileService.uploadFiles(multipartFile);
 		return entity;
 	}
 
