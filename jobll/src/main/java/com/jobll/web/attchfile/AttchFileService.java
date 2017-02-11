@@ -63,29 +63,50 @@ public class AttchFileService {
 		AttchFile result= null;
 		String y = commonUtil.getCurrentDtime().substring(0, 4);
 		String md = commonUtil.getCurrentDtime().substring(4, 8);
+		int i = 0;
 		
 		StringTokenizer file_type  = new StringTokenizer(file.getOriginalFilename());
 		String find_file_type = null;
 		
 		//확장자 분류 조건
 		String[] images = {"bmp","rle","jpg","gif","png","psd","pdd","tif","pdf","raw","ai","eps",
-				"svg","iff","fpx","frm","pcx","pct","pic","pxr","sct","tga","vda","icb","vst"};
-		String[] vedio = {"avi","mp4","mpg","mpeg","mpe","wmv","asf","asx","flv","rm","mov","dat"};
-		String[] audio = {"mp3","ogg","wma","wav","au","rm","mid","flac"};
+				"svg","iff","fpx","frm","pcx","pct","pic","pxr","sct","tga","vda","icb","vst",""};
+		String[] videos = {"avi","mp4","mpg","mpeg","mpe","wmv","asf","asx","flv","rm","mov","dat",""};
+		String[] audios = {"mp3","ogg","wma","wav","au","rm","mid","flac",""};
 		//확장자 추출
 		while(file_type.hasMoreTokens()) {  
 			find_file_type = file_type.nextToken(".");
         }  
 		
-		if(images.equals(find_file_type))
-			result = upload(file, "image/"+y+"/"+md+"/");
-		else if(vedio.equals(find_file_type))
-			result = upload(file, "video/"+y+"/"+md+"/");
-		else if(audio.equals(find_file_type))
-			result = upload(file, "audio/"+y+"/"+md+"/");
-		else
-			result = upload(file, "others/"+y+"/"+md+"/");
+
+		while(images[i] != "")
+		{
+			if(images[i].equalsIgnoreCase(find_file_type)) {
+				result = upload(file, "image/"+y+"/"+md+"/");
+				return result;
+			}
+			i++;
+		}
+		i = 0;
+		while(videos[i] != "")
+		{
+			if(videos[i].equalsIgnoreCase(find_file_type)) {
+				result = upload(file, "video/"+y+"/"+md+"/");
+				return result;
+			}
+			i++;
+		}
+		i = 0;
+		while(audios[i] != "")
+		{
+			if(audios[i].equalsIgnoreCase(find_file_type)) {
+				result = upload(file, "audio/"+y+"/"+md+"/");
+				return result;
+			}
+			i++;
+		}
 		
+		result = upload(file, "others/"+y+"/"+md+"/");
 		return result;
 	}
 	/**
