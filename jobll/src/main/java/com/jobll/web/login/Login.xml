@@ -4,7 +4,7 @@
 <mapper namespace="com.jobll.web.login">
 <select id="select" parameterType="java.lang.String" resultType="com.jobll.web.domain.UserVo">
 
-SELECT usr_id AS userId, pwd AS passWd
+SELECT usr_id AS userId, usr_pwd AS passWd
 FROM usr_info
 where usr_id = #{userId} LIMIT 1
 </select>
