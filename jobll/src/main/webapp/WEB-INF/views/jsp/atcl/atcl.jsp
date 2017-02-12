@@ -49,10 +49,10 @@
        		<A href="/" >
               <span>Home</span>
             </a>
-            <A href="/meminfo" class="active">
+            <A href="/usr">
               <span>회원정보</span>
             </a>
-            <A href="#work" >
+            <A href="/atcl" class="active">
               <span>게시판</span>
             </a>
              <A href="/fileUpLoad" >
@@ -80,7 +80,7 @@
             <div class="row">
               <div class="wrap-hero-content">
                   <div class="hero-content">
-                    <a href = "/testmember">회원정보</a>
+                    <a href = "/testmember">게시판</a>
                     <br>
                     <span class="typed"></span>
                   </div>
@@ -93,17 +93,15 @@
         </section>
         <!--/.HOME END-->
 
-        <!--meminfo START -->
-        <section id="member-info-tag">
+        <!--atcl START -->
+        <section id="user-info-tag">
           <div class="col-md-12 col-xs-12 no-pad">
-		 <form action="<%=request.getContextPath() %>Modify"method="post">
-            		ID<input type="text" name="id" size="20">
-            		PW<input type="text" name="password" size="20">
-            		<input type="button" value="수정" />            		
+		 		<form action="<%=request.getContextPath() %>board"method="post">
+            		<input type="button" value="대기" />            		
             	</form>
           </div>
         </section>
-        <!--/.meminfo END-->
+        <!--/.atcl END-->
     
 
     <script src="/resources/js/jquery-1.9.1.min.js" type="text/javascript"></script>
@@ -118,6 +116,6 @@
     <script src="/resources/js/smooth-scroll.min.js" type="text/javascript"></script>
     <script src="/resources/js/typed.js" type="text/javascript"></script>
     <script src="/resources/js/main.js" type="text/javascript"></script>
-    <script src="/resources/js/submenu/meminfo.js" type="text/javascript"></script>
+    <script src="/resources/js/atcl/atcl.js" type="text/javascript"></script>
   </body>
 </html>
