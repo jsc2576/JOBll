@@ -104,6 +104,7 @@
 			</div>
         	<p><button onclick ="fileUpload()">등록</button></p>
 		</form>
+		<div id = "list"></div>
           </div>
         </section>
         <!--/.FILE UP LOAD END-->
