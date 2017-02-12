@@ -16,10 +16,21 @@
     <link href="/resources/css/magnific-popup.css" rel="stylesheet">
     <link href="/resources/css/style.css" rel="stylesheet">
     <link href="/resources/css/responsive.css" rel="stylesheet">
-    
     <!--fonts google-->
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+    
+    <!-- 이세연 add start-->
+    <script type="text/javascript">
+	function popupOpen(){
+		var popUrl = "test.html";	//팝업창에 출력될 페이지 URL
+		var popOption = "width=370, height=360, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
+		window.open(popUrl,"",popOption);
+	}
+	</script>
+	<link rel="stylesheet" type="text/css" href="/resources/css/usr/usr.css">
+    
+    <!-- 이세연 add end-->
     
     <!--[if lt IE 9]>
        <script type="text/javascript" src="/resources/js/html5shiv.min.js"></script>
@@ -42,6 +53,11 @@
           <a href="/"><img alt="logo" class="logo-nav" src="/resources/images/logo.png"></a>
         </div>
         <!--/.LOGO END-->
+      </div>
+      <div class="login-button">
+      	<div class="col-md-2 col-xs-6 logo">
+            <A href="javascript:popupOpen();">로그인</A>
+        </div>
       </div>
       <div class="menu-wrap">
         <nav class="menu">
@@ -95,13 +111,31 @@
 
         <!--user START -->
         <section id="user-info-tag">
-          <div class="col-md-12 col-xs-12 no-pad">
-		 <form action="<%=request.getContextPath() %>Modify"method="post">
-            		ID<input type="text" name="id" size="20">
-            		PW<input type="text" name="password" size="20">
-            		<input type="button" value="수정" />            		
-            	</form>
-          </div>
+        <div class="col-md-12 col-xs-12 no-pad">
+        	<p> </p>
+			<table>
+            	<tbody>
+            		<tr>
+                		<td>번호</td>
+                		<td>등급</td>
+                		<td>회사</td>
+                		<td>이름</td>
+                		<td>가입날짜</td>
+             		</tr>
+             		<tr>
+                		<td>1</td>
+                		<td>ex</td>
+                		<td>ex</td>
+                		<td>ex</td>
+                		<td>2000.xx.xx</td>
+             		</tr>
+            	</tbody>
+            </table> 
+            <p> </p>
+            <p align=center><input type=button value="글쓰기" OnClick="window.location='board_write.jsp'"></p>
+             		
+             		
+        </div>
         </section>
         <!--/.user END-->
     
