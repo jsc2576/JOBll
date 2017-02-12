@@ -49,10 +49,10 @@
             <A href="/" class="active">
               <span>Home</span>
             </a>
-            <A href="/meminfo" >
+            <A href="/usr" >
               <span>회원정보</span>
             </a>
-            <A href="#work" >
+            <A href="/atcl" >
               <span>게시판</span>
             </a>
              <A href="/fileUpLoad" >
