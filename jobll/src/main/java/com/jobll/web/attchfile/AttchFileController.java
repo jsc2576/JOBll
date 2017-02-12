@@ -74,7 +74,7 @@ public class AttchFileController {
 	 */
 	@RequestMapping(value = "/testFileUpLoadRun" , method = {RequestMethod.POST})
 	@ResponseBody
-	public AttchFile productList (@ModelAttribute AttchFile entity, HttpServletRequest request, BindingResult errors) throws Exception {
+	public AttchFile FileUpLoadRun (@ModelAttribute AttchFile entity, HttpServletRequest request, BindingResult errors) throws Exception {
 		if (errors.hasErrors()) {
 			LOGGER.debug(errors.toString());
 		}	

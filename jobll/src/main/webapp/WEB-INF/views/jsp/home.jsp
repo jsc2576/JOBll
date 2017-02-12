@@ -46,16 +46,16 @@
       <div class="menu-wrap">
         <nav class="menu">
           <div class="menu-list">
-            <a data-scroll="" href="#home" class="active">
+            <A href="/" class="active">
               <span>Home</span>
             </a>
-            <a data-scroll="" href="#about">
+            <A href="/usr" >
               <span>회원정보</span>
             </a>
-            <a data-scroll="" href="#work">
+            <A href="/atcl" >
               <span>게시판</span>
             </a>
-             <A href="/fileUpLoad">
+             <A href="/fileUpLoad" >
               <span>파일첨부</span>
             </a>
           </div>

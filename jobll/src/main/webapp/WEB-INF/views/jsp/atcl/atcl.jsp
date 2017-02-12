@@ -46,16 +46,16 @@
       <div class="menu-wrap">
         <nav class="menu">
           <div class="menu-list">
-             <A href="/" >
+       		<A href="/" >
               <span>Home</span>
             </a>
-            <A href="/usr" >
+            <A href="/usr">
               <span>회원정보</span>
             </a>
-            <A href="/atcl" >
+            <A href="/atcl" class="active">
               <span>게시판</span>
             </a>
-             <A href="/fileUpLoad" class="active">
+             <A href="/fileUpLoad" >
               <span>파일첨부</span>
             </a>
           </div>
@@ -80,7 +80,7 @@
             <div class="row">
               <div class="wrap-hero-content">
                   <div class="hero-content">
-                    <a href = "/testmember">파일업로드</a>
+                    <a href = "/testmember">게시판</a>
                     <br>
                     <span class="typed"></span>
                   </div>
@@ -93,20 +93,15 @@
         </section>
         <!--/.HOME END-->
 
-        <!--FILE UP LOAD -->
-        <section id="file-upload-tag">
+        <!--atcl START -->
+        <section id="user-info-tag">
           <div class="col-md-12 col-xs-12 no-pad">
-          <form id ="fileUpLoadForm"  method="post" enctype="multipart/form-data">
-        	<input type="button" value="추가" onclick="addUpload()"/>
-			<input type="button" value="제거" onclick="delUpload()"/>
-			<div id="uploads">
-			<p><input type="file" id="file-upload"  name="uploadFile" /></p>
-			</div>
-        	<p><button onclick ="fileUpload()">등록</button></p>
-		</form>
+		 		<form action="<%=request.getContextPath() %>board"method="post">
+            		<input type="button" value="대기" />            		
+            	</form>
           </div>
         </section>
-        <!--/.FILE UP LOAD END-->
+        <!--/.atcl END-->
     
 
     <script src="/resources/js/jquery-1.9.1.min.js" type="text/javascript"></script>
@@ -121,6 +116,6 @@
     <script src="/resources/js/smooth-scroll.min.js" type="text/javascript"></script>
     <script src="/resources/js/typed.js" type="text/javascript"></script>
     <script src="/resources/js/main.js" type="text/javascript"></script>
-    <script src="/resources/js/fileUpLoad/fileUpLoad.js" type="text/javascript"></script>
+    <script src="/resources/js/atcl/atcl.js" type="text/javascript"></script>
   </body>
 </html>

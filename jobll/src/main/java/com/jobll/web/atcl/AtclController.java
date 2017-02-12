@@ -6,6 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class AtclController {
 
+	@RequestMapping("/atcl")
+	public String atcl(){
+		return "atcl/atcl";
+	}
+	
 	@RequestMapping("/atcl/all")
 	public String AtclAll(){
 		return "AtclAll";
