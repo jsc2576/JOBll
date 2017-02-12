@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jobll.web.usrinfo.UsrInfo">
+
+	<insert  id="create" parameterType ="com.jobll.web.usrinfo.UsrInfo">
+	INSERT INTO usr_info(
+            usr_id,
+			usr_nm,
+			usr_lv,
+			tel_num,
+			mobile_num,
+			usr_email,
+			usr_cmpny,
+			usr_age,
+			usr_gdr,
+			usr_pwd,
+			join_date,
+			act_stus,
+			zip_cd,
+			norm_addr,
+			dtl_addr,
+			usr_brth)
+    VALUES (
+			#(usr_id),
+			#(usr_nm),
+			#(usr_lv),
+			#(tel_num),
+			#(mobile_num),
+			#(usr_email),
+			#(usr_cmpny),
+			#(usr_age),
+			#(usr_gdr),
+			#(usr_pwd),
+			#(join_date),
+			#(act_stus),
+			#(zip_cd),
+			#(norm_addr),
+			#(dtl_addr),
+			#(usr_brth)
+			)
+	</insert>
+
+</mapper>
