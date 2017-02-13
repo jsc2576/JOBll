@@ -19,7 +19,6 @@ public class AttchFile implements Serializable{
 	private String reg_date;					// 등록날짜
 	private int file_typ;						// 파일종류(1:이미지, 2:오디오, 3:동영상 4:기타 등등(DEFAULT:1))
 	private String signed_url;					// CloudFront에서 받아올 URL
-	private int ref_idx;						// 참조 인덱스(게시판등)
 	private String usr_id;						// 등록한사용자아이디(유저 프로필 사진 등)
 	public int getAttch_file_idx() {
 		return attch_file_idx;

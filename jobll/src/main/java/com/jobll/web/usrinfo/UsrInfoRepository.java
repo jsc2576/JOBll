@@ -1,18 +1,16 @@
 package com.jobll.web.usrinfo;
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-@Repository("cmnUsrInfoRepository")
-public class UsrInfoRepository {
-	
-	@Autowired
-	SqlSession sqlSession;
-	
-	//회원 등록
-	public int create(UsrInfo entity) throws Exception{
-		int result= sqlSession.insert("com.jobll.usrinfo.UsrInfo.create", entity);
-		return result;
-	}
+public interface UsrInfoRepository {
+	public List<HashMap<String, Object>> select(UsrInfo entity);
+	public List<HashMap<String, Object>> read(UsrInfo entity);
+	public int create(UsrInfo entity);
+	public int edit(UsrInfo entity);
+	public int delete(UsrInfo entity);
 }

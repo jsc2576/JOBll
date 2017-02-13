@@ -1,11 +1,13 @@
 package com.jobll.web.usrinfo;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,37 +21,44 @@ import com.jobll.web.attchfile.AttchFile;
 
 
 @Controller
-
+@RequestMapping(value="/usr")
 public class UsrInfoController {
-
-//	protected static final Logger LOGGER = Logger.getLogger(UsrInfoController.class);
-
 	
 	@Autowired
-	private UsrInfoService usrinfoservice;
+	private UsrInfoService usrInfoService;
 	
-	@RequestMapping("/JoinProcessing")
-	@ResponseBody
-	public UsrInfo Join (@ModelAttribute UsrInfo entity, HttpServletRequest request, BindingResult errors) throws Exception {
-		
-		//test용 출력//////////////////////
-		System.out.println("usrid: " + entity);
-		//////////////////////////////
-		
-		usrinfoservice.CreateUsrInfo(entity);
-		return entity;
-	}
-
-	/*
-	
-	@ResponseBody
-	public UsrInfo JoinProcessing (@ModelAttribute UsrInfo entity, HttpServletRequest request, BindingResult errors) throws Exception {
-			
-		
-		else{
-			LOGGER.debug(errors.toString());
+	@RequestMapping(value = "/select", method = RequestMethod.GET)
+	public List<HashMap<String, Object>> select(@ModelAttribute UsrInfo entity, Model model) {
+		List<HashMap<String, Object>> List;
+		List= usrInfoService.select(entity);
+		return List;
 		}
-	}
-
-*/
+	
+	@RequestMapping(value = "/read", method = RequestMethod.GET)
+	public List<HashMap<String, Object>> read(@ModelAttribute UsrInfo entity, Model model) {
+		List<HashMap<String, Object>> List = usrInfoService.read(entity);
+		return List;
+		}
+	
+	@RequestMapping(value = "/create", method = RequestMethod.GET)
+	public String create(@ModelAttribute UsrInfo entity, Model model) {
+		//usrInfoService.create(entity);
+		return "usrinfo/usrinfoJoin";
+		}
+	@RequestMapping(value = "/make", method = RequestMethod.POST)
+	public String make(@ModelAttribute UsrInfo entity, Model model) {
+		usrInfoService.create(entity);
+		return "home";
+		}
+	@RequestMapping(value = "/edit", method = RequestMethod.GET)
+	public void edit(@ModelAttribute UsrInfo entity, Model model) {
+		usrInfoService.edit(entity);
+		return ;
+		}
+	
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public void delete(@ModelAttribute UsrInfo entity, Model model) {
+		usrInfoService.delete(entity);
+		return ;
+		}
 }
