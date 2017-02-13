@@ -1,22 +1,19 @@
 package com.jobll.web.usrinfo;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.jobll.web.usrinfo.UsrInfo;
+import com.jobll.web.usrinfo.UsrInfoRepository;
 
 @Service
 public class UsrInfoService{
 
-	private UsrInfoRepository usrInfoRepository;
-	public void setUsrInfoRepository(UsrInfoRepository usrInfoRepository){
-		this.usrInfoRepository = usrInfoRepository;
-	}
+	@Autowired
+	UsrInfoRepository usrInfoRepository;
 
 	public List<HashMap<String, Object>> select(){
 		return usrInfoRepository.select();
