@@ -118,7 +118,7 @@ box-shadow: none;
             </div>
 
             <div class="control-group">
-            <input type="password" class="login-field" value="" placeholder="password" id="password">
+            <input type="password" class="login-field" value="" placeholder="password" id="password" >
             <label class="login-field-icon fui-lock" for="password">Password</label>
             </div>
 
