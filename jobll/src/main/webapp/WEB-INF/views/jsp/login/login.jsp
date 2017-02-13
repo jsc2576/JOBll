@@ -108,26 +108,34 @@ box-shadow: none;
 		</p>
 	</c:if>
 
-	<div class="login">
-		<div class="login-screen">
+<div class="login">
+      <div class="login-screen">
 
-			<div class="login-form">
-				<div class="control-group">
-				<input type="text" class="login-field" value="" placeholder="username" id="usr_id">
-				<label class="login-field-icon fui-user" for="login-name"></label>
-				</div>
+         <div class="login-form">
+            <div class="control-group">
+            <input type="text" class="login-field" value="" placeholder="username" id="username">
+            <label for="username" class="login-field-icon fui-user">Username</label>
+            </div>
 
-				<div class="control-group">
-				<input type="password" class="login-field" value="" placeholder="password" id="usr_pwd">
-				<label class="login-field-icon fui-lock" for="login-pass"></label>
-				</div>
+            <div class="control-group">
+            <input type="password" class="login-field" value="" placeholder="password" id="password">
+            <label class="login-field-icon fui-lock" for="password">Password</label>
+            </div>
 
-				<a class="btn btn-primary btn-large btn-block" href="#">login</a>
-				<a class="login-link" href="#">Lost your password?</a>
-			</div>
-		</div>
-	</div>
-
+            <a class="btn btn-primary btn-large btn-block" href="#">login</a>
+            <a class="login-link" href="#">Lost your password?</a>
+         </div>
+      </div>
+   </div>
+   
+	<p>
+	<label for="username">Username</label>
+		<input type="text" id="username" name="username"/>	
+	</p>
+	<p>
+		<label for="password">Password</label>
+		<input type="password" id="password" name="password"/>	
+	</p>
 
 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 	<button type="submit" class="btn">Log in</button>
