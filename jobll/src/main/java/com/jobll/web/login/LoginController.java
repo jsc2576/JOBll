@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
 @Controller
 public class LoginController {
 	
@@ -20,5 +21,11 @@ public class LoginController {
 		return "redirect:/login.do?logout";
 	}
 
+	
+	@RequestMapping(value="/OSC")
+	public String asd(ModelMap model) {
+		System.out.println("Test OSC");
+		return "login/OSC";
+	}
 	
 }

@@ -85,9 +85,17 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
-		
+        
+        
+        <!-- Session control-->
+
+	
+   <!-- Session control-->
+
+
 	</dependencies>
 
+      
 	<build>
 		<plugins>
 			<plugin>
