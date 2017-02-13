@@ -21,6 +21,17 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
     
+    <!-- 이세연 add start-->
+    <script type="text/javascript">
+	function popupOpen(){
+		var popUrl = "/login.do";	//팝업창에 출력될 페이지 URL
+		var popOption = "width=370, height=360, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
+		window.open(popUrl,"",popOption);
+	}
+	</script>
+	<link rel="stylesheet" type="text/css" href="/resources/css/usr/usr.css">
+    <!-- 이세연 add end-->
+    
     <!--[if lt IE 9]>
        <script type="text/javascript" src="/resources/js/html5shiv.min.js"></script>
     <![endif]-->
@@ -42,6 +53,21 @@
           <a href="/"><img alt="logo" class="logo-nav" src="/resources/images/logo.png"></a>
         </div>
         <!--/.LOGO END-->
+      </div>
+      <div class="login-button">
+      	<div class="col-md-2 col-xs-6 logo">
+            <A href="javascript:popupOpen();">로그인</A>
+        </div>
+      </div>
+      <div class="usrin-button">
+      	<div class="col-md-2 col-xs-6 logo">
+            <A href="/usrin">회원가입</A>
+        </div>
+      </div>
+      <div class="usrout-button">
+      	<div class="col-md-2 col-xs-6 logo">
+            <A href="/usrout">회원탈퇴</A>
+        </div>
       </div>
       <div class="menu-wrap">
         <nav class="menu">
@@ -142,153 +168,6 @@
         <!--/.ABOUT END-->
 
         
-
-        <!--WORK-->
-        <section class="grey-bg mar-tm-10" id="work">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-3">
-                <h3 class="title-small">
-                  <span>jobll</span>
-                </h3>
-                <p class="content-detail">
-                  jobll's content
-                </p>
-              </div>
-              
-            </div>
-          </div>
-        </section>
-        <!--/.WORK END-->
-
-        <!--SERVICES-->
-        <section class="white-bg" id="services">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-3">
-                <h3 class="title-small">
-                  <span>jobll</span>
-                </h3>
-                <p class="content-detail">
-                  jobll's content
-                </p>
-              </div>
-          	</div>
-          </div>
-        </section>
-        <!--/.SERVICES END-->
-
-        <!--EMPLOYEMENT-->
-        <section class="grey-bg" id="employement">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-3">
-                <h3 class="title-small">
-                  <span>jobll</span>
-                </h3>
-                <p class="content-detail">
-                  jobll's content
-              	</p>
-              </div>
-             </div>
-            </div>
-        </section>
-        <!--/.EMPLOYEMENT END-->
-
-        <!--SKILLS-->
-        <section class="white-bg" id="skill">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-3">
-                <h3 class="title-small">
-                  <span>jobll</span>
-                </h3>
-                <p class="content-detail">
-                  jobll's content
-                </p>
-              </div>              
-            </div>
-          </div>
-        </section>
-        <!--/.SKILLS END-->
-
-        <!--EDUCATION-->
-        <section class="grey-bg" id="education">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-3">
-                <h3 class="title-small">
-                  <span>jobll</span>
-                </h3>
-                <p class="content-detail">
-                  jobll's content
-                </p>
-              </div>              
-            </div>
-          </div>
-        </section>
-        <!--/.EDUCATION END-->
-
-        <!--TESTIMONIAL-->
-        <section id="testimonial">
-          <div class="container">
-            <div class="row wrap-testimonial">
-              <div class="col-md-10 col-md-offset-1">
-                <div class="owl-carousel">
-                  <div class="list-testimonial">
-                    <div class="content-testimonial">
-                      <h3 class="testi">
-                        jobll
-                      </h3>
-                      <p class="people">
-                        jobll's content
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="mask-testimonial"></div>
-        </section>
-        <!--/.TESTMONIAL END-->
-
-        <!--BLOG-->
-        <section class="grey-bg" id="blog">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12">
-                <h3 class="title-small-center text-center">
-                  <span>jobll</span>
-                </h3>
-                <div class="row">
-                  <div class="col-md-6 col-md-offset-3">
-                    <p class="content-details text-center">
-                      jobll's content 
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <!--/.BLOG END-->
-
-        <!--CONTACT-->
-        <section id="contact" class="white-bg">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-3">
-                <h3 class="title-small">
-                  <span>jobll</span>
-                </h3>
-                <p class="content-detail">
-                  jobll's content
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
       </div>
     <!--/.CONTENT-WRAP END-->
     </div>

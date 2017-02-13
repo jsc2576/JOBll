@@ -10,6 +10,12 @@ public class UsrController {
 	public String usr(){
 		return "usr/usr";
 	}
-	
-	
+	@RequestMapping("/usrin")
+	public String usrin(){
+		return "usr/usrin";
+	}
+	@RequestMapping("/usrout")
+	public String usrout(){
+		return "usr/usrout";
+	}
 }
