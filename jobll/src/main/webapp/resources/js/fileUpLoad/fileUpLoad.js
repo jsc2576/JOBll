@@ -1,8 +1,6 @@
-var img_num = 0;
-
-		$(document).ready (function (){
-			
-		});
+$(document).ready (function (){
+	
+});
 function delUpload(){
 	img_num--;
 	 $("#file-upload").remove();
@@ -14,7 +12,7 @@ function addUpload(){
 
 function fileUpload() {
 	$('#fileUpLoadForm').ajaxForm	({
-		url: "/testFileUpLoadRun",
+		url: "/attchFile/testFileUpLoadRun",
 		enctype: "multipart/form-data",
 		success: function(result)	{
 			alert("success!");
@@ -23,19 +21,66 @@ function fileUpload() {
 	$("#fileForm").submit();
 }
 
-/*function fileUploadView() {
+function fileDownLoad(data,name) {
+	
+	
+	
+	$.ajax ({
+		method	: "post",
+		url		: "/attchFile/testFileDownLoadRun",
+		data	: { file_path : data , attch_file_nm : name},
+		
+		error		: function (a) {
+			console.log(a);
+		}
+	});
+
+}
+
+function fileUploadView() {
 		$.ajax ({
 			method	: "post",
-			url		: "/my/product/goEditProduct.json",
-			data	: {prdt_idx : val},
-			success	: function (data) {
-				str_html = "<form action = '/my/product/editProduct.json' method='post'>";
-				str_html += "상품이름: <input type='text' name='prdt_nm' value ="+data.prdt_nm+"><br>";
-				str_html += "상품가격: <input type='text' name='sell_prce' value ="+data.sell_prce+"><br>";
-				str_html += "구성: <input type='text' name='prdt_cmpt' value ="+data.prdt_cmpt+"><br>";
-				str_html += "상품소개글: <input type='text' name='prdt_intr' value ="+data.prdt_intr+"><br>";
-				str_html += "판매자 추천점수: <input type='text' name='selr_rcmd_scr' value ="+data.selr_rcmd_scr+"><br>";
-				str_html += "<input type='hidden' name='prdt_idx' value ="+val+"><br>";
+			url		: "/attchFile/testFileDownLoadList",
+			data	: {usr_id : "bbk"},
+			success	: function (list) {
+				str_html = "<table border ='1'>";
+				str_html += "<tr>";
+				str_html += "<th>파일명</th>";
+				str_html += "<th>파일크기</th>";
+				str_html += "<th>파일형식</th>";
+				str_html += "</tr>";
+				for (var i = 0; i < list.length; i++) {
+					str_html += "<tr>";
+					str_html += "<td><a href ='https://s3.ap-northeast-2.amazonaws.com/elasticbeanstalk-ap-northeast-2-190235634467/"+list[i].file_path+"'>"+list[i].attch_file_nm+"</a></td>";
+					str_html += "<td>"+list[i].attch_file_vol+"</td>";
+					switch(list[i].file_typ)
+					{
+						case 1:
+						{
+							str_html += "<td>image</td>";
+							break;
+						}
+						case 2:
+						{
+							str_html += "<td>audio</td>";
+							break;
+						}
+						case 3:
+						{
+							str_html += "<td>vedio</td>";
+							break;
+						}
+						case 4:
+						{
+							str_html += "<td>others</td>";
+							break;
+						}
+					}
+					
+					str_html += "</tr>";
+				}
+				str_html += "</table>";
+				$("#list").html (str_html);
 			},
 			complete	: function () {
 				
@@ -45,4 +90,4 @@ function fileUpload() {
 			}
 		});
 
-}*/
+}

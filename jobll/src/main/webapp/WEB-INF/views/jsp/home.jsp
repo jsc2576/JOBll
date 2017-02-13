@@ -56,7 +56,7 @@
               <span>게시판</span>
             </a>
              <A href="/fileUpLoad" >
-              <span>파일첨부</span>
+              <span>파일업로드</span>
             </a>
           </div>
         </nav>
