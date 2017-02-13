@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -98,7 +99,8 @@ public class AwsS3Config {
 			/* aws server용 코드
 			File file = new File("/var/lib/tomcat8/webapps/ROOT/resources/images/"+multipartFile.getOriginalFilename());
 			*/
-			File file = new File(multipartFile.getOriginalFilename());
+			//File file = new File(multipartFile.getOriginalFilename());
+			File file = new File("/var/lib/tomcat8/webapps/ROOT/resources/images/"+multipartFile.getOriginalFilename());
 			file.createNewFile(); 
 			
 			FileOutputStream fos = new FileOutputStream(file);
@@ -200,15 +202,9 @@ public class AwsS3Config {
 		public InputStream getObjectInputStream(String path) {
 			this.connectionAwsS3();
 			S3Object s3object = conn.getObject(new GetObjectRequest(this.bucketName, path));
+			
+			URL file_path = conn.getUrl(path, accessKey);
 			return s3object.getObjectContent();
-
-			/*
-			 * GetObjectRequest rangeObjectRequest = new GetObjectRequest(
-			 * bucketName, key); rangeObjectRequest.setRange(0, 10); S3Object
-			 * objectPortion = s3Client.getObject(rangeObjectRequest);
-			 * 
-			 * displayTextInputStream(objectPortion.getObjectContent());
-			 */
 
 		}
 		

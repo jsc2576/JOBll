@@ -1,7 +1,10 @@
 package com.jobll.web.attchfile;
 
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -172,9 +175,14 @@ public class AttchFileService {
 		int success = attchFileRepository.create(entity);
 		return success;
 	}
-
+	
 	public List<AttchFile> findAll(AttchFile entity) throws Exception {
 		List<AttchFile> list = attchFileRepository.findAll(entity);
+		return list;
+	}
+	
+	public List<AttchFile> findByUsr(AttchFile entity) throws Exception {
+		List<AttchFile> list = attchFileRepository.findByUsr(entity);
 		return list;
 	}
 
@@ -205,15 +213,25 @@ public class AttchFileService {
 		return attchFileRepository.updateByPath(data, finder);
 	}
 
-	public ResponseEntity<byte[]> getImageResponse(int idx) throws Exception {
+	public File getDownLoadResponse(AttchFile entity) throws Exception {
 
-		AttchFile finder = new AttchFile();
-		finder.setAttch_file_idx(idx);
-		InputStream in = awsS3Config.getObjectInputStream(this.readByIdx(finder).getFile_path());
-		final HttpHeaders headers = new HttpHeaders();
-		headers.setContentType(MediaType.IMAGE_PNG);
+		InputStream in = awsS3Config.getObjectInputStream(entity.getFile_path());
+		
+		File file = new File("temp");
+		
+		OutputStream outStream = new FileOutputStream(file);
+		
+		byte[] buf = new byte[1024];
+	      int len = 0;
+	      // 끝까지 읽어들이면서 File 객체에 내용들을 쓴다
+	      while ((len = in.read(buf)) > 0){
+	         outStream.write(buf, 0, len);
+	      }
+	      // Stream 객체를 모두 닫는다.
+	      outStream.close();
+	      in.close();
 
-		return new ResponseEntity<byte[]>(IOUtils.toByteArray(in), headers, HttpStatus.CREATED);
+		return file;
 	}
 
 	public AttchFile readByPath(AttchFile entity) throws Exception {

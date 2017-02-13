@@ -55,9 +55,10 @@
             <A href="/atcl" >
               <span>게시판</span>
             </a>
-             <A href="/fileUpLoad" class="active">
-              <span>파일첨부</span>
+            <A href="/fileUpLoad" >
+              <span>파일업로드</span>
             </a>
+            
           </div>
         </nav>
         <button class="close-button" id="close-button">Close Menu</button>
@@ -91,11 +92,13 @@
             </div>
           </div>
         </section>
+      
         <!--/.HOME END-->
 
         <!--FILE UP LOAD -->
         <section id="file-upload-tag">
           <div class="col-md-12 col-xs-12 no-pad">
+          <form id="commonForm" name="commonForm"></form>
           <form id ="fileUpLoadForm"  method="post" enctype="multipart/form-data">
         	<input type="button" value="추가" onclick="addUpload()"/>
 			<input type="button" value="제거" onclick="delUpload()"/>
@@ -104,10 +107,13 @@
 			</div>
         	<p><button onclick ="fileUpload()">등록</button></p>
 		</form>
+		<button onclick = "fileUploadView()">파일리스트 보기</button>
+		<div id = "list"></div>
           </div>
         </section>
         <!--/.FILE UP LOAD END-->
-    
+      </div>
+     </div>
 
     <script src="/resources/js/jquery-1.9.1.min.js" type="text/javascript"></script>
     <script src="/resources/js/jquery.form.min.js" type="text/javascript"></script>
