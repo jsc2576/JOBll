@@ -52,6 +52,9 @@
             <A href="/usr" >
               <span>회원정보</span>
             </a>
+            <A href="usrinfoJoin" >
+              <span>회원가입</span>
+            </a>
             <A href="/atcl" >
               <span>게시판</span>
             </a>
