@@ -12,7 +12,7 @@
           <h1>회원가입 </h1>
         </div>
         <div class="col-md-6 col-md-offset-3">
-          <form role="form">
+          <form role="form" action = "/usr/make" method="post">
            <div class="form-group">
               <label for="usr_id">아이디</label>
               <input type="text" class="form-control" id="usr_id" placeholder="아이디">
