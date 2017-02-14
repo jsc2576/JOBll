@@ -68,6 +68,9 @@
             <A href="/myUsrInfo" >
               <span>회원정보</span>
             </a>
+            <A href="/usr" >
+              <span>회원목록</span>
+            </a>
             <A href="usrInfoJoin" >
               <span>회원가입</span>
             </a>
