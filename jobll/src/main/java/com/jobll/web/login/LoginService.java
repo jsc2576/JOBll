@@ -5,7 +5,9 @@ import java.util.Collection;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -15,11 +17,15 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.jobll.web.domain.UserVo;
+import com.jobll.web.session.SessionUtil;
+import com.jobll.web.usrinfo.UsrInfo;
 //import com.jobll.web.sqlmappers.LoginMapper;
 
 @Service
 public class LoginService implements UserDetailsService {
-
+	@Autowired
+	private SessionUtil sessionUtil;
+	
 	@Resource
 	private LoginRepository loginRepository;
 	
@@ -28,7 +34,41 @@ public class LoginService implements UserDetailsService {
 		if (userId != null && !"".equals(userId)) userVo = loginRepository.getUser(userId);
 		return userVo;
 	}
+	public UsrInfo getUsr(String usr_id) throws Exception {
+		UsrInfo usrInfo= null;
+		if (usr_id != null && !"".equals(usr_id)) usrInfo = loginRepository.getUsr(usr_id);
+		return usrInfo;
+	}
+	@Override
+	public UserDetails loadUserByUsername(String usr_id) throws UsernameNotFoundException {
+		try {
+			//UserVo domainUser = getUser(usr_id);
+			UsrInfo domainUser = getUsr(usr_id);
+			
+			sessionUtil.setNewSession("SessionBean",domainUser);
+			
+				
+			boolean enabled = true;
+			boolean accountNonExpired = true;
+			boolean credentialsNonExpired = true;
+			boolean accountNonLocked = true;
+			
+			if (domainUser == null) throw new UsernameNotFoundException("Not Found ID : " + usr_id);
+			 
+			return new User(
+					domainUser.getUsr_id(),
+					domainUser.getUsr_pwd(),
+					enabled,
+					accountNonExpired,
+					credentialsNonExpired,
+					accountNonLocked,
+					getAuthorities(1));
 
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+/*
 	@Override
 	public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
 		try {
@@ -54,7 +94,7 @@ public class LoginService implements UserDetailsService {
 			throw new RuntimeException(e);
 		}
 	}
-	
+	*/
 	/**
 	 * Retrieves a collection of {@link GrantedAuthority} based on a numerical role
 	 * @param role the numerical role
