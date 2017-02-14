@@ -4,8 +4,13 @@ import java.util.Calendar;
 import java.util.regex.Pattern;
 
 
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 
 /**
@@ -188,5 +193,14 @@ public class CommonUtil {
 		Boolean bool = Pattern.matches(regex, str);
 		return bool;
 	}
-
+	
+	/**
+	 * HttpServletRequest 객체를 구하는 메소드
+	 * @return HttpServletRequest객체
+	 */
+	public HttpServletRequest getCurrentRequest() {      
+		ServletRequestAttributes sra = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpServletRequest hsr = sra.getRequest();    
+		return hsr;  
+	}
 }

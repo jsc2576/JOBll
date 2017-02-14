@@ -20,11 +20,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         web
-                .ignoring()
+                .ignoring();
                     //.antMatchers("/css/**")
                     //.antMatchers("/js/**")
                     //.antMatchers("/images/**");
-        			.antMatchers("/**");
+        			//.antMatchers("/**");
     }
     
     @Override
@@ -40,7 +40,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/login.do")
                 .failureUrl("/login.do?error")
                 .loginProcessingUrl("/authLogin.do")
-                .defaultSuccessUrl("/web/index.do",true) 
+                //.defaultSuccessUrl("/web/index.do",true)
+                .defaultSuccessUrl("/",true)
                 .permitAll()
                 .and()
             .logout()

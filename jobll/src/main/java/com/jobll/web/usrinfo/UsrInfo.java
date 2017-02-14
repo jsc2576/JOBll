@@ -27,8 +27,8 @@ public class UsrInfo implements Serializable{
 	private Integer act_stus;				// 1:활성 2: 비활성(Default:1)
 	private String zip_cd;					// 우편번호
 	private String norm_addr;				// 기본주소
-	private Integer dtl_addr;				// 상세주소
-	private Integer usr_birth;				// 생년월일
+	private String dtl_addr;				// 상세주소
+	private Integer usr_brth;				// 생년월일
 	
 	public String getUsr_id() {
 		return usr_id;
@@ -114,17 +114,17 @@ public class UsrInfo implements Serializable{
 	public void setNorm_addr(String norm_addr) {
 		this.norm_addr = norm_addr;
 	}
-	public Integer getDtl_addr() {
+	public String getDtl_addr() {
 		return dtl_addr;
 	}
-	public void setDtl_addr(Integer dtl_addr) {
+	public void setDtl_addr(String dtl_addr) {
 		this.dtl_addr = dtl_addr;
 	}
 	public Integer getUsr_birth() {
-		return usr_birth;
+		return usr_brth;
 	}
 	public void setUsr_birth(Integer usr_birth) {
-		this.usr_birth = usr_birth;
+		this.usr_brth = usr_birth;
 	}
 	@Override
 	public String toString() {
@@ -135,7 +135,7 @@ public class UsrInfo implements Serializable{
 				+ ", usr_pwd=" + usr_pwd + ", join_date=" + join_date
 				+ ", act_stus=" + act_stus + ", zip_cd=" + zip_cd
 				+ ", norm_addr=" + norm_addr + ", dtl_addr=" + dtl_addr
-				+ ", usr_birth=" + usr_birth + "]";
+				+ ", usr_birth=" + usr_brth + "]";
 	}
 	
 }
