@@ -10,7 +10,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!--styles-->
+   <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
   <link href="/resources/css/login/login.css" rel="stylesheet">
+  
   <title>Login</title>
   
 </head>
@@ -29,23 +33,9 @@
 		</p>
 	</c:if>
 
-<div class="login">
+	<div class="login">
       <div class="login-screen">
-
          <div class="login-form">
-            <div class="control-group">
-            <input type="text" class="login-field" value="" placeholder="username" id="username">
-            <label for="username" class="login-field-icon fui-user">Username</label>
-            </div>
-
-            <div class="control-group">
-            <input type="password" class="login-field" value="" placeholder="password" id="password" >
-            <label class="login-field-icon fui-lock" for="password">Password</label>
-
-            </div>
-
-            <a class="btn btn-primary btn-large btn-block" href="#">login</a>
-            <a class="login-link" href="#">Lost your password?</a>
           	<p>
           		<label for="username">Username</label>
 				<input type="text" id="username" name="username"/>	
@@ -53,6 +43,8 @@
 			<p>
 				<label for="password">Password</label>
 				<input type="password" id="password" name="password"/>	
+				<a class="login-link" href="#">Lost your password?</a>
+				<a class="login-link" href="/usrInfoJoin">Join Us</a>
 			</p>
 		
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>

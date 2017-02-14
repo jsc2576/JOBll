@@ -12,7 +12,7 @@ padding: 50px;
 }
 .login {
 margin: 20px auto;
-width: 300px;
+width: 350px;
 }
 .login-screen {
 background-color: #FFF;
@@ -75,5 +75,24 @@ box-shadow: none;
   color: #444;
   display: block;
 	margin-top: 12px;
+}
+@media (max-width : 450px)
+{
+	.login
+	{
+		width: 200px;
+	}
+	input
+	{
+		width : 130px;
+	}
+	label
+	{
+		font-size : 11px;
+	}
+	.btn
+	{
+		width : 130px;
+	}
 }
   

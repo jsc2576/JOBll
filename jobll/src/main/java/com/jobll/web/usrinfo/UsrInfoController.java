@@ -45,7 +45,7 @@ public class UsrInfoController {
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public String create(@ModelAttribute UsrInfo entity, Model model) {
 		//usrInfoService.create(entity);
-		return "usrinfo/usrinfoJoin";
+		return "usrInfo/usrInfoJoin";
 		}
 	@RequestMapping(value = "/make", method = RequestMethod.POST)
 	public String createUsrInfo (HttpServletRequest request, @ModelAttribute("model_entity") 

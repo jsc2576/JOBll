@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class JoinController {
-	@RequestMapping("/usrinfoJoin")
+	@RequestMapping("/usrInfoJoin")
 	public String usr(){
-		return "usrinfo/usrinfoJoin";
+		return "usrInfo/usrInfoJoin";
 	}
 	
 }
