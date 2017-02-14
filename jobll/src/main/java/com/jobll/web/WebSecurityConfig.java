@@ -39,13 +39,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .formLogin()
                 .loginPage("/login.do")
                 .loginProcessingUrl("/authLogin.do")
-<<<<<<< HEAD
-                .defaultSuccessUrl("/index.do",true) 
-                .failureUrl("/login.do?error")
-=======
                 //.defaultSuccessUrl("/web/index.do",true)
                 .defaultSuccessUrl("/",true)
->>>>>>> f46b6211649c14c4ea6f793d2a1d26dba5567a9a
                 .permitAll()
                 .and()
             .logout()
