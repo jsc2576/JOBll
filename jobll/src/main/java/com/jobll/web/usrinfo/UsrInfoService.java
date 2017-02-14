@@ -13,7 +13,8 @@ import com.jobll.web.usrinfo.UsrInfoRepository;
 public class UsrInfoService{
 
 	@Autowired
-	UsrInfoRepository usrInfoRepository;
+	private UsrInfoRepository usrInfoRepository;
+
 
 	public List<HashMap<String, Object>> select(){
 		return usrInfoRepository.select();
