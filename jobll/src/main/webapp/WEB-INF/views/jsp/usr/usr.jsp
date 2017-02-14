@@ -111,7 +111,7 @@
 
         <!--user START -->
         <section id="user-info-tag">
-        <div class="col-md-12 col-xs-12 no-pad">
+        <div class="col-md-6 col-md-offset-3">
         	<p> </p>
 			<table>
             	<tbody>
@@ -130,11 +130,13 @@
                 		<td>2000.xx.xx</td>
              		</tr>
             	</tbody>
-            </table> 
-            <p> </p>
-            <p align=center><input type=button value="글쓰기" OnClick="window.location='board_write.jsp'"></p>
-             		
-             		
+            </table>
+            <form role="form" action="/usr/make" method="post"> 
+            <div class="form-group">
+              <button type="submit" class="btn btn-info">글쓰기<i class="fa fa-check spaceLeft"></i></button>
+              <input type="text" class="form-control" id="atcl_search" placeholder="">
+            </div>
+            </form>
         </div>
         </section>
         <!--/.user END-->
