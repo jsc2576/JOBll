@@ -11,8 +11,11 @@ import org.springframework.stereotype.Repository;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 @Repository("usr_info")
 public class UsrInfoRepository {
+	
 	@Autowired
     SqlSession sqlSession;
+	
+	
 	public List<HashMap<String, Object>> select() {
 		
 		List<HashMap<String, Object>> selectList = new ArrayList<HashMap<String, Object>>();
