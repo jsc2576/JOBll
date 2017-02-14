@@ -2,6 +2,7 @@ package com.jobll.web.usrinfo;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,9 +30,9 @@ public class UsrInfoController {
 	private UsrInfoService usrInfoService;
 	
 	@RequestMapping(value = "/select", method = RequestMethod.GET)
-	public List<HashMap<String, Object>> select(@ModelAttribute UsrInfo entity, Model model) {
+	public List<HashMap<String, Object>> select() {
 		List<HashMap<String, Object>> List;
-		List= usrInfoService.select(entity);
+		List= usrInfoService.select();
 		return List;
 		}
 	
@@ -43,10 +45,11 @@ public class UsrInfoController {
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public String create(@ModelAttribute UsrInfo entity, Model model) {
 		//usrInfoService.create(entity);
-		return "usrinfo/usrinfoJoin";
+		return "usrInfo/usrInfoJoin";
 		}
 	@RequestMapping(value = "/make", method = RequestMethod.POST)
-	public String make(@ModelAttribute UsrInfo entity, Model model) {
+	public String createUsrInfo (HttpServletRequest request, @ModelAttribute("model_entity") 
+		@Validated UsrInfo entity, BindingResult errors) throws Exception {
 		usrInfoService.create(entity);
 		return "home";
 		}
