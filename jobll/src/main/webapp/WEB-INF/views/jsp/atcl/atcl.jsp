@@ -46,17 +46,23 @@
       <div class="menu-wrap">
         <nav class="menu">
           <div class="menu-list">
-       		<A href="/" >
+       		<A href="/" class="active">
               <span>Home</span>
             </a>
-            <A href="/usr">
+            <A href="/myUsrInfo" >
               <span>회원정보</span>
             </a>
-            <A href="/atcl" class="active">
+            <A href="/usr" >
+              <span>회원목록</span>
+            </a>
+            <A href="usrInfoJoin" >
+              <span>회원가입</span>
+            </a>
+            <A href="/atcl" >
               <span>게시판</span>
             </a>
              <A href="/fileUpLoad" >
-              <span>파일첨부</span>
+              <span>파일업로드</span>
             </a>
           </div>
         </nav>

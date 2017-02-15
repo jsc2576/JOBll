@@ -23,7 +23,7 @@
     <!-- 이세연 add start-->
     <script type="text/javascript">
 	function popupOpen(){
-		var popUrl = "/login.do";	//팝업창에 출력될 페이지 URL
+		var popUrl = "test.html";	//팝업창에 출력될 페이지 URL
 		var popOption = "width=370, height=360, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
 		window.open(popUrl,"",popOption);
 	}
@@ -62,23 +62,17 @@
       <div class="menu-wrap">
         <nav class="menu">
           <div class="menu-list">
-       		<A href="/" class="active">
+       		<A href="/" >
               <span>Home</span>
             </a>
-            <A href="/myUsrInfo" >
+            <A href="/usr" class="active">
               <span>회원정보</span>
-            </a>
-            <A href="/usr" >
-              <span>회원목록</span>
-            </a>
-            <A href="usrInfoJoin" >
-              <span>회원가입</span>
             </a>
             <A href="/atcl" >
               <span>게시판</span>
             </a>
              <A href="/fileUpLoad" >
-              <span>파일업로드</span>
+              <span>파일첨부</span>
             </a>
           </div>
         </nav>
@@ -117,7 +111,7 @@
 
         <!--user START -->
         <section id="user-info-tag">
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-12 col-xs-12 no-pad">
         	<p> </p>
 			<table>
             	<tbody>
@@ -136,13 +130,11 @@
                 		<td>2000.xx.xx</td>
              		</tr>
             	</tbody>
-            </table>
-            <form role="form" action="/usr/make" method="post"> 
-            <div class="form-group">
-              <button type="submit" class="btn btn-info">글쓰기<i class="fa fa-check spaceLeft"></i></button>
-              <input type="text" class="form-control" id="atcl_search" placeholder="">
-            </div>
-            </form>
+            </table> 
+            <p> </p>
+            <p align=center><input type=button value="글쓰기" OnClick="window.location='board_write.jsp'"></p>
+             		
+             		
         </div>
         </section>
         <!--/.user END-->

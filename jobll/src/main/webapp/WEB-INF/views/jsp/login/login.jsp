@@ -21,7 +21,7 @@
 
 <body>
 <c:url value="/authLogin.do" var="actionUrl"/>
-<form action="${actionUrl}" method="post">       
+<form role="form" action="${actionUrl}" method="post">       
 	<c:if test="${param.error != null}">        
 		<p>
 			Invalid username and password.
@@ -35,7 +35,7 @@
 
 	<div class="login">
       <div class="login-screen">
-         <div class="login-form">
+         <div class="login-form form-group">
           	<p>
           		<label for="username">Username</label>
 				<input type="text" id="username" name="username"/>	
@@ -50,6 +50,13 @@
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 			<button type="submit" class="btn">Log in</button>
          </div>
+         <center>
+         <div class="form-group">
+         	<a class="SNS-login" href="#"><img class="img-responsive SignWithSNS" alt="Signup with Facebook" src="/resources/images/SignFacebook.jpg"></a>
+         	<a class="SNS-login" href="#"><img class="img-responsive SignWithSNS" alt="Signup with Twitter" src="/resources/images/SignTwitter.jpg"></a>
+         	<a class="SNS-login" href="#"><img class="img-responsive SignWithSNS" alt="Signup with Google" src="/resources/images/SignGoogle.jpg"></a>
+         </div>
+         </center>
       </div>
    </div>
    
