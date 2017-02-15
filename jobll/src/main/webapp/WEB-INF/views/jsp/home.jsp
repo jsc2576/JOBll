@@ -49,7 +49,7 @@
             <A href="/" class="active">
               <span>Home</span>
             </a>
-            <A href="/myUsrInfo" >
+            <A href="/usr/myUsrInfo" >
               <span>회원정보</span>
             </a>
             <A href="usrInfoJoin" >

@@ -50,10 +50,10 @@
             <A href="/" class="active">
               <span>Home</span>
             </a>
-            <A href="/myUsrInfo" >
+            <A href="/usr/myUsrInfo" >
               <span>회원정보</span>
             </a>
-            <A href="usrInfoJoin" >
+            <A href="/usrInfoJoin" >
               <span>회원가입</span>
             </a>
             <A href="/atcl" >

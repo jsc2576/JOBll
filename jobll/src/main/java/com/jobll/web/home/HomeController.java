@@ -53,4 +53,9 @@ public class HomeController {
 
 		return "home";
 	}
+	@RequestMapping("/editor")
+	public String editor(Locale locale, Model model) {
+
+		return "editor/editor";
+	}
 }

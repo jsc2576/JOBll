@@ -49,7 +49,7 @@
              <A href="/" >
               <span>Home</span>
             </a>
-            <A href="/usr" >
+            <A href="/usr/myUsrInfo" >
               <span>회원정보</span>
             </a>
             <A href="/atcl" >
