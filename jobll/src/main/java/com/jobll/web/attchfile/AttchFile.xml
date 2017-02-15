@@ -9,8 +9,9 @@
             attch_file_nm, 
             attch_file_vol, 
             reg_date, 
-            file_typ, 
-            reg_usr_id)
+            file_typ,
+            signed_url,
+            usr_id)
     VALUES (
 				(select nextval('public.attch_file_idx_seq')),
 				#{file_path},
@@ -18,11 +19,16 @@
 				#{attch_file_vol},
 				#{reg_date},
 				#{file_typ},
-				#{reg_usr_id}
+				#{signed_url},
+				#{usr_id}
 			)
 	</insert>
 	<select id="findAll" resultType="com.jobll.web.attchfile.AttchFile" parameterType ="com.jobll.web.attchfile.AttchFile">
 		select * from attch_file
+	</select>
+	<select id="findByUsr" resultType="com.jobll.web.attchfile.AttchFile" parameterType ="com.jobll.web.attchfile.AttchFile">
+		select * from attch_file
+			where usr_id = #{usr_id}
 	</select>
 	<select id="readByIdx" resultType="com.jobll.web.attchfile.AttchFile" parameterType ="com.jobll.web.attchfile.AttchFile">
 		select * from attch_file where attch_file_idx = #{attch_file_idx};

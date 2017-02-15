@@ -46,7 +46,7 @@
       <div class="menu-wrap">
         <nav class="menu">
           <div class="menu-list">
-             <A href="/" class="active">
+       		<A href="/" class="active">
               <span>Home</span>
             </a>
             <A href="/myUsrInfo" >
@@ -86,7 +86,7 @@
             <div class="row">
               <div class="wrap-hero-content">
                   <div class="hero-content">
-                    <a href = "/testmember">파일업로드</a>
+                    <a href = "/testmember">게시판</a>
                     <br>
                     <span class="typed"></span>
                   </div>
@@ -97,28 +97,18 @@
             </div>
           </div>
         </section>
-      
         <!--/.HOME END-->
 
-        <!--FILE UP LOAD -->
-        <section id="file-upload-tag">
+        <!--atcl START -->
+        <section id="user-info-tag">
           <div class="col-md-12 col-xs-12 no-pad">
-          <form id="commonForm" name="commonForm"></form>
-          <form id ="fileUpLoadForm"  method="post" enctype="multipart/form-data">
-        	<input type="button" value="추가" onclick="addUpload()"/>
-			<input type="button" value="제거" onclick="delUpload()"/>
-			<div id="uploads">
-			<p><input type="file" id="file-upload"  name="uploadFile" /></p>
-			</div>
-        	<p><button onclick ="fileUpload()">등록</button></p>
-		</form>
-		<button onclick = "fileUploadView()">파일리스트 보기</button>
-		<div id = "list"></div>
+		 		<form action="<%=request.getContextPath() %>board"method="post">
+            		<input type="button" value="대기" />            		
+            	</form>
           </div>
         </section>
-        <!--/.FILE UP LOAD END-->
-      </div>
-     </div>
+        <!--/.atcl END-->
+    
 
     <script src="/resources/js/jquery-1.9.1.min.js" type="text/javascript"></script>
     <script src="/resources/js/jquery.form.min.js" type="text/javascript"></script>
@@ -132,6 +122,6 @@
     <script src="/resources/js/smooth-scroll.min.js" type="text/javascript"></script>
     <script src="/resources/js/typed.js" type="text/javascript"></script>
     <script src="/resources/js/main.js" type="text/javascript"></script>
-    <script src="/resources/js/fileUpLoad/fileUpLoad.js" type="text/javascript"></script>
+    <script src="/resources/js/atcl/atcl.js" type="text/javascript"></script>
   </body>
 </html>

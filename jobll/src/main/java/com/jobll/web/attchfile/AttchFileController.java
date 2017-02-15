@@ -1,15 +1,22 @@
 package com.jobll.web.attchfile;
 
+import java.io.File;
 import java.io.InputStream;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -64,10 +71,17 @@ public class AttchFileController {
 	public String goAttchFileUpload() throws Exception {
 		return "fileUpLoad/fileUpLoad";
 	}
-	
-	@RequestMapping(value = "/testFileUpLoadRun" , method = {RequestMethod.POST})
+	/**
+	 * 파일 첨부 업로드입니다. MultipartHttpServletRequest로
+	 * 요청을 받은 후 파일첨부 서비스를 사용합니다.
+	 * 
+	 * @param request
+	 * @return entity
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/attchFile/testFileUpLoadRun" , method = {RequestMethod.POST})
 	@ResponseBody
-	public AttchFile productList (@ModelAttribute AttchFile entity, HttpServletRequest request, BindingResult errors) throws Exception {
+	public AttchFile FileUpLoadRun (@ModelAttribute AttchFile entity, HttpServletRequest request, BindingResult errors) throws Exception {
 		if (errors.hasErrors()) {
 			LOGGER.debug(errors.toString());
 		}	
@@ -75,8 +89,51 @@ public class AttchFileController {
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest)request;
 		List<MultipartFile> multipartFile = multipartRequest.getFiles("uploadFile");
 		
-		attchFileService.uploadFiles(multipartFile, "");
+		attchFileService.uploadFiles(multipartFile);
 		return entity;
 	}
+	
+	@RequestMapping(value = "/attchFile/testFileDownLoadList" , method = {RequestMethod.POST})
+	@ResponseBody
+	public List<AttchFile> FileDownLoadList (@ModelAttribute AttchFile entity, BindingResult errors) throws Exception {
+		if (errors.hasErrors()) {
+			LOGGER.debug(errors.toString());
+		}	
+		
+		List<AttchFile> list = new ArrayList<AttchFile>();
+		
+		list = attchFileService.findByUsr(entity);
+		
 
+		return list;
+	}
+	
+	@RequestMapping(value="/attchFile/testFileDownLoadRun")
+	public void FileDownLoadRun(@ModelAttribute AttchFile entity, HttpServletResponse response) throws Exception{
+
+		File file = attchFileService.getDownLoadResponse(entity);
+		
+	    byte fileByte[] = FileUtils.readFileToByteArray(file);
+	    	    
+	     
+	    response.setContentType("application/download;charset=utf-8");
+	    response.setContentLength(fileByte.length);
+	    response.setHeader("Content-Disposition", "attachment; fileName=\"" + URLEncoder.encode(entity.getAttch_file_nm(),"UTF-8")+"\";");
+	    response.setHeader("Pragma", "no-cache;");
+        response.setHeader("Expires", "-1;");
+        response.setHeader("Content-Transfer-Encoding", "binary");
+        response.setHeader("Connection", "close");
+	    response.getOutputStream().write(fileByte);
+	    
+	    
+
+        
+        
+        //FileCopyUtils.copy(new FileInputStream(file), response.getOutputStream());
+	     
+	    response.flushBuffer();
+	    response.getOutputStream().close();
+	    
+	    file.delete();
+	}
 }

@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -98,7 +99,8 @@ public class AwsS3Config {
 			/* aws server용 코드
 			File file = new File("/var/lib/tomcat8/webapps/ROOT/resources/images/"+multipartFile.getOriginalFilename());
 			*/
-			File file = new File(multipartFile.getOriginalFilename());
+			//File file = new File(multipartFile.getOriginalFilename());
+			File file = new File("/var/lib/tomcat8/webapps/ROOT/resources/images/"+multipartFile.getOriginalFilename());
 			file.createNewFile(); 
 			
 			FileOutputStream fos = new FileOutputStream(file);
@@ -107,9 +109,8 @@ public class AwsS3Config {
 			    
 			    
 			if (fileUpload(file, S3path)) {
-				// return getMPFileURL(multipartFile,S3path);
-				// 미리 서명 받은 url을 반환받아야 할때 사용되는데
-				// 현재는 쓰이지 않고 경로와 파일명만 반환됩니다.
+				//s3업로드 후 서버에 생성된 파일을 삭제 합니다.
+				file.delete();
 				return (S3path + file.getName());
 			} else {
 				return "false";
@@ -139,33 +140,6 @@ public class AwsS3Config {
 				fis.close();
 				return true;
 			}
-		}
-
-		/**
-		 * 여러개의 멀티파일을 업로드 하기 위해 만든 메소드입니다. 반드시 사용하지 않아도 되는 메소드입니다.
-		 * 
-		 * @param fileList
-		 * @param S3path
-		 * @return
-		 * @throws IOException
-		 */
-		public boolean fileListUpload(List<MultipartFile> fileList, String S3path) throws IOException {
-
-			List<MultipartFile> list = fileList;
-			boolean result = false;
-
-			if (fileList == null || fileList.size() == 0) {
-				return result;
-			}
-
-			for (int i = 0; i < list.size(); i++) {
-				if ((result = multipartFileUpload(list.get(i), S3path).equals("true"))) {
-					continue;
-				} else {
-					break;
-				}
-			}
-			return result;
 		}
 
 		/**
@@ -228,15 +202,9 @@ public class AwsS3Config {
 		public InputStream getObjectInputStream(String path) {
 			this.connectionAwsS3();
 			S3Object s3object = conn.getObject(new GetObjectRequest(this.bucketName, path));
+			
+			URL file_path = conn.getUrl(path, accessKey);
 			return s3object.getObjectContent();
-
-			/*
-			 * GetObjectRequest rangeObjectRequest = new GetObjectRequest(
-			 * bucketName, key); rangeObjectRequest.setRange(0, 10); S3Object
-			 * objectPortion = s3Client.getObject(rangeObjectRequest);
-			 * 
-			 * displayTextInputStream(objectPortion.getObjectContent());
-			 */
 
 		}
 		

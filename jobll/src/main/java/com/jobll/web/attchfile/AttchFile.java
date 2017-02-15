@@ -14,12 +14,12 @@ public class AttchFile implements Serializable{
 	
 	private int attch_file_idx;					// 첨부파일인덱스
 	private String file_path;					// 파일경로
-	private String attch_file_nm;				// 첨부파일이
+	private String attch_file_nm;				// 첨부파일이름
 	private int attch_file_vol;					// 첨부파일크기
 	private String reg_date;					// 등록날짜
-	private int file_typ;						// 파일종류(1:그림, 2:파일, 3:동영상 등등, default:1)
-	private String reg_usr_id;					// 등록한사용자아이디
-	
+	private int file_typ;						// 파일종류(1:이미지, 2:오디오, 3:동영상 4:기타 등등(DEFAULT:1))
+	private String signed_url;					// CloudFront에서 받아올 URL
+	private String usr_id;						// 등록한사용자아이디(유저 프로필 사진 등)
 	public int getAttch_file_idx() {
 		return attch_file_idx;
 	}
@@ -56,11 +56,19 @@ public class AttchFile implements Serializable{
 	public void setFile_typ(int file_typ) {
 		this.file_typ = file_typ;
 	}
-	public String getReg_usr_id() {
-		return reg_usr_id;
+	public String getSigned_url() {
+		return signed_url;
 	}
-	public void setReg_usr_id(String reg_usr_id) {
-		this.reg_usr_id = reg_usr_id;
+	public void setSigned_url(String signed_url) {
+		this.signed_url = signed_url;
 	}
+	public String getUsr_id() {
+		return usr_id;
+	}
+	public void setUsr_id(String usr_id) {
+		this.usr_id = usr_id;
+	}
+	
+	
 	
 }

@@ -16,10 +16,21 @@
     <link href="/resources/css/magnific-popup.css" rel="stylesheet">
     <link href="/resources/css/style.css" rel="stylesheet">
     <link href="/resources/css/responsive.css" rel="stylesheet">
-    
     <!--fonts google-->
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+    
+    <!-- 이세연 add start-->
+    <script type="text/javascript">
+	function popupOpen(){
+		var popUrl = "test.html";	//팝업창에 출력될 페이지 URL
+		var popOption = "width=370, height=360, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
+		window.open(popUrl,"",popOption);
+	}
+	</script>
+	<link rel="stylesheet" type="text/css" href="/resources/css/usr/usr.css">
+    
+    <!-- 이세연 add end-->
     
     <!--[if lt IE 9]>
        <script type="text/javascript" src="/resources/js/html5shiv.min.js"></script>
@@ -43,26 +54,25 @@
         </div>
         <!--/.LOGO END-->
       </div>
+      <div class="login-button">
+      	<div class="col-md-2 col-xs-6 logo">
+            <A href="javascript:popupOpen();">로그인</A>
+        </div>
+      </div>
       <div class="menu-wrap">
         <nav class="menu">
           <div class="menu-list">
-             <A href="/" class="active">
+       		<A href="/" >
               <span>Home</span>
             </a>
-            <A href="/myUsrInfo" >
+            <A href="/usr" class="active">
               <span>회원정보</span>
-            </a>
-            <A href="/usr" >
-              <span>회원목록</span>
-            </a>
-            <A href="usrInfoJoin" >
-              <span>회원가입</span>
             </a>
             <A href="/atcl" >
               <span>게시판</span>
             </a>
              <A href="/fileUpLoad" >
-              <span>파일업로드</span>
+              <span>파일첨부</span>
             </a>
           </div>
         </nav>
@@ -86,7 +96,7 @@
             <div class="row">
               <div class="wrap-hero-content">
                   <div class="hero-content">
-                    <a href = "/testmember">파일업로드</a>
+                    <a href = "/testmember">회원정보</a>
                     <br>
                     <span class="typed"></span>
                   </div>
@@ -97,28 +107,38 @@
             </div>
           </div>
         </section>
-      
         <!--/.HOME END-->
 
-        <!--FILE UP LOAD -->
-        <section id="file-upload-tag">
-          <div class="col-md-12 col-xs-12 no-pad">
-          <form id="commonForm" name="commonForm"></form>
-          <form id ="fileUpLoadForm"  method="post" enctype="multipart/form-data">
-        	<input type="button" value="추가" onclick="addUpload()"/>
-			<input type="button" value="제거" onclick="delUpload()"/>
-			<div id="uploads">
-			<p><input type="file" id="file-upload"  name="uploadFile" /></p>
-			</div>
-        	<p><button onclick ="fileUpload()">등록</button></p>
-		</form>
-		<button onclick = "fileUploadView()">파일리스트 보기</button>
-		<div id = "list"></div>
-          </div>
+        <!--user START -->
+        <section id="user-info-tag">
+        <div class="col-md-12 col-xs-12 no-pad">
+        	<p> </p>
+			<table>
+            	<tbody>
+            		<tr>
+                		<td>번호</td>
+                		<td>등급</td>
+                		<td>회사</td>
+                		<td>이름</td>
+                		<td>가입날짜</td>
+             		</tr>
+             		<tr>
+                		<td>1</td>
+                		<td>ex</td>
+                		<td>ex</td>
+                		<td>ex</td>
+                		<td>2000.xx.xx</td>
+             		</tr>
+            	</tbody>
+            </table> 
+            <p> </p>
+            <p align=center><input type=button value="글쓰기" OnClick="window.location='board_write.jsp'"></p>
+             		
+             		
+        </div>
         </section>
-        <!--/.FILE UP LOAD END-->
-      </div>
-     </div>
+        <!--/.user END-->
+    
 
     <script src="/resources/js/jquery-1.9.1.min.js" type="text/javascript"></script>
     <script src="/resources/js/jquery.form.min.js" type="text/javascript"></script>
@@ -132,6 +152,6 @@
     <script src="/resources/js/smooth-scroll.min.js" type="text/javascript"></script>
     <script src="/resources/js/typed.js" type="text/javascript"></script>
     <script src="/resources/js/main.js" type="text/javascript"></script>
-    <script src="/resources/js/fileUpLoad/fileUpLoad.js" type="text/javascript"></script>
+    <script src="/resources/js/usr/usr.js" type="text/javascript"></script>
   </body>
 </html>

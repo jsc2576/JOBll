@@ -72,15 +72,30 @@
 		<!-- 
 		Spring Security injection of dependency
 		 -->
-		<!--  <dependency>
+	
+		
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>-->
+		</dependency>
 		
-		
-		
+       
+          <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        
+        
+        <!-- Session control-->
+
+	
+   <!-- Session control-->
+
+
 	</dependencies>
 
+      
 	<build>
 		<plugins>
 			<plugin>
@@ -89,6 +104,22 @@
 			</plugin>
 		</plugins>
 	</build>
+
+<repositories>
+        <repository>
+            <id>spring-releases</id>
+            <name>Spring Releases</name>
+            <url>https://repo.spring.io/libs-release</url>
+        </repository>
+ </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-releases</id>
+            <name>Spring Releases</name>
+            <url>https://repo.spring.io/libs-release</url>
+        </pluginRepository>
+</pluginRepositories>
 
 
 </project>

@@ -19,6 +19,11 @@ public class AtclController {
 	 * 모든 데이터를 검색 
 	 * @return
 	 */
+	@RequestMapping("/atcl")
+	public String atcl(){
+		return "atcl/atcl";
+	}
+	
 	@RequestMapping("/atcl/all")
 	@ResponseBody
 	public List<Atcl> AtclAll(@ModelAttribute Atcl entity){

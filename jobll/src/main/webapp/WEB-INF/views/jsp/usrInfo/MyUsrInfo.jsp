@@ -8,7 +8,6 @@
     <meta http-equiv="Content-Type" Content="text/html; charset=utf-8" />
     <!--Fav-->
     <link href="images/favicon.ico" rel="shortcut icon">
-    
     <!--styles-->
     <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
     <link href="/resources/css/owl.carousel.css" rel="stylesheet">
@@ -45,15 +44,14 @@
       </div>
       <div class="menu-wrap">
         <nav class="menu">
+          <div class="menu-wrap">
+        <nav class="menu">
           <div class="menu-list">
-             <A href="/" class="active">
+            <A href="/" class="active">
               <span>Home</span>
             </a>
             <A href="/myUsrInfo" >
               <span>회원정보</span>
-            </a>
-            <A href="/usr" >
-              <span>회원목록</span>
             </a>
             <A href="usrInfoJoin" >
               <span>회원가입</span>
@@ -86,7 +84,7 @@
             <div class="row">
               <div class="wrap-hero-content">
                   <div class="hero-content">
-                    <a href = "/testmember">파일업로드</a>
+                    <a href = "/testmember">Default</a>
                     <br>
                     <span class="typed"></span>
                   </div>
@@ -100,23 +98,10 @@
       
         <!--/.HOME END-->
 
-        <!--FILE UP LOAD -->
+        <!--DEFAULT UP LOAD -->
         <section id="file-upload-tag">
-          <div class="col-md-12 col-xs-12 no-pad">
-          <form id="commonForm" name="commonForm"></form>
-          <form id ="fileUpLoadForm"  method="post" enctype="multipart/form-data">
-        	<input type="button" value="추가" onclick="addUpload()"/>
-			<input type="button" value="제거" onclick="delUpload()"/>
-			<div id="uploads">
-			<p><input type="file" id="file-upload"  name="uploadFile" /></p>
-			</div>
-        	<p><button onclick ="fileUpload()">등록</button></p>
-		</form>
-		<button onclick = "fileUploadView()">파일리스트 보기</button>
-		<div id = "list"></div>
-          </div>
         </section>
-        <!--/.FILE UP LOAD END-->
+        <!--/.DEFAULT UP LOAD END-->
       </div>
      </div>
 
