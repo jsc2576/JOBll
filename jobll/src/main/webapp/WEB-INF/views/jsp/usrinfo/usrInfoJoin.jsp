@@ -4,7 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<!--styles-->
+  <link href="/resources/css/usrInfo/usrInfoJoin.css" rel="stylesheet">
+
 <title>회원가입</title>
+
 </head>
  <body>
       <div class="container">
