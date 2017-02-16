@@ -1,0 +1,13 @@
+@CHARSET "EUC-KR";
+body {
+font-family: Arial;
+background: url('../../images/hero1.jpeg');
+
+}
+
+.container{
+
+	background-color: rgba( 255, 255, 255, 0.8 );
+	
+
+}

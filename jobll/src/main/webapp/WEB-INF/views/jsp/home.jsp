@@ -25,7 +25,7 @@
     <script type="text/javascript">
 	function popupOpen(){
 		var popUrl = "/login.do";	//팝업창에 출력될 페이지 URL
-		var popOption = "width=370, height=360, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
+		var popOption = "width=370, height=550, resizable=no, scrollbars=yes, status=no;";    //팝업창 옵션(optoin)
 		window.open(popUrl,"",popOption);
 	}
 	</script>

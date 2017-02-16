@@ -32,7 +32,6 @@
 			You have been logged out.
 		</p>
 	</c:if>
-
 	<div class="login">
       <div class="login-screen">
          <div class="login-form form-group">
