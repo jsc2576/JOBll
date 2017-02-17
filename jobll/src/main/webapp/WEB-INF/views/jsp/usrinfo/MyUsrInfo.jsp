@@ -8,6 +8,7 @@
     <meta http-equiv="Content-Type" Content="text/html; charset=utf-8" />
     <!--Fav-->
     <link href="images/favicon.ico" rel="shortcut icon">
+    
     <!--styles-->
     <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
     <link href="/resources/css/owl.carousel.css" rel="stylesheet">
@@ -20,6 +21,15 @@
     <!--fonts google-->
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+    
+    <!-- 이세연 add start-->
+    <script type="text/javascript">
+	function popupOpen(){
+		var popUrl = "/login.do";	//팝업창에 출력될 페이지 URL
+		var popOption = "width=370, height=550, resizable=no, scrollbars=yes, status=no;";    //팝업창 옵션(optoin)
+		window.open(popUrl,"",popOption);
+	}
+	</script>
     
     <!--[if lt IE 9]>
        <script type="text/javascript" src="/resources/js/html5shiv.min.js"></script>
@@ -43,9 +53,12 @@
         </div>
         <!--/.LOGO END-->
       </div>
+      <div class="login-button">
+      	<div class="col-md-2 col-xs-6 logo">
+            <A href="javascript:popupOpen();">로그인</A>
+        </div>
+      </div>
       <div class="menu-wrap">
-        <nav class="menu">
-          <div class="menu-wrap">
         <nav class="menu">
           <div class="menu-list">
             <A href="/" class="active">
