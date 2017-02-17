@@ -7,6 +7,9 @@
 
     <link rel="stylesheet" href="/resources/css/editor.css" type="text/css" charset="utf-8"/>
     <script src="resources/js/editor_loader.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/resources/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="resources/js/customEditor.js" type="text/javascript" charset="utf-8"></script>
+     
 
 </head>
 <body>
@@ -16,7 +19,7 @@
 		@decsription
 		등록하기 위한 Form으로 상황에 맞게 수정하여 사용한다. Form 이름은 에디터를 생성할 때 설정값으로 설정한다.
 	-->
-	<form name="tx_editor_form" id="tx_editor_form" action="http://posttestserver.com/post.php" method="post" accept-charset="utf-8">
+	<form name="tx_editor_form" id="tx_editor_form" action="/editortest" method="post" accept-charset="utf-8">
 		<!-- 에디터 컨테이너 시작 -->
 		<div id="tx_trex_container" class="tx-editor-container">
 			<!-- 사이드바 -->
@@ -438,6 +441,7 @@
 		</div>
 		<!-- 에디터 컨테이너 끝 -->
 	</form>
+	<button onclick = "submit_data()">submit</button>
 </div>
 <!-- 에디터 끝 -->
 <script type="text/javascript">
