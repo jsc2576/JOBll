@@ -51,14 +51,20 @@
             <A href="/" class="active">
               <span>Home</span>
             </a>
-            <A href="/myUsrInfo" >
+            <A href="/usr/myUsrInfo" >
               <span>회원정보</span>
+            </a>
+            <A href="/usr" >
+              <span>회원목록</span>
             </a>
             <A href="usrInfoJoin" >
               <span>회원가입</span>
             </a>
             <A href="/atcl" >
               <span>게시판</span>
+            </a>
+            <A href="editor" >
+              <span>글쓰기</span>
             </a>
              <A href="/fileUpLoad" >
               <span>파일업로드</span>
