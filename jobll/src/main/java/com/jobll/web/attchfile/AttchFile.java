@@ -12,18 +12,17 @@ public class AttchFile implements Serializable{
 	 */
 	private static final long serialVersionUID = -1638273159722849211L;
 	
-	private int attch_file_idx;					// 첨부파일인덱스
+	private String attch_file_idx;					// 첨부파일인덱스
 	private String file_path;					// 파일경로
 	private String attch_file_nm;				// 첨부파일이름
 	private int attch_file_vol;					// 첨부파일크기
 	private String reg_date;					// 등록날짜
 	private int file_typ;						// 파일종류(1:이미지, 2:오디오, 3:동영상 4:기타 등등(DEFAULT:1))
-	private String signed_url;					// CloudFront에서 받아올 URL
-	private String usr_id;						// 등록한사용자아이디(유저 프로필 사진 등)
-	public int getAttch_file_idx() {
+	private String ref_idx;						// 등록한사용자아이디(유저 프로필 사진 등)
+	public String getAttch_file_idx() {
 		return attch_file_idx;
 	}
-	public void setAttch_file_idx(int attch_file_idx) {
+	public void setAttch_file_idx(String attch_file_idx) {
 		this.attch_file_idx = attch_file_idx;
 	}
 	public String getFile_path() {
@@ -56,19 +55,10 @@ public class AttchFile implements Serializable{
 	public void setFile_typ(int file_typ) {
 		this.file_typ = file_typ;
 	}
-	public String getSigned_url() {
-		return signed_url;
+	public String getRef_idx() {
+		return ref_idx;
 	}
-	public void setSigned_url(String signed_url) {
-		this.signed_url = signed_url;
+	public void setRef_idx(String ref_idx) {
+		this.ref_idx = ref_idx;
 	}
-	public String getUsr_id() {
-		return usr_id;
-	}
-	public void setUsr_id(String usr_id) {
-		this.usr_id = usr_id;
-	}
-	
-	
-	
 }

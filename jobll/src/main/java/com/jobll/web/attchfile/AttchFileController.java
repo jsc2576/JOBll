@@ -31,8 +31,6 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jobll.web.AwsS3Config;
-import com.jobll.web.home.Home;
-import com.jobll.web.home.HomeService;
 //import com.jobll.web.user.UserService;
 
 /**
@@ -53,11 +51,6 @@ public class AttchFileController {
 
 	@Autowired
 	private AttchFileService attchFileService;
-	
-	@Autowired
-	private HomeService memberService;
-	
-	
 	
 	
 

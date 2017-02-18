@@ -35,9 +35,6 @@ public class HomeController {
 
 	private static final Logger logger = LoggerFactory
 			.getLogger(HomeController.class);
-
-	@Autowired
-	private HomeService homeService;
 	
 	@Autowired
 	private AwsS3Config awsS3Config;
@@ -54,10 +51,4 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping(value = "/editortest" , method = {RequestMethod.POST})
-	public ModelAndView regProduct(@ModelAttribute Home entity, HttpServletRequest request, BindingResult errors) throws Exception {
-		ModelAndView mav = new ModelAndView("/editor/editor");		
-		
-		return mav;
-	}
 }

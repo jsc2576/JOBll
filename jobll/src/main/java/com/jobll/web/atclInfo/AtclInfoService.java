@@ -27,11 +27,12 @@ public class AtclInfoService {
 	
 	public int createAtcl(AtclInfo entity){
 		
-		entity.set_usr_id("bbk");
-		entity.set_reg_date(commonUtil.getCurrentDtime());
-		entity.set_atcl_stus(1);
-		entity.set_cmpny_nm("미정");
-		entity.set_prcs_stus(1);
+		entity.setUsr_id("bbk");
+		entity.setReg_date(commonUtil.getCurrentDtime());
+		entity.setAtcl_stus(1);
+		entity.setCmpny_nm("미정");
+		entity.setPrcs_stus(1);
+		
 		
 		int qry = atclInfoRepository.createAtcl(entity);
 		return qry;
