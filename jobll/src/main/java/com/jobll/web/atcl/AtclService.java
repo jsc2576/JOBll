@@ -9,39 +9,21 @@ import org.springframework.stereotype.Service;
 public class AtclService {
 	
 	/*
-	 * repository 객
+	 * repository 객체 
 	 */
 	@Autowired
 	private AtclRepository atclRepository;
 	
 	
 	/**
-	 * 모든 데이터 검색 
+	 * 데이터 검색 (0: 전체검색, 1: 대기중 검색, 2: 접수 완료 검색, 3: 처리중 검색, 4: 처리완료 검색)
 	 * @param entity
 	 * @return
 	 */
-	public List<Atcl> findAll(Atcl entity){
-		List<Atcl> atcl_list = atclRepository.findAll(entity);
+	public List<Atcl> findList(Atcl entity, Integer find_nm){
+		List<Atcl> atcl_list = atclRepository.findList(entity, find_nm);
 		return atcl_list;
 	}
 	
-	public List<Atcl> findRcvWait(Atcl entity){
-		List<Atcl> atcl_list = atclRepository.findRcvWait(entity);
-		return atcl_list;
-	}
-	
-	public List<Atcl> findRcvCmpt(Atcl entity){
-		List<Atcl> atcl_list = atclRepository.findRcvCmpt(entity);
-		return atcl_list;
-	}
-	
-	public List<Atcl> findPrcsWait(Atcl entity){
-		List<Atcl> atcl_list = atclRepository.findPrcsWait(entity);
-		return atcl_list;
-	}
-	
-	public List<Atcl> findPrcsCmpt(Atcl entity){
-		List<Atcl> atcl_list = atclRepository.findPrcsCmpt(entity);
-		return atcl_list;
-	}
+
 }

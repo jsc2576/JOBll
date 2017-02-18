@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
+@RequestMapping("/atcl")
 public class AtclController {
 
 	@Autowired
@@ -19,35 +20,73 @@ public class AtclController {
 	 * 모든 데이터를 검색 
 	 * @return
 	 */
-	@RequestMapping("/atcl")
+	@RequestMapping("/")
 	public String atcl(){
 		return "atcl/atcl";
 	}
 	
-	@RequestMapping("/atcl/all")
+	
+	/**
+	 * find all
+	 * @param entity
+	 * @return
+	 */
+	@RequestMapping("/all")
 	@ResponseBody
 	public List<Atcl> AtclAll(@ModelAttribute Atcl entity){
-		List<Atcl> atcl_list = atclService.findAll(entity);
+		List<Atcl> atcl_list = atclService.findList(entity, 0);
 		return atcl_list;
 	}
 	
-	@RequestMapping("/atcl/rcv/wait")
-	public String AtclRcvWait(){
-		return "AtclRcvWait";
+	
+	/**
+	 * find receive wait
+	 * @param entity
+	 * @return
+	 */
+	@RequestMapping("/rcv/wait")
+	@ResponseBody
+	public List<Atcl> AtclRcvWait(@ModelAttribute Atcl entity){
+		List<Atcl> atcl_list = atclService.findList(entity, 1);
+		return atcl_list;
 	}
 	
-	@RequestMapping("/atcl/rcv/cmpt")
-	public String AtclRcvCmpt(){
-		return "AtclRcvWait";
+	
+	/**
+	 * find receive complete
+	 * @param entity
+	 * @return
+	 */
+	@RequestMapping("/rcv/cmpt")
+	@ResponseBody
+	public List<Atcl> AtclRcvCmpt(@ModelAttribute Atcl entity){
+		List<Atcl> atcl_list = atclService.findList(entity, 2);
+		return atcl_list;
 	}
 	
-	@RequestMapping("/atcl/prcs/wait")
-	public String AtclPrcsWait(){
-		return "AtclPrcsWait";
+	
+	/**
+	 * find process wait
+	 * @param entity
+	 * @return
+	 */
+	@RequestMapping("/prcs/wait")
+	@ResponseBody
+	public List<Atcl> AtclPrcsWait(@ModelAttribute Atcl entity){
+		List<Atcl> atcl_list = atclService.findList(entity, 3);
+		return atcl_list;
 	}
 	
-	@RequestMapping("/atcl/prcs/cmpt")
-	public String AtclPrcsCmpt(){
-		return "AtclPrcsCmpt";
+	
+	/**
+	 * find process complete
+	 * @param entity
+	 * @return
+	 */
+	@RequestMapping("/prcs/cmpt")
+	@ResponseBody
+	public List<Atcl> AtclPrcsCmpt(@ModelAttribute Atcl entity){
+		List<Atcl> atcl_list = atclService.findList(entity, 4);
+		return atcl_list;
 	}
 }

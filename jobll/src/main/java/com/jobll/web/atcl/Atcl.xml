@@ -1,8 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.jobll.web.atcl.Atcl">
 
-<select id="findAll" parameterType="com.jobll.web.atcl.Atcl">
+<mapper namespace="com.jobll.web.atcl.Atcl">
+<insert id="create" parameterType="com.jobll.web.atcl.Atcl">
+	INSERT INTO attch_file(
+            atcl_idx, 
+            usr_id, 
+            high_atcl_idx, 
+            atcl_sbjt, 
+            atcl_conts, 
+            reg_date,
+            atcl_stus,
+            compy_nm,
+            prcs_stus)
+    VALUES (
+				(select nextval('public.atcl_idx_seq')),
+				#{usr_id},
+				#{high_atcl_idx},
+				#{atcl_sbjt},
+				#{atcl_conts},
+				#{reg_date},
+				#{atcl_stus},
+				#{compy_nm},
+				#{prcs_stus}
+			)
+</insert>
+
+<select id="findAll" parameterType="com.jobll.web.atcl.Atcl" resultType="com.jobll.web.atcl.Atcl">
 	SELECT * from atcl_info
 </select>
+
+<select id="findPrcs" parameterType="java.lang.Integer" resultType="com.jobll.web.atcl.Atcl">
+	SELECT * FROM atcl_info where prcs_stus = #{prcs_nm}
+</select>
+
 </mapper>
