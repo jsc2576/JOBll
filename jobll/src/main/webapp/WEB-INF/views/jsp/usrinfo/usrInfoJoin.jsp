@@ -1,84 +1,90 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>È¸¿ø°¡ÀÔ</title>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+<title>íšŒì›ê°€ìž…</title>
+  <link href="/resources/css/usrInfo/usrInfoJoin.css" rel="stylesheet">
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script>
+  <script src="/resources/js/usrInfo/usrInfoJoin.js" type="text/javascript"></script>
+
 </head>
- <body>
+<body>
       <div class="container">
         <div class="HeadLine">
-          <h1>È¸¿ø°¡ÀÔ </h1>
+          <h1>íšŒì›ê°€ìž… </h1>
         </div>
         <div class="col-md-6 col-md-offset-3">
-          <form role="form" action = "/usr/make" method="post">
+          <form role="form" id="usr_make" action = "/usr/make" method="post">
            <div class="form-group">
-              <label for="usr_id">¾ÆÀÌµð</label>
-              <input type="text" class="form-control" name="usr_id" placeholder="¾ÆÀÌµð">
+              <label for="usr_id">ì•„ì´ë””</label>
+              <input type="text" class="form-control" id="usr_id" name="usr_id" placeholder="ì•„ì´ë””">
             </div>
             <div class="form-group">
-              <label for="usr_pwd">ºñ¹Ð¹øÈ£</label>
-              <input type="password" class="form-control" name="usr_pwd" placeholder="ºñ¹Ð¹øÈ£">
+              <label for="usr_pwd">ë¹„ë°€ë²ˆí˜¸</label>
+              <input type="password" class="form-control" id="usr_pwd" name="usr_pwd" placeholder="ë¹„ë°€ë²ˆí˜¸">
             </div>
             <div class="form-group">
-              <label for="usr_pwd1">ºñ¹Ð¹øÈ£ È®ÀÎ</label>
-              <input type="password" class="form-control" name="usr_pwd" placeholder="ºñ¹Ð¹øÈ£ È®ÀÎ">
-              <p class="help-block">ºñ¹Ð¹øÈ£ È®ÀÎÀ» À§ÇØ ´Ù½ÃÇÑ¹ø ÀÔ·Â ÇØ ÁÖ¼¼¿ä</p>
+              <label for="usr_pwd1">ë¹„ë°€ë²ˆí˜¸ í™•ì¸</label>
+              <input type="password" class="form-control" id="chk_pwd" name="chk_pwd" placeholder="ë¹„ë°€ë²ˆí˜¸ í™•ì¸">
+               <div>
+               <font name="err_pwd" size="2" color="red"></font>
+               <font name="cor_pwd" size="2" color="green"></font>
+               </div> <br>
             </div>
            
             <div class="form-group">
-              <label for="usr_nm">ÀÌ¸§</label>
-              <input type="text" class="form-control" name="usr_nm" placeholder="ÀÌ¸§">
+              <label for="usr_nm">ì´ë¦„</label>
+              <input type="text" class="form-control" id="usr_nm" name="usr_nm" placeholder="ì´ë¦„">
             </div>
             <div class="form-group">
-              <label for="usr_birth">»ý³â¿ùÀÏ</label>
-              <input type="text" class="form-control" name="usr_birth" placeholder="»ý³â¿ùÀÏ">
+              <label for="usr_birth">ìƒë…„ì›”ì¼</label>
+              <input type="text" class="form-control" id="usr_birth" name="usr_birth" placeholder="ìƒë…„ì›”ì¼">
             </div>
            	<div class="form-group">
-           	<label for="usr_gdr">¼ºº°</label><br>
-            <input type="radio" id="man" name="usr_gdr" value="1" onclick="checkGdr()">
-            <label id="manLb" for="man" class="on">³²ÀÚ </label>
+           	<label for="usr_gdr">ì„±ë³„</label><br>
+            <input type="radio" id="man"  name="usr_gdr" value="1" onclick="checkGdr()">
+            <label id="manLb" for="man" class="on">ë‚¨ìž </label>
             <input type="radio" id="woman" name="usr_gdr" value="0" onclick="checkGdr()">
-            <label id="manLb" for="woman" class="on">¿©ÀÚ </label>
+            <label id="manLb" for="woman" class="on">ì—¬ìž </label>
             </div>
              <div class="form-group">
-              <label for="usr_gdr">È¸»ç¸í</label>
-              <input type="text" class="form-control" id="usr_cmpny" name="usr_cmpny" placeholder="È¸»ç¸í">
+              <label for="usr_gdr">íšŒì‚¬ëª…</label>
+              <input type="text" class="form-control" id="usr_cmpny" name="usr_cmpny" placeholder="íšŒì‚¬ëª…">
             </div>
             <div class="form-group">
-              <label for="usr_email">ÀÌ¸ÞÀÏ ÁÖ¼Ò</label>
-              <input type="email" class="form-control" id="usr_email"  name="usr_email" placeholder="ÀÌ¸ÞÀÏ ÁÖ¼Ò">
+              <label for="usr_email">ì´ë©”ì¼ ì£¼ì†Œ</label>
+              <input type="email" class="form-control" id="usr_email"  name="usr_email" placeholder="ì´ë©”ì¼ ì£¼ì†Œ">
             </div>
             <div class="form-group">
-              <label for="tel_num">ÀüÈ­¹øÈ£</label>
-               <input type="tel" class="form-control" id="tel_num" name="tel_num" placeholder="- ¾øÀÌ ÀÔ·ÂÇØ ÁÖ¼¼¿ä">
+              <label for="tel_num">ì „í™”ë²ˆí˜¸</label>
+               <input type="tel" class="form-control" id="tel_num" name="tel_num" placeholder="- ì—†ì´ ìž…ë ¥í•´ ì£¼ì„¸ìš”">
             </div>
             <div class="form-group">
-              <label for="mobile_num">ÇÚµåÆù ¹øÈ£</label>
-               <input type="tel" class="form-control" id="mobile_num"  name="mobile_num" placeholder="- ¾øÀÌ ÀÔ·ÂÇØ ÁÖ¼¼¿ä">
+              <label for="mobile_num">í•¸ë“œí° ë²ˆí˜¸</label>
+               <input type="tel" class="form-control" id="mobile_num"  name="mobile_num" placeholder="- ì—†ì´ ìž…ë ¥í•´ ì£¼ì„¸ìš”">
             </div>
             <div class="form-group">
-              <label for="zip_cd">¿ìÆí¹øÈ£</label>
-               <input type="text" class="form-control" id="zip_cd" name="zip_cd" placeholder="¿ìÆí¹øÈ£">
+              <label for="zip_cd">ìš°íŽ¸ë²ˆí˜¸</label>
+               <input type="text" class="form-control" id="zip_cd" name="zip_cd" placeholder="ìš°íŽ¸ë²ˆí˜¸">
             </div>
             <div class="form-group">
-              <label for="norm_addr">ÁÖ¼Ò</label>
-               <input type="text" class="form-control" id="norm_addr" name="norm_addr" placeholder="ÁÖ¼Ò">
+              <label for="norm_addr">ì£¼ì†Œ</label>
+               <input type="text" class="form-control" id="norm_addr" name="norm_addr" placeholder="ì£¼ì†Œ">
                <label for="dtl_addr"></label>
-               <input type="text" class="form-control" id="dtl_addr"  name="dtl_addr" placeholder="»ó¼¼ÁÖ¼Ò">
+               <input type="text" class="form-control" id="dtl_addr"  name="dtl_addr" placeholder="ìƒì„¸ì£¼ì†Œ">
             </div>
             <div class="form-group text-center">
-              <button type="submit" class="btn btn-info">È¸¿ø°¡ÀÔ<i class="fa fa-check spaceLeft"></i></button>
-              <button type="submit" class="btn btn-warning">°¡ÀÔÃë¼Ò<i class="fa fa-times spaceLeft"></i></button>
+              <button type="submit" id="usr_make" class="btn btn-info">íšŒì›ê°€ìž…<i class="fa fa-check spaceLeft"></i></button>
+              <button type="submit" class="btn btn-warning">ê°€ìž…ì·¨ì†Œ<i class="fa fa-times spaceLeft"></i></button>
             </div>
           </form>
         </div>
       </div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-  </body>
-</html>
+
+  </body></html>

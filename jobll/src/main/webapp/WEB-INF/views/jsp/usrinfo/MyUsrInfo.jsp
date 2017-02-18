@@ -8,6 +8,7 @@
     <meta http-equiv="Content-Type" Content="text/html; charset=utf-8" />
     <!--Fav-->
     <link href="images/favicon.ico" rel="shortcut icon">
+    
     <!--styles-->
     <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
     <link href="/resources/css/owl.carousel.css" rel="stylesheet">
@@ -15,10 +16,20 @@
     <link href="/resources/css/magnific-popup.css" rel="stylesheet">
     <link href="/resources/css/style.css" rel="stylesheet">
     <link href="/resources/css/responsive.css" rel="stylesheet">
+    <link href="/resources/css/usrInfo/MyUsrInfo.css" rel="stylesheet">
     
     <!--fonts google-->
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+    
+    <!-- 이세연 add start-->
+    <script type="text/javascript">
+	function popupOpen(){
+		var popUrl = "/login.do";	//팝업창에 출력될 페이지 URL
+		var popOption = "width=370, height=550, resizable=no, scrollbars=yes, status=no;";    //팝업창 옵션(optoin)
+		window.open(popUrl,"",popOption);
+	}
+	</script>
     
     <!--[if lt IE 9]>
        <script type="text/javascript" src="/resources/js/html5shiv.min.js"></script>
@@ -42,22 +53,31 @@
         </div>
         <!--/.LOGO END-->
       </div>
+      <div class="login-button">
+      	<div class="col-md-2 col-xs-6 logo">
+            <A href="javascript:popupOpen();">로그인</A>
+        </div>
+      </div>
       <div class="menu-wrap">
-        <nav class="menu">
-          <div class="menu-wrap">
         <nav class="menu">
           <div class="menu-list">
             <A href="/" class="active">
               <span>Home</span>
             </a>
-            <A href="/myUsrInfo" >
+            <A href="/usr/myUsrInfo" >
               <span>회원정보</span>
+            </a>
+            <A href="/usr" >
+              <span>회원목록</span>
             </a>
             <A href="usrInfoJoin" >
               <span>회원가입</span>
             </a>
             <A href="/atcl" >
               <span>게시판</span>
+            </a>
+            <A href="editor" >
+              <span>글쓰기</span>
             </a>
              <A href="/fileUpLoad" >
               <span>파일업로드</span>
@@ -99,7 +119,45 @@
         <!--/.HOME END-->
 
         <!--DEFAULT UP LOAD -->
-        <section id="file-upload-tag">
+        <section id="MyUsrInfo-tag">
+        	<table class = "table table-striped custom-table">
+        	<tr>
+        		<th colspan = '5'>회원정보</th>
+        	</tr>
+        	<tr>
+        		<th colspan = '2' rowspan = '4'>프로필 사진</th>
+        		<th class = 'th-15'>User ID</th>
+        		<td colspan = '2'>ID</td>
+        	</tr>
+        	<tr>
+        		<th class = 'th-15'>이름</th>
+        		<td colspan = '2'>BBK</td>
+        	</tr>
+        	<tr>
+        		<th class = 'th-15'>Email</th>
+        		<td colspan = '2'>123@123</td>
+        	</tr>
+        	<tr>
+        		<th class = 'th-15'>나이</th>
+        		<td>미정</td>
+        	</tr>
+        	<tr>
+        		<th class ='th-15'>권한</th>
+        		<td>미정</td>
+        		<th class = 'th-15'>회사</th>
+        		<td>미정</td>
+        	</tr>
+        	<tr>
+        		<th class ='th-15'>전화번호</th>
+        		<td>미정</td>
+        		<th class ='th-15'>핸드폰번호</th>
+        		<td>미정</td>
+        	</tr>
+        	<tr>
+        		<th class ='th-15'>주소</th>
+        		<td colspan = '3'>미정</td>
+        	</tr>
+        	</table>
         </section>
         <!--/.DEFAULT UP LOAD END-->
       </div>

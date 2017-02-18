@@ -8,7 +8,7 @@ box-sizing: border-box;
 body {
 font-family: Arial;
 background: url('../../images/hero1.jpeg');
-padding: 50px;
+
 }
 .login {
 margin: 20px auto;
@@ -54,7 +54,7 @@ box-shadow: none;
   background: #3498DB;
   color: #ffffff;
   font-size: 16px;
-  line-height: 25px;
+  line-height: 20px;
   padding: 10px 0;
   text-decoration: none;
   text-shadow: none;
@@ -97,7 +97,7 @@ box-shadow: none;
 }
 
 img.SignWithSNS{
- height: 50px;
+ height: 40px;
  width: 241px;
 
 }

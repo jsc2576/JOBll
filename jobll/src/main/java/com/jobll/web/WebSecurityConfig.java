@@ -20,7 +20,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         web
-                .ignoring();
+        		//*session 풀기
+        		.ignoring().antMatchers("/**");
+                //.ignoring();
                     //.antMatchers("/css/**")
                     //.antMatchers("/js/**")
                     //.antMatchers("/images/**");

@@ -65,7 +65,7 @@
        		<A href="/" class="active">
               <span>Home</span>
             </a>
-            <A href="/myUsrInfo" >
+            <A href="/usr/myUsrInfo" >
               <span>회원정보</span>
             </a>
             <A href="/usr" >
@@ -76,6 +76,9 @@
             </a>
             <A href="/atcl" >
               <span>게시판</span>
+            </a>
+            <A href="editor" >
+              <span>글쓰기</span>
             </a>
              <A href="/fileUpLoad" >
               <span>파일업로드</span>
@@ -117,31 +120,41 @@
 
         <!--user START -->
         <section id="user-info-tag">
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-12 col-md-offset--1">
         	<p> </p>
 			<table>
             	<tbody>
             		<tr>
+                      	<td></td>
                 		<td>번호</td>
                 		<td>등급</td>
                 		<td>회사</td>
                 		<td>이름</td>
                 		<td>가입날짜</td>
+                      	<td>수정</td>
              		</tr>
              		<tr>
+                      <td><input type="checkbox" name="check" value="1"></td>
                 		<td>1</td>
                 		<td>ex</td>
                 		<td>ex</td>
                 		<td>ex</td>
                 		<td>2000.xx.xx</td>
+                      	<td> <a href="modify.jsp">수정</a></td>
              		</tr>
             	</tbody>
             </table>
             <form role="form" action="/usr/make" method="post"> 
             <div class="form-group">
-              <button type="submit" class="btn btn-info">글쓰기<i class="fa fa-check spaceLeft"></i></button>
-              <input type="text" class="form-control" id="atcl_search" placeholder="">
-            </div>
+              <table><tbody><tr>
+              <td><button type="submit" class="btn btn-info">글쓰기<i class="fa fa-check spaceLeft"></i></button></td>
+              
+              
+              <td><button type="submit" class="btn btn-info">삭제<i class="fa fa-check spaceLeft"></i></button></td>
+              <td><input type="text" class="lsycss" id="atcl_search"></td>
+			  <td><button type="submit" class="btn btn-info">수정<i class="fa fa-check spaceLeft"></i></button></td>
+              </tr></tbody></table>  
+              </div>
             </form>
         </div>
         </section>

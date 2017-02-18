@@ -53,4 +53,11 @@ public class HomeController {
 
 		return "home";
 	}
+	
+	@RequestMapping(value = "/editortest" , method = {RequestMethod.POST})
+	public ModelAndView regProduct(@ModelAttribute Home entity, HttpServletRequest request, BindingResult errors) throws Exception {
+		ModelAndView mav = new ModelAndView("/editor/editor");		
+		
+		return mav;
+	}
 }

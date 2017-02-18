@@ -23,4 +23,9 @@ table{
   background: transparent;
   border: none;
 }
-  
+
+.lsycss{
+	width: 50%;
+	margin: auto;
+	display: inline;
+}  
