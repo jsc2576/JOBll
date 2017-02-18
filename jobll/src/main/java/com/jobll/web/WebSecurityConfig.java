@@ -20,10 +20,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         web
-                .ignoring();
-                    //.antMatchers("/css/**")
-                    //.antMatchers("/js/**")
-                    //.antMatchers("/images/**");
+                .ignoring()
+                    .antMatchers("/css/**").antMatchers("/js/**").antMatchers("/images/**");
         			//.antMatchers("/**");
     }
     
@@ -31,9 +29,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-                .antMatchers("/resources/**", "/signup.do").permitAll()
-                .antMatchers("/web/**").hasRole("USER")
-                .antMatchers("/backend/**").access("hasRole('USER') and hasRole('ADMIN')") 
+            	.antMatchers("/facebook").permitAll()
+            	.antMatchers("/login.do").permitAll()
+            	.antMatchers("/").permitAll()
+                .antMatchers("/connect/**").permitAll()
+                
+            	.antMatchers("/resources/**").permitAll()
+                
                 .anyRequest().authenticated()
                 .and()
             .formLogin()

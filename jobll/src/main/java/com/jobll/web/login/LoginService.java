@@ -16,7 +16,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.jobll.web.domain.UserVo;
 import com.jobll.web.session.SessionUtil;
 import com.jobll.web.usrinfo.UsrInfo;
 //import com.jobll.web.sqlmappers.LoginMapper;
@@ -29,11 +28,7 @@ public class LoginService implements UserDetailsService {
 	@Resource
 	private LoginRepository loginRepository;
 	
-	public UserVo getUser(String userId) throws Exception {
-		UserVo userVo = null;
-		if (userId != null && !"".equals(userId)) userVo = loginRepository.getUser(userId);
-		return userVo;
-	}
+
 	public UsrInfo getUsr(String usr_id) throws Exception {
 		UsrInfo usrInfo= null;
 		if (usr_id != null && !"".equals(usr_id)) usrInfo = loginRepository.getUsr(usr_id);
