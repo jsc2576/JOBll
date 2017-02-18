@@ -44,7 +44,7 @@ function fileUploadView() {
 			url		: "/attchFile/testFileDownLoadList",
 			data	: {usr_id : "bbk"},
 			success	: function (list) {
-				str_html = "<table border ='1'>";
+				str_html = "<table class = 'table table-striped' border ='1'>";
 				str_html += "<tr>";
 				str_html += "<th>파일명</th>";
 				str_html += "<th>파일크기</th>";

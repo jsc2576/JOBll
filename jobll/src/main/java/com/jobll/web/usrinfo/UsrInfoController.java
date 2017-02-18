@@ -29,6 +29,11 @@ public class UsrInfoController {
 	@Autowired
 	private UsrInfoService usrInfoService;
 	
+	@RequestMapping(value = "/myUsrInfo")
+	public String goAttchFileUpload() throws Exception {
+		return "usrInfo/MyUsrInfo";
+	}
+	
 	@RequestMapping(value = "/select", method = RequestMethod.GET)
 	public List<HashMap<String, Object>> select() {
 		List<HashMap<String, Object>> List;

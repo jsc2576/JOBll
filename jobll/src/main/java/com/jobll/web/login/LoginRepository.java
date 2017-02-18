@@ -7,7 +7,6 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.jobll.web.attchfile.AttchFile;
 
-import com.jobll.web.home.Home;
 import com.jobll.web.usrinfo.UsrInfo;
 
 @Repository

@@ -158,8 +158,7 @@ public class AttchFileService {
 			attchFile.setFile_typ(4);
 		
 		//test용 임시 idx 지정
-		attchFile.setUsr_id("bbk");
-		attchFile.setSigned_url("");
+		attchFile.setRef_idx("bbk");
 		
 		attchFile.setReg_date(commonUtil.getCurrentDtime());
 

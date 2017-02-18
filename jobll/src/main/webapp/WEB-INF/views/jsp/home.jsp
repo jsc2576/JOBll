@@ -25,7 +25,7 @@
     <script type="text/javascript">
 	function popupOpen(){
 		var popUrl = "/login.do";	//팝업창에 출력될 페이지 URL
-		var popOption = "width=370, height=360, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
+		var popOption = "width=370, height=550, resizable=no, scrollbars=yes, status=no;";    //팝업창 옵션(optoin)
 		window.open(popUrl,"",popOption);
 	}
 	</script>
@@ -65,7 +65,7 @@
             <A href="/" class="active">
               <span>Home</span>
             </a>
-            <A href="/myUsrInfo" >
+            <A href="/usr/myUsrInfo" >
               <span>회원정보</span>
             </a>
             <A href="/usr" >
@@ -76,6 +76,9 @@
             </a>
             <A href="/atcl" >
               <span>게시판</span>
+            </a>
+            <A href="editor" >
+              <span>글쓰기</span>
             </a>
              <A href="/fileUpLoad" >
               <span>파일업로드</span>
