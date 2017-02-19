@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import org.omg.CORBA.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +19,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-@RequestMapping("/atcl")
 public class AtclInfoController {
 
 	@Autowired
@@ -50,9 +50,9 @@ public class AtclInfoController {
 	 * 모든 데이터를 검색 
 	 * @return
 	 */
-	@RequestMapping("/")
+	@RequestMapping("/atcl")
 	public String atcl(){
-		return "atcl/atcl";
+		return "atclInfo/atclList";
 	}
 	
 	
@@ -61,7 +61,7 @@ public class AtclInfoController {
 	 * @param entity
 	 * @return
 	 */
-	@RequestMapping("/all")
+	@RequestMapping(value = "/atcl/all", method= RequestMethod.GET)
 	@ResponseBody
 	public List<AtclInfo> AtclAll(@ModelAttribute AtclInfo entity){
 		List<AtclInfo> atcl_list = atclInfoService.findList(entity, 0);
@@ -74,7 +74,7 @@ public class AtclInfoController {
 	 * @param entity
 	 * @return
 	 */
-	@RequestMapping("/rcv/wait")
+	@RequestMapping(value = "/atcl/rcv/wait", method = RequestMethod.GET)
 	@ResponseBody
 	public List<AtclInfo> AtclRcvWait(@ModelAttribute AtclInfo entity){
 		List<AtclInfo> atcl_list = atclInfoService.findList(entity, 1);
@@ -87,7 +87,7 @@ public class AtclInfoController {
 	 * @param entity
 	 * @return
 	 */
-	@RequestMapping("/rcv/cmpt")
+	@RequestMapping(value = "/atcl/rcv/cmpt", method = RequestMethod.GET)
 	@ResponseBody
 	public List<AtclInfo> AtclRcvCmpt(@ModelAttribute AtclInfo entity){
 		List<AtclInfo> atcl_list = atclInfoService.findList(entity, 2);
@@ -100,7 +100,7 @@ public class AtclInfoController {
 	 * @param entity
 	 * @return
 	 */
-	@RequestMapping("/prcs/wait")
+	@RequestMapping(value = "/atcl/prcs/wait", method = RequestMethod.GET)
 	@ResponseBody
 	public List<AtclInfo> AtclPrcsWait(@ModelAttribute AtclInfo entity){
 		List<AtclInfo> atcl_list = atclInfoService.findList(entity, 3);
@@ -113,7 +113,7 @@ public class AtclInfoController {
 	 * @param entity
 	 * @return
 	 */
-	@RequestMapping("/prcs/cmpt")
+	@RequestMapping(value = "/atcl/prcs/cmpt", method = RequestMethod.GET)
 	@ResponseBody
 	public List<AtclInfo> AtclPrcsCmpt(@ModelAttribute AtclInfo entity){
 		List<AtclInfo> atcl_list = atclInfoService.findList(entity, 4);
