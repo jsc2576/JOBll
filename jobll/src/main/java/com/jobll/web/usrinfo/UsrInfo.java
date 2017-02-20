@@ -13,22 +13,23 @@ public class UsrInfo implements Serializable{
 	private static final long serialVersionUID = -1638273159722849211L;
 	
 	
-	private String usr_id;					// 사용자아이디
+	private String usr_id;						// 사용자아이디
 	private String usr_nm;					// 사용자이름
 	private Integer usr_lv;					// 사용자 등급
 	private Integer tel_num;				// 전화번호
 	private Integer mobile_num;				// 휴대폰번호
 	private String usr_email;				// 이메일
 	private String usr_cmpny;				// 회사명
-	private Integer usr_age;				// 나이
 	private String usr_gdr;					// 유저성별 M:남자 F:여자 (Default:M)
 	private String usr_pwd;					// 사용자비밀번호
-	private Integer join_date;				// 가입일자
+	private String join_date;				// 가입일자
 	private Integer act_stus;				// 1:활성 2: 비활성(Default:1)
 	private String zip_cd;					// 우편번호
 	private String norm_addr;				// 기본주소
 	private String dtl_addr;				// 상세주소
 	private Integer usr_brth;				// 생년월일
+	
+	
 	
 	public String getUsr_id() {
 		return usr_id;
@@ -72,12 +73,6 @@ public class UsrInfo implements Serializable{
 	public void setUsr_cmpny(String usr_cmpny) {
 		this.usr_cmpny = usr_cmpny;
 	}
-	public Integer getUsr_age() {
-		return usr_age;
-	}
-	public void setUsr_age(Integer usr_age) {
-		this.usr_age = usr_age;
-	}
 	public String getUsr_gdr() {
 		return usr_gdr;
 	}
@@ -90,10 +85,10 @@ public class UsrInfo implements Serializable{
 	public void setUsr_pwd(String usr_pwd) {
 		this.usr_pwd = usr_pwd;
 	}
-	public Integer getJoin_date() {
+	public String getJoin_date() {
 		return join_date;
 	}
-	public void setJoin_date(Integer join_date) {
+	public void setJoin_date(String join_date) {
 		this.join_date = join_date;
 	}
 	public Integer getAct_stus() {
@@ -120,22 +115,12 @@ public class UsrInfo implements Serializable{
 	public void setDtl_addr(String dtl_addr) {
 		this.dtl_addr = dtl_addr;
 	}
-	public Integer getUsr_birth() {
+	public Integer getUsr_brth() {
 		return usr_brth;
 	}
-	public void setUsr_birth(Integer usr_birth) {
-		this.usr_brth = usr_birth;
+	public void setUsr_brth(Integer usr_brth) {
+		this.usr_brth = usr_brth;
 	}
-	@Override
-	public String toString() {
-		return "UsrInfo [usr_id=" + usr_id + ", usr_nm=" + usr_nm + ", usr_lv="
-				+ usr_lv + ", tel_num=" + tel_num + ", mobile_num="
-				+ mobile_num + ", usr_email=" + usr_email + ", usr_cmpny="
-				+ usr_cmpny + ", usr_age=" + usr_age + ", usr_gdr=" + usr_gdr
-				+ ", usr_pwd=" + usr_pwd + ", join_date=" + join_date
-				+ ", act_stus=" + act_stus + ", zip_cd=" + zip_cd
-				+ ", norm_addr=" + norm_addr + ", dtl_addr=" + dtl_addr
-				+ ", usr_birth=" + usr_brth + "]";
-	}
+	
 	
 }

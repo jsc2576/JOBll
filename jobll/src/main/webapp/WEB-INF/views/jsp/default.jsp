@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>JOBll - Project</title>
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <meta http-equiv="Content-Type" Content="text/html; charset=utf-8" />
+    <meta http-equiv="Conztent-Type" Content="text/html; charset=utf-8" />
     <!--Fav-->
     <link href="images/favicon.ico" rel="shortcut icon">
     <!--styles-->
@@ -54,13 +54,13 @@
             <A href="/usr" >
               <span>회원목록</span>
             </a>
-            <A href="usrInfoJoin" >
+            <A href="/usrInfoJoin" >
               <span>회원가입</span>
             </a>
             <A href="/atcl" >
               <span>게시판</span>
             </a>
-            <A href="editor" >
+            <A href="/editor" >
               <span>글쓰기</span>
             </a>
              <A href="/fileUpLoad" >

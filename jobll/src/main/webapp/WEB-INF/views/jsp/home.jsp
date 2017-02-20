@@ -71,13 +71,13 @@
             <A href="/usr" >
               <span>회원목록</span>
             </a>
-            <A href="usrInfoJoin" >
+            <A href="/usrInfoJoin" >
               <span>회원가입</span>
             </a>
             <A href="/atcl" >
               <span>게시판</span>
             </a>
-            <A href="editor" >
+            <A href="/editor" >
               <span>글쓰기</span>
             </a>
              <A href="/fileUpLoad" >
