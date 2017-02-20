@@ -344,6 +344,6 @@
     <script src="/resources/js/smooth-scroll.min.js" type="text/javascript"></script>
     <script src="/resources/js/typed.js" type="text/javascript"></script>
     <script src="/resources/js/main.js" type="text/javascript"></script>
-    <script src="resources/js/customeditor.js" type="text/javascript"></script>
+    <script src="resources/js/editor/editor.js" type="text/javascript"></script>
   </body>
 </html>

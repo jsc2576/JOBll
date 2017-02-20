@@ -131,6 +131,7 @@ function editorwrite() {
 	
 			
 	$("#editorcreateform").ajaxForm ({
+		method   : "post",
 		url: "/atcl/AtclCreate",
 		enctype: "multipart/form-data",
 		data	: {atcl_sbjt : subject, atcl_conts : context},

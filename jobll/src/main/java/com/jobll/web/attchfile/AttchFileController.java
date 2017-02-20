@@ -19,8 +19,8 @@ import com.jobll.web.AwsS3Config;
 //import com.jobll.web.user.UserService;
 
 /**
- * 파일 첨부 테스트를 위한 Controller 파일 업로드 웹에서의 사용 예제(클라이언트)와 파일 업로드 서비스(서버) 사용 예제입니다.
- * 쓰기전에 꼭 한번 봐주세요
+ * 
+ * 현 컨트롤러는 파일 업로드 기능을 위해서 임시로 구성한 컨트롤러입니다. 개발 후 사용하지 않습니다.
  * 
  * @author jsh
  *
