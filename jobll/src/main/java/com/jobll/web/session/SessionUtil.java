@@ -38,7 +38,7 @@ public class SessionUtil {
 	 * @param request
 	 * @return
 	 */
-	private HttpSession getNewSession(HttpServletRequest request) {
+	public HttpSession getNewSession(HttpServletRequest request) {
 		return request.getSession(true);
 	}
 	
