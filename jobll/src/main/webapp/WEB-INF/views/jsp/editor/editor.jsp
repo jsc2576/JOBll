@@ -105,8 +105,8 @@
         <!--/.HOME END-->
 
         <!--FILE UP LOAD -->
-        <section id="editor-section">
-        	<form id = "editor-form">
+        <form id ="editorcreateform"  method="post" enctype="multipart/form-data">
+	        <section id="editor-section">
 	        	<div id="subject-tag">
 		        	<label for="subject">제목</label>
 		  			<input type="text" class="form-control" id="subject">
@@ -316,19 +316,17 @@
 		        	</div>
 		      </div>
 		      <div id="editor_box" CONTENTEDITABLE></div>
-			</form>
-        </section>
-        <!--/.EDITOR LOAD END-->
-        <section id="file-upload-section">
-	        <div id = "file-upload-tag">
-		        <form id="commonForm" name="commonForm"></form>
-		        <form id ="fileUpLoadForm"  method="post" enctype="multipart/form-data">
+	        </section>
+	        <!--/.EDITOR LOAD END-->
+	        <section id="file-upload-section">
+		        <div id = "file-upload-tag">
 		        	<input type="file" id="file-upload"  name="uploadFile" />
 		   			<div id="file-list" style="border:2px solid #c9c9c9;min-height:50px"></div> 
 	        		<p><button onclick ="editorwrite()">글 쓰기</button></p>
-				</form>
-          </div>
-        </section>
+	          </div>
+	          
+	        </section>
+        </form>
         <!--/.FILE UPLOAD LOAD END-->
       </div>
      </div>
