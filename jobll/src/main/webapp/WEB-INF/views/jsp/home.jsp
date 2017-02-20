@@ -54,11 +54,7 @@
         </div>
         <!--/.LOGO END-->
       </div>
-      <div class="login-button">
-      	<div class="col-md-2 col-xs-6 logo">
-            <A href="javascript:popupOpen();">로그인</A>
-        </div>
-      </div>
+      
       <div class="menu-wrap">
         <nav class="menu">
           <div class="menu-list">

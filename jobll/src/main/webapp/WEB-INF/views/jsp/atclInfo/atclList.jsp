@@ -16,21 +16,10 @@
     <link href="/resources/css/magnific-popup.css" rel="stylesheet">
     <link href="/resources/css/style.css" rel="stylesheet">
     <link href="/resources/css/responsive.css" rel="stylesheet">
+    
     <!--fonts google-->
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
-    
-    <!-- 이세연 add start-->
-    <script type="text/javascript">
-	function popupOpen(){
-		var popUrl = "/login.do";	//팝업창에 출력될 페이지 URL
-		var popOption = "width=370, height=360, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
-		window.open(popUrl,"",popOption);
-	}
-	</script>
-	<link rel="stylesheet" type="text/css" href="/resources/css/usr/usr.css">
-    
-    <!-- 이세연 add end-->
     
     <!--[if lt IE 9]>
        <script type="text/javascript" src="/resources/js/html5shiv.min.js"></script>
@@ -53,14 +42,14 @@
           <a href="/"><img alt="logo" class="logo-nav" src="/resources/images/logo.png"></a>
         </div>
         <!--/.LOGO END-->
-      </div>     
+      </div>
       <div class="menu-wrap">
         <nav class="menu">
           <div class="menu-list">
        		<A href="/" class="active">
               <span>Home</span>
             </a>
-            <A href="/usr/myUsrInfo" >
+            <A href="/myUsrInfo" >
               <span>회원정보</span>
             </a>
             <A href="/usr" >
@@ -71,9 +60,6 @@
             </a>
             <A href="/atcl" >
               <span>게시판</span>
-            </a>
-            <A href="editor" >
-              <span>글쓰기</span>
             </a>
              <A href="/fileUpLoad" >
               <span>파일업로드</span>
@@ -100,7 +86,7 @@
             <div class="row">
               <div class="wrap-hero-content">
                   <div class="hero-content">
-                    <a href = "/testmember">회원정보</a>
+                    <a href = "/testmember">게시판</a>
                     <br>
                     <span class="typed"></span>
                   </div>
@@ -113,59 +99,31 @@
         </section>
         <!--/.HOME END-->
 
-        <!--user START -->
-        <section id="user-info-tag">
-        <div class="col-md-12 col-md-offset--1">
-        	<p> </p>
-			<table class="type01">
-				<thead>
-            		<tr>
-                      	<th scope="cols"></th>
-                		<th scope="cols">번호</th>
-                		<th scope="cols">등급</th>
-                		<th scope="cols">회사</th>
-                		<th scope="cols">이름</th>
-                		<th scope="cols">가입날짜</th>
-                      	<th scope="cols">수정</th>
-             		</tr>
-             	</thead>
-             	<tbody>
-            		<tr>
-                        <td scope="row"><input type="checkbox" name="check" value="1"></td>
-                		<td scope="row">1</td>
-                		<td scope="row">ex</td>
-                		<td scope="row">ex</td>
-                		<td scope="row">ex</td>
-                		<td scope="row">2000.xx.xx</td>
-                      	<td scope="row"> <a href="modify.jsp">수정</a></td>
-             		</tr>
-             		<tr>
-                        <td scope="row" class="even"> <input type="checkbox" name="check" value="1"></td>
-                		<td scope="row" class="even">2</td>
-                		<td scope="row" class="even">ex2</td>
-                		<td scope="row" class="even">ex2</td>
-                		<td scope="row" class="even">ex2</td>
-                		<td scope="row" class="even">2000.xx.xx</td>
-                      	<td scope="row" class="even"> <a href="modify.jsp">수정</a></td>
-             		</tr>
-            	</tbody>
-            </table>
-            <form role="form" action="/usr/make" method="post"> 
-            <button onclick = "usrList()">회원리스트</button>
-            <div class="form-group">
-              <table><tbody><tr>
-              <td><button type="submit" class="btn btn-info">글쓰기<i class="fa fa-check spaceLeft"></i></button></td>
-              
-              
-              <td><button type="submit" class="btn btn-info">삭제<i class="fa fa-check spaceLeft"></i></button></td>
-              <td><input type="text" class="lsycss" id="atcl_search"></td>
-			  <td><button type="submit" class="btn btn-info">수정<i class="fa fa-check spaceLeft"></i></button></td>
-              </tr></tbody></table>  
-              </div>
-            </form>
+        <!--atcl START -->
+        <div id="process" style="margin-top: 100px">
+        	<a onclick="findAll()" style="margin-right: 2px">전체목록</a>|
+        	<a onclick="findRcvWait()" style="margin-right: 2px">접수대기</a>|
+        	<a onclick="findRcvCmpt()" style="margin-right: 2px">접수완료</a>|
+        	<a onclick="findPrcsWait()" style="margin-right: 2px">처리중</a>|
+        	<a onclick="findPrcsCmpt()" style="margin-right: 2px">처리완료</a>
         </div>
-        </section>
-        <!--/.user END-->
+        
+        <table border="1" style="width: 100%">
+        	<tr>
+        		<th>접수번호</th><th>제목</th><th>기관명</th><th>등록일</th><th>처리상태</th>
+        	</tr>
+       		<div id="data_list"></div>
+       		
+        </table>
+        12345678
+        <div class="jb-center">
+	        	<ul class="pagination" id="page_nm">
+	     		</ul>
+	     </div>
+		</div>
+	</div>
+        
+        <!--/.atcl END-->
     
 
     <script src="/resources/js/jquery-1.9.1.min.js" type="text/javascript"></script>
@@ -180,6 +138,6 @@
     <script src="/resources/js/smooth-scroll.min.js" type="text/javascript"></script>
     <script src="/resources/js/typed.js" type="text/javascript"></script>
     <script src="/resources/js/main.js" type="text/javascript"></script>
-    <script src="/resources/js/usr/usr.js" type="text/javascript"></script>
+    <script src="/resources/js/atcl/atclList.js" type="text/javascript"></script>
   </body>
 </html>

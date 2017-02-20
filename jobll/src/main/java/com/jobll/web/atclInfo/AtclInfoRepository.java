@@ -27,7 +27,7 @@ public class AtclInfoRepository {
 		List<AtclInfo> atcl_list = null;
 		
 		if(prcv_nm == 0){
-			atcl_list = sqlSession.selectList("com.jobll.web.atcl.Atcl.findAll", entity);
+			atcl_list = sqlSession.selectList("com.jobll.web.atcl.Atcl.findAll");
 		}
 		else if(prcv_nm < 5 && prcv_nm > 0){
 			atcl_list = sqlSession.selectList("com.jobll.web.atcl.Atcl.findPrcs", prcv_nm);
