@@ -1,34 +1,19 @@
 package com.jobll.web.attchfile;
 
-import java.io.File;
-import java.io.InputStream;
-import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.FileSystemResource;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.jobll.web.AwsS3Config;
 //import com.jobll.web.user.UserService;
@@ -82,7 +67,7 @@ public class AttchFileController {
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest)request;
 		List<MultipartFile> multipartFile = multipartRequest.getFiles("uploadFile");
 		
-		attchFileService.uploadFiles(multipartFile);
+		attchFileService.uploadFiles(multipartFile,entity);
 		return entity;
 	}
 	
@@ -101,7 +86,7 @@ public class AttchFileController {
 		return list;
 	}
 	
-	@RequestMapping(value="/attchFile/testFileDownLoadRun")
+	/*@RequestMapping(value="/attchFile/testFileDownLoadRun")
 	public void FileDownLoadRun(@ModelAttribute AttchFile entity, HttpServletResponse response) throws Exception{
 
 		File file = attchFileService.getDownLoadResponse(entity);
@@ -128,5 +113,5 @@ public class AttchFileController {
 	    response.getOutputStream().close();
 	    
 	    file.delete();
-	}
+	}*/
 }

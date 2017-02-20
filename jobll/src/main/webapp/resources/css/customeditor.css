@@ -1,0 +1,35 @@
+ul, li {
+	 list-style:none;
+}
+.tx-toolbar .tx-bar-left {
+    margin: 0 3px 0 -40px;
+}
+.tx-menu-list-item
+{
+	margin-left :-35px;
+}
+#tx_toolbar_basic {
+	width : 80%;
+	margin : auto;
+}
+#editor_box {
+	width : 80%;
+	margin : auto;
+	height : 400px;
+	border : 1px solid black;
+}
+#editor-tag {
+	margin-bottom : 50px;
+}
+#subject-tag {
+	width : 80%;
+	margin : auto;
+	margin-top : 20px;
+	margin-bottom : 20px;
+}
+#file-upload-tag {
+	width : 80%;
+	margin : auto;
+	margin-top : 20px;
+	margin-bottom : 20px;
+}

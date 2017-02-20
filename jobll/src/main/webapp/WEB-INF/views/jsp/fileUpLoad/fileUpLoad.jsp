@@ -46,7 +46,7 @@
       <div class="menu-wrap">
         <nav class="menu">
           <div class="menu-list">
-             <A href="/" class="active">
+            <A href="/" class="active">
               <span>Home</span>
             </a>
             <A href="/usr/myUsrInfo" >
@@ -55,13 +55,13 @@
             <A href="/usr" >
               <span>회원목록</span>
             </a>
-            <A href="usrInfoJoin" >
+            <A href="/usrInfoJoin" >
               <span>회원가입</span>
             </a>
             <A href="/atcl" >
               <span>게시판</span>
             </a>
-            <A href="editor" >
+            <A href="/editor" >
               <span>글쓰기</span>
             </a>
              <A href="/fileUpLoad" >
@@ -105,17 +105,17 @@
 
         <!--FILE UP LOAD -->
         <section id="file-upload-tag">
-          <div class="col-md-12 col-xs-12 no-pad">
-          <form id="commonForm" name="commonForm"></form>
-          <form id ="fileUpLoadForm"  method="post" enctype="multipart/form-data">
-        	<input type="button" value="추가" onclick="addUpload()"/>
-			<input type="button" value="제거" onclick="delUpload()"/>
-			<div id="uploads">
-			<p><input type="file" id="file-upload"  name="uploadFile" /></p>
-			</div>
+	        <div class="col-md-12 col-xs-12 no-pad">
+	        <form id="commonForm" name="commonForm"></form>
+	        <form id ="fileUpLoadForm"  method="post" enctype="multipart/form-data">
+         
+          
+	        	<input type="file" id="file-upload"  name="uploadFile" />
+				
+	   			<div id="file-list" style="border:2px solid #c9c9c9;min-height:50px"></div> 
         	<p><button onclick ="fileUpload()">등록</button></p>
-		</form>
-		<button onclick = "fileUploadView()">파일리스트 보기</button>
+			</form>
+			<button onclick = "fileUploadView()">파일리스트 보기</button>
 		<div id = "list"></div>
           </div>
         </section>
@@ -125,6 +125,7 @@
 
     <script src="/resources/js/jquery-1.9.1.min.js" type="text/javascript"></script>
     <script src="/resources/js/jquery.form.min.js" type="text/javascript"></script>
+    <script src="/resources/js/jquery.multifile.min.js" type="text/javascript"></script>
     <script src="/resources/js/jquery.appear.js" type="text/javascript"></script>
     <script src="/resources/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="/resources/js/classie.js" type="text/javascript"></script>

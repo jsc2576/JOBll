@@ -27,7 +27,7 @@ public class AtclInfoService {
 	
 	public int createAtcl(AtclInfo entity){
 		
-		entity.setUsr_id("bbk");
+		entity.setUsr_id("bbk1");
 		entity.setReg_date(commonUtil.getCurrentDtime());
 		entity.setAtcl_stus(1);
 		entity.setCmpny_nm("미정");

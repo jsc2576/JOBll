@@ -43,7 +43,7 @@
             </div>
             <div class="form-group">
               <label for="usr_birth">생년월일</label>
-              <input type="text" class="form-control" id="usr_birth" name="usr_birth" placeholder="생년월일">
+              <input type="text" class="form-control" id="usr_brth" name="usr_brth" placeholder="생년월일">
             </div>
            	<div class="form-group">
            	<label for="usr_gdr">성별</label><br>
@@ -66,7 +66,7 @@
             </div>
             <div class="form-group">
               <label for="mobile_num">핸드폰 번호</label>
-               <input type="tel" class="form-control" id="mobile_num"  name="mobile_num" placeholder="- 없이 입력해 주세요">
+               <input type="text" class="form-control" id="mobile_num"  name="mobile_num" placeholder="- 없이 입력해 주세요">
             </div>
             <div class="form-group">
               <label for="zip_cd">우편번호</label>

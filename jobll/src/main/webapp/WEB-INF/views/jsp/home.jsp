@@ -54,11 +54,7 @@
         </div>
         <!--/.LOGO END-->
       </div>
-      <div class="login-button">
-      	<div class="col-md-2 col-xs-6 logo">
-            <A href="javascript:popupOpen();">로그인</A>
-        </div>
-      </div>
+      
       <div class="menu-wrap">
         <nav class="menu">
           <div class="menu-list">
@@ -71,13 +67,13 @@
             <A href="/usr" >
               <span>회원목록</span>
             </a>
-            <A href="usrInfoJoin" >
+            <A href="/usrInfoJoin" >
               <span>회원가입</span>
             </a>
             <A href="/atcl" >
               <span>게시판</span>
             </a>
-            <A href="editor" >
+            <A href="/editor" >
               <span>글쓰기</span>
             </a>
              <A href="/fileUpLoad" >
