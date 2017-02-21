@@ -24,14 +24,14 @@ public class AtclInfoRepository {
 	 * @param entity
 	 * @return
 	 */
-	public List<AtclInfo> findList(AtclInfo entity, Integer prcv_nm){
+	public List<AtclInfo> findList(AtclInfo entity) throws Exception{
 		List<AtclInfo> atcl_list = null;
 		
-		if(prcv_nm == 0){
-			atcl_list = sqlSession.selectList("com.jobll.web.atcl.Atcl.findAll");
+		if(entity.getPrcs_stus() == 0){
+			atcl_list = sqlSession.selectList("com.jobll.web.atclInfo.AtclInfo.findAll");
 		}
-		else if(prcv_nm < 5 && prcv_nm > 0){
-			atcl_list = sqlSession.selectList("com.jobll.web.atcl.Atcl.findPrcs", prcv_nm);
+		else if(entity.getPrcs_stus() < 5 && entity.getPrcs_stus() > 0){
+			atcl_list = sqlSession.selectList("ccom.jobll.web.atclInfo.AtclInfo.findPrcs", entity.getPrcs_stus());
 		}
 		
 		return atcl_list;

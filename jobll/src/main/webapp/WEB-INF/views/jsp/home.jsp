@@ -41,6 +41,7 @@
     <![endif]-->
   </head>
   <body>
+ 
     <!--PRELOADER
      <div id="preloader">
       <div id="status">
@@ -83,6 +84,9 @@
              <A href="/fileUpLoad" >
               <span>파일업로드</span>
             </a>
+             <A href="/logout.do" >
+              <span>로그아웃</span>
+            </a>
           </div>
         </nav>
         <button class="close-button" id="close-button">Close Menu</button>
@@ -94,7 +98,7 @@
       </button><!--/.for-sticky-->
     </div>
     <!--/.HEADER END-->
-    
+
     <!--CONTENT WRAP-->
     <div class="content-wrap">
       <!--CONTENT-->

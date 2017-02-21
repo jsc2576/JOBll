@@ -165,5 +165,12 @@
 	
 </form>
 
+		<form action="/signin/facebook" method="POST">
+    <input type="hidden" name="scope" value="public_profile" />
+    <input type="submit" value="Login using Facebook"/>
+</form>
+<form action="/logout.do" method="POST">
+   
+</form>
 </body>
 </html>

@@ -101,11 +101,11 @@
 
         <!--atcl START -->
         <div id="process" style="margin-top: 100px">
-        	<a onclick="findAll()" style="margin-right: 2px">전체목록</a>|
-        	<a onclick="findRcvWait()" style="margin-right: 2px">접수대기</a>|
-        	<a onclick="findRcvCmpt()" style="margin-right: 2px">접수완료</a>|
-        	<a onclick="findPrcsWait()" style="margin-right: 2px">처리중</a>|
-        	<a onclick="findPrcsCmpt()" style="margin-right: 2px">처리완료</a>
+        	<a onclick="findData(0)" style="margin-right: 2px">전체목록</a>|
+        	<a onclick="findData(1)" style="margin-right: 2px">접수대기</a>|
+        	<a onclick="findData(2)" style="margin-right: 2px">접수완료</a>|
+        	<a onclick="findData(3)" style="margin-right: 2px">처리중</a>|
+        	<a onclick="findData(4)" style="margin-right: 2px">처리완료</a>
         </div>
         
         <table border="1" style="width: 100%">
