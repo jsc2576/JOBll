@@ -3,6 +3,7 @@ $(document).ready (function (){
 });
 
 function findData(prcs_stus, atcl_offset, atcl_limit){
+
 	$.ajax({
 		method : "POST",
 		url : "/atcl/find.json",
