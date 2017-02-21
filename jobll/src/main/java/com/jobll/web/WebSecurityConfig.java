@@ -17,6 +17,9 @@ import org.springframework.social.security.SocialUserDetailsService;
 import org.springframework.social.security.SpringSocialConfigurer;
 
 import com.jobll.web.login.LoginService;
+import com.jobll.web.social.FacebookConnectionSignup;
+import com.jobll.web.social.FacebookSignInAdapter;
+import com.jobll.web.social.SimpleSocialUsersDetailService;
 
 @Configuration
 @EnableWebSecurity
