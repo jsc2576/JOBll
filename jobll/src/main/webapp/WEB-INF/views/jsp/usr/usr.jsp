@@ -159,7 +159,7 @@
               
               <td><button type="submit" class="btn btn-info">삭제<i class="fa fa-check spaceLeft"></i></button></td>
               <td><input type="text" class="lsycss" id="atcl_search"></td>
-			  <td><button type="submit" class="btn btn-info">수정<i class="fa fa-check spaceLeft"></i></button></td>
+			  <td><button type="submit" class="btn btn-info">검색<i class="fa fa-check spaceLeft"></i></button></td>
               </tr></tbody></table>  
               </div>
             </form>
