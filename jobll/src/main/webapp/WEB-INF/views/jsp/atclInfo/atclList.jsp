@@ -108,14 +108,9 @@
         	<a onclick="findData(4)" style="margin-right: 2px">처리완료</a>
         </div>
         
-        <table border="1" style="width: 100%">
-        	<tr>
-        		<th>접수번호</th><th>제목</th><th>기관명</th><th>등록일</th><th>처리상태</th>
-        	</tr>
-       		<div id="data_list"></div>
+        <!-- data table -->
+       	<div id="data_list"></div>
        		
-        </table>
-        12345678
         <div class="jb-center">
 	        	<ul class="pagination" id="page_nm">
 	     		</ul>

@@ -32,7 +32,7 @@
 		SELECT * from atcl_info
 	</select>
 	
-	<select id="findPrcs" resultType="com.jobll.web.atclInfo.AtclInfo" parameterType="java.lang.Integer">
-		SELECT * from atcl_info where atcl_stus = #{prcv_nm}
+	<select id="findPrcs" resultType="com.jobll.web.atclInfo.AtclInfo" parameterType="Integer">
+		SELECT * from atcl_info where prcs_stus = #{prcs_stus} OFFSET #{atcl_offset} LIMIT #{atcl_limit}
 	</select>
 </mapper>

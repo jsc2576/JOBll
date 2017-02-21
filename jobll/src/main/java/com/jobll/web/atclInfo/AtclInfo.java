@@ -19,6 +19,8 @@ public class AtclInfo implements Serializable{
 	private String cmpny_nm; //회사 이름 
 	private Integer prcs_stus; //1: 대기중, 2: 접수완료, 3: 처리중, 4: 처리완료(default: 1)
 	
+	private Integer atcl_offset;
+	private Integer atcl_limit;
 	
 	public int getAtcl_idx() {
 		return atcl_idx;
@@ -73,6 +75,18 @@ public class AtclInfo implements Serializable{
 	}
 	public void setPrcs_stus(Integer prcs_stus) {
 		this.prcs_stus = prcs_stus;
+	}
+	public Integer getAtcl_offset() {
+		return atcl_offset;
+	}
+	public void setAtcl_offset(Integer atcl_offset) {
+		this.atcl_offset = atcl_offset;
+	}
+	public Integer getAtcl_limit() {
+		return atcl_limit;
+	}
+	public void setAtcl_limit(Integer atcl_limit) {
+		this.atcl_limit = atcl_limit;
 	}
 	
 	
