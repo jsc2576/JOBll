@@ -92,11 +92,17 @@ public class AtclInfoController {
 	 * @param entity
 	 * @return
 	 */
-	@RequestMapping(value = "/atcl/find.json", method= RequestMethod.POST)
+	@RequestMapping(value = "/atcl/find", method= RequestMethod.POST)
 	@ResponseBody
 	public List<AtclInfo> AtclList(@ModelAttribute AtclInfo entity) throws Exception{
 		List<AtclInfo> atcl_list = atclInfoService.findList(entity);
 		
 		return atcl_list;
+	}
+	
+	@RequestMapping(value = "/atcl/find/cnt", method= RequestMethod.POST)
+	@ResponseBody
+	public Integer AtclCnt(@ModelAttribute AtclInfo entity) throws Exception{
+		return null;
 	}
 }

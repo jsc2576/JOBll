@@ -64,7 +64,7 @@ function findData(prcs_stus, atcl_offset, atcl_limit){
 
 	$.ajax({
 		method : "POST",
-		url : "/atcl/find.json",
+		url : "/atcl/find",
 		data : {prcs_stus : prcs_stus, atcl_offset : atcl_offset, atcl_limit : atcl_limit},
 		success: function(list){
 			
@@ -87,6 +87,19 @@ function findData(prcs_stus, atcl_offset, atcl_limit){
 			$("#data_list").html(str_html);		
 		},
 		error: function(){alert("ERROR")}
+	});
+}
+
+
+function findDataCount(){
+	$.ajax({
+		method : "POST",
+		url : "/atcl/find.json",
+		data : {prcs_stus : prcs_stus, atcl_offset : atcl_offset, atcl_limit : atcl_limit},
+		success: function(data){
+			
+			
+		}
 	});
 }
 
