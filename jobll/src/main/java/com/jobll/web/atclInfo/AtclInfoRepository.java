@@ -12,6 +12,7 @@ public class AtclInfoRepository {
 	@Autowired
     private SqlSession sqlSession;
 	
+	
 	public int createAtcl(AtclInfo entity){
 		int qry = sqlSession.insert("com.jobll.web.atclInfo.AtclInfo.create", entity);
 		return qry;

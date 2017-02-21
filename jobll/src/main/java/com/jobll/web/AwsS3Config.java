@@ -50,7 +50,7 @@ public class AwsS3Config {
 	private String bucketName;
 	
 	private AmazonS3 conn;
-	
+	//AWS S3 접속 모듈 입니다.
 	public void connectionAwsS3() {
 	
 		accessKey = "AKIAJKEQIYAL35KYQORA";
@@ -67,40 +67,14 @@ public class AwsS3Config {
 		conn.setEndpoint("s3-ap-northeast-2.amazonaws.com");
 
 	}
-	
-	// Bucket List
-		public List<Bucket> getBucketList() {
-			return conn.listBuckets();
-		}
 
-		// Bucket 생성
-		public Bucket createBucket(String bucketName) {
-			return conn.createBucket(bucketName);
-		}
-
-		// 파일 삭제
-		public void fileDelete(String bucketName, String fileName) {
-			conn.deleteObject(bucketName, fileName);
-		}
-
-		// 파일 URL
-		public String getFileURL(String fileName) {
-			return conn.generatePresignedUrl(new GeneratePresignedUrlRequest(this.bucketName, fileName)).toString();
-
-		}
-
-		public String upload(MultipartFile multipartFile, String S3path) {
-
-			return "";
-		}
-		
 		public String multipartFileUpload(MultipartFile multipartFile, String S3path) throws IOException {
 			
 			/* aws server용 코드
 			File file = new File("/var/lib/tomcat8/webapps/ROOT/resources/images/"+multipartFile.getOriginalFilename());
 			*/
-			//File file = new File(multipartFile.getOriginalFilename());
-			File file = new File("/var/lib/tomcat8/webapps/ROOT/resources/images/"+multipartFile.getOriginalFilename());
+			File file = new File(multipartFile.getOriginalFilename());
+			//File file = new File("/var/lib/tomcat8/webapps/ROOT/resources/images/"+multipartFile.getOriginalFilename());
 			file.createNewFile(); 
 			
 			FileOutputStream fos = new FileOutputStream(file);
@@ -141,73 +115,4 @@ public class AwsS3Config {
 				return true;
 			}
 		}
-
-		/**
-		 * 다운받을 수 있는 미리 서명받은 메소드입니다. 인증된 기간은 현재 10년이며 소스에서 수정가능합니다.
-		 * 
-		 * @param multipartFile
-		 * @param S3path
-		 * @return
-		 */
-		public String getMPFileURL(MultipartFile multipartFile, String S3path) {
-			this.connectionAwsS3();
-			java.util.Date expiration = new java.util.Date();
-			long msec = expiration.getTime();
-			msec += 1000 * 60 * 60 * 24 * 365 * 10; // 10년
-			expiration.setTime(msec);
-
-			GeneratePresignedUrlRequest generatePresignedUrlRequest = new GeneratePresignedUrlRequest(this.bucketName, S3path + multipartFile.getOriginalFilename());
-			generatePresignedUrlRequest.setExpiration(expiration);
-
-			String url = conn.generatePresignedUrl(generatePresignedUrlRequest).toString();
-
-			return url;
-
-		}
-
-		/**
-		 * 실제 데이터 위치를 기반으로 복사를 합니다.
-		 * 
-		 * @param To
-		 * @param From
-		 * @return
-		 */
-		public String copyFileToFrom(String To, String From) {
-			this.connectionAwsS3();
-			try {
-				CopyObjectRequest copyObjRequest = new CopyObjectRequest(this.bucketName, From, this.bucketName, To);
-				System.out.println("Copying object.");
-				if (conn.copyObject(copyObjRequest) == null) {
-					return "false";
-				} else {
-					return To;
-				}
-
-			} catch (AmazonServiceException ase) {
-				System.out.println("Caught an AmazonServiceException, " + "which means your request made it " + "to Amazon S3, but was rejected with an error " + "response for some reason.");
-				System.out.println("Error Message:    " + ase.getMessage());
-				System.out.println("HTTP Status Code: " + ase.getStatusCode());
-				System.out.println("AWS Error Code:   " + ase.getErrorCode());
-				System.out.println("Error Type:       " + ase.getErrorType());
-				System.out.println("Request ID:       " + ase.getRequestId());
-			} catch (AmazonClientException ace) {
-				System.out.println("Caught an AmazonClientException, " + "which means the client encountered " + "an internal error while trying to " + " communicate with S3, "
-						+ "such as not being able to access the network.");
-				System.out.println("Error Message: " + ace.getMessage());
-			}
-			return "false";
-
-		}
-
-		public InputStream getObjectInputStream(String path) {
-			this.connectionAwsS3();
-			S3Object s3object = conn.getObject(new GetObjectRequest(this.bucketName, path));
-			
-			URL file_path = conn.getUrl(path, accessKey);
-			return s3object.getObjectContent();
-
-		}
-		
-		
-	
 }

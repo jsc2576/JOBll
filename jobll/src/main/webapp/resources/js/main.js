@@ -181,7 +181,7 @@
 
   //nav-active
   function onScroll(event){
-    var scrollPosition = $(document).scrollTop();
+   /* var scrollPosition = $(document).scrollTop();
     $('.menu-list a').each(function () {
       var currentLink = $(this);
       var refElement = $(currentLink.attr("href"));
@@ -192,7 +192,7 @@
       else{
         currentLink.removeClass("active");
       }
-    });
+    });*/
   }
 
 })(jQuery);

@@ -9,11 +9,16 @@ import org.springframework.stereotype.Service;
 import com.jobll.web.usrinfo.UsrInfo;
 import com.jobll.web.usrinfo.UsrInfoRepository;
 
+import com.jobll.web.CommonUtil;
+
 @Service
 public class UsrInfoService{
 
 	@Autowired
 	private UsrInfoRepository usrInfoRepository;
+	
+	@Autowired
+	private CommonUtil commonUtil;
 
 
 	public List<HashMap<String, Object>> select(){
@@ -26,6 +31,10 @@ public class UsrInfoService{
 	}
 	
 	public int create(UsrInfo entity){
+		
+		entity.setAct_stus(1);
+		entity.setJoin_date(commonUtil.getCurrentDtime());
+		entity.setUsr_lv(1);
 		int test = usrInfoRepository.create(entity);
 		
 		return test;

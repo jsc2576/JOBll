@@ -9,7 +9,7 @@ public class AtclInfo implements Serializable{
 
 	private static final long serialVersionUID = 6160024646312100989L;
 	
-	private String atcl_idx; //게시물 인덱스 
+	private int atcl_idx; //게시물 인덱스 
 	private String usr_id; // 유저 아이디 
 	private Integer high_atcl_idx; //상위 게시물 인덱스 
 	private String atcl_sbjt; //게시물 제목 
@@ -18,10 +18,12 @@ public class AtclInfo implements Serializable{
 	private Integer atcl_stus; //1: 활성, 2: 비활성 (default: 1) 
 	private String cmpny_nm; //회사 이름 
 	private Integer prcs_stus; //1: 대기중, 2: 접수완료, 3: 처리중, 4: 처리완료(default: 1)
-	public String getAtcl_idx() {
+	
+	
+	public int getAtcl_idx() {
 		return atcl_idx;
 	}
-	public void setAtcl_idx(String atcl_idx) {
+	public void setAtcl_idx(int atcl_idx) {
 		this.atcl_idx = atcl_idx;
 	}
 	public String getUsr_id() {

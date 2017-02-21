@@ -41,14 +41,14 @@ public class AttchFileService {
 	private AttchFileRepository attchFileRepository;
 	
 	/**
-	 * 업로드 파일 체그 설정 입니다.
+	 * 업로드 파일 체크 설정 입니다.
 	 */
-	public List<AttchFile> uploadFiles(List<MultipartFile> list) throws Exception{
+	public List<AttchFile> uploadFiles(List<MultipartFile> list, AttchFile entity) throws Exception{
 		List<AttchFile> mlist = new ArrayList<AttchFile>();
 		AttchFile uploadFile ;
 		
 		for(int i=0;i<list.size();i++){
-			uploadFile = this.uploadPathSetting(list.get(i));
+			uploadFile = this.uploadPathSetting(list.get(i),entity);
 			
 			//업로드 체크
 			if(uploadFile==null){
@@ -62,8 +62,8 @@ public class AttchFileService {
 	/**
 	 * 업로드 파일 경로 설정 입니다.
 	 */
-	public AttchFile uploadPathSetting(MultipartFile file) throws Exception {
-		AttchFile result= null;
+	public AttchFile uploadPathSetting(MultipartFile file , AttchFile entity) throws Exception {
+		AttchFile result= entity;
 		String y = commonUtil.getCurrentDtime().substring(0, 4);
 		String md = commonUtil.getCurrentDtime().substring(4, 8);
 		int i = 0;
@@ -81,11 +81,11 @@ public class AttchFileService {
 			find_file_type = file_type.nextToken(".");
         }  
 		
-
+		//파일 형식과 년도 월,일에 따른 폴더 경로를 구성합니다.
 		while(images[i] != "")
 		{
 			if(images[i].equalsIgnoreCase(find_file_type)) {
-				result = upload(file, "image/"+y+"/"+md+"/");
+				result = upload(file, "image/"+y+"/"+md+"/",entity);
 				return result;
 			}
 			i++;
@@ -94,7 +94,7 @@ public class AttchFileService {
 		while(videos[i] != "")
 		{
 			if(videos[i].equalsIgnoreCase(find_file_type)) {
-				result = upload(file, "video/"+y+"/"+md+"/");
+				result = upload(file, "video/"+y+"/"+md+"/",entity);
 				return result;
 			}
 			i++;
@@ -103,19 +103,19 @@ public class AttchFileService {
 		while(audios[i] != "")
 		{
 			if(audios[i].equalsIgnoreCase(find_file_type)) {
-				result = upload(file, "audio/"+y+"/"+md+"/");
+				result = upload(file, "audio/"+y+"/"+md+"/",entity);
 				return result;
 			}
 			i++;
 		}
 		
-		result = upload(file, "others/"+y+"/"+md+"/");
+		result = upload(file, "others/"+y+"/"+md+"/",entity);
 		return result;
 	}
 	/**
 	 * 업로드 파일 경로 설정 입니다.
 	 */
-	public AttchFile upload(MultipartFile file, String S3path) throws Exception{
+	public AttchFile upload(MultipartFile file, String S3path, AttchFile entity) throws Exception{
 		//aws 스토리지 연결
 		//파일 업로드 후 path 저장
 		String path = "false";
@@ -135,39 +135,35 @@ public class AttchFileService {
 			return null;
 		}
 		
-		AttchFile attchFile = new AttchFile();
 		/*
 		 * 업로드 완료후 
 		 * Attach 정보를 객체에 담습니다.
 		 * 파일명, 사이즈, 경로, 타입, 사용자 아이디, 업로드 시간
 		 * 그리고 정보를 DB에 넣습니다. 그리고 객체를 반환합니다.
 		 */
-		attchFile.setAttch_file_nm(file.getOriginalFilename());
-		attchFile.setAttch_file_vol((int)file.getSize());
-		attchFile.setFile_path(path);
+		entity.setAttch_file_nm(file.getOriginalFilename());
+		entity.setAttch_file_vol((int)file.getSize());
+		entity.setFile_path(path);
 		if(file.getContentType().split("/")[0].equals("image")){
-			attchFile.setFile_typ(1);
+			entity.setFile_typ(1);
 		}
 		else if(file.getContentType().split("/")[0].equals("audio")){
-			attchFile.setFile_typ(2);
+			entity.setFile_typ(2);
 		}
 		else if(file.getContentType().split("/")[0].equals("vedio")){
-			attchFile.setFile_typ(3);
+			entity.setFile_typ(3);
 		}
 		else
-			attchFile.setFile_typ(4);
-		
-		//test용 임시 idx 지정
-		attchFile.setRef_idx("bbk");
-		
-		attchFile.setReg_date(commonUtil.getCurrentDtime());
+			entity.setFile_typ(4);
+
+		entity.setReg_date(commonUtil.getCurrentDtime());
 
 		//DB에 정보 저장
-		this.create(attchFile);
+		this.create(entity);
 		
 		
 		//DB에 저장된 객체 반환
-		return attchFile;
+		return entity;
 	}
 	
 	public int create(AttchFile entity) throws Exception {
@@ -185,57 +181,7 @@ public class AttchFileService {
 		return list;
 	}
 
-	public int tempToReal(AttchFile entity, String To) throws Exception {
-		/**
-		 * entity의 경로를 To로 수정한 후 업데이트 합니다.
-		 */
-		String [] arr = entity.getFile_path().split("/");
-		To+=arr[arr.length-1];
-		awsS3Config.copyFileToFrom(To, entity.getFile_path());
-		AttchFile finder = entity;
-		AttchFile data = new AttchFile();
-		data.setFile_path(To);
-		int result = this.updateByPath(data, finder);
-		
-		return result;
-	}
-
-	public AttchFile readByIdx(AttchFile entity) throws Exception {
-		return attchFileRepository.readByIdx(entity);
-	}
-
 	public int updateByIdx(AttchFile entity) throws Exception {
 		return attchFileRepository.updateByIdx(entity);
 	}
-
-	public int updateByPath(AttchFile data, AttchFile finder) throws Exception {
-		return attchFileRepository.updateByPath(data, finder);
-	}
-
-	public File getDownLoadResponse(AttchFile entity) throws Exception {
-
-		InputStream in = awsS3Config.getObjectInputStream(entity.getFile_path());
-		
-		File file = new File("temp");
-		
-		OutputStream outStream = new FileOutputStream(file);
-		
-		byte[] buf = new byte[1024];
-	      int len = 0;
-	      // 끝까지 읽어들이면서 File 객체에 내용들을 쓴다
-	      while ((len = in.read(buf)) > 0){
-	         outStream.write(buf, 0, len);
-	      }
-	      // Stream 객체를 모두 닫는다.
-	      outStream.close();
-	      in.close();
-
-		return file;
-	}
-
-	public AttchFile readByPath(AttchFile entity) throws Exception {
-		AttchFile result = attchFileRepository.readByPath(entity);
-		return result;
-	}
-
 }
