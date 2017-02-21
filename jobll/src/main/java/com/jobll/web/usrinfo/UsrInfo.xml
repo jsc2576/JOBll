@@ -2,6 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jobll.web.usrinfo.UsrInfo">
 
+	<select id="checkId" parameterType="java.lang.String" resultType="Integer">
+		select count(*) 
+		from usr_info
+		where usr_id = #{usr_id}
+	</select>
+	
 	<insert  id="create" parameterType ="com.jobll.web.usrinfo.UsrInfo">
 	INSERT INTO usr_info(
           	usr_id,

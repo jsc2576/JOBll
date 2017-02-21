@@ -1,3 +1,4 @@
+
 package com.jobll.web.atclInfo;
 
 import java.util.List;
@@ -6,30 +7,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jobll.web.CommonUtil;
-import com.jobll.web.session.SessionUtil;
 
 @Service
 public class AtclInfoService {
 	
+	/*
+	 * repository 객
+	 */
 	@Autowired
 	private AtclInfoRepository atclInfoRepository;
 	@Autowired
 	private CommonUtil commonUtil;
-	@Autowired
-    private SessionUtil sessionUtil;
+	
 	
 	/**
-	 * session을 통한 usr_id, 현재시간, 게시글 상태, 회사정보(추후 구현)을 입력 후 db로 통신합니다.
+	 * 모든 데이터 검색 
 	 * @param entity
-	 * @return integer
+	 * @return
 	 */
+	
 	public int createAtcl(AtclInfo entity){
 		
-		entity.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
+		entity.setUsr_id("bbk");
 		entity.setReg_date(commonUtil.getCurrentDtime());
 		entity.setAtcl_stus(1);
-		entity.setCmpny_nm(sessionUtil.getSessionBean().getUsr_cmpny());
+		entity.setCmpny_nm("미정");
 		entity.setPrcs_stus(1);
+		
 		
 		int qry = atclInfoRepository.createAtcl(entity);
 		return qry;
@@ -44,4 +48,7 @@ public class AtclInfoService {
 		List<AtclInfo> atcl_list = atclInfoRepository.findList(entity);
 		return atcl_list;
 	}
+	
+
 }
+
