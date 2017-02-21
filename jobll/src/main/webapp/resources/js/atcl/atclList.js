@@ -2,7 +2,7 @@ $(document).ready (function (){
 	findAll();
 });
 
-<!-- find data list -->
+//<!-- find data list -->
 
 function findAll(){
 	$.ajax({

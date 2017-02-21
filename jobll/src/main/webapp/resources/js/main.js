@@ -90,7 +90,7 @@
 
     //typed js
     $(".typed").typed({
-        strings: ["Jobll Project", "Prototype ver 0.01", "HaHaHa"],
+        strings: ["Jobll Project", "Prototype ver 0.01"],
         typeSpeed: 100,
         backDelay: 1000,
         // loop
