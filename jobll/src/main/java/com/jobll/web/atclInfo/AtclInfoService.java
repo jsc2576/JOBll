@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jobll.web.CommonUtil;
+import com.jobll.web.session.SessionUtil;
 
 @Service
 public class AtclInfoService {
@@ -18,7 +19,8 @@ public class AtclInfoService {
 	private AtclInfoRepository atclInfoRepository;
 	@Autowired
 	private CommonUtil commonUtil;
-	
+	@Autowired
+	private SessionUtil sessionUtil;
 	
 	/**
 	 * 모든 데이터 검색 
@@ -28,12 +30,11 @@ public class AtclInfoService {
 	
 	public int createAtcl(AtclInfo entity){
 		
-		entity.setUsr_id("bbk");
-		entity.setReg_date(commonUtil.getCurrentDtime());
-		entity.setAtcl_stus(1);
-		entity.setCmpny_nm("미정");
-		entity.setPrcs_stus(1);
-		
+		entity.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
+	      entity.setReg_date(commonUtil.getCurrentDtime());
+	      entity.setAtcl_stus(1);
+	      entity.setCmpny_nm(sessionUtil.getSessionBean().getUsr_cmpny());
+	      entity.setPrcs_stus(1);
 		
 		int qry = atclInfoRepository.createAtcl(entity);
 		return qry;
