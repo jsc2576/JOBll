@@ -31,7 +31,7 @@ public class SessionController {
 	        //model 객체에 현재 클래스이름을 className이라는 키로 저장
 	       
 	        UsrInfo a = sessionUtil.getSessionBean();
-	        if(a==null)System.out.println("Test");
+	        if(a==null)System.out.println("Session is null");
 	        else System.out.println(a.toString());
 		return "/login/session";	
 	}
