@@ -43,8 +43,8 @@ public class AtclInfoService {
 	 * @param entity
 	 * @return
 	 */
-	public List<AtclInfo> findList(AtclInfo entity, Integer find_nm){
-		List<AtclInfo> atcl_list = atclInfoRepository.findList(entity, find_nm);
+	public List<AtclInfo> findList(AtclInfo entity){
+		List<AtclInfo> atcl_list = atclInfoRepository.findList(entity);
 		return atcl_list;
 	}
 	
