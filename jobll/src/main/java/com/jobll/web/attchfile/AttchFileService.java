@@ -41,7 +41,7 @@ public class AttchFileService {
 	private AttchFileRepository attchFileRepository;
 	
 	/**
-	 * 업로드 파일 체그 설정 입니다.
+	 * 업로드 파일 체크 설정 입니다.
 	 */
 	public List<AttchFile> uploadFiles(List<MultipartFile> list, AttchFile entity) throws Exception{
 		List<AttchFile> mlist = new ArrayList<AttchFile>();
@@ -81,7 +81,7 @@ public class AttchFileService {
 			find_file_type = file_type.nextToken(".");
         }  
 		
-
+		//파일 형식과 년도 월,일에 따른 폴더 경로를 구성합니다.
 		while(images[i] != "")
 		{
 			if(images[i].equalsIgnoreCase(find_file_type)) {
@@ -181,57 +181,7 @@ public class AttchFileService {
 		return list;
 	}
 
-	public int tempToReal(AttchFile entity, String To) throws Exception {
-		/**
-		 * entity의 경로를 To로 수정한 후 업데이트 합니다.
-		 */
-		String [] arr = entity.getFile_path().split("/");
-		To+=arr[arr.length-1];
-		awsS3Config.copyFileToFrom(To, entity.getFile_path());
-		AttchFile finder = entity;
-		AttchFile data = new AttchFile();
-		data.setFile_path(To);
-		int result = this.updateByPath(data, finder);
-		
-		return result;
-	}
-
-	public AttchFile readByIdx(AttchFile entity) throws Exception {
-		return attchFileRepository.readByIdx(entity);
-	}
-
 	public int updateByIdx(AttchFile entity) throws Exception {
 		return attchFileRepository.updateByIdx(entity);
 	}
-
-	public int updateByPath(AttchFile data, AttchFile finder) throws Exception {
-		return attchFileRepository.updateByPath(data, finder);
-	}
-
-	public File getDownLoadResponse(AttchFile entity) throws Exception {
-
-		InputStream in = awsS3Config.getObjectInputStream(entity.getFile_path());
-		
-		File file = new File("temp");
-		
-		OutputStream outStream = new FileOutputStream(file);
-		
-		byte[] buf = new byte[1024];
-	      int len = 0;
-	      // 끝까지 읽어들이면서 File 객체에 내용들을 쓴다
-	      while ((len = in.read(buf)) > 0){
-	         outStream.write(buf, 0, len);
-	      }
-	      // Stream 객체를 모두 닫는다.
-	      outStream.close();
-	      in.close();
-
-		return file;
-	}
-
-	public AttchFile readByPath(AttchFile entity) throws Exception {
-		AttchFile result = attchFileRepository.readByPath(entity);
-		return result;
-	}
-
 }

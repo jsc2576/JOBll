@@ -43,17 +43,4 @@ public class AttchFileRepository {
 		// TODO Auto-generated method stub
 		return result;
 	}
-	//path정보로 path를 업데이트 합니다.
-	//map형태로 보냅니다.
-	public int updateByPath(AttchFile data, AttchFile finder) throws Exception {
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("data",data);
-		map.put("finder",finder);
-		int result = sqlSession.update("com.jobll.web.attchfile.AttchFile.updateByPath",map);
-		return result;
-	}
-	public AttchFile readByPath(AttchFile entity) throws Exception {
-		AttchFile result = sqlSession.selectOne("com.jobll.web.attchfile.AttchFile.readByPath",entity);
-		return result;
-	}
 }

@@ -129,29 +129,17 @@ function editorwrite() {
 	var context = $("#editor_box").html();
 	
 	
-	$.ajax ({
-		method	: "post",
-		url		: "/atcl/AtclCreate",
+			
+	$("#editorcreateform").ajaxForm ({
+		method   : "post",
+		url: "/atcl/AtclCreate",
+		enctype: "multipart/form-data",
 		data	: {atcl_sbjt : subject, atcl_conts : context},
-		success	: function (data) {
-			
-			$('#fileUpLoadForm').ajaxForm ({
-				url: "/attchFile/testFileUpLoadRun",
-				enctype: "multipart/form-data",
-				data	: {ref_idx : data.atcl_idx, usr_id : data.usr_id},
-				success: function(result)	{
-					alert("success!123123123");
-				}
-			});
-			$("#fileUpLoadForm").submit();
-		},
-		complete	: function () {
-			
-		},
-		error		: function (a) {
-			console.log(a);
+		success: function(result)	{
+			alert("success!123123123");
 		}
 	});
+	$("#fileUpLoadForm").submit();
 }
 
 
