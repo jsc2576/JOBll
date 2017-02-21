@@ -30,6 +30,10 @@
 	}
 	</script>
 	<link rel="stylesheet" type="text/css" href="/resources/css/usr/usr.css">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
+	<script src="//getbootstrap.com/assets/js/docs.min.js"></script>
+	
     <!-- 이세연 add end-->
     
     <!--[if lt IE 9]>
@@ -105,18 +109,100 @@
             <div class="row">
               <div class="wrap-hero-content">
                   <div class="hero-content">
-                    <a href = "/testmember">JOBll</a>
+                    <a href = "/">JOBll</a>
                     <br>
                     <span class="typed"></span>
                   </div>
-              </div>
-              <div class="mouse-icon margin-20">
-                <div class="scroll"></div>
               </div>
             </div>
           </div>
         </section>
         <!--/.HOME END-->
+        <section>
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" rel="stylesheet">
+
+		<div class="main" class="container-fluid">
+  			<div class="row">
+ 			   <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+			      <h1 class="page-header">대시보드</h1>
+ 				     <div class="row placeholders">
+    				    <div class="col-xs-6 col-sm-3 placeholder">
+        				  <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
+        				  <h4>이름</h4>
+          				  <span class="text-muted">어떤 내용</span>
+        				</div>
+       					<div class="col-xs-6 col-sm-3 placeholder">
+				          <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
+				          <h4>이름</h4>
+				          <span class="text-muted">어떤 내용</span>
+				        </div>
+				        <div class="col-xs-6 col-sm-3 placeholder">
+				          <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
+				          <h4>이름</h4>
+				          <span class="text-muted">어떤 내용</span>
+				        </div>
+				        <div class="col-xs-6 col-sm-3 placeholder">
+				          <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
+				          <h4>이름</h4>
+				          <span class="text-muted">어떤 내용</span>
+				        </div>
+				      </div>
+				
+				      <h2 class="sub-header">처리현황</h2>
+				      <div class="table-responsive">
+				        <table class="table table-striped">
+				          <thead>
+				            <tr>
+				              <th>#</th>
+				              <th>컬럼1</th>
+				              <th>컬럼2</th>
+				              <th>컬럼3</th>
+				              <th>컬럼4</th>
+				            </tr>
+				          </thead>
+				          <tbody>
+				            <tr>
+				              <td>101</td>
+				              <td>Lorem</td>
+				              <td>ipsum</td>
+				              <td>dolor</td>
+				              <td>dolor</td>
+				            </tr>
+				            <tr>
+				              <td>102</td>
+				              <td>amet</td>
+				              <td>consectetur</td>
+				              <td>adipiscing</td>
+				              <td>dolor</td>
+				            </tr>
+				            <tr>
+				              <td>103</td>
+				              <td>Integer</td>
+				              <td>nec</td>
+				              <td>odio</td>
+				              <td>dolor</td>
+				            </tr>
+				            <tr>
+				              <td>104</td>
+				              <td>dapibus</td>
+				              <td>diam</td>
+				              <td>Sed</td>
+				              <td>dolor</td>
+				            </tr>
+				            <tr>
+				              <td>105</td>
+				              <td>Nulla</td>
+				              <td>quis</td>
+				              <td>sem</td>
+				              <td>dolor</td>
+				            </tr>
+				          </tbody>
+				        </table>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+        </section>
       </div>
     <!--/.CONTENT-WRAP END-->
     </div>
