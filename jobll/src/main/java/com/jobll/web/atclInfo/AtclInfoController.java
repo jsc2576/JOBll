@@ -42,7 +42,7 @@ public class AtclInfoController {
 	@RequestMapping("/editor")
 	public String editor(Locale locale, Model model) {
 
-		return "editor/editor";
+		return "editor/editorView";
 	}
 	
 	/**
