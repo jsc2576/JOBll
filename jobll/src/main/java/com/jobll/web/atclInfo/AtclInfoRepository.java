@@ -28,10 +28,10 @@ public class AtclInfoRepository {
 		List<AtclInfo> atcl_list = null;
 		
 		if(entity.getPrcs_stus() == 0){
-			atcl_list = sqlSession.selectList("com.jobll.web.atclInfo.AtclInfo.findAll");
+			atcl_list = sqlSession.selectList("com.jobll.web.atclInfo.AtclInfo.findAll", entity);
 		}
 		else if(entity.getPrcs_stus() < 5 && entity.getPrcs_stus() > 0){
-			atcl_list = sqlSession.selectList("com.jobll.web.atclInfo.AtclInfo.findPrcs", entity.getPrcs_stus());
+			atcl_list = sqlSession.selectList("com.jobll.web.atclInfo.AtclInfo.findPrcs", entity);
 		}
 		
 		return atcl_list;

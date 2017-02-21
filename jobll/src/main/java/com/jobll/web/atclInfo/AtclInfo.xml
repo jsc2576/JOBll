@@ -28,11 +28,11 @@
 			)
 	</insert>
 
-	<select id="findAll" resultType="com.jobll.web.atclInfo.AtclInfo">
-		SELECT * from atcl_info
+	<select id="findAll" resultType="com.jobll.web.atclInfo.AtclInfo" parameterType="com.jobll.web.atclInfo.AtclInfo">
+		SELECT * from atcl_info OFFSET #{atcl_offset} LIMIT #{atcl_limit}
 	</select>
 	
-	<select id="findPrcs" resultType="com.jobll.web.atclInfo.AtclInfo" parameterType="Integer">
+	<select id="findPrcs" resultType="com.jobll.web.atclInfo.AtclInfo" parameterType="com.jobll.web.atclInfo.AtclInfo">
 		SELECT * from atcl_info where prcs_stus = #{prcs_stus} OFFSET #{atcl_offset} LIMIT #{atcl_limit}
 	</select>
 </mapper>
