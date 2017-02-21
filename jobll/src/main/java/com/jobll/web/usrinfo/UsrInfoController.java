@@ -34,10 +34,18 @@ public class UsrInfoController {
 		return "usrInfo/MyUsrInfo";
 	}
 	
+
+	
+	
+	
+	//basic instruction :
+	
+	
 	@RequestMapping(value = "/select", method = RequestMethod.GET)
 	public List<HashMap<String, Object>> select() {
 		List<HashMap<String, Object>> List;
 		List= usrInfoService.select();
+		
 		return List;
 		}
 	
