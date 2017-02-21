@@ -40,7 +40,7 @@ public class AtclInfoService {
 	 * @param entity
 	 * @return
 	 */
-	public List<AtclInfo> findList(AtclInfo entity){
+	public List<AtclInfo> findList(AtclInfo entity) throws Exception{
 		List<AtclInfo> atcl_list = atclInfoRepository.findList(entity);
 		return atcl_list;
 	}

@@ -94,7 +94,7 @@ public class AtclInfoController {
 	 */
 	@RequestMapping(value = "/atcl/find.json", method= RequestMethod.POST)
 	@ResponseBody
-	public List<AtclInfo> AtclList(@ModelAttribute AtclInfo entity){
+	public List<AtclInfo> AtclList(@ModelAttribute AtclInfo entity) throws Exception{
 		List<AtclInfo> atcl_list = atclInfoService.findList(entity);
 		
 		return atcl_list;
