@@ -102,7 +102,9 @@ public class AtclInfoController {
 	 */
 	@RequestMapping(value = "/readOne")
 	public ModelAndView AtclInforeadOne (@ModelAttribute AtclInfo entity, BindingResult errors) throws Exception {
-		ModelAndView mav = new ModelAndView("homeView");
+		ModelAndView mav = new ModelAndView("atclInfo/atclInfoView");
+		
+		entity = atclInfoService.findOne(entity);
 		mav.addObject("entity", entity);
 		return mav;
 	}

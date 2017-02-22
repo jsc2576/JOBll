@@ -47,11 +47,11 @@ function pagination_mv(){
 	}
 	
 	str_html += "<a onclick='pagination_prev()'><span class='glyphicon glyphicon-chevron-left'></span></a></li>";
-	str_html += "<li><a onclick='findpage(" + (page_nm * list_nm + 1) + ")'>" + (page_nm * list_nm + 1) + "</a></li>"
-	str_html += "<li><a onclick='findpage(" + (page_nm * list_nm + 2) + ")'>" + (page_nm * list_nm + 2) + "</a></li>"
-	str_html += "<li><a onclick='findpage(" + (page_nm * list_nm + 3) + ")'>" + (page_nm * list_nm + 3) + "</a></li>"
-	str_html += "<li><a onclick='findpage(" + (page_nm * list_nm + 4) + ")'>" + (page_nm * list_nm + 4) + "</a></li>"
-	str_html += "<li><a onclick\='findpage(" + (page_nm * list_nm + 5) + ")'>" + (page_nm * list_nm + 5) + "</a></li>"
+	str_html += "<li><a onclick='findpage(" + (page_nm * list_nm + 1) + ")'>" + (page_nm * list_nm + 1) + "</a></li>";
+	str_html += "<li><a onclick='findpage(" + (page_nm * list_nm + 2) + ")'>" + (page_nm * list_nm + 2) + "</a></li>";
+	str_html += "<li><a onclick='findpage(" + (page_nm * list_nm + 3) + ")'>" + (page_nm * list_nm + 3) + "</a></li>";
+	str_html += "<li><a onclick='findpage(" + (page_nm * list_nm + 4) + ")'>" + (page_nm * list_nm + 4) + "</a></li>";
+	str_html += "<li><a onclick\='findpage(" + (page_nm * list_nm + 5) + ")'>" + (page_nm * list_nm + 5) + "</a></li>";
 	
 	str_html += "<li><a onclick='pagination_next()'><span class='glyphicon glyphicon-chevron-right'></span></a></li>";
 	$("#page_nm").html(str_html);
@@ -67,8 +67,9 @@ function findData(prcs_stus, atcl_offset, atcl_limit){
 		url : "/atclInfo/listRun",
 		data : {prcs_stus : prcs_stus, atcl_offset : atcl_offset, atcl_limit : atcl_limit},
 		success: function(list){
-			var str_html = "<form role='form' id='atclInfoReadOne' action = '/atclInfo/ReadOne' method='post'>";
-				str_html = "<table class = 'type01' border='1' style='width: 100%'>";
+
+			var str_html = "<form id='atclInfoReadOne' action = '/atclInfo/readOne' method='post'>";
+				str_html += "<table class = 'type01'>";
 				str_html += "<thead><tr>";
 				str_html += "<th>접수번호</th>";
 				str_html += "<th>제목</th>";
@@ -89,7 +90,10 @@ function findData(prcs_stus, atcl_offset, atcl_limit){
 				
 			});
 			str_html += "</tbody>";
-			str_html += "</table></form>"
+			str_html += "</table>";
+			str_html += "<div id = 'getIdx'></div>";
+			str_html += "</form>";
+
 			$("#data_list").html(str_html);		
 		},
 		error: function(){alert("ERROR");}
@@ -98,8 +102,8 @@ function findData(prcs_stus, atcl_offset, atcl_limit){
 //게시글을 클릭할때 form 전송 data(atcl_idx)를 생성해주는 함수
 function atclInfoGetIdx(idx) {
 	
-	var str_html = "<input type = 'hidden' name = 'atcl_idx' value = "+idx+">";
+	var str_html = "<input type = 'hidden' name = 'atcl_idx' id = 'atcl_idx' value = "+idx+">";
 	
-	$("#data_list").append(str_html);
+	$("#getIdx").append(str_html);
 	$("#atclInfoReadOne").submit();
 }
