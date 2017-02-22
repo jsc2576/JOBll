@@ -19,7 +19,7 @@
           <h1>회원가입 </h1>
         </div>
         <div class="col-md-6 col-md-offset-3">
-          <form role="form" id="usr_make" action = "/usr/make" method="post">
+          <form role="form" id="usr_make" action = "/usrInfo/join" method="post">
            <div class="form-group">
               <label for="usr_id">아이디</label>
               <input type="text" class="form-control" id="usr_id" name="usr_id" placeholder="아이디">
