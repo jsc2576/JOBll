@@ -13,6 +13,7 @@
   <link href="/resources/css/magnific-popup.css" rel="stylesheet">
   <link href="/resources/css/style.css" rel="stylesheet">
   <link href="/resources/css/responsive.css" rel="stylesheet">
+  <link rel="stylesheet" href="/resources/css/common/common.css" type="text/css">
   
   <!--fonts google-->
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
