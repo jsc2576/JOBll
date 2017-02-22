@@ -25,7 +25,7 @@
 			 <c:forEach begin="1" end="${fn:length(list)}" step="1" var="x">
 			 	<tr>
 				 	<th>
-				  		<a href = 'https://s3.ap-northeast-2.amazonaws.com/elasticbeanstalk-ap-northeast-2-190235634467/${ list[x].file_path }'>${ list[x-1].attch_file_nm }</a><br>
+				  		<a href = 'https://s3.ap-northeast-2.amazonaws.com/elasticbeanstalk-ap-northeast-2-190235634467/${ list[x-1].file_path }'>${ list[x-1].attch_file_nm }</a><br>
 				 	</th>
 			 	</tr>
 			 </c:forEach>
