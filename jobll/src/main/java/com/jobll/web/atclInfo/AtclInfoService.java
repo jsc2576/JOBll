@@ -49,6 +49,15 @@ public class AtclInfoService {
 		List<AtclInfo> atcl_list = atclInfoRepository.findList(entity);
 		return atcl_list;
 	}
+	/**
+	 * 하나의 데이터 출력 (0: 전체검색, 1: 대기중 검색, 2: 접수 완료 검색, 3: 처리중 검색, 4: 처리완료 검색)
+	 * @param entity
+	 * @return
+	 */
+	public AtclInfo findOne(AtclInfo entity) throws Exception{
+		entity = atclInfoRepository.findOne(entity);
+		return entity;
+	}
 	
 
 }

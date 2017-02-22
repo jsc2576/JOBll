@@ -124,19 +124,10 @@
 
 
 <c:url value="/authLogin.do" var="actionUrl"/>
-<form role="form" action="${actionUrl}" method="post">       
-	<c:if test="${param.error != null}">        
-		<p>
-			Invalid username and password.
-		</p>
-	</c:if>
-	<c:if test="${param.logout != null}">       
-		<p>
-			You have been logged out.
-		</p>
-	</c:if>
+       
 	<div class="login">
       <div class="login-screen">
+      <form role="form" action="${actionUrl}" method="post">
          <div class="login-form form-group">
           	<p>
           		<label for="username">Username</label>
@@ -144,33 +135,35 @@
 			</p>
 			<p>
 				<label for="password">Password</label>
-				<input type="password" id="password" name="password"/>	
+				<input type="password" id="password" name="password"/>
+				<c:if test="${param.error != null}">        
+					<p>
+						Invalid username and password.
+					</p>
+				</c:if>
+				<c:if test="${param.logout != null}">       
+					<p>
+						You have been logged out.
+					</p>
+				</c:if>	
 				<a class="login-link" href="#">Lost your password?</a>
-				<a class="login-link" href="/usrInfoJoin">Join Us</a>
+				<a class="login-link" href="/usrInfo/usrInfoJoin/go">Join Us</a>
 			</p>
 		
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 			<button type="submit" class="btn">Log in</button>
          </div>
-         <center>
-         <div class="form-group">
-         	<a class="SNS-login" onclick="facebooklogin()"><img class="img-responsive SignWithSNS" alt="Signup with Facebook" src="/resources/images/SignFacebook.jpg"></a>
-         	<a class="SNS-login" href="#"><img class="img-responsive SignWithSNS" alt="Signup with Twitter" src="/resources/images/SignTwitter.jpg"></a>
-         	<a class="SNS-login" href="#"><img class="img-responsive SignWithSNS" alt="Signup with Google" src="/resources/images/SignGoogle.jpg"></a>
-         </div>
-         </center>
+      </form>
+	         <div class="form-group">
+		         <form action="/signin/facebook" method="POST">
+		         	<a class="SNS-login"><img onclick="submit()" class="img-responsive SignWithSNS" alt="Signup with Facebook" src="/resources/images/SignFacebook.jpg"></a>
+		         </form>
+		         	<a class="SNS-login" href="#"><img class="img-responsive SignWithSNS" alt="Signup with Twitter" src="/resources/images/SignTwitter.jpg"></a>
+		         	<a class="SNS-login" href="#"><img class="img-responsive SignWithSNS" alt="Signup with Google" src="/resources/images/SignGoogle.jpg"></a>
+	         </div>
       </div>
    </div>
-   
-	
-</form>
-
-		<form action="/signin/facebook" method="POST">
-    <input type="hidden" name="scope" value="public_profile" />
-    <input type="submit" value="Login using Facebook"/>
-</form>
-<form action="/logout.do" method="POST">
-   
-</form>
+   <form action="/logout.do" method="POST">
+   </form>
 </body>
 </html>

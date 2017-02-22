@@ -29,11 +29,15 @@
 	</insert>
 
 	<select id="findAll" resultType="com.jobll.web.atclInfo.AtclInfo" parameterType="com.jobll.web.atclInfo.AtclInfo">
-		SELECT * from atcl_info OFFSET #{atcl_offset} LIMIT #{atcl_limit}
+		SELECT * from atcl_info ORDER BY atcl_idx DESC OFFSET #{atcl_offset} LIMIT #{atcl_limit} 
+	</select>
+	
+	<select id="findOne" resultType="com.jobll.web.atclInfo.AtclInfo" parameterType="com.jobll.web.atclInfo.AtclInfo">
+		SELECT * from atcl_info WHERE atcl_idx = #{atcl_idx}
 	</select>
 	
 	<select id="findPrcs" resultType="com.jobll.web.atclInfo.AtclInfo" parameterType="com.jobll.web.atclInfo.AtclInfo">
-		SELECT * from atcl_info WHERE prcs_stus = #{prcs_stus} OFFSET #{atcl_offset} LIMIT #{atcl_limit}
+		SELECT * from atcl_info WHERE prcs_stus = #{prcs_stus} ORDER BY atcl_idx DESC  OFFSET #{atcl_offset} LIMIT #{atcl_limit}
 	</select>
 	
 	<select id="findCnt" resultType="Integer" parameterType="com.jobll.web.atclInfo.AtclInfo">

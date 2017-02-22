@@ -28,6 +28,7 @@ import com.jobll.web.attchfile.AttchFileService;
 
 
 @Controller
+@RequestMapping(value="/atclInfo")
 public class AtclInfoController {
 
 	@Autowired
@@ -37,12 +38,20 @@ public class AtclInfoController {
 	
 	
 	/**
+	 * 게시판 리스트로 이동합니다.
+	 */
+	@RequestMapping("/atclInfoList/go")
+	public String atclInfoListGo(){
+		return "atclInfo/atclInfoList/atclInfoListView";
+	}
+	
+	/**
 	 * 게시판(이슈) 쓰기 페이지로 맵핑해 줍니다.
 	**/
-	@RequestMapping("/editor")
-	public String editor(Locale locale, Model model) {
+	@RequestMapping("/atclInfoWrite/go")
+	public String atclInfoWriteGo(Locale locale, Model model) {
 
-		return "editor/editor";
+		return "atclInfo/atclInfoWrite/atclInfoWriteView";
 	}
 	
 	/**
@@ -51,9 +60,9 @@ public class AtclInfoController {
 	 * @param entity AtclInfo객체 형식으로 이슈(게시글)의 제목과 내용을 가지고 있습니다.
 	 * @return 현재는 성공 값인 1만 보내주며 추후 통신 실패에 따른 0또는 error메시지를 보낼 계획입니다.
 	**/
-	@RequestMapping(value = "/atcl/AtclCreate", method = RequestMethod.POST)
+	@RequestMapping(value = "/write", method = RequestMethod.POST)
 	@ResponseBody
-	public int AtclCreate (@ModelAttribute AtclInfo entity, HttpServletRequest request, BindingResult errors) throws Exception {
+	public int atclInfoWrite (@ModelAttribute AtclInfo entity, HttpServletRequest request, BindingResult errors) throws Exception {
 		//HttpServletRequest 형식의 데이터를 MultipartFile형식으로 캐스팅 해 줍니다.
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest)request;
 		List<MultipartFile> multipartFile = multipartRequest.getFiles("uploadFile");
@@ -73,36 +82,30 @@ public class AtclInfoController {
 		
 		return 1;
 	}
-	
-	
-
-	
 	/**
-	 * 모든 데이터를 검색 
+	 * 게시판 리스트를 불러오는 통신입니다.
+	 * @param entity AtclInfo객체 리스트로 값을 불러옵니다.
 	 * @return
 	 */
-	@RequestMapping("/atcl")
-	public String atcl(){
-		return "atclInfo/atclList";
-	}
-	
-	
-	/**
-	 * find atcl data list
-	 * @param entity
-	 * @return
-	 */
-	@RequestMapping(value = "/atcl/find", method= RequestMethod.POST)
+	@RequestMapping(value = "/listRun", method= RequestMethod.POST)
 	@ResponseBody
-	public List<AtclInfo> AtclList(@ModelAttribute AtclInfo entity) throws Exception{
+	public List<AtclInfo> AtclInfolistRun(@ModelAttribute AtclInfo entity) throws Exception{
 		List<AtclInfo> atcl_list = atclInfoService.findList(entity);
 		
 		return atcl_list;
 	}
 	
-	@RequestMapping(value = "/atcl/find/cnt", method= RequestMethod.POST)
-	@ResponseBody
-	public Integer AtclCnt(@ModelAttribute AtclInfo entity) throws Exception{
-		return null;
+	/**
+	 * 플래너 정보 조회 화면 이동
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/readOne")
+	public ModelAndView AtclInforeadOne (@ModelAttribute AtclInfo entity, BindingResult errors) throws Exception {
+		ModelAndView mav = new ModelAndView("atclInfo/atclInfoView");
+		
+		entity = atclInfoService.findOne(entity);
+		mav.addObject("entity", entity);
+		return mav;
 	}
 }

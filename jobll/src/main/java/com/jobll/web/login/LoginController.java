@@ -22,10 +22,5 @@ public class LoginController {
 	}
 
 	
-	@RequestMapping(value="/OSC")
-	public String asd(ModelMap model) {
-		System.out.println("Test OSC");
-		return "login/OSC";
-	}
-	
+
 }

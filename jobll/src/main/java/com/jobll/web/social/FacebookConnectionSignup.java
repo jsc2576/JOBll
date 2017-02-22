@@ -8,6 +8,7 @@ import org.springframework.social.facebook.api.User;
 import org.springframework.social.facebook.api.impl.FacebookTemplate;
 import org.springframework.stereotype.Service;
 
+import com.jobll.web.session.SessionUtil;
 import com.jobll.web.usrinfo.UsrInfo;
 import com.jobll.web.usrinfo.UsrInfoRepository;
 
@@ -19,7 +20,9 @@ public class FacebookConnectionSignup implements ConnectionSignUp {
  
     //@Autowired
     //private Facebook facebook;
- 
+    @Autowired
+	private SessionUtil sessionUtil;
+	
     
     @SuppressWarnings("deprecation")
 	@Override
@@ -62,6 +65,7 @@ public class FacebookConnectionSignup implements ConnectionSignUp {
 		
 		
         if(check==0)userRepository.create(user);
+        sessionUtil.setNewSession("SessionBean",user);
 		
         return user.getUsr_nm();
     }
