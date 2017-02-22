@@ -22,7 +22,7 @@ public class HomeController {
 	@RequestMapping("/")
 	public String home(Locale locale, Model model) {
 
-		return "home";
+		return "homeView";
 	}
 	
 }

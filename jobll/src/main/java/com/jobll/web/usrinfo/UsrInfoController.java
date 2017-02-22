@@ -23,19 +23,46 @@ import com.jobll.web.attchfile.AttchFile;
 
 
 @Controller
-@RequestMapping(value="/usr")
+@RequestMapping(value="/usrInfo")
 public class UsrInfoController {
 	
 	@Autowired
 	private UsrInfoService usrInfoService;
 	
-	@RequestMapping(value = "/myUsrInfo")
-	public String goAttchFileUpload() throws Exception {
-		return "usrInfo/MyUsrInfo";
+	/**
+	 * 로그인 사용자의 개인정보를 볼 수 있습니다.
+	**/
+	@RequestMapping(value = "/MyUsrInfo/go")
+	public String myUsrInfoGo() throws Exception {
+		return "usrInfo/myUsrInfo/myUsrInfoView";
 	}
 	
-
-	
+	/**
+	 * 회원목록 리스트 페이지로 이동합니다.(추후 사이트 관리자 계정에서만 보이게 할 것)
+	**/
+	@RequestMapping("/usrInfoList/go")
+	public String usrInfoListGo(){
+		return "usrInfo/usrInfoList/usrInfoListView";
+	}
+	/**
+	 * 회원 가입 페이지로 이동합니다.
+	**/
+	@RequestMapping("/usrInfoJoin/go")
+	public String usrInfoJoinGo(){
+		return "usrInfo/usrInfoJoin/usrInfoJoin";
+	}
+	/**
+	 * 회원 가입 통신입니다.
+	 * @param entity UsrInfo객체 형식으로 회원 가입 정보를 가지고 있습니다.
+	 * @param request 추후 프로필 사진을 업로드 파일로 전송받을 예정입니다.
+	 * @return 현재는 홈화면으로 이동합니다.
+	**/
+	@RequestMapping(value = "join", method = RequestMethod.POST)
+	public String createUsrInfo (HttpServletRequest request, @ModelAttribute("model_entity") 
+		@Validated UsrInfo entity, BindingResult errors) throws Exception {
+		usrInfoService.create(entity);
+		return "homeView";
+	}
 	
 	
 	//basic instruction :
@@ -55,17 +82,7 @@ public class UsrInfoController {
 		return List;
 		}
 	
-	@RequestMapping(value = "/create", method = RequestMethod.GET)
-	public String create(@ModelAttribute UsrInfo entity, Model model) {
-		//usrInfoService.create(entity);
-		return "usrInfo/usrInfoJoin";
-		}
-	@RequestMapping(value = "/make", method = RequestMethod.POST)
-	public String createUsrInfo (HttpServletRequest request, @ModelAttribute("model_entity") 
-		@Validated UsrInfo entity, BindingResult errors) throws Exception {
-		usrInfoService.create(entity);
-		return "home";
-		}
+	
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
 	public void edit(@ModelAttribute UsrInfo entity, Model model) {
 		usrInfoService.edit(entity);
