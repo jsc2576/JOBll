@@ -15,23 +15,20 @@
         <A href="/" class="active">
           <span>Home</span>
         </a>
-        <A href="/usr/myUsrInfo" >
+        <A href="/usrInfo/MyUsrInfo/go" >
           <span>회원정보</span>
         </a>
-        <A href="/usr" >
+        <A href="/usrInfo/usrInfoList/go" >
           <span>회원목록</span>
         </a>
-        <A href="/usrInfoJoin" >
+        <A href="/usrInfo/usrInfoJoin/go" >
           <span>회원가입</span>
         </a>
-        <A href="/atcl" >
+        <A href="/atclInfo/atclInfoList/go" >
           <span>게시판</span>
         </a>
-        <A href="/editor" >
+        <A href="/atclInfo/atclInfoWrite/go" >
           <span>글쓰기</span>
-        </a>
-         <A href="/fileUpLoad" >
-          <span>파일업로드</span>
         </a>
          <A href="/logout.do" >
           <span>로그아웃</span>

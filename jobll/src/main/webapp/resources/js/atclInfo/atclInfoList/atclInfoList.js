@@ -64,7 +64,7 @@ function findData(prcs_stus, atcl_offset, atcl_limit){
 
 	$.ajax({
 		method : "POST",
-		url : "/atcl/find",
+		url : "/atclInfo/listRun",
 		data : {prcs_stus : prcs_stus, atcl_offset : atcl_offset, atcl_limit : atcl_limit},
 		success: function(list){
 			
@@ -94,7 +94,7 @@ function findData(prcs_stus, atcl_offset, atcl_limit){
 function findDataCount(){
 	$.ajax({
 		method : "POST",
-		url : "/atcl/find.json",
+		url : "/atclInfo/readOne",
 		data : {prcs_stus : prcs_stus, atcl_offset : atcl_offset, atcl_limit : atcl_limit},
 		success: function(data){
 			

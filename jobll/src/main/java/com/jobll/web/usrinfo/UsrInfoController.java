@@ -23,17 +23,34 @@ import com.jobll.web.attchfile.AttchFile;
 
 
 @Controller
-@RequestMapping(value="/usr")
+@RequestMapping(value="/usrInfo")
 public class UsrInfoController {
 	
 	@Autowired
 	private UsrInfoService usrInfoService;
 	
-	@RequestMapping(value = "/myUsrInfo")
-	public String goAttchFileUpload() throws Exception {
-		return "usrInfo/MyUsrInfo";
+	/**
+	 * 로그인 사용자의 개인정보를 볼 수 있습니다.
+	**/
+	@RequestMapping(value = "/MyUsrInfo/go")
+	public String myUsrInfoGo() throws Exception {
+		return "usrInfo/myUsrInfo/myUsrInfoView";
 	}
 	
+	/**
+	 * 회원목록 리스트 페이지로 이동합니다.(추후 사이트 관리자 계정에서만 보이게 할 것)
+	**/
+	@RequestMapping("/usrInfoList/go")
+	public String usrInfoListGo(){
+		return "usrInfo/usrInfoList/usrInfoListView";
+	}
+	/**
+	 * 회원 가입 페이지로 이동합니다.
+	**/
+	@RequestMapping("/usrInfoJoin/go")
+	public String usrInfoJoinGo(){
+		return "usrInfo/usrInfoJoin/usrInfoJoin";
+	}
 
 	
 	

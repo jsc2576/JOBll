@@ -51,7 +51,7 @@
 
     //menu
     var bodyEl = document.body,
-    content = document.querySelector( '.content-wrap' ),
+    content = document.querySelector( '.content' ),
     openbtn = document.getElementById( 'open-button' ),
     closebtn = document.getElementById( 'close-button' ),
     isOpen = false;
