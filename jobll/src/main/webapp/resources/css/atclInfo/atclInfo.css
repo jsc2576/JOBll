@@ -1,0 +1,9 @@
+#content-box {
+	width : 80%;
+	margin : auto;
+	height : 400px;
+	border : 1px solid black;
+}
+.type01 {
+	width : 80%;
+}

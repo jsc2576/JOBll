@@ -27,9 +27,6 @@
         <A href="/atclInfo/atclInfoList/go" >
           <span>게시판</span>
         </a>
-        <A href="/atclInfo/atclInfoWrite/go" >
-          <span>글쓰기</span>
-        </a>
          <A href="/logout.do" >
           <span>로그아웃</span>
         </a>

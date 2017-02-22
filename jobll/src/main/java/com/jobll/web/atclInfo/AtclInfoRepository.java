@@ -36,4 +36,9 @@ public class AtclInfoRepository {
 		
 		return atcl_list;
 	}
+	
+	public AtclInfo findOne(AtclInfo entity) throws Exception{
+		entity = sqlSession.selectOne("com.jobll.web.atclInfo.AtclInfo.findOne", entity);
+		return entity;
+	}
 }

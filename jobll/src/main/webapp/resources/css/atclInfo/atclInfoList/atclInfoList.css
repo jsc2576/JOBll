@@ -1,0 +1,16 @@
+.jb-center {
+	width : 80%;
+	display : inline;
+}
+.type01 {
+	width : 80%;
+}
+#atclInfoWrite {
+	float: right;
+    margin-right: 10%;
+    margin-bottom: 10%;
+    margin-top: 15px;
+}
+.pagenation {
+	    margin-left: 10%;
+}

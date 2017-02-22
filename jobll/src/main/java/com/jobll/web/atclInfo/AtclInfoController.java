@@ -62,7 +62,7 @@ public class AtclInfoController {
 	**/
 	@RequestMapping(value = "/write", method = RequestMethod.POST)
 	@ResponseBody
-	public int AtclCreate (@ModelAttribute AtclInfo entity, HttpServletRequest request, BindingResult errors) throws Exception {
+	public int atclInfoWrite (@ModelAttribute AtclInfo entity, HttpServletRequest request, BindingResult errors) throws Exception {
 		//HttpServletRequest 형식의 데이터를 MultipartFile형식으로 캐스팅 해 줍니다.
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest)request;
 		List<MultipartFile> multipartFile = multipartRequest.getFiles("uploadFile");
@@ -82,29 +82,30 @@ public class AtclInfoController {
 		
 		return 1;
 	}
-	
-	
-
-	
-
-	
-	
 	/**
-	 * find atcl data list
-	 * @param entity
+	 * 게시판 리스트를 불러오는 통신입니다.
+	 * @param entity AtclInfo객체 리스트로 값을 불러옵니다.
 	 * @return
 	 */
 	@RequestMapping(value = "/listRun", method= RequestMethod.POST)
 	@ResponseBody
-	public List<AtclInfo> AtclList(@ModelAttribute AtclInfo entity) throws Exception{
+	public List<AtclInfo> AtclInfolistRun(@ModelAttribute AtclInfo entity) throws Exception{
 		List<AtclInfo> atcl_list = atclInfoService.findList(entity);
 		
 		return atcl_list;
 	}
 	
-	@RequestMapping(value = "/readOne/cnt", method= RequestMethod.POST)
-	@ResponseBody
-	public Integer AtclCnt(@ModelAttribute AtclInfo entity) throws Exception{
-		return null;
+	/**
+	 * 플래너 정보 조회 화면 이동
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/readOne")
+	public ModelAndView AtclInforeadOne (@ModelAttribute AtclInfo entity, BindingResult errors) throws Exception {
+		ModelAndView mav = new ModelAndView("atclInfo/atclInfoView");
+		
+		entity = atclInfoService.findOne(entity);
+		mav.addObject("entity", entity);
+		return mav;
 	}
 }

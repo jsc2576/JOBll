@@ -147,7 +147,7 @@
 					</p>
 				</c:if>	
 				<a class="login-link" href="#">Lost your password?</a>
-				<a class="login-link" href="/usrInfoJoin/go">Join Us</a>
+				<a class="login-link" href="/usrInfo/usrInfoJoin/go">Join Us</a>
 			</p>
 		
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
