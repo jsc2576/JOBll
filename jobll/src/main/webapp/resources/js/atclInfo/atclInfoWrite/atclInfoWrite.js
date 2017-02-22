@@ -136,7 +136,7 @@ function editorwrite() {
 		enctype: "multipart/form-data",
 		data	: {atcl_sbjt : subject, atcl_conts : context},
 		success: function(result)	{
-			alert("success!123123123");
+			location.href = "/atclInfo/atclInfoList/go";
 		}
 	});
 	$("#fileUpLoadForm").submit();
