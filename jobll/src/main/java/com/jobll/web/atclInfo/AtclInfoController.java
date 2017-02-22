@@ -105,7 +105,17 @@ public class AtclInfoController {
 		ModelAndView mav = new ModelAndView("atclInfo/atclInfoView");
 		
 		entity = atclInfoService.findOne(entity);
+		
+		AttchFile find_idx = new AttchFile();
+		
+		find_idx.setRef_idx(entity.getAtcl_idx());
+		
+		List<AttchFile> list = new ArrayList<AttchFile>();
+		
+		list = attchFileService.readByIdx(find_idx);
+		
 		mav.addObject("entity", entity);
+		mav.addObject("list", list);
 		return mav;
 	}
 }

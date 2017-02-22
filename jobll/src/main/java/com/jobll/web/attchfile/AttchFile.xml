@@ -33,6 +33,6 @@
 			where usr_id = #{usr_id}
 	</select>
 	<select id="readByIdx" resultType="com.jobll.web.attchfile.AttchFile" parameterType ="com.jobll.web.attchfile.AttchFile">
-		select * from attch_file where attch_file_idx = #{attch_file_idx};
+		select * from attch_file where ref_idx = #{ref_idx};
 	</select>
 </mapper>

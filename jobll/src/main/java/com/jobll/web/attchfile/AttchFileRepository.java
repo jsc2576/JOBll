@@ -32,10 +32,10 @@ public class AttchFileRepository {
 		List<AttchFile> list = sqlSession.selectList("com.jobll.web.attchfile.AttchFile.findByUsr",entity);
 		return list;
 	}
-	//파일 정보 객체 하나 뽑기
-	public AttchFile readByIdx(AttchFile entity) throws Exception {
-		AttchFile result = sqlSession.selectOne("com.jobll.web.attchfile.AttchFile.readByIdx",entity);
-		return result;
+	//ref_idx를 통한 파일 리스트 뽑기
+	public List<AttchFile> readByIdx(AttchFile entity) throws Exception {
+		List<AttchFile> list = sqlSession.selectList("com.jobll.web.attchfile.AttchFile.readByIdx",entity);
+		return list;
 	}
 	//파일 정보 업데이트
 	public int updateByIdx(AttchFile entity) throws Exception {

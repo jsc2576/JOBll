@@ -171,8 +171,8 @@ public class AttchFileService {
 		return success;
 	}
 	
-	public List<AttchFile> findAll(AttchFile entity) throws Exception {
-		List<AttchFile> list = attchFileRepository.findAll(entity);
+	public List<AttchFile> readByIdx(AttchFile entity) throws Exception {
+		List<AttchFile> list = attchFileRepository.readByIdx(entity);
 		return list;
 	}
 	

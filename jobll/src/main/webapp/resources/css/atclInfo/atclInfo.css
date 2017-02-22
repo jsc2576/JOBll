@@ -6,4 +6,10 @@
 }
 .type01 {
 	width : 80%;
+    height: 10%;
+}
+#file-list {
+	margin-left: 10%;
+    border: 1px solid black;
+    width: 80%;
 }
