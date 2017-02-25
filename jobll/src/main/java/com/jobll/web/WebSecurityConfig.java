@@ -27,66 +27,54 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private LoginService loginService;
     
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        web
-                .ignoring();
-                 //   .antMatchers("/css/**").antMatchers("/js/**").antMatchers("/images/**");
-        	
-    }
-    
+    /**
+     * Configure
+     * 프로그램이 가동되기 전 밑의 옵션을 우선으로 설정한다
+     */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-        .csrf().disable().anonymous()
-        .and()
-                .formLogin()
+        	.csrf() //csrf 보안 
+        		.disable().anonymous()	
+        		.and()
+            .formLogin()//로그인 옵션
                 .loginPage("/login.do")
                 .loginProcessingUrl("/authLogin.do")
-                //.defaultSuccessUrl("/web/index.do",true)
                 .defaultSuccessUrl("/",true)
                 .permitAll()
                 .and()
-            .logout()
+            .logout()//로그아웃 옵션
                 .logoutUrl("/logout.do")
                 .logoutSuccessUrl("/login.do?logout")
                 .invalidateHttpSession(true)
                 .deleteCookies("JSESSIONID")
                 .permitAll()
                 .and()
-           .authorizeRequests()
-            	.antMatchers("/facebook").permitAll()
-            	.antMatchers("/login.do").permitAll()
+           .authorizeRequests()//권한요청
             	.antMatchers("/").permitAll()
-                .antMatchers("/connect/**").permitAll()
-                .antMatchers("/signin/**").permitAll()
-            	.antMatchers("/resources/**").permitAll()
-            	.antMatchers("/login*","/signin/**","/signup/**").permitAll()
+            	.antMatchers("/signin/facebook").permitAll()
+                .antMatchers("/resources/**").permitAll()
             	.antMatchers("/usrInfo/usrInfoJoin/go").permitAll()
             	.antMatchers("/usrInfo/join").permitAll()
-            	
-            	
             	//.antMatchers("/**").permitAll()
-                .anyRequest().authenticated()
+                .anyRequest().authenticated()//위 설정 외에 전 url에서 세션 검사
                 .and()
-           .apply(new SpringSocialConfigurer());
+           .apply(new SpringSocialConfigurer());//소셜 로그인 폼 사용 설정
         		
 		
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER);
         //http.exceptionHandling().accessDeniedPage("/login.do?error");
         //http.sessionManagement().invalidSessionUrl("/login.do");
     }
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-            .inMemoryAuthentication()
-                .withUser("1").password("1").roles("USER");
-    }
-
+  
+    /**
+     * 로그인 프로세스
+     */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
     	auth.userDetailsService(loginService);
     }   
+    
     @Autowired
     private ConnectionFactoryLocator connectionFactoryLocator;
  

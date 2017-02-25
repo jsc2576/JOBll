@@ -1,4 +1,4 @@
-package com.jobll.web.session;
+package com.jobll.web;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -64,7 +64,8 @@ public class SessionUtil {
 		HttpServletRequest request = this.commonUtil.getCurrentRequest();
 		HttpSession session = request.getSession(false);
 		if (session != null) {
-			session.removeAttribute(CommonConstant.USER_SESSION_NAME);
+			//session.removeAttribute(CommonConstant.USER_SESSION_NAME);
+			session.removeAttribute("SessionBean");
 			session.invalidate();
 		}
 	}

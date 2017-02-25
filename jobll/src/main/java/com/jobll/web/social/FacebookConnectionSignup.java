@@ -8,7 +8,7 @@ import org.springframework.social.facebook.api.User;
 import org.springframework.social.facebook.api.impl.FacebookTemplate;
 import org.springframework.stereotype.Service;
 
-import com.jobll.web.session.SessionUtil;
+import com.jobll.web.SessionUtil;
 import com.jobll.web.usrinfo.UsrInfo;
 import com.jobll.web.usrinfo.UsrInfoRepository;
 

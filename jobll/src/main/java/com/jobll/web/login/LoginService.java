@@ -16,7 +16,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.jobll.web.session.SessionUtil;
+import com.jobll.web.SessionUtil;
 import com.jobll.web.usrinfo.UsrInfo;
 //import com.jobll.web.sqlmappers.LoginMapper;
 
@@ -28,12 +28,22 @@ public class LoginService implements UserDetailsService {
 	@Resource
 	private LoginRepository loginRepository;
 	
-
+	/**
+	 * @param usr_id
+	 * @return usrInfo
+	 * @throws Exception
+	 * usr_id를 토대로 해당 id에 매핑돼는 User Info를 읽어온다
+	 */
 	public UsrInfo getUsr(String usr_id) throws Exception {
 		UsrInfo usrInfo= null;
 		if (usr_id != null && !"".equals(usr_id)) usrInfo = loginRepository.getUsr(usr_id);
 		return usrInfo;
 	}
+	
+	/**
+	 * Override loadUserByUsername
+	 * Spring Security에서 직접 사용
+	 */
 	@Override
 	public UserDetails loadUserByUsername(String usr_id) throws UsernameNotFoundException {
 		try {
@@ -63,33 +73,10 @@ public class LoginService implements UserDetailsService {
 			throw new RuntimeException(e);
 		}
 	}
-/*
-	@Override
-	public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
-		try {
-			UserVo domainUser = getUser(userId);
 
-			boolean enabled = true;
-			boolean accountNonExpired = true;
-			boolean credentialsNonExpired = true;
-			boolean accountNonLocked = true;
-			
-			if (domainUser == null) throw new UsernameNotFoundException("Not Found ID : " + userId);
-			
-			return new User(
-					domainUser.getUserId(),
-					domainUser.getPassWd(),
-					enabled,
-					accountNonExpired,
-					credentialsNonExpired,
-					accountNonLocked,
-					getAuthorities(1));
-
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
-	}
-	*/
+	
+	//권한 차등 부여 시퀀스
+	//미구현
 	/**
 	 * Retrieves a collection of {@link GrantedAuthority} based on a numerical role
 	 * @param role the numerical role

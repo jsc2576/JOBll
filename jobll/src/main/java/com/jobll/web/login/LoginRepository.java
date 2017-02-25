@@ -16,7 +16,13 @@ public class LoginRepository {
 	SqlSession sqlSession;
 	
 	
-	
+	/**
+	 * 
+	 * @param usr_id
+	 * @return UsrInfo
+	 * @throws Exception
+	 * usr_id의 ID값을 토대로 매핑돼는 User Info를 반환한다
+	 */
 	public UsrInfo getUsr(String usr_id)throws Exception {
 		UsrInfo result = sqlSession.selectOne("com.jobll.web.login.sel",usr_id);
 		return result;
