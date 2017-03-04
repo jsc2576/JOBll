@@ -1,7 +1,7 @@
 @CHARSET "EUC-KR";
 body {
 font-family: Arial;
-background: url('../../images/hero1.jpeg');
+background: url('../../images/base/bg.jpg') no-repeat center center scroll;
 \
 }
 

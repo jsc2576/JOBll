@@ -12,7 +12,7 @@
 	</head>
 	<body>
 		<jsp:include page="menu.jsp" flush="false" />
-		<jsp:include page="header.jsp" flush="false" />
+		<jsp:include page="home_header.jsp" flush="false" />
 		<jsp:include page="<%= content %>" flush="false" />
 	</body>
 	<jsp:include page="script.jsp" flush="false" />

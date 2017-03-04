@@ -73,8 +73,8 @@ public class AwsS3Config {
 			/* aws server용 코드
 			File file = new File("/var/lib/tomcat8/webapps/ROOT/resources/images/"+multipartFile.getOriginalFilename());
 			*/
-			File file = new File(multipartFile.getOriginalFilename());
-			//File file = new File("/var/lib/tomcat8/webapps/ROOT/resources/images/"+multipartFile.getOriginalFilename());
+			//File file = new File(multipartFile.getOriginalFilename());
+			File file = new File("/var/lib/tomcat8/webapps/ROOT/resources/images/"+multipartFile.getOriginalFilename());
 			file.createNewFile(); 
 			
 			FileOutputStream fos = new FileOutputStream(file);

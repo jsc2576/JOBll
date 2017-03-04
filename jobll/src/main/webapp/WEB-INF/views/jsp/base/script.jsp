@@ -1,14 +1,13 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!-- jQuery -->
 <script src="/resources/js/jquery-1.9.1.min.js" type="text/javascript"></script>
 <script src="/resources/js/jquery.appear.js" type="text/javascript"></script>
 <script src="/resources/js/jquery.form.min.js" type="text/javascript"></script>
 <script src="/resources/js/jquery.multifile.min.js" type="text/javascript"></script>
-<script src="/resources/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="/resources/js/classie.js" type="text/javascript"></script>
-<script src="/resources/js/owl.carousel.min.js" type="text/javascript"></script>
 <script src="/resources/js/jquery.magnific-popup.min.js" type="text/javascript"></script>
-<script src="/resources/js/masonry.pkgd.min.js" type="text/javascript"></script>
-<script src="/resources/js/masonry.js" type="text/javascript"></script>
-<script src="/resources/js/smooth-scroll.min.js" type="text/javascript"></script>
-<script src="/resources/js/typed.js" type="text/javascript"></script>
-<script src="/resources/js/main.js" type="text/javascript"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/resources/js/bootstrap.min.js" type="text/javascript"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/resources/js/base/common.js" type="text/javascript"></script>
