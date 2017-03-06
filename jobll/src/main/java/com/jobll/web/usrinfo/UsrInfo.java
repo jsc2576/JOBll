@@ -19,17 +19,10 @@ public class UsrInfo implements Serializable{
 	private Integer tel_num;				// 전화번호
 	private Integer mobile_num;				// 휴대폰번호
 	private String usr_email;				// 이메일
-	private String usr_cmpny;				// 회사명
-	private String usr_gdr;					// 유저성별 M:남자 F:여자 (Default:M)
 	private String usr_pwd;					// 사용자비밀번호
-	private String join_date;				// 가입일자
+	private String reg_date;				// 가입일자
 	private Integer act_stus;				// 1:활성 2: 비활성(Default:1)
-	private String zip_cd;					// 우편번호
-	private String norm_addr;				// 기본주소
-	private String dtl_addr;				// 상세주소
-	private Integer usr_brth;				// 생년월일
-	
-	
+	private Integer usr_cmpny_nm;			// 기관명 인덱스 : 수정 고려 nm -> idx
 	
 	public String getUsr_id() {
 		return usr_id;
@@ -67,29 +60,17 @@ public class UsrInfo implements Serializable{
 	public void setUsr_email(String usr_email) {
 		this.usr_email = usr_email;
 	}
-	public String getUsr_cmpny() {
-		return usr_cmpny;
-	}
-	public void setUsr_cmpny(String usr_cmpny) {
-		this.usr_cmpny = usr_cmpny;
-	}
-	public String getUsr_gdr() {
-		return usr_gdr;
-	}
-	public void setUsr_gdr(String usr_gdr) {
-		this.usr_gdr = usr_gdr;
-	}
 	public String getUsr_pwd() {
 		return usr_pwd;
 	}
 	public void setUsr_pwd(String usr_pwd) {
 		this.usr_pwd = usr_pwd;
 	}
-	public String getJoin_date() {
-		return join_date;
+	public String getReg_date() {
+		return reg_date;
 	}
-	public void setJoin_date(String join_date) {
-		this.join_date = join_date;
+	public void setReg_date(String reg_date) {
+		this.reg_date = reg_date;
 	}
 	public Integer getAct_stus() {
 		return act_stus;
@@ -97,30 +78,18 @@ public class UsrInfo implements Serializable{
 	public void setAct_stus(Integer act_stus) {
 		this.act_stus = act_stus;
 	}
-	public String getZip_cd() {
-		return zip_cd;
+	public Integer getUsr_cmpny_nm() {
+		return usr_cmpny_nm;
 	}
-	public void setZip_cd(String zip_cd) {
-		this.zip_cd = zip_cd;
+	public void setUsr_cmpny_nm(Integer usr_cmpny_nm) {
+		this.usr_cmpny_nm = usr_cmpny_nm;
 	}
-	public String getNorm_addr() {
-		return norm_addr;
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
-	public void setNorm_addr(String norm_addr) {
-		this.norm_addr = norm_addr;
-	}
-	public String getDtl_addr() {
-		return dtl_addr;
-	}
-	public void setDtl_addr(String dtl_addr) {
-		this.dtl_addr = dtl_addr;
-	}
-	public Integer getUsr_brth() {
-		return usr_brth;
-	}
-	public void setUsr_brth(Integer usr_brth) {
-		this.usr_brth = usr_brth;
-	}
+	
+	
+	
 	
 	
 }
