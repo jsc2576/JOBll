@@ -23,7 +23,7 @@
 			"USR_PWD",
 			"REG_DATE",
 			"ACT_STUS",
-			"USR_CMPNY_NM"
+			"USR_CMPNY_IDX"
 	)
     VALUES (
 			#{usr_id},
@@ -35,7 +35,7 @@
 			#{usr_pwd},
 			#{reg_date},
 			#{act_stus},
-			#{usr_cmpny_nm}
+			#{usr_cmpny_idx}
 	)
 	</insert>
 

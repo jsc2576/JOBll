@@ -22,7 +22,7 @@ public class UsrInfo implements Serializable{
 	private String usr_pwd;					// 사용자비밀번호
 	private String reg_date;				// 가입일자
 	private Integer act_stus;				// 1:활성 2: 비활성(Default:1)
-	private Integer usr_cmpny_nm;			// 기관명 인덱스 : 수정 고려 nm -> idx
+	private Integer usr_cmpny_idx;			// 기관명 인덱스 
 	
 	public String getUsr_id() {
 		return usr_id;
@@ -79,10 +79,10 @@ public class UsrInfo implements Serializable{
 		this.act_stus = act_stus;
 	}
 	public Integer getUsr_cmpny_nm() {
-		return usr_cmpny_nm;
+		return usr_cmpny_idx;
 	}
-	public void setUsr_cmpny_nm(Integer usr_cmpny_nm) {
-		this.usr_cmpny_nm = usr_cmpny_nm;
+	public void setUsr_cmpny_nm(Integer usr_cmpny_idx) {
+		this.usr_cmpny_idx = usr_cmpny_idx;
 	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
