@@ -26,7 +26,7 @@ public class ProjectInfoService {
 
 	public int create(ProjectInfo entity) throws Exception{
 		
-		entity.setCmpny_idx(sessionUtil.getSessionBean().getUsr_cmpny_nm());
+		entity.setCmpny_idx(sessionUtil.getSessionBean().getUsr_cmpny_idx());
 		entity.setPrjt_stus("1");
 		entity.setReg_date(commonUtil.getCurrentDtime());
 		if(entity.getHigh_prjt_idx() == null)
@@ -43,7 +43,7 @@ public class ProjectInfoService {
 	
 	public List<ProjectInfo> findList(ProjectInfo entity) throws Exception{
 		
-		entity.setCmpny_idx(sessionUtil.getSessionBean().getUsr_cmpny_nm());
+		entity.setCmpny_idx(sessionUtil.getSessionBean().getUsr_cmpny_idx());
 		List<ProjectInfo> project_list = projectInfoRepository.findList(entity);
 		return project_list;
 	}

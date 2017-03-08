@@ -78,10 +78,10 @@ public class UsrInfo implements Serializable{
 	public void setAct_stus(Integer act_stus) {
 		this.act_stus = act_stus;
 	}
-	public Integer getUsr_cmpny_nm() {
+	public Integer getUsr_cmpny_idx() {
 		return usr_cmpny_idx;
 	}
-	public void setUsr_cmpny_nm(Integer usr_cmpny_idx) {
+	public void setUsr_cmpny_idx(Integer usr_cmpny_idx) {
 		this.usr_cmpny_idx = usr_cmpny_idx;
 	}
 	public static long getSerialversionuid() {

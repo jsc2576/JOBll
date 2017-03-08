@@ -39,7 +39,8 @@ public class UsrInfoService{
 		entity.setAct_stus(1);
 		entity.setReg_date(commonUtil.getCurrentDtime());
 		entity.setUsr_lv(1);
-		entity.setUsr_cmpny_nm(1);//임시, 반드시  수정 필요
+		//entity.setUsr_cmpny_idx(1);
+		//entity.setUsr_cmpny_nm(1);//임시, 반드시  수정 필요
 		int test = usrInfoRepository.create(entity);
 		
 		return test;

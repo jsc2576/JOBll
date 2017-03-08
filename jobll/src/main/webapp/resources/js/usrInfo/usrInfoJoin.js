@@ -137,7 +137,7 @@ $(document).ready(function(){
         required: "생년월일을 입력하세요."
     },
     usr_cmpny_idx: {
-    	required: "Input error message"
+    	required: "기업명을 선택하세요."
     },
    }
   });
