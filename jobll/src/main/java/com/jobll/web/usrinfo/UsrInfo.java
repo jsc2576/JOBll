@@ -13,7 +13,7 @@ public class UsrInfo implements Serializable{
 	private static final long serialVersionUID = -1638273159722849211L;
 	
 	
-	private String usr_id;						// 사용자아이디
+	private String usr_id;					// 사용자아이디
 	private String usr_nm;					// 사용자이름
 	private Integer usr_lv;					// 사용자 등급
 	private Integer tel_num;				// 전화번호
@@ -87,9 +87,6 @@ public class UsrInfo implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
-	
-	
 	
 	
 }

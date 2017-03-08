@@ -18,6 +18,11 @@
 	        </a>
         </li>
         <li>
+            <A href="/projectInfo/projectInfoList/go" >
+	          <span>프로젝트</span>
+	        </a>
+        </li>
+        <li>
             <A href="/usrInfo/usrInfoList/go" >
 	          <span>회원목록</span>
 	        </a>
