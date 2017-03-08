@@ -21,7 +21,6 @@ public class AtclInfo implements Serializable{
 	
 	private Integer atcl_offset;
 	private Integer atcl_limit;
-	
 	public int getAtcl_idx() {
 		return atcl_idx;
 	}

@@ -16,6 +16,7 @@ public class ProjectInfo implements Serializable{
 	private String prjt_conts;				//프로젝트 내용
 	private String reg_date;				//등록날짜
 	private String prjt_stus;				//프로젝트 상태
+	private Integer prjt_lv;				//프로젝트 레벨
 	
 	public Integer getPrjt_idx() {
 		return prjt_idx;
@@ -58,5 +59,11 @@ public class ProjectInfo implements Serializable{
 	}
 	public void setPrjt_stus(String prjt_stus) {
 		this.prjt_stus = prjt_stus;
+	}
+	public Integer getPrjt_lv() {
+		return prjt_lv;
+	}
+	public void setPrjt_lv(Integer prjt_lv) {
+		this.prjt_lv = prjt_lv;
 	}
 }

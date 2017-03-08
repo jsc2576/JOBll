@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.jobll.web.CommonUtil;
 import com.jobll.web.SessionUtil;
+import com.jobll.web.atclInfo.AtclInfo;
 
 @Service
 public class ProjectInfoService {
@@ -16,17 +17,35 @@ public class ProjectInfoService {
 	 * repository 객
 	 */
 	@Autowired
-	private ProjectInfoRepository atclInfoRepository;
+	private ProjectInfoRepository projectInfoRepository;
 	@Autowired
 	private CommonUtil commonUtil;
 	@Autowired
 	private SessionUtil sessionUtil;
 	
 
-	public int create(ProjectInfo entity){
+	public int create(ProjectInfo entity) throws Exception{
 		
-		int qry = atclInfoRepository.create(entity);
+		entity.setCmpny_idx(sessionUtil.getSessionBean().getUsr_cmpny_nm());
+		entity.setPrjt_stus("1");
+		entity.setReg_date(commonUtil.getCurrentDtime());
+		if(entity.getHigh_prjt_idx() == null)
+			entity.setPrjt_lv(1);
+		else
+		{
+			ProjectInfo high_project = projectInfoRepository.findOne(entity);
+			entity.setPrjt_lv(high_project.getPrjt_lv()+1);
+		}
+		
+		int qry = projectInfoRepository.create(entity);
 		return qry;
+	}
+	
+	public List<ProjectInfo> findList(ProjectInfo entity) throws Exception{
+		
+		entity.setCmpny_idx(sessionUtil.getSessionBean().getUsr_cmpny_nm());
+		List<ProjectInfo> project_list = projectInfoRepository.findList(entity);
+		return project_list;
 	}
 }
 

@@ -33,7 +33,7 @@ public class AtclInfoService {
 		entity.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
 	      entity.setReg_date(commonUtil.getCurrentDtime());
 	      entity.setAtcl_stus(1);
-	      entity.setCmpny_nm(sessionUtil.getSessionBean().getUsr_cmpny_nm());
+	      //entity.setCmpny_nm(sessionUtil.getSessionBean().);
 	      entity.setPrcs_stus(1);
 		
 		int qry = atclInfoRepository.createAtcl(entity);
