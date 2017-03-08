@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.jobll.web.attchfile.AttchFile;
+import com.jobll.web.cmpnyinfo.CmpnyInfo;
 
 
 
@@ -48,7 +50,8 @@ public class UsrInfoController {
 	 * 회원 가입 페이지로 이동합니다.
 	**/
 	@RequestMapping("/usrInfoJoin/go")
-	public String usrInfoJoinGo(){
+	public String  usrInfoJoinGo(){
+		
 		return "usrInfo/usrInfoJoin/usrInfoJoin";
 	}
 	/**
@@ -64,6 +67,17 @@ public class UsrInfoController {
 		return "homeView";
 	}
 	
+	/**
+	 * 기업 리스트를 읽어와 반환
+	 * @return
+	 */
+	@RequestMapping(value = "/cmpnyList.json", method = RequestMethod.POST)
+	@ResponseBody
+	public List<CmpnyInfo> CmpnyList (){
+		
+		List<CmpnyInfo> list = usrInfoService.selectCmpny();
+		return list;
+	}
 	
 	//basic instruction :
 	

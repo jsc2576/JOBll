@@ -14,6 +14,7 @@
 
 </head>
 <body>
+
       <div class="container">
         <div class="HeadLine">
           <h1>회원가입 </h1>
@@ -56,7 +57,13 @@
               <label for="mobile_num">핸드폰 번호</label>
                <input type="text" class="form-control" id="mobile_num"  name="mobile_num" placeholder="- 없이 입력해 주세요">
             </div>
+          
+ 
+            
+			<div class="form-group" id="list">  
+ 		    </div>
            
+
             <div class="form-group text-center">
               <button type="submit" id="usr_make" class="btn btn-info">회원가입<i class="fa fa-check spaceLeft"></i></button>
               <button type="submit" class="btn btn-warning">가입취소<i class="fa fa-times spaceLeft"></i></button>

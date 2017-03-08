@@ -6,9 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.jobll.web.cmpnyinfo.CmpnyInfo;
 import com.jobll.web.usrinfo.UsrInfo;
 import com.jobll.web.usrinfo.UsrInfoRepository;
-
 import com.jobll.web.CommonUtil;
 //38 line 수정필요
 
@@ -21,7 +21,10 @@ public class UsrInfoService{
 	@Autowired
 	private CommonUtil commonUtil;
 
-
+	public List<CmpnyInfo> selectCmpny(){
+		return usrInfoRepository.selectCmpny();
+	}
+	
 	public List<HashMap<String, Object>> select(){
 		return usrInfoRepository.select();
 	}

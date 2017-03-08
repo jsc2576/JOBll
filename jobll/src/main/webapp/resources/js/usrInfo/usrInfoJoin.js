@@ -1,3 +1,41 @@
+$(document).ready (function (){
+	cmpnyList();
+	
+});
+
+
+
+function cmpnyList() {
+		$.ajax ({
+			method	: "post",
+			url		: "/usrInfo/cmpnyList.json",
+			success	: function (list) {
+				str_html ="<label for=\"cmpny_idx\">기업명</label>";
+				str_html +="<select name=\"usr_cmpny_idx\" class=\"form-control\" id=\"usr_cmpny_idx\" >";
+				str_html +="<option value=\"\">기업선택</option>";
+				
+				var i=0;
+				for(i=0; i<list.length; i++){
+					str_html +="<option value=\"";
+					str_html +=list[i].cmpny_idx;
+					str_html +="\">";
+					str_html +=list[i].cmpny_nm;
+					str_html +="</option>";
+				}
+				str_html +="</select>";
+				
+				$("#list").html (str_html);
+			},
+			complete	: function () {
+				
+			},
+			error		: function (a) {
+				console.log(a);
+			}
+		});
+}
+
+
 $(document).ready(function(){
   $("#usr_make").validate({
    rules: {
@@ -46,7 +84,10 @@ $(document).ready(function(){
     },
     usr_birth: {
         required: true
-    }
+    },
+    usr_cmpny_idx:{
+    	required: true
+    },
    },
    messages: {
     usr_id: {
@@ -94,7 +135,10 @@ $(document).ready(function(){
     },
     usr_birth: {
         required: "생년월일을 입력하세요."
-    }
+    },
+    usr_cmpny_idx: {
+    	required: "Input error message"
+    },
    }
   });
  });

@@ -2,8 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jobll.web.usrinfo.UsrInfo">
 
+	<select id="selectCmpny" resultType="com.jobll.web.cmpnyinfo.CmpnyInfo">
+		SELECT * from "CMPNY_INFO"
+	</select>
+	
 	<select id="select" resultType="com.jobll.web.usrinfo.UsrInfo">
-		SELECT * from USR_INFO
+		SELECT * from "USR_INFO"
 	</select>
 	
 	<select id="checkId" parameterType="java.lang.String" resultType="Integer">

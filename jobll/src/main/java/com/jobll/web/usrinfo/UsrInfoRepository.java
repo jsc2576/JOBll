@@ -8,11 +8,21 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
+
+import com.jobll.web.cmpnyinfo.CmpnyInfo;
 @Repository("usr_info")
 public class UsrInfoRepository {
 	
 	@Autowired
     SqlSession sqlSession;
+	
+	public List<CmpnyInfo> selectCmpny() {
+		
+		List selectList = sqlSession.selectList("com.jobll.web.usrinfo.UsrInfo.selectCmpny");
+		
+		return selectList ;
+	}
+	
 	
 	
 	public List<HashMap<String, Object>> select() {

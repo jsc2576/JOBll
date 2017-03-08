@@ -56,6 +56,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/resources/**").permitAll()
             	.antMatchers("/usrInfo/usrInfoJoin/go").permitAll()
             	.antMatchers("/usrInfo/join").permitAll()
+            	.antMatchers("/usrInfo/cmpnyList.json").permitAll()
+            	
             	//.antMatchers("/**").permitAll()
                 .anyRequest().authenticated()//위 설정 외에 전 url에서 세션 검사
                 .and()
