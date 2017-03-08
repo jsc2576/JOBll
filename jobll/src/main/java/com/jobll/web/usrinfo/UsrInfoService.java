@@ -33,7 +33,7 @@ public class UsrInfoService{
 	public int create(UsrInfo entity){
 		
 		entity.setAct_stus(1);
-		entity.setJoin_date(commonUtil.getCurrentDtime());
+		entity.setReg_date(commonUtil.getCurrentDtime());
 		entity.setUsr_lv(1);
 		int test = usrInfoRepository.create(entity);
 		

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jobll.web.projectInfo.ProjectInfo">
+
+	<insert  id="create" parameterType ="com.jobll.web.projectInfo.ProjectInfo" useGeneratedKeys="true"
+    keyProperty="prjt_idx">
+	INSERT INTO PRJT_INFO(
+		prjt_idx,
+		cmpny_idx,
+		high_prjt_idx,
+		prjt_sbjt,
+		prjt_conts,
+		reg_date,
+		prjt_stus
+	)
+    VALUES (
+				(nextval('public.prjt_info_idx_seq')),
+				#{cmpny_idx},
+				#{high_prjt_idx},
+				#{prjt_sbjt},
+				#{prjt_conts},
+				#{reg_date},
+				#{prjt_stus}
+			)
+	</insert>
+</mapper>

@@ -20,15 +20,10 @@
 			tel_num,
 			mobile_num,
 			usr_email,
-			usr_cmpny,
-			usr_gdr,
 			usr_pwd,
-			join_date,
+			reg_date,
 			act_stus,
-			zip_cd,
-			norm_addr,
-			dtl_addr,
-			usr_brth
+			usr_cmpny_nm
 	)
     VALUES (
 			#{usr_id},
@@ -37,15 +32,10 @@
 			#{tel_num},
 			#{mobile_num},
 			#{usr_email},
-			#{usr_cmpny},
-			#{usr_gdr},
 			#{usr_pwd},
-			#{join_date},
+			#{reg_date},
 			#{act_stus},
-			#{zip_cd},
-			#{norm_addr},
-			#{dtl_addr},
-			#{usr_brth}
+			#{usr_cmpny_nm}
 	)
 	</insert>
 
