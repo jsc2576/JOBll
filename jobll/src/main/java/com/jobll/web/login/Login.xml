@@ -6,7 +6,7 @@
 
 <select id="sel" parameterType="java.lang.String" resultType="com.jobll.web.usrinfo.UsrInfo">
 
-SELECT * FROM usr_info
-where usr_id = #{userId} LIMIT 1
+SELECT * FROM "USR_INFO"
+where "USR_ID" = #{userId} LIMIT 1
 </select>
 </mapper>

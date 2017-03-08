@@ -41,21 +41,9 @@
               <label for="usr_nm">이름</label>
               <input type="text" class="form-control" id="usr_nm" name="usr_nm" placeholder="이름">
             </div>
-            <div class="form-group">
-              <label for="usr_birth">생년월일</label>
-              <input type="text" class="form-control" id="usr_brth" name="usr_brth" placeholder="생년월일">
-            </div>
-           	<div class="form-group">
-           	<label for="usr_gdr">성별</label><br>
-            <input type="radio" id="man"  name="usr_gdr" value="1" onclick="checkGdr()">
-            <label id="manLb" for="man" class="on">남자 </label>
-            <input type="radio" id="woman" name="usr_gdr" value="0" onclick="checkGdr()">
-            <label id="manLb" for="woman" class="on">여자 </label>
-            </div>
-             <div class="form-group">
-              <label for="usr_gdr">회사명</label>
-              <input type="text" class="form-control" id="usr_cmpny" name="usr_cmpny" placeholder="회사명">
-            </div>
+          
+           
+            
             <div class="form-group">
               <label for="usr_email">이메일 주소</label>
               <input type="email" class="form-control" id="usr_email"  name="usr_email" placeholder="이메일 주소">
@@ -68,16 +56,7 @@
               <label for="mobile_num">핸드폰 번호</label>
                <input type="text" class="form-control" id="mobile_num"  name="mobile_num" placeholder="- 없이 입력해 주세요">
             </div>
-            <div class="form-group">
-              <label for="zip_cd">우편번호</label>
-               <input type="text" class="form-control" id="zip_cd" name="zip_cd" placeholder="우편번호">
-            </div>
-            <div class="form-group">
-              <label for="norm_addr">주소</label>
-               <input type="text" class="form-control" id="norm_addr" name="norm_addr" placeholder="주소">
-               <label for="dtl_addr"></label>
-               <input type="text" class="form-control" id="dtl_addr"  name="dtl_addr" placeholder="상세주소">
-            </div>
+           
             <div class="form-group text-center">
               <button type="submit" id="usr_make" class="btn btn-info">회원가입<i class="fa fa-check spaceLeft"></i></button>
               <button type="submit" class="btn btn-warning">가입취소<i class="fa fa-times spaceLeft"></i></button>

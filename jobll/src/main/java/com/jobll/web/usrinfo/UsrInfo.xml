@@ -3,27 +3,27 @@
 <mapper namespace="com.jobll.web.usrinfo.UsrInfo">
 
 	<select id="select" resultType="com.jobll.web.usrinfo.UsrInfo">
-		SELECT * from usr_info
+		SELECT * from USR_INFO
 	</select>
 	
 	<select id="checkId" parameterType="java.lang.String" resultType="Integer">
 		select count(*) 
-		from usr_info
-		where usr_id = #{usr_id}
+		from "USR_INFO"
+		where "USR_ID"= #{usr_id}
 	</select>
 	
 	<insert  id="create" parameterType ="com.jobll.web.usrinfo.UsrInfo">
-	INSERT INTO usr_info(
-          	usr_id,
-			usr_nm,
-			usr_lv,
-			tel_num,
-			mobile_num,
-			usr_email,
-			usr_pwd,
-			reg_date,
-			act_stus,
-			usr_cmpny_nm
+	INSERT INTO "USR_INFO"(
+          	"USR_ID",
+			"USR_NM",
+			"USR_LV",
+			"TEL_NUM",
+			"MOBILE_NUM",
+			"USR_EMAIL",
+			"USR_PWD",
+			"REG_DATE",
+			"ACT_STUS",
+			"USR_CMPNY_IDX"
 	)
     VALUES (
 			#{usr_id},
@@ -35,7 +35,7 @@
 			#{usr_pwd},
 			#{reg_date},
 			#{act_stus},
-			#{usr_cmpny_nm}
+			#{usr_cmpny_idx}
 	)
 	</insert>
 

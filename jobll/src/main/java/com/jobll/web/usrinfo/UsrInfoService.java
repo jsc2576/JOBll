@@ -10,6 +10,7 @@ import com.jobll.web.usrinfo.UsrInfo;
 import com.jobll.web.usrinfo.UsrInfoRepository;
 
 import com.jobll.web.CommonUtil;
+//38 line 수정필요
 
 @Service
 public class UsrInfoService{
@@ -35,6 +36,7 @@ public class UsrInfoService{
 		entity.setAct_stus(1);
 		entity.setReg_date(commonUtil.getCurrentDtime());
 		entity.setUsr_lv(1);
+		entity.setUsr_cmpny_nm(1);//임시, 반드시  수정 필요
 		int test = usrInfoRepository.create(entity);
 		
 		return test;
