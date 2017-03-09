@@ -23,6 +23,11 @@
 	        </a>
         </li>
         <li>
+            <A href="/projectSupply/projectSupplyList/go" >
+	          <span>맨아웃</span>
+	        </a>
+        </li>
+        <li>
             <A href="/usrInfo/usrInfoList/go" >
 	          <span>회원목록</span>
 	        </a>

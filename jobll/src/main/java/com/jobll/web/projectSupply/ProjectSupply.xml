@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jobll.web.projectSupply.ProjectSupply">
+
+	<insert  id="create" parameterType ="com.jobll.web.projectSupply.ProjectSupply" useGeneratedKeys="true"
+    keyProperty="prjt_sup_list_idx">
+	INSERT INTO "PRJT_SUP_LIST"(
+		"PRJT_SUP_LIST_IDX",
+		"PRJT_IDX",
+		"SUP_CONTS",
+		"SUP_PERSON",
+		"SUP_STRT_DATE",
+		"SUP_END_DATE",
+		"APPR_YN",
+		"USR_ID"
+	)
+    VALUES (
+				(nextval('public.prjt_sup_list_idx_seq')),
+				#{prjt_idx},
+				#{sup_conts},
+				#{sup_person},
+				#{sup_strt_date},
+				#{sup_end_date},
+				#{appr_yn},
+				#{usr_id}
+			)
+	</insert>
+
+	<select id="findAll" resultType="com.jobll.web.projectSupply.ProjectSupply" parameterType="com.jobll.web.projectSupply.ProjectSupply">
+		SELECT * from "PRJT_SUP_LIST" ORDER BY "PRJT_SUP_LIST_IDX" DESC OFFSET #{atcl_offset} LIMIT #{atcl_limit} 
+	</select>
+	
+	<select id="findOne" resultType="com.jobll.web.projectSupply.ProjectSupply" parameterType="com.jobll.web.projectSupply.ProjectSupply">
+		SELECT * from "PRJT_SUP_LIST" WHERE "PRJT_SUP_LIST_IDX" = #{prjt_idx}
+	</select>
+	
+</mapper>
