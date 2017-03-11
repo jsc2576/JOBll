@@ -24,7 +24,7 @@
         </li>
         <li>
             <A href="/projectSupply/projectSupplyList/go" >
-	          <span>맨아웃</span>
+	          <span>프로젝트지원</span>
 	        </a>
         </li>
         <li>
