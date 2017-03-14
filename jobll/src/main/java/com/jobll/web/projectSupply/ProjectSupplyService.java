@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.jobll.web.CommonUtil;
 import com.jobll.web.SessionUtil;
+import com.jobll.web.atclInfo.AtclInfo;
 
 @Service
 public class ProjectSupplyService {
@@ -54,7 +55,6 @@ public class ProjectSupplyService {
 		entity = projectSupplyRepository.findOne(entity);
 		return entity;
 	}
-	
 
 }
 

@@ -1,109 +1,145 @@
-$(document).ready (function (){
-	findPrcs(0);
-	pagination_mv();
+$(document).ready(function() {
+
+		$("#editor_box").focus();
+		onoffswitch("tx-btn-bg");
+		selectwitch("tx-slt-70bg","tx_fontfamily_menu");
+		selectwitch("tx-slt-42bg","tx_fontsize_menu");
+		
+		$("#file-upload").MultiFile({
+	        maxfile: 1048576, //각 파일 최대 업로드 크기
+	        STRING: { //Multi-lingual support : 메시지 수정 가능
+	            remove : "제거", //추가한 파일 제거 문구, 이미태그를 사용하면 이미지사용가능
+	            duplicate : "$file 은 이미 선택된 파일입니다.", 
+	            denied : "$ext 는(은) 업로드 할수 없는 파일확장자입니다.",
+	            selected:'$file 을 선택했습니다.', 
+	            toomuch: "업로드할 수 있는 최대크기를 초과하였습니다.($size)", 
+	            toomany: "업로드할 수 있는 최대 갯수는 $max개 입니다.",
+	            toobig: "$file 은 크기가 매우 큽니다. (max $size)"
+	        },
+	        list:"#file-list" //파일목록을 출력할 요소 지정가능
+	    });
 
 });
 
-var page_nm = 0; // 현재 보이는 페이지네이션의 페이지 
-var list_nm = 5; // 하나의 페이지네이션에 보여지는 개수
-var prcs_stus_nm = 0; // 현재 보여지고 있는 process stus 번호
-var data_limit = 10; // 하나의 페이지에 보여지는 데이터 수
+function onoffswitch(name) {
+	var class_name = "."+name;
+	var pushed_name = name+"-pushed";
+	var pushed_class_name = class_name+"-pushed";
 
-//public method 
 
-function findPrcs(prcs_stus){
-	prcs_stus_nm = prcs_stus;
-	findData(prcs_stus_nm, 0, data_limit);
+	$(document).on("click", class_name, function() {
+			$(this).removeClass(name).addClass(pushed_name);
+ 		});
+	$(document).on("click", pushed_class_name, function() {
+			$(this).removeClass(pushed_name).addClass(name);
+ 		});
 }
 
-function findpage(page){
-	findData(prcs_stus_nm, list_nm * page, data_limit);
+function selectwitch(name,submenu_name) {
+
+	var class_name = "."+name;
+	var pushed_name = name+"-pushed";
+	var pushed_class_name = class_name+"-pushed";
+	var id_submenu_name = "#"+submenu_name;
+
+	$(document).on("click", class_name, function() {
+			$(this).removeClass(name).addClass(pushed_name);
+			$(id_submenu_name).css("display","block");
+
+ 		});
+	$(document).on("click", pushed_class_name, function() {
+			$(this).removeClass(pushed_name).addClass(name);
+			$(id_submenu_name).css("display","none");
+ 		});
+	$(document).on("click", id_submenu_name, function() {
+			$(this).css("display","none");
+			$(pushed_class_name).removeClass(pushed_name).addClass(name);
+ 		});
 }
 
 
-function pagination_next(){
-	page_nm++;
-	pagination_mv();
-}
 
-function pagination_prev(){
-	if(page_nm > 0)
-		page_nm--;
-	
-	pagination_mv();
-}
+function callFormatting(aCommandName, aShowDefaultUI, aValueArgument) {
+	document.execCommand(aCommandName, aShowDefaultUI, aValueArgument);
 
-
-// private 함수
-
-// 페이네이션의 페이지가 이동할 때마다 호출하는 함수
-function pagination_mv(){
-	var str_html = "";
-	if(page_nm<=0){
-		str_html += "<li class='disabled'>";
+	switch(aValueArgument) {
+		case '굴림' :
+		{
+			$("#tx_fontfamily").html('<a href="javascript:;" title="글꼴" style="font-family:Gulim,굴림,AppleGothic,sans-serif;">굴림</a>');
+			break;
+		}
+		case '바탕' :
+		{
+			$("#tx_fontfamily").html('<a href="javascript:;" title="글꼴" style="font-family:Batang,바탕,serif;">바탕</a>');
+			break;
+		}
+		case '돋움' :
+		{
+			$("#tx_fontfamily").html('<a href="javascript:;" title="글꼴" style="font-family:Dotum,돋움,sans-serif;">돋움</a>');
+			break;
+		}
+		case '궁서' :
+		{
+			$("#tx_fontfamily").html('<a href="javascript:;" title="글꼴" style="font-family:Gungsuh,궁서,serif;">궁서</a>');
+			break;
+		}
+		case 1 :
+		{
+			$("#tx_fontsize").html('<a href="javascript:;" title="글자크기">8pt</a>');
+			break;
+		}
+		case 2 :
+		{
+			$("#tx_fontsize").html('<a href="javascript:;" title="글자크기">10pt</a>');
+			break;
+		}
+		case 3 :
+		{
+			$("#tx_fontsize").html('<a href="javascript:;" title="글자크기">11pt</a>');
+			break;
+		}
+		case 4 :
+		{
+			$("#tx_fontsize").html('<a href="javascript:;" title="글자크기">12pt</a>');
+			break;
+		}
+		case 5 :
+		{
+			$("#tx_fontsize").html('<a href="javascript:;" title="글자크기">14pt</a>');
+			break;
+		}
+		case 6 :
+		{
+			$("#tx_fontsize").html('<a href="javascript:;" title="글자크기">18pt</a>');
+			break;
+		}
+		case 7 :
+		{
+			$("#tx_fontsize").html('<a href="javascript:;" title="글자크기">24pt</a>');
+			break;
+		}
 	}
-	else{
-		str_html += "<li>";
-	}
-	
-	str_html += "<a onclick='pagination_prev()'><span class='glyphicon glyphicon-chevron-left'></span></a></li>";
-	str_html += "<li><a onclick='findpage(" + (page_nm * list_nm + 1) + ")'>" + (page_nm * list_nm + 1) + "</a></li>";
-	str_html += "<li><a onclick='findpage(" + (page_nm * list_nm + 2) + ")'>" + (page_nm * list_nm + 2) + "</a></li>";
-	str_html += "<li><a onclick='findpage(" + (page_nm * list_nm + 3) + ")'>" + (page_nm * list_nm + 3) + "</a></li>";
-	str_html += "<li><a onclick='findpage(" + (page_nm * list_nm + 4) + ")'>" + (page_nm * list_nm + 4) + "</a></li>";
-	str_html += "<li><a onclick\='findpage(" + (page_nm * list_nm + 5) + ")'>" + (page_nm * list_nm + 5) + "</a></li>";
-	
-	str_html += "<li><a onclick='pagination_next()'><span class='glyphicon glyphicon-chevron-right'></span></a></li>";
-	$("#page_nm").html(str_html);
-	
+		$("#editor_box").focus();
 }
 
 
-// 데이터를 찾는 함수
-function findData(prcs_stus, atcl_offset, atcl_limit){
-
-	$.ajax({
-		method : "POST",
-		url : "/atclInfo/listRun",
-		data : {prcs_stus : prcs_stus, atcl_offset : atcl_offset, atcl_limit : atcl_limit},
-		success: function(list){
-
-			var str_html = "<form id='atclInfoReadOne' action = '/atclInfo/readOne' method='post'>";
-				str_html += "<table class = 'type01'>";
-				str_html += "<thead><tr>";
-				str_html += "<th>접수번호</th>";
-				str_html += "<th>제목</th>";
-				str_html += "<th>기관명</th>";
-				str_html += "<th>등록일</th>";
-				str_html += "<th>처리상태</th>";
-				str_html += "</tr></thead>";
+function editorwrite() {
+	
+	var context = $("#editor_box").html();
+	
+	
 			
-				str_html += "<tbody>";
-			$.each(list, function(index, value){
-				str_html += "<tr onclick = 'atclInfoGetIdx("+value.atcl_idx+")'>";
-				str_html += "<td>"+value.atcl_idx+"</td>";
-				str_html += "<td>"+value.atcl_sbjt+"</td>";
-				str_html += "<td>"+value.cmpny_nm+"</td>";
-				str_html += "<td>"+value.reg_date+"</td>";
-				str_html += "<td>"+value.prcs_stus+"</td>";
-				str_html += "</a></tr>";
-				
-			});
-			str_html += "</tbody>";
-			str_html += "</table>";
-			str_html += "<div id = 'getIdx'></div>";
-			str_html += "</form>";
-
-			$("#data_list").html(str_html);		
-		},
-		error: function(){alert("ERROR");}
+	$("#editorcreateform").ajaxForm ({
+		method   : "post",
+		url: "/projectSupply/write",
+		enctype: "multipart/form-data",
+		data	: { sup_conts : context},
+		success: function(result)	{
+			location.href = "/projectSupply/projectSupplyList/go";
+		}
 	});
+	$("#fileUpLoadForm").submit();
 }
-//게시글을 클릭할때 form 전송 data(atcl_idx)를 생성해주는 함수
-function atclInfoGetIdx(idx) {
-	
-	var str_html = "<input type = 'hidden' name = 'atcl_idx' id = 'atcl_idx' value = "+idx+">";
-	
-	$("#getIdx").append(str_html);
-	$("#atclInfoReadOne").submit();
-}
+
+
+

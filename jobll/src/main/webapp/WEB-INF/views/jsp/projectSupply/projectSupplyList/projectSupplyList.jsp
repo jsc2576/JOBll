@@ -19,6 +19,6 @@
 	</ul>
 </div>
 
-<form id="atclInfoWrite" action = "/atclInfo//atclInfoWrite/go" method="post">
+<form id="projectSupplyWrite" action = "/projectSupply/projectSupplyWrite/go" method="post">
 	<button onclick = "submit()">글쓰기</button>
 </form>

@@ -64,7 +64,7 @@ function findData(prcs_stus, atcl_offset, atcl_limit){
 
 	$.ajax({
 		method : "POST",
-		url : "/atclInfo/listRun",
+		url : "/projectSupply/listRun",
 		data : {prcs_stus : prcs_stus, atcl_offset : atcl_offset, atcl_limit : atcl_limit},
 		success: function(list){
 
@@ -96,14 +96,16 @@ function findData(prcs_stus, atcl_offset, atcl_limit){
 
 			$("#data_list").html(str_html);		
 		},
-		error: function(){alert("ERROR");}
-	});
+//		error: function(){alert("ERROR");
+//		}
+	}
+	);
 }
 //게시글을 클릭할때 form 전송 data(atcl_idx)를 생성해주는 함수
-function atclInfoGetIdx(idx) {
+function projectSupplyGetIdx(idx) {
 	
-	var str_html = "<input type = 'hidden' name = 'atcl_idx' id = 'atcl_idx' value = "+idx+">";
+	var str_html = "<input type = 'hidden' name = 'prjt_idx' id = 'prjt_idx' value = "+idx+">";
 	
 	$("#getIdx").append(str_html);
-	$("#atclInfoReadOne").submit();
+	$("#projectSupplyReadOne").submit();
 }
