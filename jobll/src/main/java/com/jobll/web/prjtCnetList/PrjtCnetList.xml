@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jobll.web.prjtCnetList.PrjtCnetList">
+
+	<insert  id="create" parameterType ="com.jobll.web.prjtCnetList.PrjtCnetList" useGeneratedKeys="true"
+    keyProperty="prjt_cnet_list_idx">
+	INSERT INTO prjt_cnet_list(
+		prjt_cnet_list_idx,
+		usr_id, 
+		prjt_idx, 
+		cmpny_idx, 
+		prjt_cnet_list_idx_stus
+	)
+    VALUES (
+				(nextval('public.prjt_cnet_list_seq')),
+				#{usr_id},
+				#{prjt_idx},
+				#{cmpny_idx},
+				#{prjt_cnet_list_idx_stus}
+			)
+	</insert>
+	
+	<select id="selectPrjtCnetList" resultType="com.jobll.web.prjtCnetList.PrjtCnetList">
+		SELECT * from "PRJT_CNET_LIST"
+	</select>
+	
+	<select id="selectCnetList" resultType="com.jobll.web.usrinfo.UsrInfo">
+		SELECT * from "USR_INFO"
+	</select>
+	
+	
+	<select id="select" resultType="com.jobll.web.prjtCnetList.PrjtCnetList">
+		SELECT * from prjt_cnet_list
+	</select>
+	
+	<select id="read" resultType="com.jobll.web.prjtCnetList.PrjtCnetList" parameterType="com.jobll.web.prjtCnetList.PrjtCnetList">
+		SELECT * from prjt_cnet_list ORDER BY prjt_cnet_list_idx DESC OFFSET #{prjt_cnet_list_offset}
+	</select>
+
+	<select id="findAll" resultType="com.jobll.web.prjtCnetList.PrjtCnetList" parameterType="com.jobll.web.prjtCnetList.PrjtCnetList">
+		SELECT * from prjt_cnet_list ORDER BY prjt_cnet_list_idx DESC OFFSET #{prjt_cnet_list_offset} LIMIT #{prjt_cnet_list_limit} 
+	</select>
+	
+	<select id="findOne" resultType="com.jobll.web.prjtCnetList.PrjtCnetList" parameterType="com.jobll.web.prjtCnetList.PrjtCnetList">
+		SELECT * from prjt_cnet_list WHERE prjt_cnet_list_idx = #{prjt_cnet_list_idx}
+	</select>
+	
+	<select id="findPrcs" resultType="com.jobll.web.prjtCnetList.PrjtCnetList" parameterType="com.jobll.web.prjtCnetList.PrjtCnetList">
+		SELECT * from prjt_cnet_list WHERE prjt_idx = #{prjt_idx} ORDER BY prjt_cnet_list_idx DESC  OFFSET #{prjt_cnet_list_offset} LIMIT #{prjt_cnet_list_limit}
+	</select>
+</mapper>
