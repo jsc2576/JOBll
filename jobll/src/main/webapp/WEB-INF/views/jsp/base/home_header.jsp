@@ -8,4 +8,3 @@
         <a href="#about" class="btn btn-dark btn-lg">Find Out More</a>
     </div>
 </header>
-

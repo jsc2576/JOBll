@@ -2,7 +2,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-맨아웃 리스트
+프로젝트지원 리스트
  <div class ="process" style="margin-top: 100px">
 	<a onclick="findPrcs(0)" style="margin-right: 2px">전체목록</a>|
 	<a onclick="findPrcs(1)" style="margin-right: 2px">수신목록</a>|
@@ -19,6 +19,6 @@
 	</ul>
 </div>
 
-<form id="atclInfoWrite" action = "/atclInfo//atclInfoWrite/go" method="post">
+<form id="projectSupplyWrite" action = "/projectSupply/projectSupplyWrite/go" method="post">
 	<button onclick = "submit()">글쓰기</button>
 </form>
