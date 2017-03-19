@@ -26,6 +26,12 @@ public class ProjectInfoRepository {
 		return project_list;
 	}
 	
+	public ProjectInfo findChildren(ProjectInfo entity) throws Exception{
+		ProjectInfo project = sqlSession.selectOne("com.jobll.web.projectInfo.ProjectInfo.findChildren", entity);
+		
+		return project;
+	}
+	
 	public ProjectInfo findOne(ProjectInfo entity) throws Exception{
 		ProjectInfo project = sqlSession.selectOne("com.jobll.web.projectInfo.ProjectInfo.findOne", entity);
 		

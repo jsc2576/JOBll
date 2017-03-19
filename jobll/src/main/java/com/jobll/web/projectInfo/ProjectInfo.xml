@@ -50,7 +50,10 @@
 		 FROM order_group ORDER BY grp_path
 	</select>
 	
-	<select id="findOne" resultType="com.jobll.web.projectInfo.ProjectInfo" parameterType="com.jobll.web.projectInfo.ProjectInfo">
+	<select id="findChildren" resultType="com.jobll.web.projectInfo.ProjectInfo" parameterType="com.jobll.web.projectInfo.ProjectInfo">
 		SELECT * from "PRJT_INFO" WHERE "PRJT_IDX" = #{high_prjt_idx}
+	</select>
+	<select id="findOne" resultType="com.jobll.web.projectInfo.ProjectInfo" parameterType="com.jobll.web.projectInfo.ProjectInfo">
+		SELECT * from "PRJT_INFO" WHERE "PRJT_IDX" = #{prjt_idx}
 	</select>
 </mapper>

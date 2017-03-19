@@ -33,7 +33,7 @@ public class ProjectInfoService {
 			entity.setPrjt_lv(1);
 		else
 		{
-			ProjectInfo high_project = projectInfoRepository.findOne(entity);
+			ProjectInfo high_project = projectInfoRepository.findChildren(entity);
 			entity.setPrjt_lv(high_project.getPrjt_lv()+1);
 		}
 		
@@ -46,6 +46,11 @@ public class ProjectInfoService {
 		entity.setCmpny_idx(sessionUtil.getSessionBean().getUsr_cmpny_idx());
 		List<ProjectInfo> project_list = projectInfoRepository.findList(entity);
 		return project_list;
+	}
+public ProjectInfo findOne(ProjectInfo entity) throws Exception{
+		
+		entity = projectInfoRepository.findOne(entity);
+		return entity;
 	}
 }
 

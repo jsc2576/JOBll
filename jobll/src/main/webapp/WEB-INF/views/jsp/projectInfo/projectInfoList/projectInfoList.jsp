@@ -3,7 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 프로젝트 리스트
-<div class = "list"></div>
+<form id = "projectInfo" action = "/projectInfo/prjt/check/read" method="post">
+	<div class = "list"></div>
+</form>
+
 
 
 <form action = "/projectInfo/projectInfoCreate/go" method="post">
