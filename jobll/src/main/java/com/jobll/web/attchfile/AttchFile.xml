@@ -3,15 +3,14 @@
 <mapper namespace="com.jobll.web.attchfile.AttchFile">
 
 	<insert  id="create" parameterType ="com.jobll.web.attchfile.AttchFile">
-	INSERT INTO attch_file(
-			attch_file_idx, 
-            file_path, 
-            attch_file_nm, 
-            attch_file_vol, 
-            reg_date, 
-            file_typ,
-            ref_idx,
-            usr_id
+	INSERT INTO "ATTCH_FILE"(
+			"ATTCH_FILE_IDX", 
+            "FILE_PATH", 
+            "ATTCH_FILE_NM", 
+            "ATTCH_FILE_VOL", 
+            "REG_DATE", 
+            "FILE_TYP",
+            "ATCL_IDX"
             )
     VALUES (
 				(select nextval('public.attch_file_idx_seq')),
@@ -20,19 +19,14 @@
 				#{attch_file_vol},
 				#{reg_date},
 				#{file_typ},
-				#{ref_idx},
-				#{usr_id}
+				#{atcl_idx}
 			)
 	</insert>	
 	
 	<select id="findAll" resultType="com.jobll.web.attchfile.AttchFile" parameterType ="com.jobll.web.attchfile.AttchFile">
-		select * from attch_file
-	</select>
-	<select id="findByUsr" resultType="com.jobll.web.attchfile.AttchFile" parameterType ="com.jobll.web.attchfile.AttchFile">
-		select * from attch_file
-			where usr_id = #{usr_id}
+		select * from "ATTCH_FILE"
 	</select>
 	<select id="readByIdx" resultType="com.jobll.web.attchfile.AttchFile" parameterType ="com.jobll.web.attchfile.AttchFile">
-		select * from attch_file where ref_idx = #{ref_idx};
+		select * from "ATTCH_FILE" where "ATCL_IDX" = #{atcl_idx};
 	</select>
 </mapper>

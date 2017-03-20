@@ -18,8 +18,7 @@ public class AttchFile implements Serializable{
 	private int attch_file_vol;					// 첨부파일크기
 	private String reg_date;					// 등록날짜
 	private int file_typ;						// 파일종류(1:이미지, 2:오디오, 3:동영상 4:기타 등등(DEFAULT:1))
-	private int ref_idx;						// 등록한사용자아이디(유저 프로필 사진 등)
-	private String usr_id;						// 유저아이디(프로필 사진 등)
+	private int atcl_idx;						// 등록한사용자아이디(유저 프로필 사진 등)
 	
 	public int getAttch_file_idx() {
 		return attch_file_idx;
@@ -57,16 +56,11 @@ public class AttchFile implements Serializable{
 	public void setFile_typ(int file_typ) {
 		this.file_typ = file_typ;
 	}
-	public int getRef_idx() {
-		return ref_idx;
+	public int getAtcl_idx() {
+		return atcl_idx;
 	}
-	public void setRef_idx(int ref_idx) {
-		this.ref_idx = ref_idx;
+	public void setAtcl_idx(int atcl_idx) {
+		this.atcl_idx = atcl_idx;
 	}
-	public String getUsr_id() {
-		return usr_id;
-	}
-	public void setUsr_id(String usr_id) {
-		this.usr_id = usr_id;
-	}
+	
 }

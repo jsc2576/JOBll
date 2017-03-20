@@ -90,8 +90,8 @@ public class ProjectSupplyController {
 		AttchFile uploaddata = new AttchFile();
 		
 		//AtclInfo객체에서 atcl_idx와  usr_id를 전달 받습니다.
-		uploaddata.setRef_idx(entity.getPrjt_idx());
-		uploaddata.setUsr_id(entity.getUsr_id());
+		//uploaddata.setRef_idx(entity.getPrjt_idx());
+		//uploaddata.setUsr_id(entity.getUsr_id());
 		
 		//업로드 를 수행합니다.
 		attchFileService.uploadFiles(multipartFile,uploaddata);
@@ -123,7 +123,7 @@ public class ProjectSupplyController {
 		
 		AttchFile find_idx = new AttchFile();
 		
-		find_idx.setRef_idx(entity.getPrjt_idx());
+		//find_idx.setRef_idx(entity.getPrjt_idx());
 		
 		List<AttchFile> list = new ArrayList<AttchFile>();
 		

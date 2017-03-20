@@ -1,0 +1,3 @@
+function viewIssue() {
+	$("#issueView").submit();
+}

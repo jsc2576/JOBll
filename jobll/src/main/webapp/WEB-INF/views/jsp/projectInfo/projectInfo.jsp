@@ -2,28 +2,12 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<div class = "project_menu">
-	<ol class="breadcrumb">
-		<li><a href="#">프로젝트 정보</a></li>
-		<li><a href="#">게시판(이슈)</a></li>
-	</ol>
-</div>
-
-<div class = "panel-primary">
-	<div class="panel-heading">
-		${ entity.prjt_sbjt }
-	</div>
-	<div class="panel-body">
-		${ entity.prjt_conts }
-	</div>
-</div>
-
-<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<div class="collapse navbar-collapse project_menu" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">프로젝트 정보</a></li>
+        <li><a onclick="location.reload()">프로젝트 정보</a></li>
+        <li><a onclick="viewIssue()">게시판(이슈)</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown  Example<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Action</a></li>
             <li><a href="#">Another action</a></li>
@@ -36,3 +20,16 @@
         </li>
       </ul>
 </div>
+
+<div class = "panel-primary view">
+	<div class="panel-heading">
+		프로젝트 제목 : ${ entity.prjt_sbjt }
+	</div>
+	<div class="panel-body">
+		프로젝트 내용 : ${ entity.prjt_conts }
+	</div>
+</div>
+<form id = "issueView" action = "/issue/view"  method="post">
+	<input type = "hidden" name = "prjt_idx" value = ${ entity.prjt_idx }>
+</form>
+	

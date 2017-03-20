@@ -74,8 +74,8 @@ public class AtclInfoController {
 		AttchFile uploaddata = new AttchFile();
 		
 		//AtclInfo객체에서 atcl_idx와  usr_id를 전달 받습니다.
-		uploaddata.setRef_idx(entity.getAtcl_idx());
-		uploaddata.setUsr_id(entity.getUsr_id());
+		//uploaddata.setRef_idx(entity.getAtcl_idx());
+		//uploaddata.setUsr_id(entity.getUsr_id());
 		
 		//업로드 를 수행합니다.
 		attchFileService.uploadFiles(multipartFile,uploaddata);
@@ -108,7 +108,6 @@ public class AtclInfoController {
 		
 		AttchFile find_idx = new AttchFile();
 		
-		find_idx.setRef_idx(entity.getAtcl_idx());
 		
 		List<AttchFile> list = new ArrayList<AttchFile>();
 		
