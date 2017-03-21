@@ -115,22 +115,22 @@ public class ProjectSupplyController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/readOne")
-	public ModelAndView projectSupplyServicereadOne (@ModelAttribute ProjectSupply entity, BindingResult errors) throws Exception {
+	@RequestMapping(value = "/readOne", method= RequestMethod.POST)
+	public ModelAndView projectSupplyView (@ModelAttribute ProjectSupply entity, BindingResult errors) throws Exception {
 		ModelAndView mav = new ModelAndView("projectSupply/projectSupplyView");
 		
 		entity = projectSupplyService.findOne(entity);
 		
-		AttchFile find_idx = new AttchFile();
+//		AttchFile find_idx = new AttchFile();
 		
 		//find_idx.setRef_idx(entity.getPrjt_idx());
 		
-		List<AttchFile> list = new ArrayList<AttchFile>();
+//		List<AttchFile> list = new ArrayList<AttchFile>();
 		
-		list = attchFileService.readByIdx(find_idx);
+//		list = attchFileService.readByIdx(find_idx);
 		
 		mav.addObject("entity", entity);
-		mav.addObject("list", list);
+//		mav.addObject("list", list);
 		return mav;
 	}
 }

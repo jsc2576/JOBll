@@ -33,7 +33,7 @@ public class ProjectSupplyRepository {
 	}
 	
 	public ProjectSupply findOne (ProjectSupply entity) throws Exception{
-		entity = sqlSession.selectOne("com.jobll.web.projectSupply.ProjectSupply.findOne", entity);
-		return entity;
+		ProjectSupply project = sqlSession.selectOne("com.jobll.web.projectSupply.ProjectSupply.findOne", entity);
+		return project;
 	}
 }

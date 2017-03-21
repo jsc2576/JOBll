@@ -1,7 +1,7 @@
 $(document).ready (function (){
-	findPrcs(0);
-	pagination_mv();
-
+//	findPrcs(0);
+//	pagination_mv();
+	readProjectSupplyList();
 });
 
 var page_nm = 0; // 현재 보이는 페이지네이션의 페이지 
@@ -108,4 +108,30 @@ function projectSupplyGetIdx(idx) {
 	
 	$("#getIdx").append(str_html);
 	$("#projectSupplyReadOne").submit();
+}
+
+function readProjectList(){
+	$.ajax({
+		method : "POST",
+		url : "/projectSupply/listRun",
+		data : {},
+		success: function(list){
+			var str_html = "<ul class = 'project supply list'>";
+			str_html += "<ul>";
+			str_html += "<li><a onclick = 'readProjectSupply("+list[i].prjt_idx+")'>"+list[i].prjt_sbjt+"</a></li>";
+			str_html += "</ul>";
+			$(".list").html(str_html);
+		},
+		error: function(){alert("ERROR");}
+	});
+}
+
+function readProjectSupply(idx){
+	
+	var str_html = "<input type ='hidden' name = 'prjt_idx' value = '"+idx+"'>";
+	
+	$(".list").html(str_html);
+	
+	$("#projectSupply").submit();
+
 }
