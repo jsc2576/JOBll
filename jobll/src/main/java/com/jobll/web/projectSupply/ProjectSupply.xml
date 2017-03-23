@@ -27,11 +27,11 @@
 	</insert>
 
 	<select id="findAll" resultType="com.jobll.web.projectSupply.ProjectSupply" parameterType="com.jobll.web.projectSupply.ProjectSupply">
-		SELECT * from "PRJT_SUP_LIST" ORDER BY "PRJT_SUP_LIST_IDX" DESC OFFSET #{atcl_offset} LIMIT #{atcl_limit} 
+		SELECT * FROM "PRJT_SUP_LIST"
 	</select>
 	
 	<select id="findOne" resultType="com.jobll.web.projectSupply.ProjectSupply" parameterType="com.jobll.web.projectSupply.ProjectSupply">
-		SELECT * from "PRJT_SUP_LIST" WHERE "PRJT_SUP_LIST_IDX" = #{prjt_idx}
+		SELECT * FROM "PRJT_SUP_LIST" WHERE "PRJT_SUP_LIST_IDX" = #{prjt_sup_list_idx}
 	</select>
 	
 </mapper>
