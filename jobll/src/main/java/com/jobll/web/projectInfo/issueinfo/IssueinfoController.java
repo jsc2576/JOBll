@@ -89,4 +89,13 @@ public class IssueinfoController {
 		mav.addObject("list", list);
 		return mav;
 	}
+	
+	/**
+	 * 게시판(이슈) 쓰기 페이지로 맵핑해 줍니다.
+	**/
+	@RequestMapping("/reg")
+	public String atclInfoWriteGo(Locale locale, Model model) {
+
+		return "projectInfo/atclInfo/atclInfoWrite/atclInfoWriteView";
+	}
 }

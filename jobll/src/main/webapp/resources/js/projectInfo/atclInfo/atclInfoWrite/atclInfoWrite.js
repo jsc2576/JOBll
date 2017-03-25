@@ -132,11 +132,11 @@ function editorwrite() {
 			
 	$("#editorcreateform").ajaxForm ({
 		method   : "post",
-		url: "/atclInfo/write",
+		url: "/issue/reg/send",
 		enctype: "multipart/form-data",
 		data	: {atcl_sbjt : subject, atcl_conts : context},
 		success: function(result)	{
-			location.href = "/atclInfo/atclInfoList/go";
+			alert("success");
 		}
 	});
 	$("#fileUpLoadForm").submit();

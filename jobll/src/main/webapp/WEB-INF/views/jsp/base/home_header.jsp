@@ -2,9 +2,9 @@
 <!-- Header -->
 <header id="top" class="header homeheader">
     <div class="text-vertical-center">
-        <h1>Start Bootstrap</h1>
-        <h3>Free Bootstrap Themes &amp; Templates</h3>
+         <h1>JOBll</h1>
+        <h3>Research and development of responsive web-based service desk applications</h3>
         <br>
-        <a href="#about" class="btn btn-dark btn-lg">Find Out More</a>
+        <!-- <a href="#about" class="btn btn-dark btn-lg">Find Out More</a> -->
     </div>
 </header>
