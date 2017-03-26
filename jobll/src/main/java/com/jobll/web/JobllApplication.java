@@ -8,7 +8,9 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 public class JobllApplication {
 
 	public static void main(String[] args) {
+		//System.out.println("scTest");
 		SpringApplication.run(JobllApplication.class, args);
+		//System.out.println("scTest");
 	}
 
 }
