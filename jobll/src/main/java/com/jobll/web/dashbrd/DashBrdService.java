@@ -1,5 +1,7 @@
 package com.jobll.web.dashbrd;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 @Service
@@ -7,8 +9,8 @@ public class DashBrdService {
 
 	DashBrdRepository dashBrdRepository;
 	
-	public DashBrd findPrjtSbjt(DashBrd entity){
+	public List<String> findPrjtSbjt(DashBrd entity){
 		
-		return null;
+		return dashBrdRepository.findPrjtSbjt(entity);
 	}
 }

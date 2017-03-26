@@ -13,7 +13,6 @@ public class DashBrdRepository {
 	public List<String> findPrjtSbjt(DashBrd entity){
 		List<Integer> prjt_idx = sqlSession.selectList("com.jobll.web.dashbrd.DashBrd.findPrjtIdx", entity);
 		
-		
-		return null;
+		return sqlSession.selectList("com.jobll.web.dashbrd.DashBrd.findPrjtSbjt", prjt_idx);
 	}
 }
