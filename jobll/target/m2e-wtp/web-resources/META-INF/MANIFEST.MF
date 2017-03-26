@@ -1,7 +1,11 @@
 Manifest-Version: 1.0
 Implementation-Title: jobll
 Implementation-Version: 0.0.1-SNAPSHOT
+<<<<<<< HEAD
 Built-By: dhtmd
+=======
+Built-By: jsc55
+>>>>>>> ddd001dfee51eee597055ccf629f780d8fdf9eab
 Implementation-Vendor-Id: com.jobll.web
 Build-Jdk: 1.8.0_121
 Implementation-URL: http://projects.spring.io/spring-boot/jobll/

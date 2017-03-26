@@ -9,26 +9,26 @@ public class ProjectSupply implements Serializable{
 
 	private static final long serialVersionUID = 6160024646312100989L;
 	
-	private Integer prjt_idx; 			// 프로젝트 인덱스 
 	private Integer prjt_sup_list_idx; 	// 프로젝트지원리스트 인덱스 
+	private Integer prjt_idx; 			// 프로젝트 인덱스 
 	private String sup_conts; 			// 지원내용 
-	private Integer sup_person;			// 지원인원
+	private String sup_person;			// 지원인원
 	private String sup_strt_date;		// 지원시작날짜
 	private String sup_end_date;		// 지원종료날짜
 	private String appr_yn;				// 승인여부
 	private String usr_id;				// 사용자아이디
 	
-	public Integer getPrjt_idx() {
-		return prjt_idx;
-	}
-	public void setPrjt_idx(Integer prjt_idx) {
-		this.prjt_idx = prjt_idx;
-	}
 	public Integer getPrjt_sup_list_idx() {
 		return prjt_sup_list_idx;
 	}
 	public void setPrjt_sup_list_idx(Integer prjt_sup_list_idx) {
 		this.prjt_sup_list_idx = prjt_sup_list_idx;
+	}
+	public Integer getPrjt_idx() {
+		return prjt_idx;
+	}
+	public void setPrjt_idx(Integer prjt_idx) {
+		this.prjt_idx = prjt_idx;
 	}
 	public String getSup_conts() {
 		return sup_conts;
@@ -36,10 +36,10 @@ public class ProjectSupply implements Serializable{
 	public void setSup_conts(String sup_conts) {
 		this.sup_conts = sup_conts;
 	}
-	public Integer getSup_person() {
+	public String getSup_person() {
 		return sup_person;
 	}
-	public void setSup_person(Integer sup_person) {
+	public void setSup_person(String sup_person) {
 		this.sup_person = sup_person;
 	}
 	public String getSup_strt_date() {

@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+      <jsp:include page="../../projectInfoMenu.jsp" flush="false" />
+      
         <!--FILE UP LOAD -->
       <div>
         <form id ="editorcreateform"  method="post" enctype="multipart/form-data">
@@ -216,7 +218,7 @@
 	        <!--/.EDITOR LOAD END-->
 	        <section id="file-upload-section">
 		        <div id = "file-upload-tag">
-		        	<input type="file" id="file-upload"  name="uploadFile" />
+		        	<input type="file" id="file-upload"  name="uploadFile" class = "file-loading" multiple=true/>
 		   			<div id="file-list" style="border:2px solid #c9c9c9;min-height:50px"></div> 
 	        		<p><button onclick ="editorwrite()">글 쓰기</button></p>
 	          </div>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jobll.web.dashbrd.DashBrd">
+
+	<select id="findPrjtIdx" parameterType="Integer" resultType="java.util.HashMap">
+		SELECT prjt_idx FROM prjt_info WHERE usr_id = #{usr_id}
+	</select>
+	
+	<select id="findPrjt" parameterType="Integer" resultType="java.util.HashMap">
+		SELECT prjt_sbjt
+		FROM prjt_info
+		<where>
+			prjt_idx IN
+			<foreach collection="prjt_idx" index="index" item="item" open="(" separator="," close=")">
+				#{item}
+			</foreach>
+		</where>
+	</select>
+</mapper>

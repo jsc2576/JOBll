@@ -13,7 +13,9 @@
 	<body>
 		<jsp:include page="menu.jsp" flush="false" />
 		<jsp:include page="header.jsp" flush="false" />
+		<div class = "main-content">
 		<jsp:include page="<%= content %>" flush="false" />
+		</div>
 	</body>
 	<jsp:include page="script.jsp" flush="false" />
 	<jsp:include page="<%= script %>" flush="false" />

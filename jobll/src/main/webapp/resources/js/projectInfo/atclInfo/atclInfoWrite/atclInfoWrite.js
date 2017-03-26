@@ -127,16 +127,17 @@ function editorwrite() {
 	
 	var subject = $("#subject").val();
 	var context = $("#editor_box").html();
+	var prjt_idx = $(".prjt_idx").val();
 	
 	
 			
 	$("#editorcreateform").ajaxForm ({
 		method   : "post",
-		url: "/atclInfo/write",
+		url: "/issue/reg/send",
 		enctype: "multipart/form-data",
-		data	: {atcl_sbjt : subject, atcl_conts : context},
+		data	: {atcl_sbjt : subject, atcl_conts : context, prjt_idx : prjt_idx},
 		success: function(result)	{
-			location.href = "/atclInfo/atclInfoList/go";
+			alert("success");
 		}
 	});
 	$("#fileUpLoadForm").submit();
