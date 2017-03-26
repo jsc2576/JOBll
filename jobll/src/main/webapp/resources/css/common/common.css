@@ -1,10 +1,13 @@
-table{
-	width: 60%;
- 	height: 50%;
- 	margin: auto;
- 	text-align: center;
- 	cellspacing=1;
-}  
+.main-content{
+	margin : auto;
+	width : 70%;
+}
+
+.navbar-collapse.collapse {
+	display: block!important;
+}
+
+
 
 .login-button{
   width: 500px;

@@ -15,25 +15,19 @@ public class ProjectSupplyRepository {
     private SqlSession sqlSession;
 	
 	
-	public int create(ProjectSupply entity){
+	public int create(ProjectSupply entity)throws Exception{
 		int qry = sqlSession.insert("com.jobll.web.projectSupply.ProjectSupply.create", entity);
 		return qry;
 	}
 	
-
-	/**
-	 * 데이터 검색 (0: 전체검색, 1: 대기중 검색, 2: 접수 완료 검색, 3: 처리중 검색, 4: 처리완료 검색) 
-	 * @param entity
-	 * @return
-	 */
-	public List<ProjectSupply> findList(ProjectSupply entity) throws Exception{
-		List<ProjectSupply> projectSupply_list = sqlSession.selectList("com.jobll.web.projectSupply.ProjectSupply.findAll", entity);
+	public List<ProjectSupply> findAll(ProjectSupply entity) throws Exception{
+		List<ProjectSupply> list = sqlSession.selectList("com.jobll.web.projectSupply.ProjectSupply.findAll", entity);
 		
-		return projectSupply_list;
+		return list;
 	}
 	
 	public ProjectSupply findOne (ProjectSupply entity) throws Exception{
-		ProjectSupply project = sqlSession.selectOne("com.jobll.web.projectSupply.ProjectSupply.findOne", entity);
-		return project;
+		ProjectSupply data = sqlSession.selectOne("com.jobll.web.projectSupply.ProjectSupply.findOne", entity);
+		return data;
 	}
 }
