@@ -4,7 +4,8 @@
 
 <div class="view collapse navbar-collapse project_menu" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a class = "menu-a-tag" onclick="location.reload()">프로젝트 정보</a></li>
+      	<li><a class = "menu-a-tag" href="/projectInfo/projectInfoList/go">프로젝트 리스트</a></li>
+        <li><a class = "menu-a-tag" onclick="viewProject()">프로젝트 정보</a></li>
         <li><a class = "menu-a-tag" onclick="viewIssue()">게시판(이슈)</a></li>
         <li class="dropdown">
           <a class = "menu-a-tag" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown  Example<span class="caret"></span></a>
@@ -22,6 +23,9 @@
 </div>
 
 <form id = "issueView" action = "/issue/view"  method="post">
-	<input type = "hidden" name = "prjt_idx" value = ${ entity.prjt_idx }>
+	<input type = "hidden" class = "prjt_idx" name = "prjt_idx" value = ${ entity.prjt_idx }>
+</form>
+<form id = "projectInfo" action = "/projectInfo/prjt/check/read" method="post">
+	<input type = "hidden" class = "prjt_idx" name = "prjt_idx" value = ${ entity.prjt_idx }>
 </form>
 	
