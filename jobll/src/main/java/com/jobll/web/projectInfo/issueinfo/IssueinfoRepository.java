@@ -13,7 +13,7 @@ public class IssueinfoRepository {
     private SqlSession sqlSession;
 	
 	
-	public int createAtcl(IssueInfo entity){
+	public int create(IssueInfo entity){
 		int qry = sqlSession.insert("com.jobll.web.projectInfo.issueinfo.IssueInfo.create", entity);
 		return qry;
 	}

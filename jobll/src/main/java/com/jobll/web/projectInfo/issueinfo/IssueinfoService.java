@@ -28,14 +28,15 @@ public class IssueinfoService {
 	 * @return
 	 */
 	
-	public int createAtcl(IssueInfo entity){
+	public int create(IssueInfo entity){
 		
 		entity.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
-	      entity.setReg_date(commonUtil.getCurrentDtime());
-	      entity.setAtcl_stus("1");
-	      //entity.setCmpny_nm(sessionUtil.getSessionBean().);
-		
-		int qry = issueInfoRepository.createAtcl(entity);
+	    entity.setReg_date(commonUtil.getCurrentDtime());
+	    entity.setAtcl_stus("1");
+	    entity.setStrt_date("20120102030405");
+		entity.setAtcl_typ("1");
+	    
+		int qry = issueInfoRepository.create(entity);
 		return qry;
 	}
 	

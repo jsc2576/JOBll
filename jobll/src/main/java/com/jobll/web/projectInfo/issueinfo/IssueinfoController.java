@@ -94,8 +94,34 @@ public class IssueinfoController {
 	 * 게시판(이슈) 쓰기 페이지로 맵핑해 줍니다.
 	**/
 	@RequestMapping("/reg")
-	public String atclInfoWriteGo(Locale locale, Model model) {
+	public ModelAndView issueInfoReg(@ModelAttribute IssueInfo entity, BindingResult errors) throws Exception {
+		ModelAndView mav = new ModelAndView("projectInfo/atclInfo/atclInfoWrite/atclInfoWriteView");
+		
+		mav.addObject("entity", entity);
+		
+		return mav;
+	}
 
-		return "projectInfo/atclInfo/atclInfoWrite/atclInfoWriteView";
+	@RequestMapping(value = "/reg/send")
+	public ModelAndView IssueInfoInfoRegSend (@ModelAttribute IssueInfo entity, HttpServletRequest request, BindingResult errors) throws Exception {
+		ModelAndView mav = new ModelAndView("projectInfo/atclInfo/atclInfoView");
+		
+		//HttpServletRequest 형식의 데이터를 MultipartFile형식으로 캐스팅 해 줍니다.
+		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest)request;
+		List<MultipartFile> multipartFile = multipartRequest.getFiles("uploadFile");
+		
+		//게시글 정보를 우선적으로 db로 전송합니다. 쿼리  전송후 atcl_idx값이 entity에 저장됩니다.
+		issueInfoService.create(entity);
+		
+		//파일 업로드용 객체인 AttchFile를 생성합니다.
+		AttchFile uploaddata = new AttchFile();
+		
+		//AtclInfo객체에서 atcl_idx와  usr_id를 전달 받습니다.
+		uploaddata.setAtcl_idx(entity.getAtcl_idx());
+		
+		//업로드 를 수행합니다.
+		attchFileService.uploadFiles(multipartFile,uploaddata);
+		
+		return mav;
 	}
 }

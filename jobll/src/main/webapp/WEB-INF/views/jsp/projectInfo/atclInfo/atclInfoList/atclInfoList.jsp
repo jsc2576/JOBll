@@ -10,7 +10,7 @@
 	</ul>
 </div>
 <form id="atclInfoWrite" action = "/issue/reg" method="post">
+	<input type = "hidden" name = "prjt_idx" id = "prjt_idx" value = ${ entity.prjt_idx }>
 	<button onclick = "submit()">글쓰기</button>
 </form>
 
-<input type = "hidden" id = "prjt_idx" value = ${ entity.prjt_idx }>

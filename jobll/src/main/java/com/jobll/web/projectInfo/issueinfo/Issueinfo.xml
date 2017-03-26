@@ -6,30 +6,38 @@
     keyProperty="atcl_idx">
 	INSERT INTO "ATCL_INFO"(
 		"ATCL_IDX",
-		"USR_ID", 
 		"HIGH_ATCL_IDX", 
 		"ATCL_SBJT", 
 		"ATCL_CONTS",
-		"CMPNY_NM",
-		"PRCS_STUS",
-		"REG_DATE", 
-		"ATCL_STUS"
+		"REG_DATE",
+		"USR_ID",
+		"STRT_DATE", 
+		"COMP_DATE",
+		"ESTN_TIME",
+		"ATCL_PROG_RATE",
+		"ATCL_STUS",
+		"PRJT_IDX",
+		"ATCL_TYP"
 	)
     VALUES (
 				(nextval('public.atcl_idx_seq')),
-				#{usr_id},
 				#{high_atcl_idx},
 				#{atcl_sbjt},
 				#{atcl_conts},
-				#{cmpny_nm},
-				#{prcs_stus},
 				#{reg_date},
-				#{atcl_stus}
+				#{usr_id},
+				#{strt_date},
+				#{comp_date},
+				#{estn_time},
+				#{atcl_prog_rate},
+				#{atcl_stus},
+				#{prjt_idx},
+				#{atcl_typ}
 			)
 	</insert>
 
 	<select id="findAll" resultType="com.jobll.web.projectInfo.issueinfo.IssueInfo" parameterType="com.jobll.web.projectInfo.issueinfo.IssueInfo">
-		SELECT * from "ATCL_INFO" ORDER BY "ATCL_IDX" DESC OFFSET #{atcl_offset} LIMIT #{atcl_limit} 
+		SELECT * from "ATCL_INFO" WHERE "PRJT_IDX" = #{prjt_idx} ORDER BY "ATCL_IDX" DESC OFFSET #{atcl_offset} LIMIT #{atcl_limit} 
 	</select>
 	
 	<select id="findOne" resultType="com.jobll.web.projectInfo.issueinfo.IssueInfo" parameterType="com.jobll.web.projectInfo.issueinfo.IssueInfo">
