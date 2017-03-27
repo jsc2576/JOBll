@@ -44,10 +44,14 @@ public class ProjectSupplyController {
 		return "projectSupply/projectSupplyWrite/projectSupplyWriteView";
 	}
 	
-	@RequestMapping(value = "/write", method = RequestMethod.POST)
+	@RequestMapping(value = "/projectSupplyWrite", method = RequestMethod.POST)
 	@ResponseBody
-	public ProjectSupply projectSupplyServiceWrite (@ModelAttribute ProjectSupply entity) throws Exception {
-		return entity;
+	public ModelAndView projectSupplyServiceWrite (@ModelAttribute ProjectSupply entity) throws Exception {
+		ModelAndView mav = new ModelAndView("projectSupply/projectSupplyList/projectSupplyListView");
+		
+		projectSupplyService.create(entity);
+		
+		return mav;
 	}
 	
 	@RequestMapping(value = "/listRun", method= RequestMethod.POST)

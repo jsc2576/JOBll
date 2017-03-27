@@ -5,7 +5,7 @@
 프로젝트 지원요청
 <form action = "/projectSupply/projectSupplyWrite" method="post">
 	<div class = "WriteProject">
-		프로젝트
+		지원할 프로젝트
 		<div class = "SupplyList"></div>
 		<div>
 			제목
@@ -16,5 +16,5 @@
 			<textarea class = "prjt_conts" name = "prjt_conts" ></textarea>
 		</div>
 	</div>
-	<button type = "submit">생성하기</button>
+	<button type = "submit">요청하기</button>
 </form>

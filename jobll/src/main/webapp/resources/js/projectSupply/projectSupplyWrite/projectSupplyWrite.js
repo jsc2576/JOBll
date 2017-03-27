@@ -15,7 +15,7 @@ function writeProjectSupply(){
 			str_html += "<option>없음</option>";
 			for(var i = 0; i < list.length; i++)
 			{
-				str_html += "<option value = '"+list[i].prjt_idx+"'>"+list[i].prjt_sup_list_idx+"</option>";
+				str_html += "<option value = '"+list[i].prjt_idx+"'>"+list[i].prjt_idx+"</option>";
 			}
 			str_html += "</select>";
 			
