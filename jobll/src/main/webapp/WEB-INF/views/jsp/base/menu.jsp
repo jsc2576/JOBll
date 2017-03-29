@@ -23,11 +23,6 @@
 	        </a>
         </li>
         <li>
-            <A href="/projectSupply/projectSupplyList/go" >
-	          <span>프로젝트지원</span>
-	        </a>
-        </li>
-        <li>
             <A href="/usrInfo/usrInfoList/go" >
 	          <span>회원목록</span>
 	        </a>

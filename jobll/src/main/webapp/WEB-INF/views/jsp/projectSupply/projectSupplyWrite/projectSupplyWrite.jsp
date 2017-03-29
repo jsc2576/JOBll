@@ -5,16 +5,24 @@
 프로젝트 지원요청
 <form action = "/projectSupply/projectSupplyWrite" method="post">
 	<div class = "WriteProject">
-		프로젝트
+		지원할 프로젝트
 		<div class = "SupplyList"></div>
 		<div>
-			제목
-			<input type = "text" class = "prjt_sbjt" name = "prjt_sbjt">
+			인원
+			<input type = "text" class = "sup_person" name = "sup_person">
+		</div>
+		<div>
+			지원시작날짜
+			<input type = "text" class = "sup_strt_date" name = "sup_strt_date">
+		</div>
+		<div>
+			지원종료날짜
+			<input type = "text" class = "sup_end_date" name = "sup_end_date">
 		</div>
 		<div>
 			설명
-			<textarea class = "prjt_conts" name = "prjt_conts" ></textarea>
+			<textarea class = "sup_conts" name = "sup_conts" ></textarea>
 		</div>
 	</div>
-	<button type = "submit">생성하기</button>
+	<button type = "submit">요청하기</button>
 </form>
