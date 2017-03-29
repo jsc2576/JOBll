@@ -52,7 +52,7 @@ function findData(prcs_stus, atcl_offset, atcl_limit){
 		data : {prcs_stus : prcs_stus, atcl_offset : atcl_offset, atcl_limit : atcl_limit},
 		success: function(list){
 
-			var str_html = "<form id='atclInfoReadOne' action = '/atclInfo/readOne' method='post'>";
+			var str_html = "<form id='projectSupplyReadOne' action = '/prjectSupply/readOne' method='post'>";
 				str_html += "<table class = 'type01'>";
 				str_html += "<thead><tr>";
 				str_html += "<th>지원목록번호</th>";
@@ -66,7 +66,7 @@ function findData(prcs_stus, atcl_offset, atcl_limit){
 				str_html += "</tr></thead>";			
 				str_html += "<tbody>";
 			$.each(list, function(index, value){
-				str_html += "<tr onclick = 'readProjectSupply("+value.prjt_idx+")'>";
+				str_html += "<tr onclick = 'readProjectSupply("+value.prjt_sup_list_idx+")'>";
 				str_html += "<td>"+value.prjt_sup_list_idx+"</td>";
 				str_html += "<td>"+value.prjt_idx+"</td>";
 				str_html += "<td>"+value.sup_conts+"</td>";
