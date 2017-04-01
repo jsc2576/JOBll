@@ -25,6 +25,7 @@ public class IssueInfo implements Serializable{
 	
 	private Integer atcl_offset;
 	private Integer atcl_limit;
+	private Integer write_type;		//게시글을 쓸때 수정인경우 1 아닌 경우 0
 	
 	public int getAtcl_idx() {
 		return atcl_idx;
@@ -115,6 +116,12 @@ public class IssueInfo implements Serializable{
 	}
 	public void setAtcl_limit(Integer atcl_limit) {
 		this.atcl_limit = atcl_limit;
+	}
+	public Integer getWrite_type() {
+		return write_type;
+	}
+	public void setWrite_type(Integer write_type) {
+		this.write_type = write_type;
 	}
 	
 	

@@ -124,4 +124,50 @@ public class IssueinfoController {
 		
 		return mav;
 	}
+	
+	@RequestMapping(value = "/del")
+	public ModelAndView IssueInfoInfoDel (@ModelAttribute IssueInfo entity, BindingResult errors) throws Exception {
+		ModelAndView mav = new ModelAndView("projectInfo/atclInfo/atclInfoList/atclInfoListView");
+		mav.addObject("entity", entity);
+		
+		//해당 Issue의 stus를 0으로 비활성화 시킵니다.
+		issueInfoService.delete(entity);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value = "/mdf")
+	public ModelAndView issueInfoMdf(@ModelAttribute IssueInfo entity, BindingResult errors) throws Exception {
+		ModelAndView mav = new ModelAndView("projectInfo/atclInfo/atclInfoWrite/atclInfoWriteView");
+		
+		entity = issueInfoService.findOne(entity);
+		entity.setWrite_type(1);
+		
+		mav.addObject("entity", entity);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value = "/mdf/send")
+	public ModelAndView IssueInfoInfoMdfSend (@ModelAttribute IssueInfo entity, HttpServletRequest request, BindingResult errors) throws Exception {
+		ModelAndView mav = new ModelAndView("projectInfo/atclInfo/atclInfoView");
+		
+		//HttpServletRequest 형식의 데이터를 MultipartFile형식으로 캐스팅 해 줍니다.
+		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest)request;
+		List<MultipartFile> multipartFile = multipartRequest.getFiles("uploadFile");
+		
+		issueInfoService.update(entity);
+		
+		//파일 업로드용 객체인 AttchFile를 생성합니다.
+		AttchFile uploaddata = new AttchFile();
+		
+		//AtclInfo객체에서 atcl_idx와  usr_id를 전달 받습니다.
+		uploaddata.setAtcl_idx(entity.getAtcl_idx());
+		
+		//업로드 를 수행합니다.
+		attchFileService.uploadFiles(multipartFile,uploaddata);
+		
+		return mav;
+	}
+
 }

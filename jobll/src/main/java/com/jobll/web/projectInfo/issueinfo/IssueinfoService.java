@@ -59,6 +59,25 @@ public class IssueinfoService {
 		return entity;
 	}
 	
-
+	public int delete(IssueInfo entity) throws Exception{
+		
+		entity.setAtcl_stus("0");
+	   
+		int qry = issueInfoRepository.delete(entity);
+		return qry;
+	}
+	
+	public int update(IssueInfo entity) throws Exception{
+		
+		IssueInfo update_data = this.findOne(entity);
+		
+		update_data.setReg_date(commonUtil.getCurrentDtime());
+		update_data.setAtcl_sbjt(entity.getAtcl_sbjt());
+		update_data.setAtcl_conts(entity.getAtcl_conts());
+	    
+	   
+		int qry = issueInfoRepository.update(update_data);
+		return qry;
+	}
 }
 

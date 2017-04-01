@@ -17,10 +17,7 @@
       </ul>
 </div>
 
-<form id = "issueView" action = "/issue/view"  method="post">
-	<input type = "hidden" class = "prjt_idx" name = "prjt_idx" value = ${ entity.prjt_idx }>
-</form>
-<form id = "projectInfo" action = "/projectInfo/prjt/check/read" method="post">
+<form id = "dataSender" method="post">
 	<input type = "hidden" class = "prjt_idx" name = "prjt_idx" value = ${ entity.prjt_idx }>
 </form>
 	
