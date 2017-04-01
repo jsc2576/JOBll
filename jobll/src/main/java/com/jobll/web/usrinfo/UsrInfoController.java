@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.jobll.web.attchfile.AttchFile;
 import com.jobll.web.cmpnyinfo.CmpnyInfo;
+import com.jobll.web.projectInfo.ProjectInfo;
 
 
 
@@ -34,7 +35,7 @@ public class UsrInfoController {
 	/**
 	 * 로그인 사용자의 개인정보를 볼 수 있습니다.
 	**/
-	@RequestMapping(value = "/MyUsrInfo/go")
+	@RequestMapping(value = "/MyUsrInfo")
 	public String myUsrInfoGo() throws Exception {
 		return "usrInfo/myUsrInfo/myUsrInfoView";
 	}
@@ -42,14 +43,14 @@ public class UsrInfoController {
 	/**
 	 * 회원목록 리스트 페이지로 이동합니다.(추후 사이트 관리자 계정에서만 보이게 할 것)
 	**/
-	@RequestMapping("/usrInfoList/go")
+	@RequestMapping("/usrInfoList")
 	public String usrInfoListGo(){
 		return "usrInfo/usrInfoList/usrInfoListView";
 	}
 	/**
 	 * 회원 가입 페이지로 이동합니다.
 	**/
-	@RequestMapping("/usrInfoJoin/go")
+	@RequestMapping("/join")
 	public String  usrInfoJoinGo(){
 		
 		return "usrInfo/usrInfoJoin/usrInfoJoin";
@@ -74,11 +75,54 @@ public class UsrInfoController {
 	@RequestMapping(value = "/cmpnyList.json", method = RequestMethod.POST)
 	@ResponseBody
 	public List<CmpnyInfo> CmpnyList (){
-		
 		List<CmpnyInfo> list = usrInfoService.selectCmpny();
 		return list;
 	}
 	
+	/**
+	 * 기업 리스트를 읽어와 반환
+	 * @return
+	 */
+	@RequestMapping(value = "/cmpnyOne", method = RequestMethod.POST)
+	@ResponseBody
+	public CmpnyInfo CmpnyOne (UsrInfo entity){
+		CmpnyInfo list = usrInfoService.selectCmpnyOne(entity);
+		return list;
+	}
+	/**
+	 * 유저 아이디를 사용해 유저 정보를 반환
+	 * @param entity
+	 * @return
+	 */
+	@RequestMapping(value = "/myUsrInfo/read", method = RequestMethod.POST)
+	@ResponseBody
+	public UsrInfo UsrInfo (UsrInfo entity){
+		UsrInfo sel = usrInfoService.selectOne(entity);
+		CmpnyInfo list = usrInfoService.selectCmpnyOne(entity);
+		sel.setUsr_pwd(list.getCmpny_nm());
+		return sel;
+	}
+	
+	/**
+	 * 모든 유저 정보를 리스트 형식으로 반환
+	 * @return
+	 */
+	@RequestMapping(value = "/allPersonInfo/check/read", method = RequestMethod.POST)
+	@ResponseBody
+	public List<HashMap<String, Object>> UsrInfoList() {
+		List<HashMap<String, Object>> List;
+		List= usrInfoService.select();
+		return List;
+		}
+	
+	@RequestMapping(value = "/prjt/read", method = RequestMethod.POST)
+	@ResponseBody
+	public List<ProjectInfo> PrjtInfoList() {
+		UsrInfo entity=new UsrInfo();
+		List<ProjectInfo> List;
+		List= usrInfoService.readPrjtSbjtByUsrId(entity);
+		return List;
+		}
 	//basic instruction :
 	
 	

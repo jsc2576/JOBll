@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 
 import com.jobll.web.cmpnyinfo.CmpnyInfo;
+import com.jobll.web.projectInfo.ProjectInfo;
 @Repository("usr_info")
 public class UsrInfoRepository {
 	
@@ -17,14 +18,25 @@ public class UsrInfoRepository {
     SqlSession sqlSession;
 	
 	public List<CmpnyInfo> selectCmpny() {
-		
-		List selectList = sqlSession.selectList("com.jobll.web.usrinfo.UsrInfo.selectCmpny");
-		
+		List<CmpnyInfo> selectList = sqlSession.selectList("com.jobll.web.usrinfo.UsrInfo.selectCmpny");	
 		return selectList ;
 	}
+	public CmpnyInfo selectCmpnyOne(UsrInfo entity){
 	
+		CmpnyInfo sel = sqlSession.selectOne("com.jobll.web.usrinfo.UsrInfo.selectCmpnyOne", entity);
+		return sel;
+	}
+	public UsrInfo selectOne(UsrInfo entity) {
+		UsrInfo sel = sqlSession.selectOne("com.jobll.web.usrinfo.UsrInfo.selectOne", entity);
+		return sel;
+	}
 	
-	
+	public List<ProjectInfo> readPrjtSbjtByUsrId(UsrInfo entity) {
+		
+		List<ProjectInfo> selectList = new ArrayList<ProjectInfo>();
+		selectList  = sqlSession.selectList("com.jobll.web.usrinfo.UsrInfo.readPrjtSbjt",entity);
+		return selectList ;
+	}
 	public List<HashMap<String, Object>> select() {
 		
 		List<HashMap<String, Object>> selectList = new ArrayList<HashMap<String, Object>>();

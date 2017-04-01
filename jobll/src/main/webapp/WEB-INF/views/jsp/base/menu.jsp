@@ -13,7 +13,7 @@
         	</a>
         </li>
         <li>
-            <a href="/usrInfo/MyUsrInfo/go" >
+            <a href="/usrInfo/MyUsrInfo" >
 	          <span>회원정보</span>
 	        </a>
         </li>
@@ -28,12 +28,12 @@
 	        </a>
         </li>
         <li>
-            <A href="/usrInfo/usrInfoList/go" >
+            <A href="/usrInfo/usrInfoList" >
 	          <span>회원목록</span>
 	        </a>
         </li>
         <li>
-            <A href="/usrInfo/usrInfoJoin/go" >
+            <A href="/usrInfo/join" >
 	          <span>회원가입</span>
 	        </a>
         </li>

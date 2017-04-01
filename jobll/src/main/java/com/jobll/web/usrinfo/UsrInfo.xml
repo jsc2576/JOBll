@@ -2,14 +2,26 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jobll.web.usrinfo.UsrInfo">
 
+	<select id="readPrjtSbjt" parameterType ="com.jobll.web.usrinfo.UsrInfo" resultType="com.jobll.web.projectInfo.ProjectInfo">
+		SELECT p."PRJT_IDX",
+				(select "PRJT_SBJT" from "PRJT_INFO" where "PRJT_IDX" = p."PRJT_IDX")
+		FROM "PRJT_CNET_LIST" p 
+		WHERE "USR_ID" = #{usr_id}
+
+	</select>
+	
 	<select id="selectCmpny" resultType="com.jobll.web.cmpnyinfo.CmpnyInfo">
 		SELECT * from "CMPNY_INFO"
 	</select>
-	
+	<select id="selectCmpnyOne" parameterType ="com.jobll.web.usrinfo.UsrInfo" resultType="com.jobll.web.cmpnyinfo.CmpnyInfo">
+		SELECT * from "CMPNY_INFO" WHERE "CMPNY_IDX" = #{usr_cmpny_idx}
+	</select>
 	<select id="select" resultType="com.jobll.web.usrinfo.UsrInfo">
 		SELECT * from "USR_INFO"
 	</select>
-	
+	<select id="selectOne" parameterType ="com.jobll.web.usrinfo.UsrInfo" resultType="com.jobll.web.usrinfo.UsrInfo">
+		SELECT * from "USR_INFO" WHERE "USR_ID" = #{usr_id}
+	</select>
 	<select id="checkId" parameterType="java.lang.String" resultType="Integer">
 		select count(*) 
 		from "USR_INFO"

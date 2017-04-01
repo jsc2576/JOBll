@@ -7,14 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jobll.web.cmpnyinfo.CmpnyInfo;
+import com.jobll.web.projectInfo.ProjectInfo;
 import com.jobll.web.usrinfo.UsrInfo;
 import com.jobll.web.usrinfo.UsrInfoRepository;
 import com.jobll.web.CommonUtil;
-//38 line 수정필요
+import com.jobll.web.SessionUtil;
 
 @Service
 public class UsrInfoService{
-
+	
+	@Autowired
+	private SessionUtil sessionUtil;
+	
 	@Autowired
 	private UsrInfoRepository usrInfoRepository;
 	
@@ -24,9 +28,21 @@ public class UsrInfoService{
 	public List<CmpnyInfo> selectCmpny(){
 		return usrInfoRepository.selectCmpny();
 	}
-	
+	public CmpnyInfo selectCmpnyOne(UsrInfo entity){
+		entity.setUsr_cmpny_idx(sessionUtil.getSessionBean().getUsr_cmpny_idx());
+		return usrInfoRepository.selectCmpnyOne(entity);
+	}
 	public List<HashMap<String, Object>> select(){
 		return usrInfoRepository.select();
+	}
+	public List<ProjectInfo> readPrjtSbjtByUsrId(UsrInfo entity){
+		entity.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
+		return usrInfoRepository.readPrjtSbjtByUsrId(entity);
+		
+	};
+	public UsrInfo selectOne(UsrInfo entity){
+		entity.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
+		return usrInfoRepository.selectOne(entity);
 	}
 	
 	public List<HashMap<String, Object>> read(UsrInfo entity){
