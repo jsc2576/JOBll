@@ -1,5 +1,4 @@
 $(document).ready (function (){
-//	readProjectSupplyList();
 	findPrcs(0);
 	pagination_mv();
 });
@@ -41,7 +40,7 @@ function pagination_mv(){
 	str_html += "<li><a onclick='findpage(" + (page_nm * list_nm + 2) + ")'>" + (page_nm * list_nm + 2) + "</a></li>";
 	str_html += "<li><a onclick='findpage(" + (page_nm * list_nm + 3) + ")'>" + (page_nm * list_nm + 3) + "</a></li>";
 	str_html += "<li><a onclick='findpage(" + (page_nm * list_nm + 4) + ")'>" + (page_nm * list_nm + 4) + "</a></li>";
-	str_html += "<li><a onclick\='findpage(" + (page_nm * list_nm + 5) + ")'>" + (page_nm * list_nm + 5) + "</a></li>";
+	str_html += "<li><a onclick='findpage(" + (page_nm * list_nm + 5) + ")'>" + (page_nm * list_nm + 5) + "</a></li>";
 	str_html += "<li><a onclick='pagination_next()'><span class='glyphicon glyphicon-chevron-right'></span></a></li>";
 	$("#page_nm").html(str_html);	
 }
@@ -51,30 +50,29 @@ function findData(prcs_stus, atcl_offset, atcl_limit){
 		url : "/projectSupply/listRun",
 		data : {prcs_stus : prcs_stus, atcl_offset : atcl_offset, atcl_limit : atcl_limit},
 		success: function(list){
-
-			var str_html = "<form id='atclInfoReadOne' action = '/atclInfo/readOne' method='post'>";
+			var str_html = "<form id='projectSupplyReadOne' action = '/prjectSupply/readOne' method='post'>";
 				str_html += "<table class = 'type01'>";
 				str_html += "<thead><tr>";
 				str_html += "<th>지원목록번호</th>";
-				str_html += "<th>프로젝트번호</th>";
+//				str_html += "<th>프로젝트번호</th>";
 				str_html += "<th>내용</th>";
 				str_html += "<th>해당인원</th>";
 				str_html += "<th>시작날짜</th>";
 				str_html += "<th>종료날짜</th>";
 				str_html += "<th>상태</th>";
-				str_html += "<th>아이디</th>";
+//				str_html += "<th>아이디</th>";
 				str_html += "</tr></thead>";			
 				str_html += "<tbody>";
 			$.each(list, function(index, value){
-				str_html += "<tr onclick = 'readProjectSupply("+value.prjt_idx+")'>";
+				str_html += "<tr onclick = 'readProjectSupply("+value.prjt_sup_list_idx+")'>";
 				str_html += "<td>"+value.prjt_sup_list_idx+"</td>";
-				str_html += "<td>"+value.prjt_idx+"</td>";
+//				str_html += "<td>"+value.prjt_idx+"</td>";
 				str_html += "<td>"+value.sup_conts+"</td>";
 				str_html += "<td>"+value.sup_person+"</td>";
 				str_html += "<td>"+value.sup_strt_date+"</td>";
 				str_html += "<td>"+value.sup_end_date+"</td>";
 				str_html += "<td>"+value.appr_yn+"</td>";
-				str_html += "<td>"+value.usr_id+"</td>";
+//				str_html += "<td>"+value.usr_id+"</td>";
 				str_html += "</a></tr>";			
 			});
 			str_html += "</tbody>";
@@ -87,21 +85,6 @@ function findData(prcs_stus, atcl_offset, atcl_limit){
 	});
 }
 
-////////////////////////////////////////////////////////////////////
-function readProjectSupplyList(){
-	$.ajax({
-		method : "POST",
-		url : "/projectSupply/listRun",
-		data : {},
-		success: function(list){
-			var str_html = "<ul class = 'project supply list'>";
-			str_html += "<li><a onclick = 'readProjectSupply("+list[0].prjt_idx+")'>"+list[0].prjt_sup_list_idx+"</a></li>";
-			str_html += "</ul>";
-			$(".list").html(str_html);
-		},
-		error: function(){alert("ERROR");}
-	});
-}
 
 function readProjectSupply(idx){
 	

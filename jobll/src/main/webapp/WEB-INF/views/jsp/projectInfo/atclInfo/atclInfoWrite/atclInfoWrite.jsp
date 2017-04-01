@@ -7,7 +7,7 @@
 	        <section id="editor-section">
 	        	<div id="subject-tag">
 		        	<label for="subject">제목</label>
-		  			<input type="text" class="form-control" id="subject">
+		  			<input type="text" class="form-control" id="subject" value = ${ entity.atcl_sbjt }>
 	        	</div>
 		        <div id="tx_toolbar_basic" class="tx-toolbar tx-toolbar-basic">
 		            <div class="tx-toolbar-boundary">
@@ -213,16 +213,19 @@
 		                 </ul>
 		        	</div>
 		      </div>
-		      <div id="editor_box" CONTENTEDITABLE></div>
+		      <div id="editor_box" CONTENTEDITABLE>${ entity.atcl_conts }</div>
 	        </section>
 	        <!--/.EDITOR LOAD END-->
 	        <section id="file-upload-section">
 		        <div id = "file-upload-tag">
-		        	<input type="file" id="file-upload"  name="uploadFile" class = "file-loading" multiple=true/>
+		        	<input type="file" id="file-upload"  name="uploadFile" class = "file" multiple=true/>
 		   			<div id="file-list" style="border:2px solid #c9c9c9;min-height:50px"></div> 
-	        		<p><button onclick ="editorwrite()">글 쓰기</button></p>
+	        		<p class = "send-btn-tag"><button onclick ="editorwrite()">글 쓰기</button></p>
 	          </div>
 	          
 	        </section>
         </form>
        </div>
+       
+<input type = "hidden" id = "write_type" name = "write_type" value = ${ entity.write_type }>
+<input type = "hidden" id = "atcl_idx" name = "atcl_idx" value = ${ entity.atcl_idx }>

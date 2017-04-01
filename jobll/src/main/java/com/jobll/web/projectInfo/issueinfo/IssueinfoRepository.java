@@ -36,4 +36,14 @@ public class IssueinfoRepository {
 		entity = sqlSession.selectOne("com.jobll.web.projectInfo.issueinfo.IssueInfo.findOne", entity);
 		return entity;
 	}
+	
+	public int delete(IssueInfo entity){
+		int qry = sqlSession.update("com.jobll.web.projectInfo.issueinfo.IssueInfo.delete", entity);
+		return qry;
+	}
+	
+	public int update(IssueInfo entity){
+		int qry = sqlSession.update("com.jobll.web.projectInfo.issueinfo.IssueInfo.update", entity);
+		return qry;
+	}
 }

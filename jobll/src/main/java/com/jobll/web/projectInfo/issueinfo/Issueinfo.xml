@@ -37,18 +37,23 @@
 	</insert>
 
 	<select id="findAll" resultType="com.jobll.web.projectInfo.issueinfo.IssueInfo" parameterType="com.jobll.web.projectInfo.issueinfo.IssueInfo">
-		SELECT * from "ATCL_INFO" WHERE "PRJT_IDX" = #{prjt_idx} ORDER BY "ATCL_IDX" DESC OFFSET #{atcl_offset} LIMIT #{atcl_limit} 
+		SELECT * from "ATCL_INFO" WHERE "PRJT_IDX" = #{prjt_idx} and "ATCL_STUS" = '1' ORDER BY "ATCL_IDX" DESC OFFSET #{atcl_offset} LIMIT #{atcl_limit} 
 	</select>
 	
 	<select id="findOne" resultType="com.jobll.web.projectInfo.issueinfo.IssueInfo" parameterType="com.jobll.web.projectInfo.issueinfo.IssueInfo">
-		SELECT * from "ATCL_INFO" WHERE "ATCL_IDX" = #{atcl_idx}
+		SELECT * from "ATCL_INFO" WHERE "ATCL_IDX" = #{atcl_idx} and "ATCL_STUS" = '1'
 	</select>
 	
-	<select id="findPrcs" resultType="com.jobll.web.projectInfo.issueinfo.IssueInfo" parameterType="com.jobll.web.projectInfo.issueinfo.IssueInfo">
-		SELECT * from "ATCL_INFO" WHERE "PRCS_STUS" = #{prcs_stus} ORDER BY "ATCL_IDX" DESC  OFFSET #{atcl_offset} LIMIT #{atcl_limit}
-	</select>
-	
-	<select id="findCnt" resultType="Integer" parameterType="com.jobll.web.projectInfo.issueinfo.IssueInfo">
-		SELECT count(*) WHERE WHERE prcs_stus = #{prcs_stus} OFFSET #{atcl_offset} LIMIT #{atcl_limit}
-	</select>
+	<update id="delete" parameterType="com.jobll.web.projectInfo.issueinfo.IssueInfo">
+		UPDATE "ATCL_INFO" set
+			"ATCL_STUS" = #{atcl_stus}
+		where "ATCL_IDX" = #{atcl_idx}
+	</update>
+	<update id="update" parameterType="com.jobll.web.projectInfo.issueinfo.IssueInfo">
+		UPDATE "ATCL_INFO" set
+			"ATCL_SBJT" = #{atcl_sbjt},
+			"ATCL_CONTS" = #{atcl_conts},
+			"REG_DATE" = #{reg_date}
+		where "ATCL_IDX" = #{atcl_idx}
+	</update>
 </mapper>

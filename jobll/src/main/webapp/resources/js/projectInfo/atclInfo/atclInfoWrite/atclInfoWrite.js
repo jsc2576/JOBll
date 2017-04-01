@@ -129,17 +129,31 @@ function editorwrite() {
 	var context = $("#editor_box").html();
 	var prjt_idx = $(".prjt_idx").val();
 	
-	
-			
-	$("#editorcreateform").ajaxForm ({
-		method   : "post",
-		url: "/issue/reg/send",
-		enctype: "multipart/form-data",
-		data	: {atcl_sbjt : subject, atcl_conts : context, prjt_idx : prjt_idx},
-		success: function(result)	{
-			alert("success");
-		}
-	});
+	if($("#write_type").val() == 1){
+		var atcl_idx = $("#atcl_idx").val();
+		
+		$("#editorcreateform").ajaxForm ({
+			method   : "post",
+			url: "/issue/mdf/send",
+			enctype: "multipart/form-data",
+			data	: {atcl_sbjt : subject, atcl_conts : context, prjt_idx : prjt_idx, atcl_idx : atcl_idx},
+			success: function(result)	{
+				alert("success");
+			}
+		});
+		
+	}
+	else {		
+		$("#editorcreateform").ajaxForm ({
+			method   : "post",
+			url: "/issue/reg/send",
+			enctype: "multipart/form-data",
+			data	: {atcl_sbjt : subject, atcl_conts : context, prjt_idx : prjt_idx},
+			success: function(result)	{
+				alert("success");
+			}
+		});
+	}
 	$("#fileUpLoadForm").submit();
 }
 

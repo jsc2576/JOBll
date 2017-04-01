@@ -1,7 +1,9 @@
 function viewIssue() {
-	$("#issueView").submit();
+	$("#dataSender").attr('action', "/issue/view");
+	$("#dataSender").submit();
 }
 
 function viewProject() {
-	$("#projectInfo").submit();
+	$("#dataSender").attr('action', "/projectInfo/prjt/check/read");
+	$("#dataSender").submit();
 }

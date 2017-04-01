@@ -15,7 +15,7 @@
 		"USR_ID"
 	)
     VALUES (
-				(nextval('public.prjt_sup_list_idx_seq')),
+				#{prjt_sup_list_idx},
 				#{prjt_idx},
 				#{sup_conts},
 				#{sup_person},
