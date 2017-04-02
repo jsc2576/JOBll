@@ -155,7 +155,7 @@ public class IssueinfoController {
 		//HttpServletRequest 형식의 데이터를 MultipartFile형식으로 캐스팅 해 줍니다.
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest)request;
 		List<MultipartFile> multipartFile = multipartRequest.getFiles("uploadFile");
-		
+		///testtest
 		issueInfoService.update(entity);
 		
 		//파일 업로드용 객체인 AttchFile를 생성합니다.
