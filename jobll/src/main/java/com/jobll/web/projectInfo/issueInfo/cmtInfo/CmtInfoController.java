@@ -21,6 +21,7 @@ public class CmtInfoController {
 	@RequestMapping(value = "/reg", method= RequestMethod.POST)
 	@ResponseBody
 	public List<CmtInfo> DefaultCmtInfoResponseBody(@ModelAttribute CmtInfo entity) throws Exception{
+		if(entity.getCmt_conts() != "")
 		cmtInfoService.create(entity);
 		
 		List<CmtInfo> cmt_list = cmtInfoService.findAll(entity);

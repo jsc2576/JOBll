@@ -1,3 +1,8 @@
+$(document).ready (function (){
+	commentSend();
+
+});
+
 function issueDelete() {
 	var confirm_val = confirm("정말로 삭제하겠습니까?");
 	
@@ -33,7 +38,17 @@ function commentSend() {
 		data : {atcl_idx : atcl_idx, cmt_conts : cmt_conts},
 		success: function(list){
 			
+			var str_html = "";
 			
+			for(var i = 0; i < list.length; i++)
+			{
+				str_html += "<h4>"+list[i].usr_id+"</h4>";
+				str_html += "<p>"+list[i].cmt_conts+"</p>";
+				str_html += "<p>"+list[i].reg_date+"</p><br>";
+			}
+			
+			$(".comment-output-tag").html(str_html);
+			$(".comment").val("");
 		},
 		error: function(){alert("ERROR");}
 	});
