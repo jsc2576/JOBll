@@ -1,0 +1,6 @@
+2017-03-29 20:49:56,012 [Worker-9] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.jobll.web:jobll:0.0.1-SNAPSHOT @ C:\Users\jsc55\Desktop\JOBll\JOBll\jobll\pom.xml.
+2017-03-29 20:50:14,550 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-03-29 20:50:14,561 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-03-29 20:50:14,630 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-03-29 20:50:14,637 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-03-29 20:50:14,638 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\jsc55\Desktop\JOBll\JOBll\jobll\src\test\resources
