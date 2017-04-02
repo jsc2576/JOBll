@@ -1,5 +1,5 @@
 
-package com.jobll.web.projectInfo.issueinfo;
+package com.jobll.web.projectInfo.issueInfo;
 
 import java.util.List;
 
@@ -10,13 +10,13 @@ import com.jobll.web.CommonUtil;
 import com.jobll.web.SessionUtil;
 
 @Service
-public class IssueinfoService {
+public class IssueInfoService {
 	
 	/*
 	 * repository 객
 	 */
 	@Autowired
-	private IssueinfoRepository issueInfoRepository;
+	private IssueInfoRepository issueInfoRepository;
 	@Autowired
 	private CommonUtil commonUtil;
 	@Autowired

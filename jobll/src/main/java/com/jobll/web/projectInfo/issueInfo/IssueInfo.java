@@ -1,10 +1,10 @@
-package com.jobll.web.projectInfo.issueinfo;
+package com.jobll.web.projectInfo.issueInfo;
 
 import java.io.Serializable;
 
 import org.springframework.stereotype.Repository;
 
-@Repository("Issueinfo")
+@Repository("IssueInfo")
 public class IssueInfo implements Serializable{
 
 	private static final long serialVersionUID = 6160024646312100989L;

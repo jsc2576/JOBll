@@ -51,7 +51,7 @@ function findData(prcs_stus, atcl_offset, atcl_limit){
 		data : {prcs_stus : prcs_stus, atcl_offset : atcl_offset, atcl_limit : atcl_limit},
 		success: function(list){
 			var str_html = "<form id='projectSupplyReadOne' action = '/prjectSupply/readOne' method='post'>";
-				str_html += "<table class = 'type01'>";
+				str_html += "<table class ='table'>";
 				str_html += "<thead><tr>";
 				str_html += "<th>지원목록번호</th>";
 //				str_html += "<th>프로젝트번호</th>";

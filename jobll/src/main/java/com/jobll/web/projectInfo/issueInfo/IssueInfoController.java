@@ -1,4 +1,4 @@
-package com.jobll.web.projectInfo.issueinfo;
+package com.jobll.web.projectInfo.issueInfo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,10 +31,10 @@ import com.jobll.web.projectInfo.ProjectInfo;
 
 @Controller
 @RequestMapping(value="/issue")
-public class IssueinfoController {
+public class IssueInfoController {
 
 	@Autowired
-	private IssueinfoService issueInfoService;
+	private IssueInfoService issueInfoService;
 	@Autowired
 	private AttchFileService attchFileService;
 	
@@ -155,7 +155,6 @@ public class IssueinfoController {
 		//HttpServletRequest 형식의 데이터를 MultipartFile형식으로 캐스팅 해 줍니다.
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest)request;
 		List<MultipartFile> multipartFile = multipartRequest.getFiles("uploadFile");
-		///testtest
 		issueInfoService.update(entity);
 		
 		//파일 업로드용 객체인 AttchFile를 생성합니다.

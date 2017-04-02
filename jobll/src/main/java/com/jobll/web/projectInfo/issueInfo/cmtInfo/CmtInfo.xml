@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jobll.web.projectInfo.issueInfo.cmtInfo.CmtInfo">
+
+	<insert  id="create" parameterType ="com.jobll.web.projectInfo.issueInfo.cmtInfo.CmtInfo">
+	INSERT INTO "CMT_INFO"(
+			"CMT_IDX",
+			"USR_ID",
+			"CMT_CONTS",
+			"REG_DATE",
+			"CMT_STUS",
+			"ATCL_IDX"
+	)
+	VALUES (
+				(nextval('public.cmt_idx_seq')),
+				#{usr_id},
+				#{cmt_conts},
+				#{reg_date},
+				#{cmt_stus},
+				#{atcl_idx}
+			)
+	</insert>
+
+	<select  id="findAll" resultType="com.jobll.web.projectInfo.issueInfo.cmtInfo.CmtInfo" parameterType ="com.jobll.web.projectInfo.issueInfo.cmtInfo.CmtInfo">
+	SELECT * FROM "CMT_INFO" WHERE "ATCL_IDX" = #{atcl_idx}
+	</select>
+
+	<select  id="findOne" resultType="com.jobll.web.projectInfo.issueInfo.cmtInfo.CmtInfo" parameterType ="com.jobll.web.projectInfo.issueInfo.cmtInfo.CmtInfo">
+	SELECT * FROM "CMT_INFO" WHERE "CMT_IDX" = #{cmt_idx}
+	</select>
+
+</mapper>
