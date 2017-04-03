@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jobll.web.projectInfo.prjtCnetList.PrjtCnetList">
+
+	
+	<insert  id="create" parameterType ="java.util.Map" useGeneratedKeys="true"
+    keyProperty="prjt_cnet_list_idx">
+	INSERT INTO "PRJT_CNET_LIST"(
+		"PRJT_CNET_LIST_IDX",
+		"USR_ID", 
+		"PRJT_IDX", 
+		"CMPNY_IDX",
+		"PRJT_CNET_LIST_STUS"
+	)
+    VALUES 
+        <foreach separator=" , " item="item" collection="sample">
+    	(
+			(nextval('public.prjt_cnet_list_idx_seq')),
+			#{item.usr_id},
+			#{item.prjt_idx},
+			#{item.cmpny_idx},
+			1
+		)
+		</foreach>
+	</insert>
+	
+	
+	
+	<update id="updatePrjtIdx" parameterType ="com.jobll.web.projectInfo.prjtCnetList.PrjtCnetList">
+		UPDATE "PRJT_CNET_LIST" 
+		SET "PRJT_IDX" = #{prjt_idx}
+		WHERE "PRJT_IDX" = 0
+	</update>
+	
+	<!-- 팀원 리스트 선택 -->
+	<select id="selectPrjtCnetList" resultType="com.jobll.web.projectInfo.prjtCnetList.PrjtCnetList">
+		SELECT * FROM "PRJT_CNET_LIST" WHERE "PRJT_IDX" = #{prjt_idx}
+	</select>
+
+	
+	<select id="selectPrjtCnetListInfo" resultType="com.jobll.web.projectInfo.prjtCnetList.PrjtCnetList">
+		select "CMPNY_IDX"
+  		from "USR_INFO"
+  		where #(usr_id)="USR_ID"
+	</select>
+	
+	
+	<select id="selectCnetList" resultType="com.jobll.web.usrinfo.UsrInfo">
+		SELECT * from "USR_INFO"
+	</select>
+	
+	
+	<select id="delete" resultType="com.jobll.web.projectInfo.prjtCnetList.PrjtCnetList">
+		delete from "PRJT_CNET_LIST" where "PRJT_IDX" = #{prjt_idx}
+	</select>
+	
+	<!-- USR_ID로 CMPNY_IDX 검색 -->
+	<select id="findCmpnyIdx" resultType="com.jobll.web.usrinfo.UsrInfo">
+		select "USR_ID", "USR_CMPNY_IDX" from "USR_INFO"
+  		where 
+  			"USR_ID" in 
+  		<foreach collection="list" item="item" index="index" separator="," open="(" close=")">
+            #{item}
+        </foreach>
+	</select>
+	
+	
+	
+</mapper>

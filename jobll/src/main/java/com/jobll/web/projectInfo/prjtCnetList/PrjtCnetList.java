@@ -1,10 +1,14 @@
-package com.jobll.web.prjtCnetList;
+package com.jobll.web.projectInfo.prjtCnetList;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.jobll.web.usrinfo.UsrInfo;
+
 @Repository("PrjtCnetList")
+
 public class PrjtCnetList implements Serializable{
 
 		/**
@@ -16,8 +20,11 @@ public class PrjtCnetList implements Serializable{
 	private String usr_id;
 	private Integer prjt_idx;
 	private Integer cmpny_idx;
-	private Integer prjt_cnet_list_idx_stus;
+	private Integer prjt_cnet_list_stus;
 	
+
+	
+
 	public Integer getPrjt_cnet_list_idx() {
 		return prjt_cnet_list_idx;
 	}
@@ -42,11 +49,11 @@ public class PrjtCnetList implements Serializable{
 	public void setCmpny_idx(Integer cmpny_idx) {
 		this.cmpny_idx = cmpny_idx;
 	}
-	public Integer getPrjt_cnet_list_idx_stus() {
-		return prjt_cnet_list_idx_stus;
+	public Integer getPrjt_cnet_list_stus() {
+		return prjt_cnet_list_stus;
 	}
-	public void setPrjt_cnet_list_idx_stus(Integer prjt_cnet_list_idx_stus) {
-		this.prjt_cnet_list_idx_stus = prjt_cnet_list_idx_stus;
+	public void setPrjt_cnet_list_stus(Integer prjt_cnet_list_stus) {
+		this.prjt_cnet_list_stus = prjt_cnet_list_stus;
 	}
 	
 	public static long getSerialversionuid() {

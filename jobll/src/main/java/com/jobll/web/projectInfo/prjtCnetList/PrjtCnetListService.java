@@ -1,7 +1,9 @@
-package com.jobll.web.prjtCnetList;
+package com.jobll.web.projectInfo.prjtCnetList;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,27 +27,48 @@ public class PrjtCnetListService{
 		
 
 	//팀원 리스트 출력
-	public List<PrjtCnetList> selectPrjtCnetList(){
-		return prjtCnetListRepository.selectPrjtCnetList();
+	public List<PrjtCnetList> selectPrjtCnetList(PrjtCnetList entity) throws Exception{
+		List<PrjtCnetList> list = prjtCnetListRepository.selectPrjtCnetList(entity);
+		return list;
 	}
 	
+	//팀원 리스트 삭제
+		public List<PrjtCnetList> deletePrjtCnetList(Integer prjt_idx){
+			return prjtCnetListRepository.deletePrjtCnetList(prjt_idx);
+		}
+	
+	//팀원 리스트 입력
+	public List<PrjtCnetList> createPrjtCnetList(List<UsrInfo> list, Integer prjt_idx){
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		List<PrjtCnetList> sample = new ArrayList<PrjtCnetList>();
+		
+		int i =0;
+		for(i=0 ; i<list.size() ; i++){
+			PrjtCnetList prjtcnetlist = new PrjtCnetList();
+			prjtcnetlist.setUsr_id(list.get(i).getUsr_id());
+			prjtcnetlist.setCmpny_idx(list.get(i).getUsr_cmpny_idx());
+			prjtcnetlist.setPrjt_idx(prjt_idx);
+			sample.add(prjtcnetlist);
+		}
+		
+		map.put("sample", sample);
+
+		prjtCnetListRepository.createPrjtCnetList(map);
+		return sample;
+	}
+	
+
 	
 	
-	//팀원 리스트 출력
+	
+	//유저 리스트 출력
 	public List<UsrInfo> selectCnetList(){
 		return prjtCnetListRepository.selectCnetList();
 	}
 	//
-	public int createPrjtCnetList(PrjtCnetList entity){
-		
-		entity.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
-	      //entity.setCmpny_nm(sessionUtil.getSessionBean().getUsr_cmpny());
-	      entity.setPrjt_idx(1);
-		
-		int qry = prjtCnetListRepository.createPrjtCnetList(entity);
-		return qry;
-	}
-	
+
 	//
 	 // 데이터 검색 (0: 전체검색, 1: 대기중 검색, 2: 접수 완료 검색, 3: 처리중 검색, 4: 처리완료 검색)
 	 // @param entity
@@ -65,36 +88,10 @@ public class PrjtCnetListService{
 		return entity;
 	}
 	
-
-	public List<HashMap<String, Object>> select(){
-		return prjtCnetListRepository.select();
-	}
 		
-	public List<HashMap<String, Object>> read(PrjtCnetList entity){
-			
-		return prjtCnetListRepository.read(entity);	
+	
+	public List<UsrInfo> findCmpnyIdx(List<String> prjtCnetInvList){
+		return prjtCnetListRepository.findCmpnyIdx(prjtCnetInvList);
 	}
-
-		
-	public int create(PrjtCnetList entity){
-			
-		entity.setPrjt_cnet_list_idx(1);
-		entity.setUsr_id(sessionUtil.getSessionBean().getUsr_id());//수정필요
-		entity.setPrjt_idx(1);
-		entity.setCmpny_idx(1);//임시, 반드시  수정 필요
-		entity.setPrjt_cnet_list_idx_stus(1);
-		int test = prjtCnetListRepository.create(entity);
-		
-		return test;
-	}
-		
-	public int edit(PrjtCnetList entity){
-		int test = prjtCnetListRepository.edit(entity);
-		return test;
-	}
-		
-	public int delete(PrjtCnetList entity){
-		int test = prjtCnetListRepository.delete(entity);
-		return test;
-	}
+	
 }
