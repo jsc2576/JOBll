@@ -107,3 +107,8 @@ function atclInfoGetIdx(idx) {
 	$("#getIdx").append(str_html);
 	$("#atclInfoReadOne").submit();
 }
+
+//게시판의 페이지네이션에서 페이지가 존재하는지 아닌지 체크하는 함수
+function findatclListCount(num, str_html){
+	
+}

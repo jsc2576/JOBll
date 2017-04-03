@@ -43,6 +43,7 @@ function Cnet_Prjt(){
 			});
 			
 			$("#cnet_prjt").html(str_html);
-		}
+		},
+		error: function(){alert("ERROR")}
 	});
 }
