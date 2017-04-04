@@ -15,3 +15,4 @@
 <form action = "/projectInfo/projectInfoCreate/go" method="post">
 	<button onclick = "submit()">프로젝트생성</button>
 </form>
+

@@ -45,17 +45,22 @@ public class PrjtCnetListService{
 		List<PrjtCnetList> sample = new ArrayList<PrjtCnetList>();
 		
 		int i =0;
+		
+		
 		for(i=0 ; i<list.size() ; i++){
 			PrjtCnetList prjtcnetlist = new PrjtCnetList();
+			prjtcnetlist.setPrjt_cnet_list_idx(i+1);
 			prjtcnetlist.setUsr_id(list.get(i).getUsr_id());
 			prjtcnetlist.setCmpny_idx(list.get(i).getUsr_cmpny_idx());
 			prjtcnetlist.setPrjt_idx(prjt_idx);
 			sample.add(prjtcnetlist);
 		}
 		
-		map.put("sample", sample);
-
-		prjtCnetListRepository.createPrjtCnetList(map);
+		if(i!=0){
+			map.put("sample", sample);
+			prjtCnetListRepository.createPrjtCnetList(map);
+		}
+		
 		return sample;
 	}
 	

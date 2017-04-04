@@ -21,10 +21,24 @@ public class PrjtCnetList implements Serializable{
 	private Integer prjt_idx;
 	private Integer cmpny_idx;
 	private Integer prjt_cnet_list_stus;
+	private String usr_nm;
+	private String cmpny_nm;
 	
 
 	
 
+	public String getCmpny_nm() {
+		return cmpny_nm;
+	}
+	public void setCmpny_nm(String cmpny_nm) {
+		this.cmpny_nm = cmpny_nm;
+	}
+	public String getUsr_nm() {
+		return usr_nm;
+	}
+	public void setUsr_nm(String usr_nm) {
+		this.usr_nm = usr_nm;
+	}
 	public Integer getPrjt_cnet_list_idx() {
 		return prjt_cnet_list_idx;
 	}

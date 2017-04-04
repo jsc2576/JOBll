@@ -4,7 +4,6 @@
 
 <h3 class = "project-subject">Project Name : ${ entity.prjt_sbjt }</h3>
 <h3>팀원 초대 제외</h3>
-
 <p>현재 팀원</p>
 
 

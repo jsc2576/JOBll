@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jobll.web.projectInfo.prjtCnetList.PrjtCnetList">
 
-	
-	<insert  id="create" parameterType ="java.util.Map" useGeneratedKeys="true"
+	<!-- 팀원 입력 -->
+	<insert  id="create" parameterType ="java.util.Map"
     keyProperty="prjt_cnet_list_idx">
 	INSERT INTO "PRJT_CNET_LIST"(
 		"PRJT_CNET_LIST_IDX",
@@ -15,7 +15,7 @@
     VALUES 
         <foreach separator=" , " item="item" collection="sample">
     	(
-			(nextval('public.prjt_cnet_list_idx_seq')),
+			#{item.prjt_cnet_list_idx},
 			#{item.usr_id},
 			#{item.prjt_idx},
 			#{item.cmpny_idx},
@@ -25,16 +25,14 @@
 	</insert>
 	
 	
-	
-	<update id="updatePrjtIdx" parameterType ="com.jobll.web.projectInfo.prjtCnetList.PrjtCnetList">
-		UPDATE "PRJT_CNET_LIST" 
-		SET "PRJT_IDX" = #{prjt_idx}
-		WHERE "PRJT_IDX" = 0
-	</update>
-	
 	<!-- 팀원 리스트 선택 -->
 	<select id="selectPrjtCnetList" resultType="com.jobll.web.projectInfo.prjtCnetList.PrjtCnetList">
-		SELECT * FROM "PRJT_CNET_LIST" WHERE "PRJT_IDX" = #{prjt_idx}
+		SELECT c."CMPNY_NM", c."CMPNY_IDX", u."USR_ID", p."USR_ID", u."USR_NM", p."PRJT_IDX", p."CMPNY_IDX", p."PRJT_CNET_LIST_IDX"
+		FROM "PRJT_CNET_LIST" p
+		INNER JOIN "USR_INFO" u ON p."USR_ID" = u."USR_ID"
+		INNER JOIN "CMPNY_INFO" c ON p."CMPNY_IDX" = c."CMPNY_IDX"
+		WHERE p."PRJT_IDX" = #{prjt_idx}
+		ORDER BY "PRJT_CNET_LIST_IDX"
 	</select>
 
 	
