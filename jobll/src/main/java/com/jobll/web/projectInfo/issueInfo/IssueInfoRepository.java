@@ -1,4 +1,4 @@
-package com.jobll.web.projectInfo.issueinfo;
+package com.jobll.web.projectInfo.issueInfo;
 
 import java.util.List;
 
@@ -7,14 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class IssueinfoRepository {
+public class IssueInfoRepository {
 	
 	@Autowired
     private SqlSession sqlSession;
 	
 	
 	public int create(IssueInfo entity){
-		int qry = sqlSession.insert("com.jobll.web.projectInfo.issueinfo.IssueInfo.create", entity);
+		int qry = sqlSession.insert("com.jobll.web.projectInfo.issueInfo.IssueInfo.create", entity);
 		return qry;
 	}
 	
@@ -27,23 +27,23 @@ public class IssueinfoRepository {
 	public List<IssueInfo> findList(IssueInfo entity) throws Exception{
 		List<IssueInfo> atcl_list = null;
 		
-		atcl_list = sqlSession.selectList("com.jobll.web.projectInfo.issueinfo.IssueInfo.findAll", entity);
+		atcl_list = sqlSession.selectList("com.jobll.web.projectInfo.issueInfo.IssueInfo.findAll", entity);
 		
 		return atcl_list;
 	}
 	
 	public IssueInfo findOne (IssueInfo entity) throws Exception{
-		entity = sqlSession.selectOne("com.jobll.web.projectInfo.issueinfo.IssueInfo.findOne", entity);
+		entity = sqlSession.selectOne("com.jobll.web.projectInfo.issueInfo.IssueInfo.findOne", entity);
 		return entity;
 	}
 	
 	public int delete(IssueInfo entity){
-		int qry = sqlSession.update("com.jobll.web.projectInfo.issueinfo.IssueInfo.delete", entity);
+		int qry = sqlSession.update("com.jobll.web.projectInfo.issueInfo.IssueInfo.delete", entity);
 		return qry;
 	}
 	
 	public int update(IssueInfo entity){
-		int qry = sqlSession.update("com.jobll.web.projectInfo.issueinfo.IssueInfo.update", entity);
+		int qry = sqlSession.update("com.jobll.web.projectInfo.issueInfo.IssueInfo.update", entity);
 		return qry;
 	}
 }

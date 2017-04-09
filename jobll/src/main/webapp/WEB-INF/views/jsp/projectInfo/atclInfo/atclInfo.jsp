@@ -40,4 +40,13 @@
 	<button class = "btn btn-info" onclick = "issueDelete()">삭제</button>
 </div>
 
+<div class = "comment-output-tag">
+</div>
+
+<div class = "comment-input-tag">
+	<label for="comment">Comment:</label>
+	<textarea class="form-control comment" rows="3"></textarea>
+	<button class = "btn btn-primary" onclick = "commentSend()">등록</button>
+</div>
+
 <input type = "hidden" class = "atcl_idx" name = "atcl_idx" value = ${ entity.atcl_idx }>
