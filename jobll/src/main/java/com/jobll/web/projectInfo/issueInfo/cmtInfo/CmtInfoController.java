@@ -20,13 +20,29 @@ public class CmtInfoController {
 
 	@RequestMapping(value = "/reg", method= RequestMethod.POST)
 	@ResponseBody
-	public List<CmtInfo> DefaultCmtInfoResponseBody(@ModelAttribute CmtInfo entity) throws Exception{
+	public List<CmtInfo> CommentCreate(@ModelAttribute CmtInfo entity) throws Exception{
 		if(entity.getCmt_conts() != "")
 		cmtInfoService.create(entity);
 		
 		List<CmtInfo> cmt_list = cmtInfoService.findAll(entity);
 		
 		return cmt_list;
+	}
+	@RequestMapping(value = "/del/send", method= RequestMethod.POST)
+	@ResponseBody
+	public int CommentDelete(@ModelAttribute CmtInfo entity) throws Exception{
+
+		int result = cmtInfoService.delete(entity);
+		
+		return result;
+	}
+	@RequestMapping(value = "/mdf/send", method= RequestMethod.POST)
+	@ResponseBody
+	public int CommentModify(@ModelAttribute CmtInfo entity) throws Exception{
+
+		int result = cmtInfoService.update(entity);
+		
+		return result;
 	}
 	@RequestMapping(value = "/defaultCmtInfoModelAndView", method= RequestMethod.POST)
 	@ResponseBody

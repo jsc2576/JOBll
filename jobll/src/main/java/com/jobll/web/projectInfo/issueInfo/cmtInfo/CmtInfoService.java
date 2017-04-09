@@ -38,5 +38,16 @@ public class CmtInfoService {
 		entity = cmtInfoRepository.findOne(entity);
 		return entity;
 	}
-
+	public int delete(CmtInfo entity)  throws Exception{
+		entity.setCmt_stus("0");
+		
+		int qry = cmtInfoRepository.delete(entity);
+		return qry;
+	}
+	public int update(CmtInfo entity)  throws Exception{
+		entity.setReg_date(commonUtil.getCurrentDtime());
+		
+		int qry = cmtInfoRepository.update(entity);
+		return qry;
+	}
 }

@@ -22,11 +22,24 @@
 	</insert>
 
 	<select  id="findAll" resultType="com.jobll.web.projectInfo.issueInfo.cmtInfo.CmtInfo" parameterType ="com.jobll.web.projectInfo.issueInfo.cmtInfo.CmtInfo">
-	SELECT * FROM "CMT_INFO" WHERE "ATCL_IDX" = #{atcl_idx}
+	SELECT * FROM "CMT_INFO" WHERE "ATCL_IDX" = #{atcl_idx} and "CMT_STUS" = '1' ORDER BY "CMT_IDX"
 	</select>
 
 	<select  id="findOne" resultType="com.jobll.web.projectInfo.issueInfo.cmtInfo.CmtInfo" parameterType ="com.jobll.web.projectInfo.issueInfo.cmtInfo.CmtInfo">
-	SELECT * FROM "CMT_INFO" WHERE "CMT_IDX" = #{cmt_idx}
+	SELECT * FROM "CMT_INFO" WHERE "CMT_IDX" = #{cmt_idx} and "CMT_STUS" = '1'
 	</select>
+	
+	<update id="delete" parameterType="com.jobll.web.projectInfo.issueInfo.cmtInfo.CmtInfo">
+		UPDATE "CMT_INFO" set
+			"CMT_STUS" = #{cmt_stus}
+		where "CMT_IDX" = #{cmt_idx}
+	</update>
+	
+	<update id="update" parameterType="com.jobll.web.projectInfo.issueInfo.cmtInfo.CmtInfo">
+		UPDATE "CMT_INFO" set
+			"CMT_CONTS" = #{cmt_conts},
+			"REG_DATE"  = #{reg_date}
+		where "CMT_IDX" = #{cmt_idx}
+	</update>
 
 </mapper>

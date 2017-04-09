@@ -28,5 +28,13 @@ public class CmtInfoRepository {
 		CmtInfo data = sqlSession.selectOne("com.jobll.web.projectInfo.issueInfo.cmtInfo.CmtInfo.findOne", entity);
 		return data;
 	}
+	public int delete(CmtInfo entity) throws Exception{
+		int qry = sqlSession.update("com.jobll.web.projectInfo.issueInfo.cmtInfo.CmtInfo.delete", entity);
+		return qry;
+	}
+	public int update(CmtInfo entity) throws Exception{
+		int qry = sqlSession.update("com.jobll.web.projectInfo.issueInfo.cmtInfo.CmtInfo.update", entity);
+		return qry;
+	}
 
 }
