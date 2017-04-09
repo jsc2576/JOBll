@@ -22,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.jobll.web.attchfile.AttchFile;
 import com.jobll.web.cmpnyinfo.CmpnyInfo;
 import com.jobll.web.projectInfo.ProjectInfo;
+import com.jobll.web.projectInfo.issueinfo.IssueInfo;
 
 
 
@@ -36,8 +37,11 @@ public class UsrInfoController {
 	 * 로그인 사용자의 개인정보를 볼 수 있습니다.
 	**/
 	@RequestMapping(value = "/MyUsrInfo")
-	public String myUsrInfoGo() throws Exception {
-		return "usrInfo/myUsrInfo/myUsrInfoView";
+	public ModelAndView myUsrInfoGo(@ModelAttribute UsrInfo entity) throws Exception {
+		ModelAndView mav = new ModelAndView("usrInfo/myUsrInfo/myUsrInfoView");
+		mav.addObject("usr_id", entity.getUsr_id());
+		
+		return mav;
 	}
 	
 	/**
@@ -80,7 +84,7 @@ public class UsrInfoController {
 	}
 	
 	/**
-	 * 기업 리스트를 읽어와 반환
+	 * 기업 인덱스를 참조해 특정 기업 하나를 읽어와 반환
 	 * @return
 	 */
 	@RequestMapping(value = "/cmpnyOne", method = RequestMethod.POST)
@@ -109,9 +113,9 @@ public class UsrInfoController {
 	 */
 	@RequestMapping(value = "/allPersonInfo/check/read", method = RequestMethod.POST)
 	@ResponseBody
-	public List<HashMap<String, Object>> UsrInfoList() {
-		List<HashMap<String, Object>> List;
-		List= usrInfoService.select();
+	public List<UsrInfo> UsrInfoList() {
+		List<UsrInfo> List;
+		List= usrInfoService.selectAllUser();
 		return List;
 		}
 	

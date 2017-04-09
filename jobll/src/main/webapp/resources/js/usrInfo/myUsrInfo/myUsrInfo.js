@@ -1,6 +1,7 @@
 $(document).ready (function (){
 	myUsrInfo();
 	myProject();
+	
 });
 
 
@@ -38,14 +39,20 @@ function myProject() {
 
 
 function myUsrInfo() {
+	
+
+	var usr_id = $("#usr_id").val();
+	
 		$.ajax ({
 			method	: "post",
 			url		: "/usrInfo/myUsrInfo/read",
+			data : {"usr_id" : usr_id},
 			success	: function (list) {
 				str_html ="<section id=\"MyUsrInfo-tag\">"
 				str_html +="<table class = \"table table-striped custom-table\">";
 				str_html +="<tr><th colspan = '5'>회원정보</th></tr>";
-				str_html +="<tr><th colspan = '2' rowspan = '4'>프로필 사진</th>";
+				str_html +="<tr><th colspan = '1' rowspan = '4'><img src=\"../resources/images/usrInfo/myUsrInfo/baseprofile.png\" style=\"max-width: 100%; height: 30%;\"></th>";
+				
 				str_html +="<th class = 'th-15'>ID</th>";
 				str_html +="<td colspan = '2'>";
 				str_html +=list.usr_id;
@@ -58,7 +65,8 @@ function myUsrInfo() {
 				str_html +="<td colspan = '2'>";
 				str_html +=list.usr_email;
 				str_html +="</td></tr>";
-				str_html +="<tr><th class = 'th-15'>가입날짜</th><td>";
+				str_html +="<tr><th class = 'th-15'>가입날짜</th>";
+				str_html +="<td colspan = '2'>";
 				str_html +=list.reg_date;
 				str_html +="</td></tr>";
 				str_html +="<tr><th class ='th-15'>권한";

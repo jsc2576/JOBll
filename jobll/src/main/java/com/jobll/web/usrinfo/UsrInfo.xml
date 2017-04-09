@@ -16,7 +16,12 @@
 	<select id="selectCmpnyOne" parameterType ="com.jobll.web.usrinfo.UsrInfo" resultType="com.jobll.web.cmpnyinfo.CmpnyInfo">
 		SELECT * from "CMPNY_INFO" WHERE "CMPNY_IDX" = #{usr_cmpny_idx}
 	</select>
-	<select id="select" resultType="com.jobll.web.usrinfo.UsrInfo">
+	<select id="selectAllUser" resultType="com.jobll.web.usrinfo.UsrInfo">
+		SELECT "USR_ID","USR_NM","USR_LV",
+			(select "CMPNY_NM" as "usr_pwd" from "CMPNY_INFO" where "CMPNY_IDX" = p."USR_CMPNY_IDX") 
+		from "USR_INFO" p
+	</select>
+	<select id="select" resultType="com.jobll.web.cmpnyinfo.CmpnyInfo">
 		SELECT * from "USR_INFO"
 	</select>
 	<select id="selectOne" parameterType ="com.jobll.web.usrinfo.UsrInfo" resultType="com.jobll.web.usrinfo.UsrInfo">

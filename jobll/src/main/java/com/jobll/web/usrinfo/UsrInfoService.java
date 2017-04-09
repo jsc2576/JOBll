@@ -25,11 +25,15 @@ public class UsrInfoService{
 	@Autowired
 	private CommonUtil commonUtil;
 
+	public List<UsrInfo> selectAllUser() {
+		return usrInfoRepository.selectAllUser();
+	}
 	public List<CmpnyInfo> selectCmpny(){
 		return usrInfoRepository.selectCmpny();
 	}
 	public CmpnyInfo selectCmpnyOne(UsrInfo entity){
-		entity.setUsr_cmpny_idx(sessionUtil.getSessionBean().getUsr_cmpny_idx());
+		//if(entity.getUsr_id().isEmpty())
+			entity.setUsr_cmpny_idx(sessionUtil.getSessionBean().getUsr_cmpny_idx());
 		return usrInfoRepository.selectCmpnyOne(entity);
 	}
 	public List<HashMap<String, Object>> select(){
@@ -41,7 +45,8 @@ public class UsrInfoService{
 		
 	};
 	public UsrInfo selectOne(UsrInfo entity){
-		entity.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
+		if(entity.getUsr_id().isEmpty())
+			entity.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
 		return usrInfoRepository.selectOne(entity);
 	}
 	
