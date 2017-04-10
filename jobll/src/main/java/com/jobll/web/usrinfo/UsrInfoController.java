@@ -22,7 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.jobll.web.attchfile.AttchFile;
 import com.jobll.web.cmpnyinfo.CmpnyInfo;
 import com.jobll.web.projectInfo.ProjectInfo;
-import com.jobll.web.projectInfo.issueinfo.IssueInfo;
+import com.jobll.web.projectInfo.issueInfo.IssueInfo;
 
 
 
