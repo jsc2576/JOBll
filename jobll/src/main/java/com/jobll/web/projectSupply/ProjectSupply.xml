@@ -27,7 +27,7 @@
 	</insert>
 
 	<select id="findAll" resultType="com.jobll.web.projectSupply.ProjectSupply" parameterType="com.jobll.web.projectSupply.ProjectSupply">
-		SELECT * FROM "PRJT_SUP_LIST" WHERE "PRJT_IDX" = #{prjt_idx}
+		SELECT * FROM "PRJT_SUP_LIST"
 	</select>
 	
 	<select id="findOne" resultType="com.jobll.web.projectSupply.ProjectSupply" parameterType="com.jobll.web.projectSupply.ProjectSupply">

@@ -2,7 +2,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<jsp:include page="../projectInfo/projectInfoMenu.jsp" flush="false" />
+<jsp:include page="projectSupplyMenu.jsp" flush="false" />
+
 <div class="panel panel-default">
   <h3 class = "project-subject">Project Name : ${ entity.prjt_idx }</h3>
   <div class="panel-heading">Project Comment</div>
