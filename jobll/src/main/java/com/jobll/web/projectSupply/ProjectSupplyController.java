@@ -34,8 +34,12 @@ public class ProjectSupplyController {
 	private ProjectSupplyService projectSupplyService;
 	
 	@RequestMapping("/projectSupplyList/go")
-	public String projectSupplyListGo(){
-		return "projectSupply/projectSupplyList/projectSupplyListView";
+	public ModelAndView projectSupplyListGo (@ModelAttribute ProjectSupply entity) throws Exception {
+		ModelAndView mav = new ModelAndView("projectSupply/projectSupplyList/projectSupplyListView");
+		
+		mav.addObject("entity", entity);
+		
+		return mav;
 	}
 	
 	@RequestMapping("/projectSupplyWrite/go")
