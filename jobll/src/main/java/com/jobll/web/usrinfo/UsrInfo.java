@@ -22,8 +22,17 @@ public class UsrInfo implements Serializable{
 	private String usr_pwd;					// 사용자비밀번호
 	private String reg_date;				// 가입일자
 	private Integer act_stus;				// 1:활성 2: 비활성(Default:1)
+	private Integer usr_auth;				// 사용자 권한 1:사용자, 2:프로젝트 관리자, 3:메타빌드 관리자, 4:사이트 관리자
 	private Integer usr_cmpny_idx;			// 기관명 인덱스 
 	
+	
+	
+	public Integer getUsr_auth() {
+		return usr_auth;
+	}
+	public void setUsr_auth(Integer usr_auth) {
+		this.usr_auth = usr_auth;
+	}
 	public String getUsr_id() {
 		return usr_id;
 	}

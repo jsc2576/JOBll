@@ -12,3 +12,7 @@ function viewTeamInv() {
 	$("#dataSender").attr('action', "/teamPerson/check");
 	$("#dataSender").submit();
 }
+function viewProjectSupply() {
+	$("#dataSender").attr('action', "/projectSupply/projectSupplyList/go");
+	$("#dataSender").submit();
+}

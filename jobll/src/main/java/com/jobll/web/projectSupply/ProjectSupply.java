@@ -18,6 +18,8 @@ public class ProjectSupply implements Serializable{
 	private String appr_yn;				// 승인여부
 	private String usr_id;				// 사용자아이디
 	
+	
+	
 	public Integer getPrjt_sup_list_idx() {
 		return prjt_sup_list_idx;
 	}
