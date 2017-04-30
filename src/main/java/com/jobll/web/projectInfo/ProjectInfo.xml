@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jobll.web.projectInfo.ProjectInfo">
+
+	<insert  id="create" parameterType ="com.jobll.web.projectInfo.ProjectInfo" useGeneratedKeys="true"
+    keyProperty="prjt_idx">
+	INSERT INTO "PRJT_INFO"(
+		"PRJT_IDX",
+		"CMPNY_IDX",
+		"HIGH_PRJT_IDX",
+		"PRJT_SBJT",
+		"PRJT_CONTS",
+		"REG_DATE",
+		"PRJT_STUS",
+		"PRJT_LV"
+	)
+    VALUES (
+				(nextval('public.prjt_info_idx_seq')),
+				#{cmpny_idx},
+				#{high_prjt_idx},
+				#{prjt_sbjt},
+				#{prjt_conts},
+				#{reg_date},
+				#{prjt_stus},
+				#{prjt_lv}
+			)
+	</insert>
+	
+	<select id="findAll" resultType="com.jobll.web.projectInfo.ProjectInfo" parameterType="com.jobll.web.projectInfo.ProjectInfo">
+		WITH RECURSIVE order_group("PRJT_IDX","CMPNY_IDX","PRJT_LV","PRJT_STUS","PRJT_SBJT","HIGH_PRJT_IDX",level,grp_path,cycle) as(
+			SELECT g."PRJT_IDX",g."CMPNY_IDX",g."PRJT_LV",g."PRJT_STUS",g."PRJT_SBJT",g."HIGH_PRJT_IDX",0,array[g."PRJT_IDX"],false
+			FROM "PRJT_INFO" g
+			WHERE g."HIGH_PRJT_IDX" IS NULL AND g."PRJT_STUS" = '1' AND g."CMPNY_IDX" = #{cmpny_idx}
+			UNION ALL
+			SELECT g."PRJT_IDX",
+				g."CMPNY_IDX",
+				g."PRJT_LV",
+				g."PRJT_STUS",
+				g."PRJT_SBJT",
+				g."HIGH_PRJT_IDX",
+				level+1,
+				grp_path||g."PRJT_IDX",
+				g."PRJT_IDX" = any(grp_path)
+			FROM "PRJT_INFO" g, order_group sg
+			WHERE g."HIGH_PRJT_IDX" = sg."PRJT_IDX" AND g."PRJT_STUS" = '1' AND g."CMPNY_IDX" = #{cmpny_idx}
+			and NOT cycle
+		
+		)
+		SELECT "PRJT_IDX","PRJT_LV",lpad(' ',level) || "PRJT_SBJT" as "PRJT_SBJT", "HIGH_PRJT_IDX", level, grp_path
+		 FROM order_group ORDER BY grp_path
+	</select>
+	
+	<select id="findChildren" resultType="com.jobll.web.projectInfo.ProjectInfo" parameterType="com.jobll.web.projectInfo.ProjectInfo">
+		SELECT * from "PRJT_INFO" WHERE "PRJT_IDX" = #{high_prjt_idx}
+	</select>
+	<select id="findOne" resultType="com.jobll.web.projectInfo.ProjectInfo" parameterType="com.jobll.web.projectInfo.ProjectInfo">
+		SELECT * from "PRJT_INFO" WHERE "PRJT_IDX" = #{prjt_idx}
+	</select>
+</mapper>

@@ -1,0 +1,23 @@
+.content-box {
+	height : 400px;
+}
+.conts-table { 
+	margin-bottom : 0px;
+}
+.comment-input-tag {
+	margin-top : 20px;
+	margin-bottom : 100px;
+}
+.comment_delete{
+	float : right;
+}
+.comment_modify{
+	float : right;
+	margin-right : 5px;
+}
+.comment-modify-input {
+	display : none;
+}
+.comment-modify-input-view {
+	display : block;
+}

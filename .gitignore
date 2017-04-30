@@ -1,3 +1,26 @@
-RemoteSystemsTempFiles/
-.metadata/
+target/
+!.mvn/wrapper/maven-wrapper.jar
 
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+target/m2e-wtp/web-resources/META-INF/maven/com.jobll.web/jobll/pom.properties
