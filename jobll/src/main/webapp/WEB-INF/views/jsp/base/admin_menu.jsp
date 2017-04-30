@@ -13,44 +13,29 @@
         	</a>
         </li>
         <li>
-            <a href="/usrInfo/MyUsrInfo" >
-	          <span>회원정보</span>
-	        </a>
+            <A href="/" >
+          		<span>회원 관리</span>
+        	</a>
         </li>
         <li>
-            <A href="/projectInfo/projectInfoList/go" >
-	          <span>프로젝트</span>
-	        </a>
+            <A href="/" >
+          		<span>기관 관리</span>
+        	</a>
         </li>
         <li>
-            <A href="/usrInfo/usrInfoList" >
-	          <span>회원목록</span>
-	        </a>
+            <A href="/admin/usrAuth/cnfg" >
+          		<span>권한 관리</span>
+        	</a>
         </li>
         <li>
-            <A href="/usrInfo/join" >
-	          <span>회원가입</span>
-	        </a>
-        </li>
-        <li>
-            <A href="/atclInfo/atclInfoList/go" >
-	          <span>게시판</span>
-	        </a>
-        </li>
-        <li>
-            <A href="/hstyInfo/hstyInfoList/go" >
-	          <span>히스토리</span>
-	        </a>
+            <A href="/" >
+          		<span>Q/A 게시판</span>
+        	</a>
         </li>
         <li>
         	<A href="/logout.do" >
 	          <span>로그아웃</span>
 	        </a>
-        </li>
-        <li>
-            <A href="/admin/home" >
-          		<span>관리자 페이지</span>
-        	</a>
         </li>
     </ul>
 </nav>
