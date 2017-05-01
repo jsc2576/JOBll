@@ -45,10 +45,11 @@ function pagination_mv(){
 	$("#page_nm").html(str_html);	
 }
 function findData(prcs_stus, atcl_offset, atcl_limit){
+	var prjt_idx = $(".prjt_idx").val();
 	$.ajax({
 		method : "POST",
 		url : "/projectSupply/listRun",
-		data : {prcs_stus : prcs_stus, atcl_offset : atcl_offset, atcl_limit : atcl_limit},
+		data : { prjt_idx : prjt_idx, prcs_stus : prcs_stus, atcl_offset : atcl_offset, atcl_limit : atcl_limit},
 		success: function(list){
 			var str_html = "<form id='projectSupplyReadOne' action = '/prjectSupply/readOne' method='post'>";
 				str_html += "<table class ='table'>";
@@ -73,7 +74,7 @@ function findData(prcs_stus, atcl_offset, atcl_limit){
 				str_html += "<td>"+value.sup_end_date+"</td>";
 				str_html += "<td>"+value.appr_yn+"</td>";
 				str_html += "<td>"+value.usr_id+"</td>";
-				str_html += "</a></tr>";			
+				str_html += "</a></tr>";				
 			});
 			str_html += "</tbody>";
 			str_html += "</table>";
