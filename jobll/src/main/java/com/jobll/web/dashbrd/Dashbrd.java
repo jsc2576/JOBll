@@ -14,14 +14,15 @@ public class Dashbrd implements Serializable{
 	private static final long serialVersionUID = -7640555179543136473L;
 	
 	
-	private Integer usr_id;
+	private String usr_id;
 	private List<String> prjt_sbjt;
+	private String prjt_idx;
 	private List<String> cnet_prjt_sbjt;
 	
-	public Integer getUsr_id() {
+	public String getUsr_id() {
 		return usr_id;
 	}
-	public void setUsr_id(Integer usr_id) {
+	public void setUsr_id(String usr_id) {
 		this.usr_id = usr_id;
 	}
 	public List<String> getPrjt_sbjt() {
@@ -36,4 +37,11 @@ public class Dashbrd implements Serializable{
 	public void setCnet_prjt_sbjt(List<String> cnet_prjt_sbjt) {
 		this.cnet_prjt_sbjt = cnet_prjt_sbjt;
 	}
+	public String getPrjt_idx() {
+		return prjt_idx;
+	}
+	public void setPrjt_idx(String prjt_idx) {
+		this.prjt_idx = prjt_idx;
+	}
+	
 }

@@ -21,14 +21,32 @@ public class DashbrdController {
 	
 	@RequestMapping("/cuntPrjt/check/read")
 	@ResponseBody
-	public List<String> findCuntPrjtSbjt(@ModelAttribute Dashbrd entity){
+	public List<Dashbrd> findCuntPrjtSbjt(@ModelAttribute Dashbrd entity){
 		return dashbrdService.findCuntPrjtSbjt(entity);
 	}
 	
 	@RequestMapping("/cnetPrjt/check/read")
 	@ResponseBody
-	public List<String> findCnetPrjtSbjt(@ModelAttribute Dashbrd entity){
+	public List<Dashbrd> findCnetPrjtSbjt(@ModelAttribute Dashbrd entity){
 		return dashbrdService.findCentPrjtSbjt(entity);
+	}
+	
+	@RequestMapping("/tot_atcl")
+	@ResponseBody
+	public Integer TotAtcl(@ModelAttribute Dashbrd entity){
+		return dashbrdService.AtclTotCnt(entity);
+	}
+	
+	@RequestMapping("/rmn_atcl")
+	@ResponseBody
+	public Integer RmnAtcl(@ModelAttribute Dashbrd entity){
+		return dashbrdService.AtclRmnCnt(entity);
+	}
+	
+	@RequestMapping("/end_atcl")
+	@ResponseBody
+	public Integer EndAtcl(@ModelAttribute Dashbrd entity){
+		return dashbrdService.AtclEndCnt(entity);
 	}
 }
 

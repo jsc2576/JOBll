@@ -117,4 +117,10 @@ public class AtclInfoController {
 		mav.addObject("list", list);
 		return mav;
 	}
+	
+	@RequestMapping(value = "/pageCheck")
+	public Integer AtclInfoPageCnt(@ModelAttribute AtclInfo entity) throws Exception{
+		Integer data = atclInfoService.pageCnt(entity);
+		return data;
+	}
 }
