@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="8" version="2.0">
+<workbench progressCount="14" version="2.0">
 <workbenchAdvisor/>
 <window height="768" maximized="true" width="1024" x="824" y="146">
 <fastViewData fastViewLocation="1024"/>
@@ -28,6 +28,7 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
+<part id="2"/>
 </presentation>
 </folder>
 </info>
@@ -38,6 +39,9 @@
 </editor>
 <editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="jobll.exerd" partName="jobll.exerd" path="D:/JOBIl/Workspace/JOBll/eXerdJobll/jobll_exerd/jobll.exerd" title="jobll.exerd" tooltip="jobll_exerd/jobll.exerd" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/jobll_exerd/jobll.exerd"/>
+</editor>
+<editor id="com.tomato.exerd.term.ui.editor2.TermDictionaryEditor2" name="JOBll.xdic" partName="JOBll.xdic" path="D:/JOBIl/Workspace/JOBll/eXerdJobll/jobll_exerd/JOBll.xdic" title="JOBll.xdic" tooltip="jobll_exerd/JOBll.xdic" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/jobll_exerd/JOBll.xdic"/>
 </editor>
 </editors>
 <views>
@@ -172,10 +176,15 @@
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/jobll_exerd/.project"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/jobll_exerd/jobll.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.term.ui.editor2.TermDictionaryEditor2" path="/jobll_exerd/JOBll.xdic"/>
 </editors>
 <item historyLabel=".project" index="0">
 <position/>
 </item>
+<item historyLabel="jobll.exerd" index="1"/>
+<item historyLabel="JOBll.xdic" index="2"/>
+<item historyLabel="jobll.exerd" index="1"/>
+<item historyLabel="JOBll.xdic" index="2"/>
 <item active="true" historyLabel="jobll.exerd" index="1"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -194,6 +203,9 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.term.ui.editor2.TermDictionaryEditor2" name="JOBll.xdic" tooltip="jobll_exerd/JOBll.xdic">
+<persistable path="/jobll_exerd/JOBll.xdic"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="jobll.exerd" tooltip="jobll_exerd/jobll.exerd">
 <persistable path="/jobll_exerd/jobll.exerd"/>
 </file>
