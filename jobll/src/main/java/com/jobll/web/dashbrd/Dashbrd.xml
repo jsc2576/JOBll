@@ -9,7 +9,7 @@
 		LIMIT 10 
 	</select>
 
-	<select id="findCuntPrjtSbjt" parameterType="hashmap" resultType="hashmap">
+	<select id="findCuntPrjtSbjt" parameterType="java.util.List" resultType="java.util.List">
 		SELECT "PRJT_SBJT"
 		FROM "PRJT_INFO"
 		<foreach collection="prjt_idx_list" item="data" open="(" close=")" separator="or">
@@ -23,7 +23,7 @@
 		WHERE "USR_ID"= #{usr_id} 
 	</select>
 	
-	<select id="findCnetPrjtSbjt" parameterType="hashmap" resultType="hashmap">
+	<select id="findCnetPrjtSbjt" parameterType="java.util.List" resultType="hashmap">
 		SELECT "PRJT_SBJT"
 		FROM "PRJT_INFO"
 		<foreach collection="prjt_idx_list" item="data" open="(" close=")" separator="or">

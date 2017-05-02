@@ -22,7 +22,7 @@ public class DashbrdController {
 	@RequestMapping("/cuntPrjt/check/read")
 	@ResponseBody
 	public List<Dashbrd> findCuntPrjtSbjt(@ModelAttribute Dashbrd entity){
-		return dashbrdService.findCuntPrjtSbjt(entity);
+ 		return dashbrdService.findCuntPrjtSbjt(entity);
 	}
 	
 	@RequestMapping("/cnetPrjt/check/read")

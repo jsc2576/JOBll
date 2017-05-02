@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-md-12">
 	<div id="cunt_list"></div>
-		<select id="cnet_list"></select>
+	<select id="cnet_list"></select>
 	</div>
 </div>
 

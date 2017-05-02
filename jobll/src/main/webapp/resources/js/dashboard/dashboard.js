@@ -1,13 +1,13 @@
 $(document).ready(function(){
 	Cunt_Prjt();
-	Cnet_Prjt();
+//	Cnet_Prjt();
 	Tot_Prcs();
 });
 
 var crnt_prjt;
 
 
-function Cunt_Prjt(){
+function Cunt_Prjt(){ // 최근 프로젝트
 	
 	$.ajax({
 		method: "POST",
@@ -45,7 +45,7 @@ function Cnet_Prjt(){
 	
 	$.ajax({
 		method: "POST",
-		url: "/centPrjt/check/read",
+		url: "/cnetPrjt/check/read",
 		success: function(list){
 			var str_html = "";
 			
