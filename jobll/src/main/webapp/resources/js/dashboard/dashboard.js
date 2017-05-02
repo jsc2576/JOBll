@@ -19,12 +19,20 @@ function Cunt_Prjt(){ // 최근 프로젝트
 			str_html += "</tr></thead>";
 		
 			str_html += "<tbody>";
+			alert(list);
+			var i=0;
+			for(i=0; i<list.length; i++){
+				str_html += "<td>";
+				str_html += list[i].prjt_sbjt;
+				str_html += "</td>";
+			}
+			/*
 			$.each(list, function(index, data){
 				str_html += "<td>";
 				str_html += data;
 				str_html += "</td>";
 			});
-			
+			*/
 			
 			str_html += "</tbody> </table>";
 			$("#cunt_list").html(str_html);

@@ -9,11 +9,12 @@
 		LIMIT 10 
 	</select>
 
-	<select id="findCuntPrjtSbjt" parameterType="java.util.List" resultType="java.util.List">
+	<select id="findCuntPrjtSbjt" parameterType="hashmap" resultType="hashmap">
 		SELECT "PRJT_SBJT"
 		FROM "PRJT_INFO"
-		<foreach collection="prjt_idx_list" item="data" open="(" close=")" separator="or">
-			"PRJT_IDX" = #{data.value}
+		WHERE "PRJT_IDX" in
+		<foreach collection="prjt_idx_list" item="data" index="index" open="(" close=")" separator=",">
+			#{data.value}
 		</foreach>
 	</select>
 		
@@ -26,9 +27,11 @@
 	<select id="findCnetPrjtSbjt" parameterType="java.util.List" resultType="hashmap">
 		SELECT "PRJT_SBJT"
 		FROM "PRJT_INFO"
+		WHERE	
 		<foreach collection="prjt_idx_list" item="data" open="(" close=")" separator="or">
-			"PRJT_IDX" = #{data.value}
+			"PRJT_IDX" = #{data}
 		</foreach>
+	
 	</select>
 	
 	<select id ="AtclEndCnt" parameterType="com.jobll.web.dashbrd.Dashbrd" resultType="Integer">
