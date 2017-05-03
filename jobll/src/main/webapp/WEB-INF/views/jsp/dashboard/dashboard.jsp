@@ -1,6 +1,10 @@
 <div class="row">
-	<div class="col-md-12">
+	<div class="col-md-6">
 	<div id="cunt_list"></div>
+	</div>
+	
+	<div class="col-md-6">
+	<div id="cnet_list_name"></div>
 	<select id="cnet_list"></select>
 	</div>
 </div>
