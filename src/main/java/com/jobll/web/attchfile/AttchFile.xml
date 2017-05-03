@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jobll.web.attchfile.AttchFile">
+
+	<insert  id="create" parameterType ="com.jobll.web.attchfile.AttchFile">
+	INSERT INTO "ATTCH_FILE"(
+			"ATTCH_FILE_IDX", 
+            "FILE_PATH", 
+            "ATTCH_FILE_NM", 
+            "ATTCH_FILE_VOL", 
+            "REG_DATE", 
+            "FILE_TYP",
+            "ATCL_IDX"
+            )
+    VALUES (
+				(select nextval('public.attch_file_idx_seq')),
+				#{file_path},
+				#{attch_file_nm},
+				#{attch_file_vol},
+				#{reg_date},
+				#{file_typ},
+				#{atcl_idx}
+			)
+	</insert>	
+	
+	<select id="findAll" resultType="com.jobll.web.attchfile.AttchFile" parameterType ="com.jobll.web.attchfile.AttchFile">
+		select * from "ATTCH_FILE"
+	</select>
+	<select id="readByIdx" resultType="com.jobll.web.attchfile.AttchFile" parameterType ="com.jobll.web.attchfile.AttchFile">
+		select * from "ATTCH_FILE" where "ATCL_IDX" = #{atcl_idx};
+	</select>
+</mapper>

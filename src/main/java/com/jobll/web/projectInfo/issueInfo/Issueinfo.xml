@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jobll.web.projectInfo.issueInfo.IssueInfo">
+
+	<insert  id="create" parameterType ="com.jobll.web.projectInfo.issueInfo.IssueInfo" useGeneratedKeys="true"
+    keyProperty="atcl_idx">
+	INSERT INTO "ATCL_INFO"(
+		"ATCL_IDX",
+		"HIGH_ATCL_IDX", 
+		"ATCL_SBJT", 
+		"ATCL_CONTS",
+		"REG_DATE",
+		"USR_ID",
+		"STRT_DATE", 
+		"COMP_DATE",
+		"ESTN_TIME",
+		"ATCL_PROG_RATE",
+		"ATCL_STUS",
+		"PRJT_IDX",
+		"ATCL_TYP"
+	)
+    VALUES (
+				(nextval('public.atcl_idx_seq')),
+				#{high_atcl_idx},
+				#{atcl_sbjt},
+				#{atcl_conts},
+				#{reg_date},
+				#{usr_id},
+				#{strt_date},
+				#{comp_date},
+				#{estn_time},
+				#{atcl_prog_rate},
+				#{atcl_stus},
+				#{prjt_idx},
+				#{atcl_typ}
+			)
+	</insert>
+
+	<select id="findAll" resultType="com.jobll.web.projectInfo.issueInfo.IssueInfo" parameterType="com.jobll.web.projectInfo.issueInfo.IssueInfo">
+		SELECT * from "ATCL_INFO" WHERE "PRJT_IDX" = #{prjt_idx} and "ATCL_STUS" = '1' ORDER BY "ATCL_IDX" DESC OFFSET #{atcl_offset} LIMIT #{atcl_limit} 
+	</select>
+	
+	<select id="findOne" resultType="com.jobll.web.projectInfo.issueInfo.IssueInfo" parameterType="com.jobll.web.projectInfo.issueInfo.IssueInfo">
+		SELECT * from "ATCL_INFO" WHERE "ATCL_IDX" = #{atcl_idx} and "ATCL_STUS" = '1'
+	</select>
+	
+	<update id="delete" parameterType="com.jobll.web.projectInfo.issueInfo.IssueInfo">
+		UPDATE "ATCL_INFO" set
+			"ATCL_STUS" = #{atcl_stus}
+		where "ATCL_IDX" = #{atcl_idx}
+	</update>
+	<update id="update" parameterType="com.jobll.web.projectInfo.issueInfo.IssueInfo">
+		UPDATE "ATCL_INFO" set
+			"ATCL_SBJT" = #{atcl_sbjt},
+			"ATCL_CONTS" = #{atcl_conts},
+			"REG_DATE" = #{reg_date}
+		where "ATCL_IDX" = #{atcl_idx}
+	</update>
+</mapper>
