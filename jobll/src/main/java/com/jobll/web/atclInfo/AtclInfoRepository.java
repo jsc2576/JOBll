@@ -41,9 +41,4 @@ public class AtclInfoRepository {
 		entity = sqlSession.selectOne("com.jobll.web.atclInfo.AtclInfo.findOne", entity);
 		return entity;
 	}
-	
-	public Integer PageCnt(AtclInfo entity) throws Exception{
-		Integer count = sqlSession.selectOne("com.jobll.web.atclInfo.AtclInfo.findCnt", entity);
-		return count;
-	}
 }

@@ -47,26 +47,12 @@ function pagination_mv(){
 	}
 	
 	str_html += "<a onclick='pagination_prev()'><span class='glyphicon glyphicon-chevron-left'></span></a></li>";
-	$.ajax({
-		method : "POST",
-		url : "/atclInfo/pageCheck",
-		data : {prcs_stus : prcs_stus, atcl_offset : atcl_offset, atcl_limit : atcl_limit*5},
-		success : function(list){
-			alert(list);
-			for(var i=0; i<list/5; i++){
-				str_html += "<li><a onclick='findpage(" + (page_nm * list_nm + i) + ")'>" + (page_nm * list_nm + i) + "</a></li>";				
-			}
-		},
-		error : function(){alert("pagenation errror")}
-	});
-	
-	/*
 	str_html += "<li><a onclick='findpage(" + (page_nm * list_nm + 1) + ")'>" + (page_nm * list_nm + 1) + "</a></li>";
 	str_html += "<li><a onclick='findpage(" + (page_nm * list_nm + 2) + ")'>" + (page_nm * list_nm + 2) + "</a></li>";
 	str_html += "<li><a onclick='findpage(" + (page_nm * list_nm + 3) + ")'>" + (page_nm * list_nm + 3) + "</a></li>";
 	str_html += "<li><a onclick='findpage(" + (page_nm * list_nm + 4) + ")'>" + (page_nm * list_nm + 4) + "</a></li>";
 	str_html += "<li><a onclick\='findpage(" + (page_nm * list_nm + 5) + ")'>" + (page_nm * list_nm + 5) + "</a></li>";
-	*/
+	
 	str_html += "<li><a onclick='pagination_next()'><span class='glyphicon glyphicon-chevron-right'></span></a></li>";
 	$("#page_nm").html(str_html);
 	

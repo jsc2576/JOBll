@@ -59,10 +59,6 @@ public class AtclInfoService {
 		return entity;
 	}
 	
-	public Integer pageCnt(AtclInfo entity) throws Exception{
-		Integer data = atclInfoRepository.PageCnt(entity);
-		return data;
-	}
 
 }
 

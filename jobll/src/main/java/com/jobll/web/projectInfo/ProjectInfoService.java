@@ -38,6 +38,7 @@ public class ProjectInfoService {
 		}
 		
 		int qry = projectInfoRepository.create(entity);
+		
 		return qry;
 	}
 	
