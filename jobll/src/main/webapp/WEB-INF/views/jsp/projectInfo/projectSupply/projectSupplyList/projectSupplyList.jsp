@@ -2,11 +2,16 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<jsp:include page="hstyInfoMenu.jsp" flush="false" />
+<jsp:include page="../../projectInfoMenu.jsp" flush="false" />
 
 <!-- data table -->
  	<div id="data_list"></div>
  		
-<form id = "hstyInfo" action = "/hstyInfo/readOne" method="post">
+<form id = "projectSupply" action = "/projectSupply/readOne" method="post">
 	<div class = "list"></div>
+</form>
+
+
+<form id="projectSupplyWrite" action = "/projectSupply/projectSupplyWrite/go" method="post">
+	<button onclick = "submit()">글쓰기</button>
 </form>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.jobll.web.projectSupply.ProjectSupply">
+<mapper namespace="com.jobll.web.projectInfo.projectSupply.ProjectSupply">
 
-	<insert  id="create" parameterType ="com.jobll.web.projectSupply.ProjectSupply" useGeneratedKeys="true"
+	<insert  id="create" parameterType ="com.jobll.web.projectInfo.projectSupply.ProjectSupply" useGeneratedKeys="true"
     keyProperty="prjt_sup_list_idx">
 	INSERT INTO "PRJT_SUP_LIST"(
 		"PRJT_SUP_LIST_IDX",
@@ -26,11 +26,11 @@
 			)
 	</insert>
 
-	<select id="findAll" resultType="com.jobll.web.projectSupply.ProjectSupply" parameterType="com.jobll.web.projectSupply.ProjectSupply">
+	<select id="findAll" resultType="com.jobll.web.projectInfo.projectSupply.ProjectSupply" parameterType="com.jobll.web.projectInfo.projectSupply.ProjectSupply">
 		SELECT * FROM "PRJT_SUP_LIST" WHERE "PRJT_IDX" = #{prjt_idx}
 	</select>
 	
-	<select id="findOne" resultType="com.jobll.web.projectSupply.ProjectSupply" parameterType="com.jobll.web.projectSupply.ProjectSupply">
+	<select id="findOne" resultType="com.jobll.web.projectInfo.projectSupply.ProjectSupply" parameterType="com.jobll.web.projectInfo.projectSupply.ProjectSupply">
 		SELECT * FROM "PRJT_SUP_LIST" WHERE "PRJT_SUP_LIST_IDX" = #{prjt_sup_list_idx}
 	</select>
 	
