@@ -128,7 +128,7 @@
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.17935872" ratioLeft="179" ratioRight="819" relationship="2" relative="leftFolder"/>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@cadd41" ratio="0.7789988" ratioLeft="638" ratioRight="181" relationship="2" relative="org.eclipse.ui.editorss">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@cadd41" ratio="0.7116387" ratioLeft="1229" ratioRight="498" relationship="2" relative="org.eclipse.ui.editorss">
 <folder activePageID="com.tomato.exerd.ui.views.thumbnail" appearance="2" expanded="2">
 <page content="com.tomato.exerd.ui.views.thumbnail" label="썸네일"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
@@ -177,6 +177,7 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/jobll_exerd/.project"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/jobll_exerd/jobll.exerd"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.term.ui.editor2.TermDictionaryEditor2" path="/jobll_exerd/JOBll.xdic"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.term.ui.editor2.TermDictionaryEditor2" path="/jobll_exerd/JOBll.xdic"/>
 </editors>
 <item historyLabel=".project" index="0">
 <position/>
@@ -185,6 +186,8 @@
 <item historyLabel="JOBll.xdic" index="2"/>
 <item historyLabel="jobll.exerd" index="1"/>
 <item historyLabel="JOBll.xdic" index="2"/>
+<item historyLabel="jobll.exerd" index="1"/>
+<item historyLabel="JOBll.xdic" index="3"/>
 <item active="true" historyLabel="jobll.exerd" index="1"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
