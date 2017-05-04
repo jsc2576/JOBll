@@ -1,12 +1,10 @@
 $(document).ready(function(){
-	Cunt_Prjt();
-	Tot_Prcs();
-	Cnet_Prjt_Change();
+	Cunt_Prjt(); // 프로젝트 리스트 부르기
+	Tot_Prcs(); //초기에 그래프 그리기 용
+	Cnet_Prjt_Change(); // 셀렉트 박스 동작
 });
 
-var cunt_prjt;
-
-function Cunt_Prjt(){ // 최근 프로젝트
+function Cunt_Prjt(){ // 프로젝트 리스트 부르기 함수
 	
 	$("#cnet_list_name").html("프로젝트 리스트");
 	$.ajax({
@@ -22,34 +20,10 @@ function Cunt_Prjt(){ // 최근 프로젝트
 				str_html += "</option>";
 			});
 			
-			Cnet_Prjt(str_html);
-			//$("#cnet_list").html(str_html);
-			/*
-			var str_html = "<table class = 'cunt_prjt' border='1'>";
-			str_html += "<thead><tr>";
-			str_html += "<th>최근 프로젝트</th>";
-			str_html += "</tr></thead>";
-		
-			str_html += "<tbody>";
-			
-			$.each(list, function(index, data){
-				str_html += "<tr><td>";
-				str_html += data.prjt_sbjt;
-				str_html += "</td></tr>";
-			});
-			
-			
-			str_html += "</tbody> </table>";
-			$("#cunt_list").html(str_html);*/
+			Cnet_Prjt(str_html); // 셀렉트 박스의 담당 프로젝트 부분
 		},
 		error: function(){
-			var str_html = "<table class = 'cunt_prjt'>";
-			str_html += "<thead><tr>";
-			str_html += "<th>최근 프로젝트</th>";
-			str_html += "</tr></thead>";		
-			str_html += "<tbody>";
-			str_html += "</tbody> </table>";
-			$("#cunt_list").html(str_html);
+			alert("Project List Error");
 		}
 	});
 }
@@ -72,11 +46,13 @@ function Cnet_Prjt(str_html){ // 담당 프로젝트
 			
 			$("#cnet_list").html(str_html);
 		},
-		error: function(){alert("ERROR")}
+		error: function(){
+			alert("ERROR");
+		}
 	});
 }
 
-function Cnet_Prjt_Change(){
+function Cnet_Prjt_Change(){ // 프로젝트 리스트 셀렉트 박스가 변경될 때의 동작
 	$("#cnet_list").change(function(){
 		var prjt_idx = $("#cnet_list").val();
 		Tot_Prcs(prjt_idx);
@@ -84,7 +60,7 @@ function Cnet_Prjt_Change(){
 	
 }
 
-function Tot_Prcs(prjt_idx){
+function Tot_Prcs(prjt_idx){ // 통계수치를 수집
 	
 	$.ajax({
 		method: "POST",
@@ -102,7 +78,7 @@ function Tot_Prcs(prjt_idx){
 	});	
 }
 
-function Circle_chart(tot, rmn, end){
+function Circle_chart(tot, rmn, end){ // 차트 그리는 함수
 	var options = {
 			'dataset':{
 				title: 'Web accessibility status',
