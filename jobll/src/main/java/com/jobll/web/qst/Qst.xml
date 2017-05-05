@@ -5,7 +5,15 @@
 	<select id="findQstList" parameterType="com.jobll.web.qst.Qst" resultType="com.jobll.web.qst.Qst">
 		SELECT "QST_IDX", "QST_SBJT", "QST_CONTS", "REG_DATE", "USR_ID"
 		FROM "QST_INFO"
-		WHERE "QST_STUS" = 1
+		WHERE "QST_STUS" = '1'
+		OFFSET #{offset}
+		LIMIT #{limit}
+	</select>
+	
+	<select id="findQstListCnt" parameterType="com.jobll.web.qst.Qst" resultType="Integer">
+		SELECT count(*)
+		FROM "QST_INFO"
+		WHERE "QST_STUS" = '1'
 		OFFSET #{offset}
 		LIMIT #{limit}
 	</select>	

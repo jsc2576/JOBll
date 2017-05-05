@@ -14,4 +14,8 @@ public class QstService {
 	public List<Qst> findQstList(Qst entity){
 		return qstRepository.findQstList(entity);
 	}
+	
+	public Integer findQstListCnt(Qst entity){
+		return qstRepository.findQstListCnt(entity);
+	}
 }

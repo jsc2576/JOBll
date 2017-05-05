@@ -10,19 +10,26 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
+@RequestMapping(value="/qst")
 public class QstController {
 
 	@Autowired
 	QstService qstService;
 	
-	@RequestMapping(value="/qst")
+	@RequestMapping("")
 	public String QnAgo(@ModelAttribute Qst entity){
-		return "qna/qnaView";
+		return "qst/qstView";
 	}
 	
-	@RequestMapping(value="/qst/read", method=RequestMethod.POST)
+	@RequestMapping(value="/read", method=RequestMethod.POST)
 	@ResponseBody
 	public List<Qst> QstList(@ModelAttribute Qst entity){
 		return qstService.findQstList(entity);
+	}
+	
+	@RequestMapping(value="/read/cnt", method=RequestMethod.POST)
+	@ResponseBody
+	public Integer QstListCnt(@ModelAttribute Qst entity){
+		return qstService.findQstListCnt(entity);
 	}
 }

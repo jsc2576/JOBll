@@ -13,6 +13,10 @@ public class QstRepository {
 	SqlSession sqlSession;
 	
 	public List<Qst> findQstList(Qst entity){
-		return sqlSession.selectList("com.jobll.web.qna.findQstList", entity);
+		return sqlSession.selectList("com.jobll.web.qst.findQstList", entity); 
+	}
+	
+	public Integer findQstListCnt(Qst entity){
+		return sqlSession.selectOne("com.jobll.web.qst.findQstListCnt", entity);
 	}
 }

@@ -12,6 +12,7 @@ public class Qst implements Serializable{
 	 */
 	private static final long serialVersionUID = 6174235347010023028L;
 
+	private String qst_idx;
 	private String qst_sbjt;
 	private String qst_conts;
 	private String reg_date;
@@ -54,5 +55,11 @@ public class Qst implements Serializable{
 	}
 	public void setLimit(Integer limit) {
 		this.limit = limit;
+	}
+	public String getQst_idx() {
+		return qst_idx;
+	}
+	public void setQst_idx(String qst_idx) {
+		this.qst_idx = qst_idx;
 	}	
 }
