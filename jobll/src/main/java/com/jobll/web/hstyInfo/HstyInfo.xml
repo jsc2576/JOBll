@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jobll.web.hstyInfo.HstyInfo">
+
+	<insert  id="create" parameterType ="com.jobll.web.hstyInfo.HstyInfo">
+	INSERT INTO "HSYT_INFO"(
+			"HSTY_IDX",
+			"USR_ID",
+			"PRJT_IDX",
+			"ATCL_IDX",
+			"CMT_IDX",
+			"HSTY_DATE",
+			"HSTY_CONTS",
+			"HSTY_TYP"
+	)
+	VALUES (
+				(nextval('public.hsty_idx_seq')),
+				#{usr_id},
+				#{prjt_idx},
+				#{atcl_idx},
+				#{cmt_idx},
+				#{hsty_date},
+				#{hsty_conts},
+				#{hsty_typ}
+			)
+	</insert>
+
+	<select  id="findAll" resultType="com.jobll.web.hstyInfo.HstyInfo" parameterType ="com.jobll.web.hstyInfo.HstyInfo">
+	SELECT * FROM "HSYT_INFO"
+	</select>
+
+	<select  id="findOne" resultType="com.jobll.web.hstyInfo.HstyInfo" parameterType ="com.jobll.web.hstyInfo.HstyInfo">
+	SELECT * FROM "HSYT_INFO" WHERE "HSTY_IDX" = #{hsty_idx}
+	</select>
+
+</mapper>
