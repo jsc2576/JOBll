@@ -2,7 +2,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<jsp:include page="../../projectInfo/projectInfoMenu.jsp" flush="false" />
+<jsp:include page="../../projectInfoMenu.jsp" flush="false" />
 
 <!-- data table -->
  	<div id="data_list"></div>
