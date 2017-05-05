@@ -1,4 +1,4 @@
-package com.jobll.web.projectInfo.projectSupply;
+package com.jobll.web.projectSupply;
 
 import java.util.List;
 
@@ -16,18 +16,18 @@ public class ProjectSupplyRepository {
 	
 	
 	public int create(ProjectSupply entity)throws Exception{
-		int qry = sqlSession.insert("com.jobll.web.projectInfo.projectSupply.ProjectSupply.create", entity);
+		int qry = sqlSession.insert("com.jobll.web.projectSupply.ProjectSupply.create", entity);
 		return qry;
 	}
 	
 	public List<ProjectSupply> findAll(ProjectSupply entity) throws Exception{
-		List<ProjectSupply> list = sqlSession.selectList("com.jobll.web.projectInfo.projectSupply.ProjectSupply.findAll", entity);
+		List<ProjectSupply> list = sqlSession.selectList("com.jobll.web.projectSupply.ProjectSupply.findAll", entity);
 		
 		return list;
 	}
 	
 	public ProjectSupply findOne (ProjectSupply entity) throws Exception{
-		ProjectSupply data = sqlSession.selectOne("com.jobll.web.projectInfo.projectSupply.ProjectSupply.findOne", entity);
+		ProjectSupply data = sqlSession.selectOne("com.jobll.web.projectSupply.ProjectSupply.findOne", entity);
 		return data;
 	}
 }

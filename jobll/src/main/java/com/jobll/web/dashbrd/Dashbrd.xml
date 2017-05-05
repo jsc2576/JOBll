@@ -2,46 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jobll.web.dashbrd">
 
-	<select id="findCuntPrjtIdx" parameterType="com.jobll.web.dashbrd.Dashbrd" resultType="com.jobll.web.dashbrd.Dashbrd">
-		SELECT "PRJT_IDX"
-		FROM "HSTY_INFO"
-		WHERE "USR_ID" = #{usr_id}
-		LIMIT 10 
-	</select>
-
-	<select id="findPrjtSbjt" parameterType="integer" resultType="com.jobll.web.dashbrd.Dashbrd">
-		SELECT "PRJT_SBJT"
-		FROM "PRJT_INFO"
-		WHERE "PRJT_IDX" = #{prjt_idx}
-	</select>
-		
-	<select id="findCnetPrjtIdx" parameterType="com.jobll.web.dashbrd.Dashbrd" resultType="com.jobll.web.dashbrd.Dashbrd">
-		SELECT "PRJT_IDX"	
-		FROM "PRJT_CNET_LIST"
-		WHERE "USR_ID" = #{usr_id} 
+	<select id="findCuntPrjtSbjt" parameterType="com.jobll.web.dashbrd.Dashbrd" resultType="hashmap">
+		SELECT prjt_sbjt
+		FROM prjt_info p
+			INNER JOIN hsty_info h ON p.prjt_idx = h.prjt_idx
+		WHERE p.usr_id = #{usr_id} 
 	</select>
 	
-	
-	<select id ="AtclEndCnt" parameterType="com.jobll.web.dashbrd.Dashbrd" resultType="Integer">
-		SELECT count(*) 
-		FROM "ATCL_INFO"
-		WHERE "PRJT_IDX" = #{prjt_idx} 
-		and "USR_ID" = #{usr_id} 
-		and "ATCL_PROG_RATE" = 100
-	</select>
-	
-	<select id ="AtclRmnCnt" parameterType="com.jobll.web.dashbrd.Dashbrd" resultType="Integer">
-		SELECT count(*) 
-		FROM "ATCL_INFO"
-		WHERE "PRJT_IDX" = #{prjt_idx}
-		and "USR_ID" = #{usr_id}
-		and "ATCL_PROG_RATE" = 0
-	</select>
-	
-	<select id ="AtclTotCnt" parameterType="com.jobll.web.dashbrd.Dashbrd" resultType="Integer">
-		SELECT count(*)
-		FROM "ATCL_INFO" 
-		WHERE "PRJT_IDX" = #{prjt_idx} 
-		and "USR_ID" = #{usr_id}
+	<select id="findCnetPrjtSbjt" parameterType="com.jobll.web.dashbrd.Dashbrd" resultType="hashmap">
+		SELECT prjt_sbjt
+		FROM prjt_info p
+			INNER JOIN prjt_sup_list psl ON p.prjt_idx = psl.prjt_idx
+		WHERE p.usr_id = #{usr_id} 
 	</select>
 </mapper>

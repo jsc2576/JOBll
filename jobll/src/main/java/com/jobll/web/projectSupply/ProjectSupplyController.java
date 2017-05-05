@@ -1,4 +1,4 @@
-package com.jobll.web.projectInfo.projectSupply;
+package com.jobll.web.projectSupply;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +35,7 @@ public class ProjectSupplyController {
 	
 	@RequestMapping("/projectSupplyList/go")
 	public ModelAndView projectSupplyListGo (@ModelAttribute ProjectSupply entity) throws Exception {
-		ModelAndView mav = new ModelAndView("projectInfo/projectSupply/projectSupplyList/projectSupplyListView");
+		ModelAndView mav = new ModelAndView("projectSupply/projectSupplyList/projectSupplyListView");
 		
 		mav.addObject("entity", entity);
 		
@@ -45,13 +45,13 @@ public class ProjectSupplyController {
 	@RequestMapping("/projectSupplyWrite/go")
 	public String projectSupplyWriteGo() {
 
-		return "projectInfo/projectSupply/projectSupplyWrite/projectSupplyWriteView";
+		return "projectSupply/projectSupplyWrite/projectSupplyWriteView";
 	}
 	
 	@RequestMapping(value = "/projectSupplyWrite", method = RequestMethod.POST)
 	@ResponseBody
 	public ModelAndView projectSupplyServiceWrite (@ModelAttribute ProjectSupply entity) throws Exception {
-		ModelAndView mav = new ModelAndView("projectInfo/projectSupply/projectSupplyList/projectSupplyListView");
+		ModelAndView mav = new ModelAndView("projectSupply/projectSupplyList/projectSupplyListView");
 		
 		projectSupplyService.create(entity);
 		

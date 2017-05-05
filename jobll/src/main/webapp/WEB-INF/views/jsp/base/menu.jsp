@@ -23,11 +23,6 @@
 	        </a>
         </li>
         <li>
-            <A href="/dashboard" >
-	          <span>대시보드</span>
-	        </a>
-        </li>
-        <li>
             <A href="/usrInfo/usrInfoList" >
 	          <span>회원목록</span>
 	        </a>

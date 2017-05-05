@@ -1,4 +1,4 @@
-package com.jobll.web.projectInfo.projectSupply;
+package com.jobll.web.projectSupply;
 
 import java.io.Serializable;
 
