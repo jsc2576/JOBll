@@ -31,5 +31,8 @@ public class CmpnyInfoService {
 		return temp;
 	}
 	
+	public List<CmpnyInfo> findAll(CmpnyInfo entity) {
+		return cmpnyInfoRepository.findAll(entity);
+	}
 
 }

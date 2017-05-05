@@ -22,5 +22,9 @@ public class CmpnyInfoRepository {
 		return deleteCmpnyName ;
 	}
 	
+	public List<CmpnyInfo> findAll(CmpnyInfo entity) {
+		return sqlSession.selectList("com.jobll.web.cmpnyinfo.findAll", entity);
+	}
+	
 	
 }

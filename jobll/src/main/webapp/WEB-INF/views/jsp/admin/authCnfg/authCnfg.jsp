@@ -3,5 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
-123123123
+<div id = "cmpny_list">
+</div>
+
+<div id = "usrInfoList">
+</div>
 	

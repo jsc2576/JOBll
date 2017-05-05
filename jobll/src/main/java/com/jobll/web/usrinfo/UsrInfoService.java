@@ -76,4 +76,11 @@ public class UsrInfoService{
 		int test = usrInfoRepository.delete(entity);
 		return test;
 	}
+	public List<UsrInfo> selectUserToCmpny(UsrInfo entity){
+		return usrInfoRepository.selectUserToCmpny(entity);	
+	};
+	public int updateToLv(UsrInfo entity){
+		int result = usrInfoRepository.updateToLv(entity);
+		return result;
+	}
 }
