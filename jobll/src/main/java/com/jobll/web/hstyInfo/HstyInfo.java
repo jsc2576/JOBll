@@ -14,8 +14,9 @@ public class HstyInfo implements Serializable{
 	private Integer hsty_idx;
 	private String usr_id;
 	private Integer prjt_idx;
-	private Integer hsty_date;
-	private Integer atcl_conts;
+	private Integer atcl_idx;
+	private Integer cmt_idx;
+	private String hsty_date;
 	private String hsty_conts;
 	private Integer hsty_typ;
 
@@ -37,17 +38,23 @@ public class HstyInfo implements Serializable{
 	public void setPrjt_idx(Integer prjt_idx) {
 		this.prjt_idx = prjt_idx;
 	}
-	public Integer getHsty_date() {
+	public Integer getAtcl_idx() {
+		return atcl_idx;
+	}
+	public void setAtcl_idx(Integer atcl_idx) {
+		this.atcl_idx = atcl_idx;
+	}
+	public Integer getCmt_idx() {
+		return cmt_idx;
+	}
+	public void setCmt_idx(Integer cmt_idx) {
+		this.cmt_idx = cmt_idx;
+	}
+	public String getHsty_date() {
 		return hsty_date;
 	}
-	public void setHsty_date(Integer hsty_date) {
+	public void setHsty_date(String hsty_date) {
 		this.hsty_date = hsty_date;
-	}
-	public Integer getAtcl_conts() {
-		return atcl_conts;
-	}
-	public void setAtcl_conts(Integer atcl_conts) {
-		this.atcl_conts = atcl_conts;
 	}
 	public String getHsty_conts() {
 		return hsty_conts;

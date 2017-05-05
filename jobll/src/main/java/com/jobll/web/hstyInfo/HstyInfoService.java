@@ -21,7 +21,6 @@ public class HstyInfoService {
 
 
 	public int create(HstyInfo entity)  throws Exception{
-		entity.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
 		int qry = hstyInfoRepository.create(entity);
 		return qry;
 	}

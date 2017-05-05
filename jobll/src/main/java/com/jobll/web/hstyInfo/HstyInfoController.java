@@ -10,32 +10,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.jobll.web.projectSupply.ProjectSupply;
 @Controller
-@RequestMapping(value="/hstyInfo")
+@RequestMapping(value="/allPersonInfo")
 public class HstyInfoController {
 
 	@Autowired
 	private HstyInfoService hstyInfoService;
-	
-	@RequestMapping("/hstyInfoList/go")
-	public String hstyInfoListGo(){
-		return "hstyInfo/hstyInfoView";
-	}
 
-	@RequestMapping(value = "/listRun", method= RequestMethod.POST)
+
+	@RequestMapping(value = "/defaultHstyInfoResponseBody", method= RequestMethod.POST)
 	@ResponseBody
-	public List<HstyInfo> hstyInfolistRun(@ModelAttribute HstyInfo entity) throws Exception{
-		List<HstyInfo> list = hstyInfoService.findAll(entity);
-		return list;
+	public HstyInfo DefaultHstyInfoResponseBody(@ModelAttribute HstyInfo entity) throws Exception{
+		return entity;
 	}
-
-	@RequestMapping(value = "/readOne", method= RequestMethod.POST)
-	public ModelAndView hstyInfoView (@ModelAttribute HstyInfo entity) throws Exception {
-		ModelAndView mav = new ModelAndView("hstyInfo/hstyInfoView");
-		entity = hstyInfoService.findOne(entity);		
-		mav.addObject("entity", entity);
+	@RequestMapping(value = "/defaultHstyInfoModelAndView", method= RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView DefaultHstyInfoModelAndView(@ModelAttribute HstyInfo entity) throws Exception{
+		ModelAndView mav = new ModelAndView("default");
 		return mav;
-	}	
+	}
 }
