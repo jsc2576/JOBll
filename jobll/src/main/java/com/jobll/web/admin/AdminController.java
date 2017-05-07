@@ -52,7 +52,7 @@ public class AdminController {
 		
 		return cmpny_list;
 	}
-	/*@RequestMapping(value = "/GetCmpnyUsrInfo", method= RequestMethod.POST)
+	@RequestMapping(value = "/GetCmpnyUsrInfo", method= RequestMethod.POST)
 	@ResponseBody
 	public List<UsrInfo> GetCmpnyUsrInfo(@ModelAttribute UsrInfo entity) throws Exception{
 		List<UsrInfo> user_list = usrInfoService.selectUserToCmpny(entity);
@@ -65,5 +65,5 @@ public class AdminController {
 		int result = usrInfoService.updateToLv(entity);
 		
 		return result;
-	}*/
+	}
 }
