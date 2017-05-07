@@ -14,6 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.jobll.web.projectInfo.ProjectInfo;
 import com.jobll.web.cmpnyinfo.*;
 import com.jobll.web.usrinfo.*;
+import com.jobll.web.projectInfo.*;
+
 @Controller
 @RequestMapping(value="/admin")
 public class AdminController {
@@ -24,6 +26,8 @@ public class AdminController {
 	private CmpnyInfoService cmpnyInfoService;
 	@Autowired
 	private UsrInfoService usrInfoService;
+	@Autowired
+	private ProjectInfoService projectInfoService;
 
 	/**
 	 * 프로젝트 생성 페이지로 이동합니다.
@@ -43,6 +47,11 @@ public class AdminController {
 	@RequestMapping("/usrAuth/cnfg")
 	public String AdminAuthConfigGo(){
 			return "admin/authCnfg/authCnfgView";
+	}
+	
+	@RequestMapping("/cmpnyInfo/cnfg")
+	public String AdminCmpnyConfigGo(){
+			return "admin/cmpnyCnfg/cmpnyCnfgView";
 	}
 	
 	@RequestMapping(value = "/GetCmpnyList", method= RequestMethod.POST)
@@ -65,5 +74,12 @@ public class AdminController {
 		int result = usrInfoService.updateToLv(entity);
 		
 		return result;
+	}
+	@RequestMapping(value = "/GetCmpnyPrjtList", method= RequestMethod.POST)
+	@ResponseBody
+	public List<ProjectInfo> ProjectInfolistRun(@ModelAttribute ProjectInfo entity) throws Exception{
+		List<ProjectInfo> project_list = projectInfoService.findList(entity);
+		
+		return project_list;
 	}
 }

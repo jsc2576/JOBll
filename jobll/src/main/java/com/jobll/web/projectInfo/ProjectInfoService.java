@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.jobll.web.CommonUtil;
 import com.jobll.web.SessionUtil;
 import com.jobll.web.atclInfo.AtclInfo;
+import com.jobll.web.usrinfo.UsrInfo;
 
 @Service
 public class ProjectInfoService {
@@ -44,14 +45,23 @@ public class ProjectInfoService {
 	
 	public List<ProjectInfo> findList(ProjectInfo entity) throws Exception{
 		
-		entity.setCmpny_idx(sessionUtil.getSessionBean().getUsr_cmpny_idx());
 		List<ProjectInfo> project_list = projectInfoRepository.findList(entity);
 		return project_list;
 	}
-public ProjectInfo findOne(ProjectInfo entity) throws Exception{
+	
+	public ProjectInfo findOne(ProjectInfo entity) throws Exception{
 		
 		entity = projectInfoRepository.findOne(entity);
 		return entity;
+	}
+	
+	public List<ProjectInfo> findToUsr() throws Exception{
+		UsrInfo entity = new UsrInfo();
+		entity.setUsr_cmpny_idx(sessionUtil.getSessionBean().getUsr_cmpny_idx());
+		entity.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
+		List<ProjectInfo> project_list = projectInfoRepository.findToUsr(entity);
+		
+		return project_list;
 	}
 }
 

@@ -54,7 +54,7 @@ public class ProjectInfoController {
 	@RequestMapping(value = "/listRun", method= RequestMethod.POST)
 	@ResponseBody
 	public List<ProjectInfo> ProjectInfolistRun(@ModelAttribute ProjectInfo entity) throws Exception{
-		List<ProjectInfo> project_list = projectInfoService.findList(entity);
+		List<ProjectInfo> project_list = projectInfoService.findToUsr();
 		
 		return project_list;
 	}

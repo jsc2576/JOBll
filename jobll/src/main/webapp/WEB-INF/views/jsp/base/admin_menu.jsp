@@ -18,7 +18,7 @@
         	</a>
         </li>
         <li>
-            <A href="/" >
+            <A href="/admin/cmpnyInfo/cnfg" >
           		<span>기관 관리</span>
         	</a>
         </li>

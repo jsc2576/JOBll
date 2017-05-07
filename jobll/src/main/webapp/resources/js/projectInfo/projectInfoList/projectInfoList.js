@@ -11,23 +11,12 @@ function readProjectList(){
 		data : {},
 		success: function(list){
 
-			var level = 1;
+			var margin_value = 0;
 			var str_html = "<ul class = 'project tree'>";
 			for(var i = 0; i < list.length; i++)
 			{
-				if(level < list[i].prjt_lv)
-				{
-					str_html += "<ul>";
-				}
-				else if(level > list[i].prjt_lv)
-				{
-					for(var j = 0; j < level - list[i].prjt_lv; j++)
-					str_html += "</ul>";
-				}
-				str_html += "<li><a onclick = 'readProjectInfo("+list[i].prjt_idx+")'>"+list[i].prjt_sbjt+"</a></li>";
-				
-				level = list[i].prjt_lv;
-				
+				margin_value = (list[i].prjt_lv-1)*20;
+				str_html += "<li style = 'margin-left : "+margin_value+"px;'><a onclick = 'readProjectInfo("+list[i].prjt_idx+")'>"+list[i].prjt_sbjt+"</a></li>";
 			}
 			str_html += "</ul>";
 			
