@@ -6,9 +6,11 @@ $(document).ready (function (){
 
 
 function myProject() {
+	var usr_id = $("#usr_id").val();
 	$.ajax ({
 		method	: "post",
 		url		: "/usrInfo/prjt/read",
+		data : {"usr_id" : usr_id},
 		success	: function (list) {
 				str_html ="<section id=\"MyPrjtInfo-tag\">"
 				str_html +="<table class = \"table table-striped custom-table\">";

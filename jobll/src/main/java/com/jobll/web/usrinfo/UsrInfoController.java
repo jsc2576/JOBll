@@ -167,8 +167,7 @@ public class UsrInfoController {
 	
 	@RequestMapping(value = "/prjt/read", method = RequestMethod.POST)
 	@ResponseBody
-	public List<ProjectInfo> PrjtInfoList() {
-		UsrInfo entity=new UsrInfo();
+	public List<ProjectInfo> PrjtInfoList(UsrInfo entity) {
 		List<ProjectInfo> List;
 		List= usrInfoService.readPrjtSbjtByUsrId(entity);
 		return List;

@@ -40,7 +40,8 @@ public class UsrInfoService{
 		return usrInfoRepository.select();
 	}
 	public List<ProjectInfo> readPrjtSbjtByUsrId(UsrInfo entity){
-		entity.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
+		if(entity.getUsr_id().isEmpty())
+			entity.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
 		return usrInfoRepository.readPrjtSbjtByUsrId(entity);
 		
 	};
