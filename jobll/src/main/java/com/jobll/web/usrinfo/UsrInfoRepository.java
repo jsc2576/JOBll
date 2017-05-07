@@ -67,7 +67,7 @@ public class UsrInfoRepository {
 
 	public int delete(UsrInfo entity){
 	
-	int test = sqlSession.delete("com.jobll.web.usrinfo.UsrInfo.delete",entity);
+	int test = sqlSession.update("com.jobll.web.usrinfo.UsrInfo.delete",entity);
 	return test;
 }
 	public int checkId(UsrInfo entity){

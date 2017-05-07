@@ -19,10 +19,10 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.jobll.web.SessionUtil;
 import com.jobll.web.attchfile.AttchFile;
 import com.jobll.web.cmpnyinfo.CmpnyInfo;
 import com.jobll.web.projectInfo.ProjectInfo;
-
 import com.jobll.web.projectInfo.issueInfo.IssueInfo;
 
 
@@ -33,6 +33,30 @@ public class UsrInfoController {
 	
 	@Autowired
 	private UsrInfoService usrInfoService;
+	
+	@Autowired
+	private SessionUtil sessionUtil;
+	
+	@RequestMapping(value = "/usrDel/send", method = RequestMethod.POST)
+	public ModelAndView usrDelSend(@ModelAttribute UsrInfo entity) throws Exception {
+		ModelAndView mav = new ModelAndView("login.do");
+		
+		int result;
+		result = usrInfoService.delete(entity);
+		if(result==1)
+			mav.setViewName("homeView");
+		else
+			mav.setViewName("fail.do");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/usrDel")
+	public ModelAndView usrDel() throws Exception {
+		ModelAndView mav = new ModelAndView("usrInfo/usrDel/usrDel");
+		
+		mav.addObject("usr_id",sessionUtil.getSessionBean().getUsr_id());
+		return mav;
+	}
 	
 	@RequestMapping(value = "/usrMdf/send", method = RequestMethod.POST)
 	public ModelAndView usrMdfSend(@ModelAttribute UsrInfo entity) throws Exception {

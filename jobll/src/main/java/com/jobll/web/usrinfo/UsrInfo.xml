@@ -46,6 +46,12 @@
 		where "USR_ID" = #{usr_id}
 	</update>
 	
+	<update id="delete" parameterType ="com.jobll.web.usrinfo.UsrInfo">
+		update "USR_INFO" set
+			"ACT_STUS" =  '0'
+		where "USR_ID" = #{usr_id} and "USR_PWD" = #{usr_pwd}
+	</update>
+	
 	<insert  id="create" parameterType ="com.jobll.web.usrinfo.UsrInfo">
 	INSERT INTO "USR_INFO"(
           	"USR_ID",

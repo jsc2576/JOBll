@@ -54,7 +54,7 @@
 
             <div class="form-group text-center">
               <button type="submit" id="usr_make" class="btn btn-info">변경<i class="fa fa-check spaceLeft"></i></button>
-              <button type="submit" class="btn btn-warning">변경취소<i class="fa fa-times spaceLeft"></i></button>
+              <A href="/"  class="btn btn-warning">변경취소<i class="fa fa-times spaceLeft"></i></A>
             </div>
           </form>
         </div>
