@@ -27,6 +27,9 @@
 	<select id="selectOne" parameterType ="com.jobll.web.usrinfo.UsrInfo" resultType="com.jobll.web.usrinfo.UsrInfo">
 		SELECT * from "USR_INFO" WHERE "USR_ID" = #{usr_id}
 	</select>
+	<select id="selectUserToCmpny" parameterType ="com.jobll.web.usrinfo.UsrInfo" resultType="com.jobll.web.usrinfo.UsrInfo">
+		SELECT * from "USR_INFO" WHERE "USR_CMPNY_IDX" = #{usr_cmpny_idx}
+	</select>
 	<select id="checkId" parameterType="java.lang.String" resultType="Integer">
 		select count(*) 
 		from "USR_INFO"
@@ -69,5 +72,10 @@
 			#{usr_cmpny_idx}
 	)
 	</insert>
-
+	
+	<update id="updateToLv" parameterType="com.jobll.web.usrinfo.UsrInfo">
+		UPDATE "USR_INFO" set
+			"USR_LV" = #{usr_lv}
+		where "USR_ID" = #{usr_id}
+	</update>
 </mapper>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jobll.web.cmpnyinfo">
+	<!-- 회사 입력 -->
+	<insert  id="create" parameterType ="String"
+    keyProperty="cmpny_idx">
+	INSERT INTO "CMPNY_INFO"(
+		"CMPNY_IDX",
+		"CMPNY_NM", 
+		"CMPNY_STUS"
+	)
+    VALUES 
+	(
+		(nextval('public.cmpny_idx_seq')),
+		#{cmpny_nm},
+		1
+	)
+	</insert>
+	
+	
+	
+	<select id="findAll" resultType="com.jobll.web.cmpnyinfo.CmpnyInfo">
+		SELECT * from "CMPNY_INFO" where "CMPNY_STUS" = '1'
+	</select>
+	
+	<select id="delete" resultType="com.jobll.web.cmpnyinfo.CmpnyInfo">
+		<foreach collection="list" item="item" index="index" separator=";">
+    		delete from "CMPNY_INFO" where "CMPNY_NM" = #{item}
+		</foreach>
+	</select>
+
+</mapper>

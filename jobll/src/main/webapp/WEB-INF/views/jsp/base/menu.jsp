@@ -38,9 +38,19 @@
 	        </a>
         </li>
         <li>
+            <A href="/hstyInfo/hstyInfoList/go" >
+	          <span>히스토리</span>
+	        </a>
+        </li>
+        <li>
         	<A href="/logout.do" >
 	          <span>로그아웃</span>
 	        </a>
+        </li>
+        <li>
+            <A href="/admin/home" >
+          		<span>관리자 페이지</span>
+        	</a>
         </li>
     </ul>
 </nav>

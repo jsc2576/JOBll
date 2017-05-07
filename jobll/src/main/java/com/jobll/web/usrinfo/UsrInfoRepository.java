@@ -74,4 +74,11 @@ public class UsrInfoRepository {
 		int test = sqlSession.selectOne("com.jobll.web.usrinfo.UsrInfo.checkId",entity.getUsr_id());
 		return test;
 	}
+	public List<UsrInfo> selectUserToCmpny(UsrInfo entity){
+		return sqlSession.selectList("com.jobll.web.usrinfo.UsrInfo.selectUserToCmpny",entity);	
+	};
+	public int updateToLv(UsrInfo entity){
+		int test = sqlSession.update("com.jobll.web.usrinfo.UsrInfo.updateToLv",entity);
+		return test;
+	}
 }
