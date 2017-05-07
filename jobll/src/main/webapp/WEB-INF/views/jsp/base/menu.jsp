@@ -33,6 +33,16 @@
 	        </a>
         </li>
         <li>
+            <A href="/usrInfo/usrMdf" >
+          		<span>회원정보 수정</span>
+        	</a>
+        </li>
+        <li>
+            <A href="/usrInfo/usrDel" >
+          		<span>회원탈퇴</span>
+        	</a>
+        </li>
+        <li>
             <A href="/atclInfo/atclInfoList/go" >
 	          <span>게시판</span>
 	        </a>
@@ -52,5 +62,6 @@
           		<span>관리자 페이지</span>
         	</a>
         </li>
+        
     </ul>
 </nav>

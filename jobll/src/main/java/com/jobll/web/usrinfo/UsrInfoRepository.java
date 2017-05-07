@@ -61,14 +61,13 @@ public class UsrInfoRepository {
 	}
 	
 	public int edit(UsrInfo entity){
-		
-		int test = sqlSession.insert("com.jobll.web.usrinfo.UsrInfo.edit",entity);
+		int test = sqlSession.update("com.jobll.web.usrinfo.UsrInfo.edit",entity);
 		return test;
 	}
 
 	public int delete(UsrInfo entity){
 	
-	int test = sqlSession.insert("com.jobll.web.usrinfo.UsrInfo.delete",entity);
+	int test = sqlSession.update("com.jobll.web.usrinfo.UsrInfo.delete",entity);
 	return test;
 }
 	public int checkId(UsrInfo entity){

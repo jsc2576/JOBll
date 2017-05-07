@@ -40,7 +40,8 @@ public class UsrInfoService{
 		return usrInfoRepository.select();
 	}
 	public List<ProjectInfo> readPrjtSbjtByUsrId(UsrInfo entity){
-		entity.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
+		if(entity.getUsr_id().isEmpty())
+			entity.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
 		return usrInfoRepository.readPrjtSbjtByUsrId(entity);
 		
 	};
@@ -49,7 +50,10 @@ public class UsrInfoService{
 			entity.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
 		return usrInfoRepository.selectOne(entity);
 	}
-	
+	public UsrInfo readOne(UsrInfo entity){
+		entity.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
+		return usrInfoRepository.selectOne(entity);
+	}
 	public List<HashMap<String, Object>> read(UsrInfo entity){
 		
 		return usrInfoRepository.read(entity);
@@ -76,11 +80,12 @@ public class UsrInfoService{
 		int test = usrInfoRepository.delete(entity);
 		return test;
 	}
+	
 	public List<UsrInfo> selectUserToCmpny(UsrInfo entity){
-		return usrInfoRepository.selectUserToCmpny(entity);	
-	};
-	public int updateToLv(UsrInfo entity){
-		int result = usrInfoRepository.updateToLv(entity);
-		return result;
-	}
+			return usrInfoRepository.selectUserToCmpny(entity);	
+		};
+		public int updateToLv(UsrInfo entity){
+			int result = usrInfoRepository.updateToLv(entity);
+			return result;
+		}
 }
