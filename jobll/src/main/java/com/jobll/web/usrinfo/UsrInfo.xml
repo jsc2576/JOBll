@@ -33,6 +33,16 @@
 		where "USR_ID"= #{usr_id}
 	</select>
 	
+	<update id="edit" parameterType ="com.jobll.web.usrinfo.UsrInfo">
+		update "USR_INFO" set
+			"USR_NM" =     #{usr_nm},    
+			"USR_EMAIL" =  #{usr_email},    
+			"TEL_NUM" =  #{tel_num},
+			"MOBILE_NUM" =  #{mobile_num},    
+			"USR_CMPNY_IDX" = #{usr_cmpny_idx}
+		where "USR_ID" = #{usr_id}
+	</update>
+	
 	<insert  id="create" parameterType ="com.jobll.web.usrinfo.UsrInfo">
 	INSERT INTO "USR_INFO"(
           	"USR_ID",
