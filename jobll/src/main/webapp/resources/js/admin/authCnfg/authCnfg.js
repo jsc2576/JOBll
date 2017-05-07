@@ -30,20 +30,23 @@ function GetUsrInfoList(cmpny_idx){
 			var str_html = "<table class = 'table'>";
 			str_html += "<tr>";
 			str_html += "<th class = 'tb-typ'>번호</th>";
+			str_html += "<th class = 'tb-id'>아이디</th>";
 			str_html += "<th class = 'tb-sbjt'>이름</th>";
 			str_html += "<th class = 'tb-reg-date'>기관</th>";
-			str_html += "<th class = 'tb-id'>등급</th>";
+			str_html += "<th class = 'tb-lv'>등급</th>";
 			str_html += "<th>권한 변경</th>";
 			str_html += "</tr>";
 			for(var i = 0; i < list.length; i++)
 			{
 				str_html += "<tr>";
 				str_html += "<td>"+(i+1)+"</td>";
+				str_html += "<td>"+list[i].usr_id+"</td>";
 				str_html += "<td>"+list[i].usr_nm+"</td>";
 				str_html += "<td>"+list[i].usr_pwd+"</td>";
 				str_html += "<td>"+list[i].usr_lv+"</td>";
-				str_html += "<td>";
-				str_html += "<select class='selectpicker' data-live-search='true' onChange = 'GetChangeUsrAuth("+list[i].usr_id+",this.value)'>";
+				str_html += "<td>"
+				var usr_id = list[i].usr_id;
+				str_html += '<select class="selectpicker" data-live-search="true" onChange = "GetChangeUsrAuth(\''+usr_id+'\',this.value)">';
 				for(var j = 0; j < 4; j++)
 				{
 					if(j == list[i].usr_lv-1)
