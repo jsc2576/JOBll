@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.jobll.web.atclInfo.AtclInfo;
+import com.jobll.web.usrinfo.UsrInfo;
 
 @Repository
 public class ProjectInfoRepository {
@@ -37,5 +37,10 @@ public class ProjectInfoRepository {
 		
 		return project;
 	}
-
+	
+	public List<ProjectInfo> findToUsr(UsrInfo entity) throws Exception{
+		List<ProjectInfo> project_list = sqlSession.selectList("com.jobll.web.projectInfo.ProjectInfo.findToUsr", entity);
+		
+		return project_list;
+	}
 }

@@ -6,6 +6,6 @@
 <div id = "cmpny_list">
 </div>
 
-<div id = "usrInfoList">
+<div id = "prjtInfo_list">
 </div>
 	

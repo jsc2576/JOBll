@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.jobll.web.SessionUtil;
 import com.jobll.web.attchfile.AttchFile;
 import com.jobll.web.cmpnyinfo.CmpnyInfo;
 import com.jobll.web.projectInfo.ProjectInfo;
@@ -33,13 +34,58 @@ public class UsrInfoController {
 	@Autowired
 	private UsrInfoService usrInfoService;
 	
+	@Autowired
+	private SessionUtil sessionUtil;
+	
+	@RequestMapping(value = "/usrDel/send", method = RequestMethod.POST)
+	public ModelAndView usrDelSend(@ModelAttribute UsrInfo entity) throws Exception {
+		ModelAndView mav = new ModelAndView("login.do");
+		
+		int result;
+		result = usrInfoService.delete(entity);
+		if(result==1)
+			mav.setViewName("homeView");
+		else
+			mav.setViewName("fail.do");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/usrDel")
+	public ModelAndView usrDel() throws Exception {
+		ModelAndView mav = new ModelAndView("usrInfo/usrDel/usrDel");
+		
+		mav.addObject("usr_id",sessionUtil.getSessionBean().getUsr_id());
+		return mav;
+	}
+	
+	@RequestMapping(value = "/usrMdf/send", method = RequestMethod.POST)
+	public ModelAndView usrMdfSend(@ModelAttribute UsrInfo entity) throws Exception {
+		ModelAndView mav = new ModelAndView("homeView");
+	
+		usrInfoService.edit(entity);
+		return mav;
+	}
+	
+	@RequestMapping(value = "/usrMdf")
+	public ModelAndView usrMdf() throws Exception {
+		ModelAndView mav = new ModelAndView("usrInfo/usrMdf/usrMdf");
+		//mav.addObject("usr_id", entity.getUsr_id());
+		
+		UsrInfo entity = new UsrInfo();
+		
+		entity = usrInfoService.readOne(entity);
+		mav.addObject("entity",entity);
+		return mav;
+	}
 	/**
-	 * 로그인 사용자의 개인정보를 볼 수 있습니다.
+	 * 개인정보 열람
 	**/
 	@RequestMapping(value = "/MyUsrInfo")
 	public ModelAndView myUsrInfoGo(@ModelAttribute UsrInfo entity) throws Exception {
 		ModelAndView mav = new ModelAndView("usrInfo/myUsrInfo/myUsrInfoView");
+		
 		mav.addObject("usr_id", entity.getUsr_id());
+		//일반적으로 Null이나, 관리자의 특정 유저정보 접근시 열람할 유저의 아이디가 존재
 		
 		return mav;
 	}
@@ -121,8 +167,7 @@ public class UsrInfoController {
 	
 	@RequestMapping(value = "/prjt/read", method = RequestMethod.POST)
 	@ResponseBody
-	public List<ProjectInfo> PrjtInfoList() {
-		UsrInfo entity=new UsrInfo();
+	public List<ProjectInfo> PrjtInfoList(UsrInfo entity) {
 		List<ProjectInfo> List;
 		List= usrInfoService.readPrjtSbjtByUsrId(entity);
 		return List;

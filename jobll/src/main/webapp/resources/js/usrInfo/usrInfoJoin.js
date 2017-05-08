@@ -23,6 +23,8 @@ function cmpnyList() {
 					str_html +="</option>";
 				}
 				str_html +="</select>";
+			
+				
 				
 				$("#list").html (str_html);
 			},
@@ -59,10 +61,14 @@ $(document).ready(function(){
         required: true
     },
     tel_num: {
-        required: true
+        required: true,
+        minlength: 8,
+        maxlength: 13
     },
     mobile_num: {
-        required: true
+        required: true,
+        minlength: 8,
+        maxlength: 13
     },
     usr_email: {
         required: true
@@ -110,10 +116,14 @@ $(document).ready(function(){
         required: "이름을 입력하세요."
     },
     tel_num: {
-        required: "전화번호를 입력하세요."
+        required: "전화번호를 입력하세요.",
+        minlength: "너무 짧습니다",
+        maxlength: "너무 깁니다"
     },
     mobile_num: {
-        required: "핸드폰 번호를 입력하세요."
+        required: "핸드폰 번호를 입력하세요.",
+            minlength: "너무 짧습니다",
+            maxlength: "너무 깁니다"
     },
     usr_email: {
         required: "이메일을 입력하세요."

@@ -19,8 +19,8 @@
 	
 	
 	
-	<select id="selectCmpny" resultType="com.jobll.web.cmpnyinfo.CmpnyInfo">
-		SELECT * from "CMPNY_INFO"
+	<select id="findAll" resultType="com.jobll.web.cmpnyinfo.CmpnyInfo">
+		SELECT * from "CMPNY_INFO" where "CMPNY_STUS" = '1'
 	</select>
 	
 	<select id="delete" resultType="com.jobll.web.cmpnyinfo.CmpnyInfo">
