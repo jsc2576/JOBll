@@ -38,10 +38,9 @@ function pagination_mv(offset, limit){ // limit은 5페이지 전체를 체크�
 			
 		},
 		error: function(){
-			alert("error");
+			alert("pagination error");
 		}
 	});
-	
 }
 
 function pagination_next(){
@@ -87,7 +86,7 @@ function findData(offset, limit){
 			$("#qst_table").html(str_html);
 		},
 		error : function(){
-			alert("fail");
+			alert("QnA list error");
 		}
 	});
 }
