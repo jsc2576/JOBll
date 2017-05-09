@@ -30,8 +30,29 @@ public class PrjtCnetListController {
 	@Autowired
 	private ProjectInfoService projectInfoService;
 	
-	//팀원 리스트를 읽어와 반환
-	@RequestMapping(value = "/prjtCnetList/run", method = RequestMethod.POST)
+	
+	//팀원 리스트 화면 출력
+	@RequestMapping(value="/teamPerson/check")
+	public ModelAndView PrjtCnetListGo (@ModelAttribute ProjectInfo entity, BindingResult errors) throws Exception {
+	ModelAndView mav = new ModelAndView("projectInfo/prjtCnetList/prjtCnetList/prjtCnetListView");
+	entity = projectInfoService.findOne(entity);
+	mav.addObject("entity", entity);
+	
+	return mav;
+	}
+
+	//팀원 초대 및 제외 화면 출력
+	@RequestMapping("/teamPerson/inv")
+	public ModelAndView prjtCnetListModifyGo (@ModelAttribute ProjectInfo entity, BindingResult errors) throws Exception {
+	ModelAndView mav = new ModelAndView("projectInfo/prjtCnetList/prjtCnetListModify/prjtCnetListModifyView");
+	entity = projectInfoService.findOne(entity);
+	mav.addObject("entity", entity);
+	return mav;
+	}
+
+	
+	//해당 프로젝트의 팀원 리스트를 읽어와 반환
+	@RequestMapping(value = "/prjtCnetList/check/read", method = RequestMethod.POST)
 	@ResponseBody
 	public List<PrjtCnetList> prjtCnetInfo(@ModelAttribute PrjtCnetList entity, BindingResult errors) throws Exception {
 		
@@ -41,8 +62,8 @@ public class PrjtCnetListController {
 	}
 	
 
-	//팀원 초대를 위한 회원 리스트 목록 반환
-	@RequestMapping(value = "/prjtCnetList/CnetList.json", method = RequestMethod.POST)
+	//팀원 초대를 위한 회원들의 아이디와 이름 반환
+	@RequestMapping(value = "/prjtCnetList/check/readUsrInfo", method = RequestMethod.POST)
 	@ResponseBody
 	public List<UsrInfo> CnetList (){
 		
@@ -51,7 +72,7 @@ public class PrjtCnetListController {
 	}
 	
 	//팀원  초대 제외 사항 저장
-	@RequestMapping(value = "/teamPerson/inv.json", method = RequestMethod.POST)
+	@RequestMapping(value = "/teamPerson/inv/send", method = RequestMethod.POST)
 	@ResponseBody
 	public List<PrjtCnetList>  prjtCnetInfoInv (@RequestParam(value="prjtCnetInvList[]") List<String> prjtCnetInvList,
 			@RequestParam(value="prjt_idx") Integer prjt_idx){
@@ -67,25 +88,6 @@ public class PrjtCnetListController {
 		return prjt_list;
 	}
 	
-	//팀원 리스트 화면 출력
-		@RequestMapping(value="/teamPerson/check")
-	public ModelAndView PrjtCnetListGo (@ModelAttribute ProjectInfo entity, BindingResult errors) throws Exception {
-		ModelAndView mav = new ModelAndView("projectInfo/prjtCnetList/prjtCnetList/prjtCnetListView");
-		entity = projectInfoService.findOne(entity);
-		mav.addObject("entity", entity);
-		
-		return mav;
-	}
-	
-	//팀원 초대 및 제외 화면 출력
-	@RequestMapping("/teamPerson/inv")
-	public ModelAndView prjtCnetListModifyGo (@ModelAttribute ProjectInfo entity, BindingResult errors) throws Exception {
-		ModelAndView mav = new ModelAndView("projectInfo/prjtCnetList/prjtCnetListModify/prjtCnetListModifyView");
-		entity = projectInfoService.findOne(entity);
-		mav.addObject("entity", entity);
-		
-		return mav;
-	}
 
 	
 	

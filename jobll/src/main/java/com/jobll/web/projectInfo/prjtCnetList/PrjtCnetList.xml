@@ -15,7 +15,7 @@
     VALUES 
         <foreach separator=" , " item="item" collection="sample">
     	(
-			#{item.prjt_cnet_list_idx},
+			(nextval('public.prjt_cnet_list_idx_seq')),
 			#{item.usr_id},
 			#{item.prjt_idx},
 			#{item.cmpny_idx},
@@ -34,20 +34,12 @@
 		WHERE p."PRJT_IDX" = #{prjt_idx}
 		ORDER BY "PRJT_CNET_LIST_IDX"
 	</select>
-
-	
-	<select id="selectPrjtCnetListInfo" resultType="com.jobll.web.projectInfo.prjtCnetList.PrjtCnetList">
-		select "CMPNY_IDX"
-  		from "USR_INFO"
-  		where #(usr_id)="USR_ID"
-	</select>
-	
 	
 	<select id="selectCnetList" resultType="com.jobll.web.usrinfo.UsrInfo">
-		SELECT * from "USR_INFO"
+		SELECT "USR_ID", "USR_NM" from "USR_INFO"
 	</select>
 	
-	
+	<!-- delete -->
 	<select id="delete" resultType="com.jobll.web.projectInfo.prjtCnetList.PrjtCnetList">
 		delete from "PRJT_CNET_LIST" where "PRJT_IDX" = #{prjt_idx}
 	</select>

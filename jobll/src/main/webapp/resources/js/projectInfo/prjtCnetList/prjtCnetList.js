@@ -11,7 +11,7 @@ function findData(){
 	var prjt_idx= $("#prjt_idx").val();
 	$.ajax({
 		method : "POST",
-		url : "/prjtCnetList/run",
+		url : "/prjtCnetList/check/read",
 		data : {"prjt_idx" : prjt_idx},
 		success: function(prjt_cnet_list){
 			str_html = "<table class=\"table table-bordered\"> ";
@@ -25,8 +25,9 @@ function findData(){
 			str_html += "<tbody>";
 			var i=0;
 			for(i=0; i<prjt_cnet_list.length; i++){
+					var j=i+1;
 					str_html += "<tr>";
-					str_html += "<td>"+prjt_cnet_list[i].prjt_cnet_list_idx+"</td>";
+					str_html += "<td>"+ j +"</td>";
 					str_html += "<td>"+prjt_cnet_list[i].usr_id+"</td>";
 					str_html += "<td>"+prjt_cnet_list[i].usr_nm+"</td>";
 					str_html += "<td>"+prjt_cnet_list[i].cmpny_nm+"</td>";

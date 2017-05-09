@@ -11,8 +11,6 @@
  	<div id="list"></div>
  	<p></p>
 
-
-
 <button onclick = "viewTeamInv()">돌아가기 </button>
 
 

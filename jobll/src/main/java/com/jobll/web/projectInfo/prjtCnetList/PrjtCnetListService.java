@@ -62,11 +62,9 @@ public class PrjtCnetListService{
 		}
 		
 		return sample;
-	}
-	
 
-	
-	
+	}
+
 	
 	//유저 리스트 출력
 	public List<UsrInfo> selectCnetList(){
@@ -74,27 +72,13 @@ public class PrjtCnetListService{
 	}
 	//
 
-	//
-	 // 데이터 검색 (0: 전체검색, 1: 대기중 검색, 2: 접수 완료 검색, 3: 처리중 검색, 4: 처리완료 검색)
-	 // @param entity
-	 // @return
-	 //
-	public List<PrjtCnetList> findList(PrjtCnetList entity) throws Exception{
-		List<PrjtCnetList> prjtCnetList_list = prjtCnetListRepository.findList(entity);
-		return prjtCnetList_list;
-	}
-	//
-	 // 하나의 데이터 출력 (0: 전체검색, 1: 대기중 검색, 2: 접수 완료 검색, 3: 처리중 검색, 4: 처리완료 검색)
-	 // @param entity
-	 // @return
-	 ///
+	// 하나의 데이터 출력 (0: 전체검색, 1: 대기중 검색, 2: 접수 완료 검색, 3: 처리중 검색, 4: 처리완료 검색)
 	public PrjtCnetList findOne(PrjtCnetList entity) throws Exception{
 		entity = prjtCnetListRepository.findOne(entity);
 		return entity;
 	}
 	
-		
-	
+	//usr_id로 usr_cmpny의 값을 불러와서 list에 usr_id와  usr_cmpny 저장
 	public List<UsrInfo> findCmpnyIdx(List<String> prjtCnetInvList){
 		return prjtCnetListRepository.findCmpnyIdx(prjtCnetInvList);
 	}

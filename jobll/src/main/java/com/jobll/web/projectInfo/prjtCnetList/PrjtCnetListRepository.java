@@ -46,57 +46,13 @@ public class PrjtCnetListRepository {
 	}
 	
 
-	
-
-	//
-	// 데이터 검색 (0: 전체검색, 1: 대기중 검색, 2: 접수 완료 검색, 3: 처리중 검색, 4: 처리완료 검색) 
-	// @param entity
-	// @return
-	//
-	public List<PrjtCnetList> findList(PrjtCnetList entity) throws Exception{
-		List<PrjtCnetList> prjtCnetList_list = null;
-		
-		if(entity.getPrjt_idx() == 0){
-			prjtCnetList_list = sqlSession.selectList("com.jobll.projectInfo.web.prjtCnetList.PrjtCnetList.findAll", entity);
-		}
-		else if(entity.getPrjt_idx() < 5 && entity.getPrjt_idx() > 0){
-			prjtCnetList_list = sqlSession.selectList("com.jobll.projectInfo.web.prjtCnetList.PrjtCnetList.findPrcs", entity);
-		}
-		
-		return prjtCnetList_list;
-	}
-	
+	// 데이터 검색 (0: 전체검색, 1: 대기중 검색, 2: 접수 완료 검색, 3: 처리중 검색, 4: 처리완료 검색) 	
 	public PrjtCnetList findOne (PrjtCnetList entity) throws Exception{
 		entity = sqlSession.selectOne("com.jobll.web.projectInfo.prjtCnetList.PrjtCnetList.findOne", entity);
 		return entity;
 	}
 	
-	
-	public List<HashMap<String, Object>> select() {
-		
-		List<HashMap<String, Object>> selectList = new ArrayList<HashMap<String, Object>>();
-		selectList  = sqlSession.selectList("com.jobll.web.projectInfo.prjtCnetList.PrjtCnetList.select");
-		return selectList ;
-	}
-	
-	public List<HashMap<String, Object>> read(PrjtCnetList entity){
-		List<HashMap<String, Object>> selectList = new ArrayList<HashMap<String, Object>>();
-		selectList  = sqlSession.selectList("com.jobll.web.projectInfo.prjtCnetList.PrjtCnetList.read",entity);
-		return selectList ;
-	};
-	
 
-	
-	public int edit(PrjtCnetList entity){
-		
-		int test = sqlSession.insert("com.jobll.web.projectInfo.prjtCnetList.PrjtCnetList.edit",entity);
-		return test;
-	}
-
-	public int delete(PrjtCnetList entity){
-		int test = sqlSession.insert("com.jobll.web.projectInfo.prjtCnetList.PrjtCnetList.delete",entity);
-		return test;
-	}
 	
 	//아이디로 회사찾기
 	public List<UsrInfo> findCmpnyIdx(List<String> prjtCnetInvList){

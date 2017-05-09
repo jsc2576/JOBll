@@ -4,13 +4,13 @@ $(document).ready (function (){
 
 var prjt_idx=0;
 
-
+//teamPerson/check으로 화면 이동
 function viewTeamInv() {
 	$("#dataSender").attr('action', "/teamPerson/check");
 	$("#dataSender").submit();
 }
 
-
+//dual list box 출력
 function dualListBox(){
 	$('select[name="duallistbox_demo1[]"]').bootstrapDualListbox();
     $("#demoform").submit(function() {
@@ -19,10 +19,10 @@ function dualListBox(){
     	prjt_idx = $("#prjt_idx").val();
     	//store invited prjtCnet into prjtCnetInvList array
     	var  prjtCnetInvList = str_temp.split(",");
-	    	
+
 		$.ajax({
    			method   : "post",
-   			url: "/teamPerson/inv.json",
+   			url: "/teamPerson/inv/send",
    			data	: {prjtCnetInvList : prjtCnetInvList, prjt_idx : prjt_idx},
    			success: function()	{
    				viewTeamInv();
@@ -38,19 +38,19 @@ function dualListBox(){
 
 
 
-// 팀원 리스트와 전체 회원 리스트를 찾는 함수 data : {prjt_idx : prjt_idx},
+// 팀원 리스트와 전체 회원 리스트를 찾아 출력 : {prjt_idx : prjt_idx},
 function findListData(prjt_idx){
 	prjt_idx = $("#prjt_idx").val();
 	$.ajax({
 		method	: "post",
-		url		: "/prjtCnetList/run",
+		url		: "/prjtCnetList/check/read",
 		data : {"prjt_idx" : prjt_idx},
 		success: function(prjt_cnet_list){
 		}
 	}).then(function(prjt_cnet_list){
 		$.ajax({
 			method	: "post",
-			url		: "/prjtCnetList/CnetList.json",
+			url		: "/prjtCnetList/check/readUsrInfo",
 			success: function(usr_list){
 				printDualListBox(usr_list, prjt_cnet_list);
 			}
@@ -87,4 +87,5 @@ function printDualListBox(usr_list, prjt_cnet_list){
 
 		dualListBox();
 }
+
 
