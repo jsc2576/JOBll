@@ -2,6 +2,16 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<jsp:include page="../../projectInfoMenu.jsp" flush="false" />
+
+<!-- data table -->
+ 	<div id="data_list"></div>
+ 	
+<form id = "projectSupply" action = "/projectSupply/readOne" method="post">
+	<div class = "SupplyList"></div>
+</form>
+
+<h3 class = "project-subject">Project Name : ${ entity.prjt_idx }</h3>  
 프로젝트 지원요청
 <form action = "/projectSupply/projectSupplyWrite" method="post">
 	<div class = "WriteProject">

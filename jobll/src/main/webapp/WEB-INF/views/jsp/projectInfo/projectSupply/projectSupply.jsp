@@ -10,3 +10,6 @@
   <div class="panel-body">${ entity.prjt_conts }</div>
 </div>
 	
+<form id="projectSupplyadmin" action = "/projectSupply/projectSupplyadmin" method="post">
+	<button onclick = "submit()">지원승인</button>
+</form>

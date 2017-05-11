@@ -67,7 +67,7 @@ public class ProjectSupplyController {
 	
 	@RequestMapping(value = "/readOne", method= RequestMethod.POST)
 	public ModelAndView projectSupplyView (@ModelAttribute ProjectSupply entity) throws Exception {
-		ModelAndView mav = new ModelAndView("projectSupply/projectSupplyView");
+		ModelAndView mav = new ModelAndView("projectInfo/projectSupply/projectSupplyView");
 		entity = projectSupplyService.findOne(entity);		
 		mav.addObject("entity", entity);
 		return mav;

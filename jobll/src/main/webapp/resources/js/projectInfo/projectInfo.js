@@ -17,3 +17,8 @@ function viewSupply() {
 	$("#dataSender").attr('action', "/projectSupply/projectSupplyList/go");
 	$("#dataSender").submit();
 }
+
+function viewSupplyWrite() {
+	$("#dataSender").attr('action', "/projectSupply/projectSupplyWrite/go");
+	$("#dataSender").submit();
+}

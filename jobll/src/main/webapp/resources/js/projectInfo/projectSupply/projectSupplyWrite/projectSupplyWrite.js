@@ -4,31 +4,32 @@ $(document).ready (function (){
 });
 
 function writeProjectSupply(){
-
+	var prjt_idx = $(".prjt_idx").val();
 	$.ajax({
 		method : "POST",
 		url : "/projectSupply/listRun",
-		data : {},
+		data : { prjt_idx : prjt_idx},
 		success: function(list){
 
-			var str_html = "<select class = 'prjt_idx' name = 'prjt_idx'>";
-			str_html += "<option value = '"+list[0].prjt_idx+"'>"+list[0].prjt_idx+"</option>";
-			for(var i = 1; i < list.length; i++){
-				var check = 0;
-				for(var j = 0; j < i; j++){
-					if(list[j].prjt_idx == list[i].prjt_idx){
-						check = 1;
-					}
-				}
-				if(check == 0){
-					str_html += "<option value = '"+list[i].prjt_idx+"'>"+list[i].prjt_idx+"</option>";
-				}
-			}
-			str_html += "</select>";
-			
-			$(".SupplyList").html(str_html);
-	
-		},
-		error: function(){alert("ERROR");}
-	});
+			var str_html = "<form id='projectSupplyReadOne' action = '/prjectSupply/readOne' method='post'>";
+			str_html += "<table class ='table'>";
+			str_html += "<thead><tr>";
+			str_html += "<th>지원목록번호</th>";
+			str_html += "<th>프로젝트번호</th>";
+			str_html += "</tr></thead>";			
+			str_html += "<tbody>";
+		$.each(list, function(index, value){
+			str_html += "<tr onclick = 'readProjectSupply("+value.prjt_sup_list_idx+")'>";
+			str_html += "<td>"+value.prjt_sup_list_idx+"</td>";
+			str_html += "<td>"+value.prjt_idx+"</td>";
+			str_html += "</a></tr>";				
+		});
+		str_html += "</tbody>";
+		str_html += "</table>";
+		str_html += "<div id = 'getIdx'></div>";
+		str_html += "</form>";
+		$(".SupplyList").html(str_html);		
+	},
+	error: function(){alert("ERROR");}
+});
 }
