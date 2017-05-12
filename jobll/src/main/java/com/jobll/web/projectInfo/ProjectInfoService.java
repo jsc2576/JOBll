@@ -10,7 +10,7 @@ import com.jobll.web.CommonUtil;
 import com.jobll.web.SessionUtil;
 import com.jobll.web.atclInfo.AtclInfo;
 import com.jobll.web.usrinfo.UsrInfo;
-
+import com.jobll.web.hstyInfo.*;
 @Service
 public class ProjectInfoService {
 	
@@ -23,9 +23,14 @@ public class ProjectInfoService {
 	private CommonUtil commonUtil;
 	@Autowired
 	private SessionUtil sessionUtil;
+	@Autowired
+	private HstyInfoService hstyInfoService;
 	
 
 	public int create(ProjectInfo entity) throws Exception{
+		
+		int result;
+		HstyInfo hsty = new HstyInfo();
 		
 		entity.setCmpny_idx(sessionUtil.getSessionBean().getUsr_cmpny_idx());
 		entity.setPrjt_stus("1");
@@ -37,7 +42,12 @@ public class ProjectInfoService {
 			ProjectInfo high_project = projectInfoRepository.findChildren(entity);
 			entity.setPrjt_lv(high_project.getPrjt_lv()+1);
 		}
-		
+				
+		hsty.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
+		hsty.setPrjt_idx(entity.getPrjt_idx());
+		hsty.setHsty_date(commonUtil.getCurrentDtime());
+		hsty.setHsty_typ(1);
+		result = hstyInfoService.create(hsty);
 		int qry = projectInfoRepository.create(entity);
 		
 		return qry;

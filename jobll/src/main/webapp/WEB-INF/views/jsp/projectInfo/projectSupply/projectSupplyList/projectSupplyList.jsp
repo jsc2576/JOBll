@@ -12,6 +12,4 @@
 </form>
 
 
-<form id="projectSupplyWrite" action = "/projectSupply/projectSupplyWrite/go" method="post">
-	<button onclick = "submit()">글쓰기</button>
-</form>
+	<button onclick = "viewSupplyWrite()">글쓰기</button>
