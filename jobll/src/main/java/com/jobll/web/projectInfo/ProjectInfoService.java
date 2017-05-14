@@ -28,7 +28,6 @@ public class ProjectInfoService {
 	
 
 	public int create(ProjectInfo entity) throws Exception{
-		
 		int result;
 		HstyInfo hsty = new HstyInfo();
 		
@@ -48,6 +47,7 @@ public class ProjectInfoService {
 		hsty.setHsty_date(commonUtil.getCurrentDtime());
 		hsty.setHsty_typ(1);
 		result = hstyInfoService.create(hsty);
+		
 		int qry = projectInfoRepository.create(entity);
 		
 		return qry;

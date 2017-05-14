@@ -17,6 +17,7 @@ public class CmtInfo implements Serializable{
 	private String reg_date;
 	private String cmt_stus;
 	private Integer atcl_idx;
+	private Integer prjt_idx;
 
 	public Integer getCmt_idx() {
 		return cmt_idx;
@@ -54,6 +55,11 @@ public class CmtInfo implements Serializable{
 	public void setAtcl_idx(Integer atcl_idx) {
 		this.atcl_idx = atcl_idx;
 	}
-
+	public int getPrjt_idx() {
+		return prjt_idx;
+	}
+	public void setPrjt_idx(int prjt_idx) {
+		this.prjt_idx = prjt_idx;
+	}
 
 }
