@@ -13,7 +13,7 @@
         	</a>
         </li>
         <li>
-            <A href="/" >
+            <A href="/admin/usrInfo/cnfg" >
           		<span>회원 관리</span>
         	</a>
         </li>

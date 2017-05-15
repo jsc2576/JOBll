@@ -32,7 +32,6 @@ public class ProjectInfoService {
 		int result;
 		HstyInfo hsty = new HstyInfo();
 		
-		entity.setCmpny_idx(sessionUtil.getSessionBean().getUsr_cmpny_idx());
 		entity.setPrjt_stus("1");
 		entity.setReg_date(commonUtil.getCurrentDtime());
 		if(entity.getHigh_prjt_idx() == null)

@@ -44,6 +44,18 @@ public class AdminController {
 	
 	}
 	
+	/**
+	 * 회원목록 리스트 페이지로 이동합니다.(추후 사이트 관리자 계정에서만 보이게 할 것)
+	**/
+	@RequestMapping("/usrInfo/cnfg")
+	public String AdminusrInfoCnfgGo(){
+		return "admin/usrInfoCnfg/usrInfoCnfgView";
+	}
+	@RequestMapping("/prjt/create/go")
+	public String AdminPrjtCreateGo(){
+		return "admin/PrjtCreate/PrjtCreateView";
+	}
+	
 	@RequestMapping("/usrAuth/cnfg")
 	public String AdminAuthConfigGo(){
 			return "admin/authCnfg/authCnfgView";
