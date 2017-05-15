@@ -56,6 +56,7 @@ public class ProjectSupplyController {
 		ModelAndView mav = new ModelAndView("projectInfo/projectSupply/projectSupplyList/projectSupplyListView");
 		
 		projectSupplyService.create(entity);
+		mav.addObject("entity", entity);
 		
 		return mav;
 	}

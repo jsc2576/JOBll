@@ -6,17 +6,13 @@
 
 <!-- data table -->
  	<div id="data_list"></div>
- 	
-<form id = "projectSupply" action = "/projectSupply/readOne" method="post">
-	<div class = "SupplyList"></div>
-</form>
 
-<h3 class = "project-subject">Project Name : ${ entity.prjt_idx }</h3>  
+<h3 class = "project-subject">Project Number : ${ entity.prjt_idx }</h3>  
 프로젝트 지원요청
 <form action = "/projectSupply/projectSupplyWrite" method="post">
-	<div class = "WriteProject">
-		지원할 프로젝트
-		<div class = "SupplyList"></div>
+		<div>
+			<input type = "hidden" class = "prjt_idx" name = "prjt_idx" value = ${ entity.prjt_idx }>
+		</div>
 		<div>
 			인원
 			<input type = "text" class = "sup_person" name = "sup_person">
@@ -34,5 +30,5 @@
 			<textarea class = "sup_conts" name = "sup_conts" ></textarea>
 		</div>
 	</div>
-	<button type = "submit">요청하기</button>
+  <button type = "submit">요청하기</button> 	
 </form>
