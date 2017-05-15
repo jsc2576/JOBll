@@ -35,7 +35,7 @@
 	 	</tr>
 	 </c:forEach>
 </table>
-<div class = "option">
+<div class = "option Others">
 	<button class = "btn btn-primary" onclick = "issueModify()">수정</button>
 	<button class = "btn btn-info" onclick = "issueDelete()">삭제</button>
 </div>
@@ -50,3 +50,5 @@
 </div>
 
 <input type = "hidden" class = "atcl_idx" name = "atcl_idx" value = ${ entity.atcl_idx }>
+<input type = "hidden" class = "usr_id" name = "usr_id" value = ${ entity.usr_id }>
+

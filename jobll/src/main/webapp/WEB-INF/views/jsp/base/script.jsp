@@ -6,6 +6,7 @@
 <script src="/resources/js/jquery.multifile.min.js" type="text/javascript"></script>
 <script src="/resources/js/jquery.magnific-popup.min.js" type="text/javascript"></script>
 <script src="/resources/js/projectInfo/projectInfo.js" type="text/javascript"></script>
+<script src="/resources/js/projectInfo/usrAuthCheck.js" type="text/javascript"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="/resources/js/bootstrap.min.js" type="text/javascript"></script>
 

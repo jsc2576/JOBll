@@ -72,5 +72,17 @@ public class ProjectInfoService {
 		
 		return project_list;
 	}
+	
+	public int checkAuth() throws Exception{
+		return sessionUtil.getSessionBean().getUsr_lv();
+	}
+	public UsrInfo getUsrIdAndLv() throws Exception{
+		UsrInfo entity = new UsrInfo();
+		
+		entity.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
+		entity.setUsr_lv(sessionUtil.getSessionBean().getUsr_lv());
+		
+		return entity;
+	}
 }
 

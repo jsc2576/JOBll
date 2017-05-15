@@ -3,7 +3,7 @@
 <mapper namespace="com.jobll.web.hstyInfo.HstyInfo">
 
 	<insert  id="create" parameterType ="com.jobll.web.hstyInfo.HstyInfo">
-	INSERT INTO "HSYT_INFO"(
+	INSERT INTO "HSTY_INFO"(
 			"HSTY_IDX",
 			"USR_ID",
 			"PRJT_IDX",
@@ -26,11 +26,11 @@
 	</insert>
 
 	<select  id="findAll" resultType="com.jobll.web.hstyInfo.HstyInfo" parameterType ="com.jobll.web.hstyInfo.HstyInfo">
-	SELECT * FROM "HSYT_INFO"
+	SELECT * FROM "HSTY_INFO"
 	</select>
 
 	<select  id="findOne" resultType="com.jobll.web.hstyInfo.HstyInfo" parameterType ="com.jobll.web.hstyInfo.HstyInfo">
-	SELECT * FROM "HSYT_INFO" WHERE "HSTY_IDX" = #{hsty_idx}
+	SELECT * FROM "HSTY_INFO" WHERE "HSTY_IDX" = #{hsty_idx}
 	</select>
 
 </mapper>

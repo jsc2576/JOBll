@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.jobll.web.usrinfo.*;
+
 @Controller
 @RequestMapping(value="/projectInfo")
 public class ProjectInfoController {
@@ -73,5 +75,16 @@ public class ProjectInfoController {
 		mav.addObject("entity", entity);
 		
 		return mav;
+	}
+	
+	@RequestMapping(value = "/checkAuth", method= RequestMethod.POST)
+	@ResponseBody
+	public int checkAuth(@ModelAttribute ProjectInfo entity) throws Exception{
+		return projectInfoService.checkAuth();
+	}
+	@RequestMapping(value = "/getUsrIdAndLv", method= RequestMethod.POST)
+	@ResponseBody
+	public UsrInfo getUsrIdAndLv() throws Exception{
+		return projectInfoService.getUsrIdAndLv();
 	}
 }
