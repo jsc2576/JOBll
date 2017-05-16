@@ -8,7 +8,7 @@
         <li><a class = "menu-a-tag" onclick="viewProject()">프로젝트 정보</a></li>
         <li><a class = "menu-a-tag" onclick="viewIssue()">게시판(이슈)</a></li>
         <li><a class = "menu-a-tag" onclick="viewTeamInv()">팀원 조회</a></li>
-        <li class = "ManagerLv"><a class = "menu-a-tag" onclick="viewSupply()">프로젝트 지원</a></li>
+        <li class = "ManagerLv"><a class = "menu-a-tag" onclick="viewSupplyList()">프로젝트 지원</a></li>
         <li class="dropdown">
           <a class = "menu-a-tag" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown  Example<span class="caret"></span></a>
           <ul class="dropdown-menu">

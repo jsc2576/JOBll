@@ -13,12 +13,17 @@ function viewTeamInv() {
 	$("#dataSender").submit();
 }
 
-function viewSupply() {
+function viewSupplyList() {
 	$("#dataSender").attr('action', "/projectSupply/projectSupplyList/go");
 	$("#dataSender").submit();
 }
 
 function viewSupplyWrite() {
 	$("#dataSender").attr('action', "/projectSupply/projectSupplyWrite/go");
+	$("#dataSender").submit();
+}
+
+function viewSupply(){
+	$("#dataSender").attr('action', "/projectSupply/readOne");
 	$("#dataSender").submit();
 }
