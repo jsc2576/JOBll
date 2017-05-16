@@ -36,6 +36,13 @@ public class DashbrdController {
 	public Integer[] AtclChart(@ModelAttribute Dashbrd entity){ // 차트 통계
 		return dashbrdService.AtclCnt(entity);
 	}
-
+	
+	
+	@RequestMapping("/rcnt_atcl/read")
+	@ResponseBody
+	public List<Dashbrd> findRcntAtclList(@ModelAttribute Dashbrd entity){ // 차트 통계
+		return dashbrdService.findRcntAtclList(entity);
+	}
+	
 }
 

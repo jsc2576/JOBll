@@ -6,3 +6,7 @@
 		</ul>
 	</div>
 </div>
+
+<form id="qstOneView" action="/qstOne" method="post">
+	<div id="get_data"></div>
+</form>

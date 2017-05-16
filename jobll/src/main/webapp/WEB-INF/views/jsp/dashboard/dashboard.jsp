@@ -10,3 +10,13 @@
 		<div id="Nwagon"></div>
 	</div>
 </div>
+
+<div class="row">
+	<div class="col-md-6">
+		<table class="table" id="rcnt_atcl_list"></table>
+	</div>
+
+	<div class="col-md-6">
+		<table class="table" id="rcnt_ans_list"></table>
+	</div>
+</div>

@@ -31,4 +31,9 @@ public class DashbrdService {
 		entity.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
 		return dashbrdRepository.AtclCnt(entity);
 	}
+	
+	public List<Dashbrd> findRcntAtclList(Dashbrd entity){
+		entity.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
+		return dashbrdRepository.findRcntAtclList(entity);
+	}
 }

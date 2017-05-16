@@ -47,4 +47,8 @@ public class DashbrdRepository {
 		
 		return Cnt;
 	}
+	
+	public List<Dashbrd> findRcntAtclList(Dashbrd entity){
+		return sqlSession.selectList("com.jobll.web.dashbrd.findRcntAtclList", entity);
+	}
 }

@@ -19,10 +19,9 @@ function pagination_mv(offset, limit){ // limit은 5페이지 전체를 체크�
 	str_html += "<a onclick='pagination_prev()'><span class='glyphicon glyphicon-chevron-left'></span></a></li>";
 	$.ajax({
 		method: "POST",
-		url: "/qst/read/cnt",
+		url: "/qstList/read/cnt",
 		data: {offset:offset, limit:limit},
 		success: function(cnt){
-			alert(cnt/5);
 			var i;
 			for(i=0; i<cnt/5; i++){
 				str_html += "<li><a onclick='findpage(" + (page_nm * list_nm + i) + ")'>" + (page_nm * list_nm + i+1) + "</a></li>";				
@@ -57,9 +56,11 @@ function findpage(offset){
 function findData(offset, limit){
 	$.ajax({
 		method : "POST", 
-		url : "/qst/read",
+		url : "/qstList/read",
 		data : {offset : offset, limit : limit},
 		success : function(list){
+			var idx_list = new Array();
+			
 			var str_html = "<thead>";
 			str_html += "<tr>";
 			str_html += "<td>인덱스</td>";
@@ -72,21 +73,59 @@ function findData(offset, limit){
 			str_html += "<tbody>";
 			
 			$.each(list, function(index, data){
-				str_html += "<tr>";
+				str_html += "<tr onclick='readQstOne("+data.qst_idx+")' id='qst"+data.qst_idx+"'>";
 				str_html += "<td>"+data.qst_idx+"</td>";
 				str_html += "<td>"+data.qst_sbjt+"</td>";
 				str_html += "<td>"+data.qst_conts+"</td>";
 				str_html += "<td>"+data.reg_date+"</td>";
 				str_html += "<td>"+data.usr_id+"</td>";
 				str_html += "</tr>";
+				
+				idx_list.push(data.qst_idx);
 			});
 			
 			str_html += "</tbody>";
 			
 			$("#qst_table").html(str_html);
+			
+			$.each(idx_list, function(index, data){
+				getAnsList(data);
+			});
 		},
 		error : function(){
 			alert("QnA list error");
+		}
+	});
+}
+
+function readQstOne(qst_idx){
+	input_html = "<input type='hidden' name='qst_idx' value='"+qst_idx+"'/>"; 
+	$("#get_data").html(input_html);
+	$("#qstOneView").submit();
+}
+
+function getAnsList(qst_idx){
+	$.ajax({
+		method: "POST",
+		url: "/qstList/read/ans",
+		data: {high_qst_idx: qst_idx},
+		success: function(list){
+			$.each(list, function(index, data){
+				var str_html = "";
+				str_html += "<tr onclick='readQstOne("+data.qst_idx+")' id='re"+data.qst_idx+"'>";
+				str_html += "<td> RE: "+data.qst_idx+"</td>";
+				str_html += "<td>"+data.qst_sbjt+"</td>";
+				str_html += "<td>"+data.qst_conts+"</td>";
+				str_html += "<td>"+data.reg_date+"</td>";
+				str_html += "<td>"+data.usr_id+"</td>";
+				str_html += "</tr>";
+				
+				var id = "#qst"+data.high_qst_idx;
+				$(id).after(str_html);
+			});
+		},
+		error: function(){
+			alert("answer error");
 		}
 	});
 }

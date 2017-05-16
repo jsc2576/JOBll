@@ -44,4 +44,12 @@
 		WHERE "PRJT_IDX" = #{prjt_idx} 
 		and "USR_ID" = #{usr_id}
 	</select>
+	
+	<select id ="findRcntAtclList" parameterType="com.jobll.web.dashbrd.Dashbrd" resultType="com.jobll.web.dashbrd.Dashbrd">
+		SELECT *
+		FROM "HSTY_INFO"
+		WHERE "HSTY_TYP" = 2 
+		and "USR_ID" = #{usr_id}
+		LIMIT 5
+	</select>
 </mapper>
