@@ -18,7 +18,7 @@
 	<select id="findCnetPrjtIdx" parameterType="com.jobll.web.dashbrd.Dashbrd" resultType="com.jobll.web.dashbrd.Dashbrd">
 		SELECT "PRJT_IDX"	
 		FROM "PRJT_CNET_LIST"
-		WHERE "USR_ID" = #{usr_id} 
+		WHERE "USR_ID" = #{usr_id} and "PRJT_CNET_LIST_STUS" = '1' 
 	</select>
 	
 	

@@ -1,7 +1,7 @@
 package com.jobll.web.qst.qstList;
 
+import java.util.Collections;
 import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -22,6 +22,7 @@ public class QstListRepository {
 	
 	public List<QstList> findAnsQstList(QstList entity){
 		List<QstList> data = sqlSession.selectList("com.jobll.web.qst.qstList.findAnsQstList", entity);
+		Collections.reverse(data);
 		return data;
 	}
 }

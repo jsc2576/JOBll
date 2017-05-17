@@ -13,6 +13,7 @@ public class QstOne implements Serializable{
 	private static final long serialVersionUID = 4882572482024608886L;
 
 	private Integer qst_idx;
+	private Integer high_qst_idx; // 0은 상위 게시물이 없다는 뜻
 	private String qst_sbjt;
 	private String qst_conts;
 	private String reg_date;
@@ -55,5 +56,11 @@ public class QstOne implements Serializable{
 	}
 	public void setQst_stus(String qst_stus) {
 		this.qst_stus = qst_stus;
+	}
+	public Integer getHigh_qst_idx() {
+		return high_qst_idx;
+	}
+	public void setHigh_qst_idx(Integer high_qst_idx) {
+		this.high_qst_idx = high_qst_idx;
 	}
 }

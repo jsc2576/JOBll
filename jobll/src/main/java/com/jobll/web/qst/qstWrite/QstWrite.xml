@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jobll.web.qst.qstWrite">
+
+	<insert id="create" parameterType="com.jobll.web.qst.qstWrite.QstWrite">
+		INSERT INTO "QST_INFO"(
+			"QST_IDX",
+			"HIGH_QST_IDX",
+			"QST_SBJT",
+			"QST_CONTS",
+			"REG_DATE",
+			"USR_ID",
+			"QST_STUS"
+		)
+		VALUES(
+			(select nextval('public.qst_idx')),
+			#{high_qst_idx},
+			#{qst_sbjt},
+			#{qst_conts},
+			#{reg_date},
+			#{usr_id},
+			#{qst_stus}
+		)
+	</insert>
+</mapper>
