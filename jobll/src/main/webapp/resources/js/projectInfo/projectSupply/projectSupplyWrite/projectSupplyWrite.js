@@ -11,7 +11,7 @@ function writeProjectSupply(){
 		data : { prjt_idx : prjt_idx},
 		success: function(list){
 
-			var str_html = "<form id='projectSupplyReadOne' action = '/prjectSupply/readOne' method='post'>";
+			var str_html = "<form id='projectSupplyReadOne' action = '/projectSupply/readOne' method='post'>";
 			$.each(list, function(index, value){
 			});
 		str_html += "<div id = 'getIdx'></div>";

@@ -2,6 +2,7 @@ $(document).ready(function(){
 	Cunt_Prjt();
 	Tot_Prcs();
 	Cnet_Prjt_Change();
+	find_cnet_atcl_list();
 });
 
 var cunt_prjt;
@@ -23,24 +24,7 @@ function Cunt_Prjt(){ // 최근 프로젝트
 			});
 			
 			Cnet_Prjt(str_html);
-			//$("#cnet_list").html(str_html);
-			/*
-			var str_html = "<table class = 'cunt_prjt' border='1'>";
-			str_html += "<thead><tr>";
-			str_html += "<th>최근 프로젝트</th>";
-			str_html += "</tr></thead>";
-		
-			str_html += "<tbody>";
 			
-			$.each(list, function(index, data){
-				str_html += "<tr><td>";
-				str_html += data.prjt_sbjt;
-				str_html += "</td></tr>";
-			});
-			
-			
-			str_html += "</tbody> </table>";
-			$("#cunt_list").html(str_html);*/
 		},
 		error: function(){
 			var str_html = "<table class = 'cunt_prjt'>";
@@ -118,4 +102,33 @@ function Circle_chart(tot, rmn, end){
 		};
 	$("#Nwagon").html("");
 	Nwagon.chart(options);	
+}
+
+function find_cnet_atcl_list(){
+	var str_html = "<thead><tr>";
+	str_html += "<td>인덱스</td>";
+	str_html += "<td>제목</td>";
+	str_html += "<td>작성자</td>";
+	str_html += "<td>날짜</td>";
+	str_html += "</thead></tr>";
+	str_html += "<tbody>";
+	
+	$.ajax({
+		method: "POST",
+		url: "/rcnt_atcl/read",
+		success: function(list){
+			$.each(list, function(index, data){
+				str_html += "<tr>";
+				str_html += "<td>"+data.qst_idx+"</td>";
+				str_html += "<td>"+data.qst_sbjt+"</td>";
+				str_html += "<td>"+data.usr_id+"</td>";
+				str_html += "<td>"+data.reg_date+"</td>";
+				str_html += "</tr>";
+			});
+			
+			str_html += "</tbody>";
+			
+			$("#rcnt_atcl_list").html(str_html);
+		}
+	});
 }

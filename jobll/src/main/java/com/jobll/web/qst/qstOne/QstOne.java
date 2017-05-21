@@ -1,25 +1,32 @@
-package com.jobll.web.qst;
+package com.jobll.web.qst.qstOne;
 
 import java.io.Serializable;
 
 import org.springframework.stereotype.Repository;
 
-@Repository("Qst")
-public class Qst implements Serializable{
+@Repository("QstOne")
+public class QstOne implements Serializable{
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 6174235347010023028L;
+	private static final long serialVersionUID = 4882572482024608886L;
 
-	private String qst_idx;
+	private Integer qst_idx;
+	private Integer high_qst_idx; // 0은 상위 게시물이 없다는 뜻
 	private String qst_sbjt;
 	private String qst_conts;
 	private String reg_date;
 	private String usr_id;
-	private Integer offset;
-	private Integer limit;
+	private String qst_stus;
 	
+	
+	public Integer getQst_idx() {
+		return qst_idx;
+	}
+	public void setQst_idx(Integer qst_idx) {
+		this.qst_idx = qst_idx;
+	}
 	public String getQst_sbjt() {
 		return qst_sbjt;
 	}
@@ -44,22 +51,16 @@ public class Qst implements Serializable{
 	public void setUsr_id(String usr_id) {
 		this.usr_id = usr_id;
 	}
-	public Integer getOffset() {
-		return offset;
+	public String getQst_stus() {
+		return qst_stus;
 	}
-	public void setOffset(Integer offset) {
-		this.offset = offset;
+	public void setQst_stus(String qst_stus) {
+		this.qst_stus = qst_stus;
 	}
-	public Integer getLimit() {
-		return limit;
+	public Integer getHigh_qst_idx() {
+		return high_qst_idx;
 	}
-	public void setLimit(Integer limit) {
-		this.limit = limit;
+	public void setHigh_qst_idx(Integer high_qst_idx) {
+		this.high_qst_idx = high_qst_idx;
 	}
-	public String getQst_idx() {
-		return qst_idx;
-	}
-	public void setQst_idx(String qst_idx) {
-		this.qst_idx = qst_idx;
-	}	
 }

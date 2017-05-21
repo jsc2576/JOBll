@@ -28,7 +28,7 @@
         	</a>
         </li>
         <li>
-            <A href="/" >
+            <A href="/qstList" >
           		<span>Q/A 게시판</span>
         	</a>
         </li>

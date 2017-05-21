@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jobll.web.qst.qstList">
+
+	<select id="findQstList" parameterType="com.jobll.web.qst.qstList.QstList" resultType="com.jobll.web.qst.qstList.QstList">
+		SELECT "QST_IDX", "QST_SBJT", "QST_CONTS", "REG_DATE", "USR_ID"
+		FROM "QST_INFO"
+		WHERE "QST_STUS" = '1' and "HIGH_QST_IDX" = 0
+		OFFSET #{offset}
+		LIMIT #{limit}
+	</select>
+	
+	<select id="findQstListCnt" parameterType="com.jobll.web.qst.qstList.QstList" resultType="Integer">
+		SELECT count(*)
+		FROM "QST_INFO"
+		WHERE "QST_STUS" = '1'
+		OFFSET #{offset}
+		LIMIT #{limit}
+	</select>	
+	
+	<select id="findAnsQstList" parameterType="com.jobll.web.qst.qstList.QstList" resultType="com.jobll.web.qst.qstList.QstList">
+		SELECT *
+		FROM "QST_INFO"
+		WHERE "QST_STUS" = '1' and "HIGH_QST_IDX" = #{high_qst_idx}
+	</select>
+</mapper>

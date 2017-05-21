@@ -1,19 +1,23 @@
-function viewIssue() {
-	$("#dataSender").attr('action', "/issue/view");
-	$("#dataSender").submit();
-}
+$(document).ready (function (){
+	ProjectSupply();
 
-function viewProject() {
-	$("#dataSender").attr('action', "/projectInfo/prjt/check/read");
-	$("#dataSender").submit();
-}
+});
 
-function viewProjectSupply() {
-	$("#dataSender").attr('action', "/projectSupply/readOne");
-	$("#dataSender").submit();
-}
+function ProjectSupply(){
+	var prjt_idx = $(".prjt_idx").val();
+	$.ajax({
+		method : "POST",
+		url : "/projectSupply/readOne",
+		data : { prjt_idx : prjt_idx},
+		success: function(list){
 
-function viewTeamInv() {
-	$("#dataSender").attr('action', "/teamPerson/check");
-	$("#dataSender").submit();
+			var str_html = "<form id='projectSupplyReadOne' action = '/projectSupply/readOne' method='post'>";
+			$.each(list, function(index, value){
+			});
+		str_html += "<div id = 'getIdx'></div>";
+		str_html += "</form>";
+		$(".SupplyInfo").html(str_html);		
+	},
+	error: function(){alert("ERROR");}
+});
 }
