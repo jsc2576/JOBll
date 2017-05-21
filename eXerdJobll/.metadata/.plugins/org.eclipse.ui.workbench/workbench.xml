@@ -37,10 +37,10 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/jobll_exerd/.project"/>
 <editorState selectionLength="0" selectionOffset="0"/>
 </editor>
-<editor id="com.tomato.exerd.editor.DiagramEditor" name="jobll.exerd" partName="jobll.exerd" path="D:/JOBIl/Workspace/JOBll/eXerdJobll/jobll_exerd/jobll.exerd" title="jobll.exerd" tooltip="jobll_exerd/jobll.exerd" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="jobll.exerd" partName="jobll.exerd" path="D:/JOBIl/Workspace/JOBll/eXerdJobll/jobll_exerd/jobll.exerd" title="jobll.exerd" tooltip="jobll_exerd/jobll.exerd" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/jobll_exerd/jobll.exerd"/>
 </editor>
-<editor activePart="true" focus="true" id="com.tomato.exerd.term.ui.editor2.TermDictionaryEditor2" name="JOBll.xdic" partName="JOBll.xdic" path="D:/JOBIl/Workspace/JOBll/eXerdJobll/jobll_exerd/JOBll.xdic" title="JOBll.xdic" tooltip="jobll_exerd/JOBll.xdic" workbook="DefaultEditorWorkbook">
+<editor id="com.tomato.exerd.term.ui.editor2.TermDictionaryEditor2" name="JOBll.xdic" partName="JOBll.xdic" path="D:/JOBIl/Workspace/JOBll/eXerdJobll/jobll_exerd/JOBll.xdic" title="JOBll.xdic" tooltip="jobll_exerd/JOBll.xdic" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/jobll_exerd/JOBll.xdic"/>
 </editor>
 </editors>
@@ -54,7 +54,7 @@
 <element path="/jobll_exerd"/>
 </expanded>
 <selection>
-<element path="/jobll_exerd/JOBll.xdic"/>
+<element path="/jobll_exerd/jobll.exerd"/>
 </selection>
 </viewState>
 </view>
@@ -74,7 +74,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="com.tomato.exerd.term.ui.editor2.TermDictionaryEditor2" activePerspective="com.tomato.exerd.perspective.design">
+<perspectives activePart="com.tomato.exerd.editor.DiagramEditor" activePerspective="com.tomato.exerd.perspective.design">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="com.tomato.exerd.perspective.ExerdPerspectiveFactory" id="com.tomato.exerd.perspective.design" label="eXERD"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -179,6 +179,8 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.term.ui.editor2.TermDictionaryEditor2" path="/jobll_exerd/JOBll.xdic"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.term.ui.editor2.TermDictionaryEditor2" path="/jobll_exerd/JOBll.xdic"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.term.ui.editor2.TermDictionaryEditor2" path="/jobll_exerd/JOBll.xdic"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/jobll_exerd/.project"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/jobll_exerd/jobll.exerd"/>
 </editors>
 <item historyLabel=".project" index="0">
 <position/>
@@ -190,7 +192,11 @@
 <item historyLabel="jobll.exerd" index="1"/>
 <item historyLabel="JOBll.xdic" index="3"/>
 <item historyLabel="jobll.exerd" index="1"/>
-<item active="true" historyLabel="JOBll.xdic" index="4"/>
+<item historyLabel="JOBll.xdic" index="4"/>
+<item historyLabel=".project" index="5">
+<position/>
+</item>
+<item active="true" historyLabel="jobll.exerd" index="6"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>

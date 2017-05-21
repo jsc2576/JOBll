@@ -25,5 +25,11 @@ public class HomeController {
 
 		return "homeView";
 	}
+	
+	@RequestMapping("/dev")
+	public String dev(Locale locale, Model model) {
+
+		return "dev/pages/homeView";
+	}
 
 }
