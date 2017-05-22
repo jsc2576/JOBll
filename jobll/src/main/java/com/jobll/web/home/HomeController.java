@@ -29,7 +29,7 @@ public class HomeController {
 	@RequestMapping("/dev")
 	public String dev(Locale locale, Model model) {
 
-		return "dev/pages/homeView";
+		return "dev/pages/dashBoard/dashBoardView";
 	}
 
 }

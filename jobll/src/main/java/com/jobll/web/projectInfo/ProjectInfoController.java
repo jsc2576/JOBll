@@ -53,12 +53,12 @@ public class ProjectInfoController {
 	 * @param entity ProjectInfo객체 리스트로 값을 불러옵니다.
 	 * @return
 	 */
-	@RequestMapping(value = "/listRun", method= RequestMethod.POST)
+	@RequestMapping(value = "/GetProjectList", method= RequestMethod.POST)
 	@ResponseBody
-	public List<ProjectInfo> ProjectInfolistRun(@ModelAttribute ProjectInfo entity) throws Exception{
-		List<ProjectInfo> project_list = projectInfoService.findToUsr();
+	public List<ProjectInfo> GetProjectList(@ModelAttribute ProjectInfo entity) throws Exception{
+		List<ProjectInfo> list = projectInfoService.find(entity);
 		
-		return project_list;
+		return list;
 	}
 	///
 	/**

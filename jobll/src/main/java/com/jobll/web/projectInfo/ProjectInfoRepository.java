@@ -38,8 +38,8 @@ public class ProjectInfoRepository {
 		return project;
 	}
 	
-	public List<ProjectInfo> findToUsr(UsrInfo entity) throws Exception{
-		List<ProjectInfo> project_list = sqlSession.selectList("com.jobll.web.projectInfo.ProjectInfo.findToUsr", entity);
+	public List<ProjectInfo> find(ProjectInfo entity) throws Exception{
+		List<ProjectInfo> project_list = sqlSession.selectList("com.jobll.web.projectInfo.ProjectInfo.find", entity);
 		
 		return project_list;
 	}

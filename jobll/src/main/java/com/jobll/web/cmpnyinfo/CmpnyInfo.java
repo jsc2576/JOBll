@@ -17,6 +17,18 @@ public class CmpnyInfo implements Serializable{
 	private String cmpny_nm;
 	private Integer cmpny_stus;
 	
+	private Integer select_typ;
+	
+	
+	
+	public Integer getSelect_typ() {
+		return select_typ;
+	}
+
+	public void setSelect_typ(Integer select_typ) {
+		this.select_typ = select_typ;
+	}
+
 	public Integer getCmpny_idx() {
 		return cmpny_idx;
 	}

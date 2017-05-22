@@ -50,29 +50,11 @@
 		 FROM order_group ORDER BY grp_path
 	</select>
 	
-	<select id="findToUsr" resultType="com.jobll.web.projectInfo.ProjectInfo" parameterType="com.jobll.web.projectInfo.ProjectInfo">
-		WITH RECURSIVE order_group("PRJT_IDX","CMPNY_IDX","PRJT_LV","PRJT_STUS","PRJT_SBJT","HIGH_PRJT_IDX",level,grp_path,cycle) as(
-			SELECT g."PRJT_IDX",g."CMPNY_IDX",g."PRJT_LV",g."PRJT_STUS",g."PRJT_SBJT",g."HIGH_PRJT_IDX",0,array[g."PRJT_IDX"],false
-			FROM "PRJT_INFO" g
-			WHERE g."HIGH_PRJT_IDX" IS NULL AND g."PRJT_STUS" = '1' AND g."CMPNY_IDX" = #{usr_cmpny_idx}
-			UNION ALL
-			SELECT g."PRJT_IDX",
-				g."CMPNY_IDX",
-				g."PRJT_LV",
-				g."PRJT_STUS",
-				g."PRJT_SBJT",
-				g."HIGH_PRJT_IDX",
-				level+1,
-				grp_path||g."PRJT_IDX",
-				g."PRJT_IDX" = any(grp_path)
-			FROM "PRJT_INFO" g, order_group sg
-			WHERE g."HIGH_PRJT_IDX" = sg."PRJT_IDX" AND g."PRJT_STUS" = '1' AND g."CMPNY_IDX" = #{usr_cmpny_idx}
-			and NOT cycle
-		
-		)
-		SELECT order_group."PRJT_IDX","PRJT_LV",lpad(' ',level) || "PRJT_SBJT" as "PRJT_SBJT", "HIGH_PRJT_IDX", level, grp_path
-		 FROM order_group INNER JOIN "PRJT_CNET_LIST" ON order_group."PRJT_IDX" = "PRJT_CNET_LIST"."PRJT_IDX" AND "PRJT_CNET_LIST"."USR_ID" = #{usr_id}
-		  ORDER BY grp_path
+	<select id="find" resultType="com.jobll.web.projectInfo.ProjectInfo" parameterType="com.jobll.web.projectInfo.ProjectInfo">
+		SELECT * from "PRJT_INFO" 
+		<if test="select_typ != 2">
+		WHERE "CMPNY_IDX" = #{cmpny_idx}
+		</if>
 
 	</select>
 	

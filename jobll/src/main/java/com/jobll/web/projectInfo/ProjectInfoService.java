@@ -64,11 +64,9 @@ public class ProjectInfoService {
 		return entity;
 	}
 	
-	public List<ProjectInfo> findToUsr() throws Exception{
-		UsrInfo entity = new UsrInfo();
-		entity.setUsr_cmpny_idx(sessionUtil.getSessionBean().getUsr_cmpny_idx());
-		entity.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
-		List<ProjectInfo> project_list = projectInfoRepository.findToUsr(entity);
+	public List<ProjectInfo> find(ProjectInfo entity) throws Exception{
+		entity.setCmpny_idx(sessionUtil.getSessionBean().getUsr_cmpny_idx());
+		List<ProjectInfo> project_list = projectInfoRepository.find(entity);
 		
 		return project_list;
 	}

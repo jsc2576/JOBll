@@ -7,16 +7,19 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.jobll.web.atclInfo.AtclInfo;
 import com.jobll.web.projectInfo.prjtCnetList.PrjtCnetList;
 import com.jobll.web.usrinfo.UsrInfo;
 
 
 @Controller
+@RequestMapping(value="/cmpny")
 public class CmpnyInfoController {
 	
 	@Autowired
@@ -24,7 +27,7 @@ public class CmpnyInfoController {
 
 	
 	//회사 입출력 화면 출력
-	@RequestMapping("/cmpny/add")
+	@RequestMapping("/add")
 	public String CmpnyInfoGo(){
 		return "usrInfo/cmpnyInfo/cmpnyInfoView";
 	}
@@ -32,7 +35,7 @@ public class CmpnyInfoController {
 	
 	
 	//회사 입력
-	@RequestMapping(value = "/cmpny/add/create", method = RequestMethod.POST)
+	@RequestMapping(value = "/add/create", method = RequestMethod.POST)
 	@ResponseBody
 	public String  createCmpnyInfo (@RequestParam(value="cmpny_nm") String cmpny_nm){
 		
@@ -44,7 +47,7 @@ public class CmpnyInfoController {
 	}
 	
 	//회사 삭제
-	@RequestMapping(value = "/cmpny/add/delete", method = RequestMethod.POST)
+	@RequestMapping(value = "/add/delete", method = RequestMethod.POST)
 	@ResponseBody
 	public List<String> deleteCmpnyInfo (@RequestParam(value="checkedItems[]") List<String> checkedItems){
 		
@@ -53,7 +56,19 @@ public class CmpnyInfoController {
 		
 		return temp;
 	}
-	
+	/**
+	 * @param
+	 * @return
+	**/
+	@RequestMapping(value = "/GetCmpnyList", method = RequestMethod.POST)
+	@ResponseBody
+	public List<CmpnyInfo> GetCmpnyList (@ModelAttribute CmpnyInfo entity) throws Exception{
+		
+		//prjt_idx값과 list의 usr_id, usr_cmpny 값을 사용하여 insert
+		List<CmpnyInfo> list = cmpnyInfoService.findAll(entity);
+		
+		return list;
+	}
 	
 	
 

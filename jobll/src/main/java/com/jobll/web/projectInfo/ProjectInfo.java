@@ -21,6 +21,16 @@ public class ProjectInfo implements Serializable{
 	private String prjt_stus;				//프로젝트 상태
 	private Integer prjt_lv;				//프로젝트 레벨
 	
+	private Integer select_typ;
+	
+	
+	
+	public Integer getSelect_typ() {
+		return select_typ;
+	}
+	public void setSelect_typ(Integer select_typ) {
+		this.select_typ = select_typ;
+	}
 	public Integer getPrjt_idx() {
 		return prjt_idx;
 	}
