@@ -7,7 +7,7 @@ function readProjectList(){
 
 	$.ajax({
 		method : "POST",
-		url : "/projectInfo/listRun",
+		url : "/projectInfo/GetProjectList",
 		data : {},
 		success: function(list){
 

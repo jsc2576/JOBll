@@ -21,7 +21,7 @@ public class ProjectSupplyService {
 		
 	public int create(ProjectSupply entity) throws Exception{	
 		entity.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
-	    entity.setAppr_yn("2");
+	    entity.setAppr_yn(2);
 	    entity.setPrjt_sup_list_idx(projectSupplyRepository.findAll(entity).size()+1);
 	    int qry = projectSupplyRepository.create(entity);
 		return qry;

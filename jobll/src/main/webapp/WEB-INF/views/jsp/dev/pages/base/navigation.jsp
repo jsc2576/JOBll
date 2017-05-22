@@ -228,8 +228,9 @@
                         <li>
                             <a href="/dev"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
+                        
                         <li>
-                            <a href="index.html"><i class="fa fa-th-list fa-fw"></i> Project</a>
+                            <a href="/projectInfo/projectInfoList/go"><i class="fa fa-th-list fa-fw"></i> Project</a>
                         </li>
                         <li>
                             <a href="/admin/home"><i class="fa fa-lock fa-fw"></i> Admin</a>
@@ -333,5 +334,8 @@
                 </div>
                 <!-- /.sidebar-collapse -->
             </div>
+            <form id = "dataSender" method="post">
+				<input type = "hidden" class = "prjt_idx" name = "prjt_idx" value = ${ entity.prjt_idx }>
+			</form>
             <!-- /.navbar-static-side -->
         </nav>

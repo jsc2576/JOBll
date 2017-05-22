@@ -15,7 +15,7 @@ public class ProjectSupply implements Serializable{
 	private String sup_person;			// 지원인원
 	private String sup_strt_date;		// 지원시작날짜
 	private String sup_end_date;		// 지원종료날짜
-	private String appr_yn;				// 승인여부
+	private Integer appr_yn;				// 승인여부
 	private String usr_id;				// 사용자아이디
 	
 	public Integer getPrjt_sup_list_idx() {
@@ -54,10 +54,10 @@ public class ProjectSupply implements Serializable{
 	public void setSup_end_date(String sup_end_date) {
 		this.sup_end_date = sup_end_date;
 	}
-	public String getAppr_yn() {
+	public Integer getAppr_yn() {
 		return appr_yn;
 	}
-	public void setAppr_yn(String appr_yn) {
+	public void setAppr_yn(Integer appr_yn) {
 		this.appr_yn = appr_yn;
 	}
 	public String getUsr_id() {

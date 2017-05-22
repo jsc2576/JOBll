@@ -54,6 +54,7 @@ public class ProjectInfoService {
 	
 	public List<ProjectInfo> findList(ProjectInfo entity) throws Exception{
 		
+		entity.setCmpny_idx(sessionUtil.getSessionBean().getUsr_cmpny_idx());
 		List<ProjectInfo> project_list = projectInfoRepository.findList(entity);
 		return project_list;
 	}

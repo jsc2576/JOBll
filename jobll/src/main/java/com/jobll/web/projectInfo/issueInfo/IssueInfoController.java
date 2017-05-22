@@ -46,7 +46,7 @@ public class IssueInfoController {
 	 */
 	@RequestMapping(value = "/view", method= RequestMethod.POST)
 	public ModelAndView issueView (@ModelAttribute IssueInfo entity, BindingResult errors) throws Exception {
-		ModelAndView mav = new ModelAndView("projectInfo/atclInfo/atclInfoList/atclInfoListView");
+		ModelAndView mav = new ModelAndView("dev/pages/projectInfo/atclInfo/atclInfoList/atclInfoListView");
 		mav.addObject("entity", entity);
 		
 		return mav;
@@ -73,7 +73,7 @@ public class IssueInfoController {
 	 */
 	@RequestMapping(value = "/check/read")
 	public ModelAndView IssueInfoInforead (@ModelAttribute IssueInfo entity, BindingResult errors) throws Exception {
-		ModelAndView mav = new ModelAndView("projectInfo/atclInfo/atclInfoView");
+		ModelAndView mav = new ModelAndView("dev/pages/projectInfo/atclInfo/atclInfoView");
 		
 		entity = issueInfoService.findOne(entity);
 		
@@ -95,7 +95,7 @@ public class IssueInfoController {
 	**/
 	@RequestMapping("/reg")
 	public ModelAndView issueInfoReg(@ModelAttribute IssueInfo entity, BindingResult errors) throws Exception {
-		ModelAndView mav = new ModelAndView("projectInfo/atclInfo/atclInfoWrite/atclInfoWriteView");
+		ModelAndView mav = new ModelAndView("dev/pages/projectInfo/atclInfo/atclInfoWrite/atclInfoWriteView");
 		
 		mav.addObject("entity", entity);
 		
@@ -104,7 +104,7 @@ public class IssueInfoController {
 
 	@RequestMapping(value = "/reg/send")
 	public ModelAndView IssueInfoInfoRegSend (@ModelAttribute IssueInfo entity, HttpServletRequest request, BindingResult errors) throws Exception {
-		ModelAndView mav = new ModelAndView("projectInfo/atclInfo/atclInfoView");
+		ModelAndView mav = new ModelAndView("dev/pages/projectInfo/atclInfo/atclInfoView");
 		
 		//HttpServletRequest 형식의 데이터를 MultipartFile형식으로 캐스팅 해 줍니다.
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest)request;
@@ -127,7 +127,7 @@ public class IssueInfoController {
 	
 	@RequestMapping(value = "/del")
 	public ModelAndView IssueInfoInfoDel (@ModelAttribute IssueInfo entity, BindingResult errors) throws Exception {
-		ModelAndView mav = new ModelAndView("projectInfo/atclInfo/atclInfoList/atclInfoListView");
+		ModelAndView mav = new ModelAndView("dev/pages/projectInfo/atclInfo/atclInfoList/atclInfoListView");
 		mav.addObject("entity", entity);
 		
 		//해당 Issue의 stus를 0으로 비활성화 시킵니다.
@@ -138,7 +138,7 @@ public class IssueInfoController {
 	
 	@RequestMapping(value = "/mdf")
 	public ModelAndView issueInfoMdf(@ModelAttribute IssueInfo entity, BindingResult errors) throws Exception {
-		ModelAndView mav = new ModelAndView("projectInfo/atclInfo/atclInfoWrite/atclInfoWriteView");
+		ModelAndView mav = new ModelAndView("dev/pages/projectInfo/atclInfo/atclInfoWrite/atclInfoWriteView");
 		
 		entity = issueInfoService.findOne(entity);
 		entity.setWrite_type(1);
@@ -150,7 +150,7 @@ public class IssueInfoController {
 	
 	@RequestMapping(value = "/mdf/send")
 	public ModelAndView IssueInfoInfoMdfSend (@ModelAttribute IssueInfo entity, HttpServletRequest request, BindingResult errors) throws Exception {
-		ModelAndView mav = new ModelAndView("projectInfo/atclInfo/atclInfoView");
+		ModelAndView mav = new ModelAndView("dev/pages/projectInfo/atclInfo/atclInfoView");
 		
 		//HttpServletRequest 형식의 데이터를 MultipartFile형식으로 캐스팅 해 줍니다.
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest)request;

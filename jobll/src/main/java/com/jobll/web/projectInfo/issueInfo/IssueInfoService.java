@@ -38,7 +38,7 @@ public class IssueInfoService {
 		
 		entity.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
 	    entity.setReg_date(commonUtil.getCurrentDtime());
-	    entity.setAtcl_stus("1");
+	    entity.setAtcl_stus(1);
 	    entity.setStrt_date("20120102030405");
 		entity.setAtcl_typ("1");
 	    
@@ -76,7 +76,7 @@ public class IssueInfoService {
 		int result;
 		HstyInfo hsty = new HstyInfo();
 		
-		entity.setAtcl_stus("0");
+		entity.setAtcl_stus(0);
 		
 		hsty.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
 		hsty.setPrjt_idx(entity.getPrjt_idx());

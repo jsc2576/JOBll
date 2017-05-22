@@ -19,7 +19,7 @@ public class IssueInfo implements Serializable{
 	private String comp_date;		//완료기간	
 	private String estn_time;		//추정시간	
 	private int atcl_prog_rate;		//이슈진행정도
-	private String atcl_stus;		//이슈 상태 1: 활성 2: 비활성
+	private int atcl_stus;		//이슈 상태 1: 활성 2: 비활성
 	private int prjt_idx;			//프로젝트인덱스
 	private String atcl_typ;		//1: 이슈 2: Q/A
 	
@@ -87,10 +87,11 @@ public class IssueInfo implements Serializable{
 	public void setAtcl_prog_rate(int atcl_prog_rate) {
 		this.atcl_prog_rate = atcl_prog_rate;
 	}
-	public String getAtcl_stus() {
+	
+	public int getAtcl_stus() {
 		return atcl_stus;
 	}
-	public void setAtcl_stus(String atcl_stus) {
+	public void setAtcl_stus(int atcl_stus) {
 		this.atcl_stus = atcl_stus;
 	}
 	public int getPrjt_idx() {

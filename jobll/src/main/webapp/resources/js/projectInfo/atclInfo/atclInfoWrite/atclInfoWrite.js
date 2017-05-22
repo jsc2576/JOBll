@@ -130,7 +130,6 @@ function editorwrite() {
 	var prjt_idx = $(".prjt_idx").val();
 	
 	if($("#write_type").val() == 1){
-		var atcl_idx = $("#atcl_idx").val();
 		
 		$("#editorcreateform").ajaxForm ({
 			method   : "post",

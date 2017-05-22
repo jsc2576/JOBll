@@ -25,14 +25,14 @@ public class ProjectInfoController {
 	 */
 	@RequestMapping("/projectInfoList/go")
 	public String ProjectInfoListGo(){
-		return "projectInfo/projectInfoList/projectInfoListView";
+		return "dev/pages/projectInfo/projectInfoList/projectInfoListView";
 	}
 	/**
 	 * 프로젝트 생성 페이지로 이동합니다.
 	 */
 	@RequestMapping("/projectInfoCreate/go")
 	public String ProjectInfoCreateGo(){
-		return "projectInfo/projectInfoCreate/projectInfoCreateView";
+		return "dev/pages/projectInfo/projectInfoCreate/projectInfoCreateView";
 	}
 	/**
 	 * 프로젝트를 생성하는 통신입니다.
@@ -41,7 +41,7 @@ public class ProjectInfoController {
 	 */
 	@RequestMapping(value = "/projectInfoCreate", method= RequestMethod.POST)
 	public ModelAndView ProjectInfoCreate (@ModelAttribute ProjectInfo entity, BindingResult errors) throws Exception {
-		ModelAndView mav = new ModelAndView("projectInfo/projectInfoList/projectInfoListView");
+		ModelAndView mav = new ModelAndView("dev/pages/projectInfo/projectInfoList/projectInfoListView");
 		
 		projectInfoService.create(entity);
 		
@@ -56,7 +56,7 @@ public class ProjectInfoController {
 	@RequestMapping(value = "/GetProjectList", method= RequestMethod.POST)
 	@ResponseBody
 	public List<ProjectInfo> GetProjectList(@ModelAttribute ProjectInfo entity) throws Exception{
-		List<ProjectInfo> list = projectInfoService.find(entity);
+		List<ProjectInfo> list = projectInfoService.findList(entity);
 		
 		return list;
 	}
@@ -68,7 +68,7 @@ public class ProjectInfoController {
 	 */
 	@RequestMapping(value = "/prjt/check/read", method= RequestMethod.POST)
 	public ModelAndView ProjectInfoView (@ModelAttribute ProjectInfo entity, BindingResult errors) throws Exception {
-		ModelAndView mav = new ModelAndView("projectInfo/projectInfoView");
+		ModelAndView mav = new ModelAndView("dev/pages/projectInfo/projectInfoView");
 		
 		entity = projectInfoService.findOne(entity);
 		

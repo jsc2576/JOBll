@@ -34,7 +34,7 @@ public class PrjtCnetListController {
 	//팀원 리스트 화면 출력
 	@RequestMapping(value="/teamPerson/check")
 	public ModelAndView PrjtCnetListGo (@ModelAttribute ProjectInfo entity, BindingResult errors) throws Exception {
-	ModelAndView mav = new ModelAndView("projectInfo/prjtCnetList/prjtCnetList/prjtCnetListView");
+	ModelAndView mav = new ModelAndView("dev/pages/projectInfo/prjtCnetList/prjtCnetList/prjtCnetListView");
 	entity = projectInfoService.findOne(entity);
 	mav.addObject("entity", entity);
 	
@@ -44,7 +44,7 @@ public class PrjtCnetListController {
 	//팀원 초대 및 제외 화면 출력
 	@RequestMapping("/teamPerson/inv")
 	public ModelAndView prjtCnetListModifyGo (@ModelAttribute ProjectInfo entity, BindingResult errors) throws Exception {
-	ModelAndView mav = new ModelAndView("projectInfo/prjtCnetList/prjtCnetListModify/prjtCnetListModifyView");
+	ModelAndView mav = new ModelAndView("dev/pages/projectInfo/prjtCnetList/prjtCnetListModify/prjtCnetListModifyView");
 	entity = projectInfoService.findOne(entity);
 	mav.addObject("entity", entity);
 	return mav;

@@ -26,28 +26,9 @@
 			)
 	</insert>
 	
-	<select id="findAll" resultType="com.jobll.web.projectInfo.ProjectInfo" parameterType="com.jobll.web.projectInfo.ProjectInfo">
-		WITH RECURSIVE order_group("PRJT_IDX","CMPNY_IDX","PRJT_LV","PRJT_STUS","PRJT_SBJT","HIGH_PRJT_IDX",level,grp_path,cycle) as(
-			SELECT g."PRJT_IDX",g."CMPNY_IDX",g."PRJT_LV",g."PRJT_STUS",g."PRJT_SBJT",g."HIGH_PRJT_IDX",0,array[g."PRJT_IDX"],false
-			FROM "PRJT_INFO" g
-			WHERE g."HIGH_PRJT_IDX" IS NULL AND g."PRJT_STUS" = '1' AND g."CMPNY_IDX" = #{cmpny_idx}
-			UNION ALL
-			SELECT g."PRJT_IDX",
-				g."CMPNY_IDX",
-				g."PRJT_LV",
-				g."PRJT_STUS",
-				g."PRJT_SBJT",
-				g."HIGH_PRJT_IDX",
-				level+1,
-				grp_path||g."PRJT_IDX",
-				g."PRJT_IDX" = any(grp_path)
-			FROM "PRJT_INFO" g, order_group sg
-			WHERE g."HIGH_PRJT_IDX" = sg."PRJT_IDX" AND g."PRJT_STUS" = '1' AND g."CMPNY_IDX" = #{cmpny_idx}
-			and NOT cycle
-		
-		)
-		SELECT "PRJT_IDX","PRJT_LV",lpad(' ',level) || "PRJT_SBJT" as "PRJT_SBJT", "HIGH_PRJT_IDX", level, grp_path
-		 FROM order_group ORDER BY grp_path
+	<select id="findAll" resultType="com.jobll.web.projectInfo.ProjectInfo" parameterType="com.jobll.web.projectInfo.ProjectInfo">		
+		SELECT * FROM "PRJT_INFO" 
+		WHERE "PRJT_STUS" = '1' AND "CMPNY_IDX" = #{cmpny_idx}
 	</select>
 	
 	<select id="find" resultType="com.jobll.web.projectInfo.ProjectInfo" parameterType="com.jobll.web.projectInfo.ProjectInfo">

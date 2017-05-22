@@ -35,7 +35,7 @@ public class ProjectSupplyController {
 	
 	@RequestMapping("/projectSupplyList/go")
 	public ModelAndView projectSupplyListGo (@ModelAttribute ProjectSupply entity) throws Exception {
-		ModelAndView mav = new ModelAndView("projectInfo/projectSupply/projectSupplyList/projectSupplyListView");
+		ModelAndView mav = new ModelAndView("dev/pages/projectInfo/projectSupply/projectSupplyList/projectSupplyListView");
 		
 		mav.addObject("entity", entity);
 		
@@ -44,7 +44,7 @@ public class ProjectSupplyController {
 	
 	@RequestMapping("/projectSupplyWrite/go")
 	public ModelAndView projectSupplyWriteGo(@ModelAttribute ProjectSupply entity) throws Exception {
-		ModelAndView mav = new ModelAndView("projectInfo/projectSupply/projectSupplyWrite/projectSupplyWriteView");
+		ModelAndView mav = new ModelAndView("dev/pages/projectInfo/projectSupply/projectSupplyWrite/projectSupplyWriteView");
 		
 		mav.addObject("entity", entity);
 		
@@ -53,7 +53,7 @@ public class ProjectSupplyController {
 	
 	@RequestMapping(value = "/projectSupplyWrite", method = RequestMethod.POST)
 	public ModelAndView projectSupplyServiceWrite (@ModelAttribute ProjectSupply entity) throws Exception {
-		ModelAndView mav = new ModelAndView("projectInfo/projectSupply/projectSupplyList/projectSupplyListView");
+		ModelAndView mav = new ModelAndView("dev/pages/projectInfo/projectSupply/projectSupplyList/projectSupplyListView");
 		
 		projectSupplyService.create(entity);
 		mav.addObject("entity", entity);
@@ -70,7 +70,7 @@ public class ProjectSupplyController {
 	
 	@RequestMapping(value = "/readOne", method= RequestMethod.POST)
 	public ModelAndView projectSupplyView (@ModelAttribute ProjectSupply entity) throws Exception {
-		ModelAndView mav = new ModelAndView("projectInfo/projectSupply/projectSupplyView");
+		ModelAndView mav = new ModelAndView("dev/pages/projectInfo/projectSupply/projectSupplyView");
 		entity = projectSupplyService.findOne(entity);		
 		mav.addObject("entity", entity);
 		return mav;
