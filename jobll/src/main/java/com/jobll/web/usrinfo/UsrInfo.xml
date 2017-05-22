@@ -35,7 +35,15 @@
 		from "USR_INFO"
 		where "USR_ID"= #{usr_id}
 	</select>
-	
+	<select id="find"  parameterType ="com.jobll.web.usrinfo.UsrInfo" resultType="com.jobll.web.usrinfo.UsrInfo">
+		SELECT * from "USR_INFO" WHERE "ACT_STUS" = '1' 
+		<if test="select_typ == 2">
+		AND "USR_CMPNY_IDX" = #{usr_cmpny_idx} 
+		</if>
+		<if test="select_typ == 3">
+		AND "USR_CMPNY_IDX" = #{usr_cmpny_idx} AND "USR_LV" = '3'
+		</if>
+	</select>
 	<update id="edit" parameterType ="com.jobll.web.usrinfo.UsrInfo">
 		update "USR_INFO" set
 			"USR_NM" =     #{usr_nm},    

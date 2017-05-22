@@ -173,6 +173,14 @@ public class UsrInfoController {
 		return List;
 		}
 	//basic instruction :
+	@RequestMapping(value = "/GetUsrList", method = RequestMethod.POST)
+	@ResponseBody
+	public List<UsrInfo> GetUsrList(UsrInfo entity) {
+		List<UsrInfo> List;
+		List = usrInfoService.find(entity);
+		return List;
+		}
+	
 	
 	
 	@RequestMapping(value = "/select", method = RequestMethod.GET)

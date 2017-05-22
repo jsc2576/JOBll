@@ -77,6 +77,9 @@ public class UsrInfoRepository {
 	public List<UsrInfo> selectUserToCmpny(UsrInfo entity){
 		return sqlSession.selectList("com.jobll.web.usrinfo.UsrInfo.selectUserToCmpny",entity);	
 	};
+	public List<UsrInfo> find(UsrInfo entity){
+		return sqlSession.selectList("com.jobll.web.usrinfo.UsrInfo.find",entity);	
+	};
 	public int updateToLv(UsrInfo entity){
 		int test = sqlSession.update("com.jobll.web.usrinfo.UsrInfo.updateToLv",entity);
 		return test;

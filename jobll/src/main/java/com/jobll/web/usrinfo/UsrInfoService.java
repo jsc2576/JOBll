@@ -87,5 +87,8 @@ public class UsrInfoService{
 		public int updateToLv(UsrInfo entity){
 			int result = usrInfoRepository.updateToLv(entity);
 			return result;
-		}
+		}//
+	public List<UsrInfo> find(UsrInfo entity){
+		return usrInfoRepository.find(entity);	
+	};
 }
