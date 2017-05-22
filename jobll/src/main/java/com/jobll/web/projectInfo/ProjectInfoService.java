@@ -65,10 +65,13 @@ public class ProjectInfoService {
 	}
 	
 	public List<ProjectInfo> find(ProjectInfo entity) throws Exception{
+		if(entity.getSelect_typ() == 2)
 		entity.setCmpny_idx(sessionUtil.getSessionBean().getUsr_cmpny_idx());
-		List<ProjectInfo> project_list = projectInfoRepository.find(entity);
+		else if(entity.getSelect_typ() == 3)
+		{}
+		List<ProjectInfo> list = projectInfoRepository.find(entity);
 		
-		return project_list;
+		return list;
 	}
 	
 	public int checkAuth() throws Exception{

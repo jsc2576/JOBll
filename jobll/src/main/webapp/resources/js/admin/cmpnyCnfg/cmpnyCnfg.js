@@ -28,7 +28,7 @@ function GetUsrInfoList(cmpny_idx){
 			}
 			str_html += "</ul>";
 			
-			$("#prjtInfo_list").html(str_html);
+			$("#prjt_list").html(str_html);
 		},
 		error: function(){alert("ERROR");}
 	});

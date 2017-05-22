@@ -38,7 +38,7 @@ public class AdminController {
 		int auth_check = adminService.AuthCheck();
 		
 		if(auth_check == 1)
-			return "admin/adminHomeView";
+			return "dev/pages/admin/adminHomeView";
 		else
 			return "error/permissionDenied";
 	
@@ -63,7 +63,7 @@ public class AdminController {
 	
 	@RequestMapping("/cmpnyInfo/cnfg")
 	public String AdminCmpnyConfigGo(){
-			return "admin/cmpnyCnfg/cmpnyCnfgView";
+			return "dev/pages/admin/cmpnyCnfg/cmpnyCnfgView";
 	}
 	
 	@RequestMapping(value = "/GetCmpnyList", method= RequestMethod.POST)
