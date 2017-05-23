@@ -1,5 +1,5 @@
 $(document).ready (function (){
-	readProjectList();
+	GetProjectTable(2);
 
 });
 
@@ -28,7 +28,6 @@ function readProjectList(){
 		error: function(){alert("ERROR");}
 	});
 }
-
 function readProjectInfo(idx){
 	
 	var str_html = "<input type ='hidden' name = 'prjt_idx' value = '"+idx+"'>";
@@ -38,4 +37,5 @@ function readProjectInfo(idx){
 	$("#projectInfo").submit();
 
 }
+
 

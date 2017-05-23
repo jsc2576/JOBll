@@ -20,7 +20,12 @@
 	
 	</tr>
 </table>
-
+<div class = "date">
+	진행 기간 : ${ entity.strt_date } ~ ${ entity.comp_date } <br>
+</div>
+<div class = "atcl_typ">
+	진행 정도 : ${ entity.atcl_typ }
+</div>
 <table id = file-list class ='table table-bordered'>
 	<tr>
 		<th>

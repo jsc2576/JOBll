@@ -97,6 +97,10 @@ public class IssueInfoController {
 	public ModelAndView issueInfoReg(@ModelAttribute IssueInfo entity, BindingResult errors) throws Exception {
 		ModelAndView mav = new ModelAndView("dev/pages/projectInfo/atclInfo/atclInfoWrite/atclInfoWriteView");
 		
+		String atcl_conts = "제품 : <br><br>거래처 : <br><br>계약금 : <br><br>사업규모 : <br><br>계약서 유무 : <br><br>비고 : ";
+		
+		entity.setAtcl_conts(atcl_conts);
+		
 		mav.addObject("entity", entity);
 		
 		return mav;

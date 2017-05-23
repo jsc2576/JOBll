@@ -1,9 +1,5 @@
 $(document).ready(function() {
 
-		$("#editor_box").focus();
-		onoffswitch("tx-btn-bg");
-		selectwitch("tx-slt-70bg","tx_fontfamily_menu");
-		selectwitch("tx-slt-42bg","tx_fontsize_menu");
 		
 		$("#file-upload").MultiFile({
 	        maxfile: 1048576, //각 파일 최대 업로드 크기
@@ -21,106 +17,7 @@ $(document).ready(function() {
 
 });
 
-function onoffswitch(name) {
-	var class_name = "."+name;
-	var pushed_name = name+"-pushed";
-	var pushed_class_name = class_name+"-pushed";
 
-
-	$(document).on("click", class_name, function() {
-			$(this).removeClass(name).addClass(pushed_name);
- 		});
-	$(document).on("click", pushed_class_name, function() {
-			$(this).removeClass(pushed_name).addClass(name);
- 		});
-}
-
-function selectwitch(name,submenu_name) {
-
-	var class_name = "."+name;
-	var pushed_name = name+"-pushed";
-	var pushed_class_name = class_name+"-pushed";
-	var id_submenu_name = "#"+submenu_name;
-
-	$(document).on("click", class_name, function() {
-			$(this).removeClass(name).addClass(pushed_name);
-			$(id_submenu_name).css("display","block");
-
- 		});
-	$(document).on("click", pushed_class_name, function() {
-			$(this).removeClass(pushed_name).addClass(name);
-			$(id_submenu_name).css("display","none");
- 		});
-	$(document).on("click", id_submenu_name, function() {
-			$(this).css("display","none");
-			$(pushed_class_name).removeClass(pushed_name).addClass(name);
- 		});
-}
-
-
-
-function callFormatting(aCommandName, aShowDefaultUI, aValueArgument) {
-	document.execCommand(aCommandName, aShowDefaultUI, aValueArgument);
-
-	switch(aValueArgument) {
-		case '굴림' :
-		{
-			$("#tx_fontfamily").html('<a href="javascript:;" title="글꼴" style="font-family:Gulim,굴림,AppleGothic,sans-serif;">굴림</a>');
-			break;
-		}
-		case '바탕' :
-		{
-			$("#tx_fontfamily").html('<a href="javascript:;" title="글꼴" style="font-family:Batang,바탕,serif;">바탕</a>');
-			break;
-		}
-		case '돋움' :
-		{
-			$("#tx_fontfamily").html('<a href="javascript:;" title="글꼴" style="font-family:Dotum,돋움,sans-serif;">돋움</a>');
-			break;
-		}
-		case '궁서' :
-		{
-			$("#tx_fontfamily").html('<a href="javascript:;" title="글꼴" style="font-family:Gungsuh,궁서,serif;">궁서</a>');
-			break;
-		}
-		case 1 :
-		{
-			$("#tx_fontsize").html('<a href="javascript:;" title="글자크기">8pt</a>');
-			break;
-		}
-		case 2 :
-		{
-			$("#tx_fontsize").html('<a href="javascript:;" title="글자크기">10pt</a>');
-			break;
-		}
-		case 3 :
-		{
-			$("#tx_fontsize").html('<a href="javascript:;" title="글자크기">11pt</a>');
-			break;
-		}
-		case 4 :
-		{
-			$("#tx_fontsize").html('<a href="javascript:;" title="글자크기">12pt</a>');
-			break;
-		}
-		case 5 :
-		{
-			$("#tx_fontsize").html('<a href="javascript:;" title="글자크기">14pt</a>');
-			break;
-		}
-		case 6 :
-		{
-			$("#tx_fontsize").html('<a href="javascript:;" title="글자크기">18pt</a>');
-			break;
-		}
-		case 7 :
-		{
-			$("#tx_fontsize").html('<a href="javascript:;" title="글자크기">24pt</a>');
-			break;
-		}
-	}
-		$("#editor_box").focus();
-}
 
 
 function editorwrite() {
@@ -128,6 +25,9 @@ function editorwrite() {
 	var subject = $("#subject").val();
 	var context = $("#editor_box").html();
 	var prjt_idx = $(".prjt_idx").val();
+	var strt_date = $(".start-date").val();
+	var comp_date = $(".end-date").val();
+	var atcl_typ = $(".atcl_typ").val();
 	
 	if($("#write_type").val() == 1){
 		
@@ -147,7 +47,8 @@ function editorwrite() {
 			method   : "post",
 			url: "/issue/reg/send",
 			enctype: "multipart/form-data",
-			data	: {atcl_sbjt : subject, atcl_conts : context, prjt_idx : prjt_idx},
+			data	: {atcl_sbjt : subject, atcl_conts : context, prjt_idx : prjt_idx,
+				strt_date : strt_date, comp_date : comp_date, atcl_typ : atcl_typ},
 			success: function(result)	{
 				alert("success");
 			}

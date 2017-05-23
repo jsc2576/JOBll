@@ -1,5 +1,5 @@
 $(document).ready (function (){
-	GetCmpnyList(1);
+	GetCmpnyList(2);
 });
 
 function PjrtCreateTagController(){

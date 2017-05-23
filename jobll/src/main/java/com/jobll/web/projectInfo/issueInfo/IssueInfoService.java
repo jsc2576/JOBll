@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.jobll.web.CommonUtil;
 import com.jobll.web.SessionUtil;
+import com.jobll.web.cmpnyinfo.*;
 import com.jobll.web.hstyInfo.*;
 
 @Service
@@ -24,6 +25,8 @@ public class IssueInfoService {
 	private SessionUtil sessionUtil;
 	@Autowired
 	private HstyInfoService hstyInfoService;
+	@Autowired
+	private CmpnyInfoService cmpnyinfoService;
 	
 	/**
 	 * 모든 데이터 검색 
@@ -33,14 +36,16 @@ public class IssueInfoService {
 	 */
 	
 	public int create(IssueInfo entity) throws Exception{
+		
 		int result;
 		HstyInfo hsty = new HstyInfo();
+		HstyInfo cmpny_idx = new HstyInfo();
 		
 		entity.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
 	    entity.setReg_date(commonUtil.getCurrentDtime());
 	    entity.setAtcl_stus(1);
-	    entity.setStrt_date("20120102030405");
-		entity.setAtcl_typ("1");
+	    
+	    result = issueInfoRepository.create(entity);
 	    
 		hsty.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
 		hsty.setPrjt_idx(entity.getPrjt_idx());
@@ -49,8 +54,9 @@ public class IssueInfoService {
 		hsty.setAtcl_idx(entity.getAtcl_idx());
 		result = hstyInfoService.create(hsty);
 		
-		int qry = issueInfoRepository.create(entity);
-		return qry;
+		
+		
+		return result;
 	}
 	
 	/**
@@ -59,8 +65,14 @@ public class IssueInfoService {
 	 * @return
 	 */
 	public List<IssueInfo> findList(IssueInfo entity) throws Exception{
-		List<IssueInfo> atcl_list = issueInfoRepository.findList(entity);
-		return atcl_list;
+		List<IssueInfo> list = issueInfoRepository.findList(entity);
+		
+		for(int i = 0; i < list.size(); i++)
+		{
+			list.get(i).setReg_date(commonUtil.getDividedTime(list.get(i).getReg_date()));
+		}
+		
+		return list;
 	}
 	/**
 	 * 하나의 데이터 출력 (0: 전체검색, 1: 대기중 검색, 2: 접수 완료 검색, 3: 처리중 검색, 4: 처리완료 검색)
@@ -69,6 +81,9 @@ public class IssueInfoService {
 	 */
 	public IssueInfo findOne(IssueInfo entity) throws Exception{
 		entity = issueInfoRepository.findOne(entity);
+		
+		entity.setReg_date(commonUtil.getDividedTime(entity.getReg_date()));
+		
 		return entity;
 	}
 	
