@@ -372,11 +372,5 @@
                 </div>
                 <!-- /.sidebar-collapse -->
             </div>
-            <!-- 
->>>>>>> 17b388279917e8e4de272fa931cfeef9e1c30a8e
-            <form id = "dataSender" method="post">
-				<input type = "hidden" class = "prjt_idx" name = "prjt_idx" value = ${ entity.prjt_idx }>
-			</form>
-			 -->
-	<!-- /.navbar-static-side -->
+          
 </nav>

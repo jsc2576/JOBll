@@ -4,17 +4,7 @@ Implementation-Title: jobll
 Implementation-Version: 0.0.1-SNAPSHOT
 Implementation-Vendor-Id: com.jobll.web
 Build-Jdk: 1.7.0_80
-Built-By: nildr
-=======
-<<<<<<< HEAD
-Build-Jdk: 1.7.0_80
 Built-By: lsy
 Created-By: Maven Integration for Eclipse
 Implementation-URL: http://projects.spring.io/spring-boot/jobll/
-<<<<<<< HEAD
-=======
->>>>>>> 17b388279917e8e4de272fa931cfeef9e1c30a8e
-Created-By: Maven Integration for Eclipse
-Implementation-URL: http://projects.spring.io/spring-boot/jobll/
->>>>>>> 5a49e17cd4e306b4fad54431f2046e7bf7fb1873
 
