@@ -30,9 +30,15 @@
 	
 	<select id="findAll" resultType="com.jobll.web.projectInfo.ProjectInfo" parameterType="com.jobll.web.projectInfo.ProjectInfo">		
 		SELECT * FROM "PRJT_INFO" 
+		<if test="select_typ == 3">
 		WHERE "PRJT_STUS" = '1' AND "CMPNY_IDX" = #{cmpny_idx}
+		</if>
+		<if test="select_typ == 4">
+		INNER JOIN "PRJT_CNET_LIST"
+    	ON "PRJT_CNET_LIST"."USR_ID" = #{usr_id} AND "PRJT_CNET_LIST"."PRJT_IDX" = "PRJT_INFO"."PRJT_IDX";
+    	</if>
 	</select>
-	
+ 
 	<select id="find" resultType="com.jobll.web.projectInfo.ProjectInfo" parameterType="com.jobll.web.projectInfo.ProjectInfo">
 		SELECT * from "PRJT_INFO" 
 		<if test="select_typ != 1">

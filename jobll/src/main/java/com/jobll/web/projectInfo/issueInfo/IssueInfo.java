@@ -21,7 +21,7 @@ public class IssueInfo implements Serializable{
 	private int atcl_prog_rate;		//이슈진행정도
 	private int atcl_stus;		//이슈 상태 1: 활성 2: 비활성
 	private int prjt_idx;			//프로젝트인덱스
-	private String atcl_typ;		//1: 이슈 2: Q/A
+	private Integer atcl_typ;		
 	
 	private Integer atcl_offset;
 	private Integer atcl_limit;
@@ -100,10 +100,10 @@ public class IssueInfo implements Serializable{
 	public void setPrjt_idx(int prjt_idx) {
 		this.prjt_idx = prjt_idx;
 	}
-	public String getAtcl_typ() {
+	public Integer getAtcl_typ() {
 		return atcl_typ;
 	}
-	public void setAtcl_typ(String atcl_typ) {
+	public void setAtcl_typ(Integer atcl_typ) {
 		this.atcl_typ = atcl_typ;
 	}
 	public Integer getAtcl_offset() {

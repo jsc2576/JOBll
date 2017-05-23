@@ -134,7 +134,11 @@ public class ProjectInfoService {
 	public List<ProjectInfo> findList(ProjectInfo entity) throws Exception{
 		
 		if(entity.getSelect_typ() > 2)
-		entity.setCmpny_idx(sessionUtil.getSessionBean().getUsr_cmpny_idx());
+		{
+			entity.setCmpny_idx(sessionUtil.getSessionBean().getUsr_cmpny_idx());
+			entity.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
+		}
+		
 		
 		List<ProjectInfo> project_list = projectInfoRepository.findList(entity);
 		for(int i = 0; i < project_list.size(); i++)

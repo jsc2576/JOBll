@@ -67,8 +67,8 @@ public class IssueInfoService {
 		prjt_sbjt = projectInfoService.findOne(prjt_sbjt);
 		
 		String conts_val = sessionUtil.getSessionBean().getUsr_nm() + "(" + sessionUtil.getSessionBean().getUsr_id() +
-							") 가 "+ cmpny_nm.getCmpny_nm() + " 고객사의 " + prjt_sbjt.getPrjt_sbjt() + " 프로젝트의" +
-							entity.getAtcl_sbjt() + "이슈를 등록함";
+							") 가 "+ cmpny_nm.getCmpny_nm() + " 고객사의 " + prjt_sbjt.getPrjt_sbjt() + " 프로젝트의 " +
+							entity.getAtcl_sbjt() + " 이슈를 등록함";
 		
 		hsty.setHsty_conts(conts_val);
 		result = hstyInfoService.create(hsty);
@@ -112,6 +112,8 @@ public class IssueInfoService {
 		CmpnyInfo cmpny_nm = new CmpnyInfo();
 		ProjectInfo prjt_sbjt = new ProjectInfo();
 		
+		entity = issueInfoRepository.findOne(entity);
+		
 		entity.setAtcl_stus(0);
 		
 		result = issueInfoRepository.delete(entity);
@@ -132,8 +134,8 @@ public class IssueInfoService {
 		prjt_sbjt = projectInfoService.findOne(prjt_sbjt);
 		
 		String conts_val = sessionUtil.getSessionBean().getUsr_nm() + "(" + sessionUtil.getSessionBean().getUsr_id() +
-							") 가 "+ cmpny_nm.getCmpny_nm() + " 고객사의 " + prjt_sbjt.getPrjt_sbjt() + " 프로젝트의" +
-							entity.getAtcl_sbjt() + "이슈를 삭제함";
+							") 가 "+ cmpny_nm.getCmpny_nm() + " 고객사의 " + prjt_sbjt.getPrjt_sbjt() + " 프로젝트의 " +
+							entity.getAtcl_sbjt() + " 이슈를 삭제함";
 		
 		hsty.setHsty_conts(conts_val);
 		result = hstyInfoService.create(hsty);
@@ -169,8 +171,8 @@ public class IssueInfoService {
 		prjt_sbjt = projectInfoService.findOne(prjt_sbjt);
 		
 		String conts_val = sessionUtil.getSessionBean().getUsr_nm() + "(" + sessionUtil.getSessionBean().getUsr_id() +
-							") 가 "+ cmpny_nm.getCmpny_nm() + " 고객사의 " + prjt_sbjt.getPrjt_sbjt() + " 프로젝트의" +
-							prev_data.getAtcl_sbjt() + "이슈를"+entity.getAtcl_sbjt()+"로(으로) 수정함";
+							") 가 "+ cmpny_nm.getCmpny_nm() + " 고객사의 " + prjt_sbjt.getPrjt_sbjt() + " 프로젝트의 " +
+							prev_data.getAtcl_sbjt() + " 이슈를 "+entity.getAtcl_sbjt()+" 로(으로) 수정함";
 		
 		hsty.setHsty_conts(conts_val);
 		result = hstyInfoService.create(hsty);

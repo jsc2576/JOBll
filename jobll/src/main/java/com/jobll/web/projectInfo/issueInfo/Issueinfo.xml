@@ -55,7 +55,6 @@
 		UPDATE "ATCL_INFO" set
 			"ATCL_SBJT" = #{atcl_sbjt},
 			"ATCL_CONTS" = #{atcl_conts},
-			"REG_DATE" = #{reg_date},
 			"STRT_DATE" = #{strt_date}, 
 			"COMP_DATE" = #{comp_date}, 
 			"ATCL_TYP" = #{atcl_typ}

@@ -38,5 +38,5 @@
         </form>
        </div>
        
-<input type = "hidden" id = "write_type" name = "write_type" value = ${ entity.write_type }>
-<input type = "hidden" id = "atcl_idx" name = "atcl_idx" value = ${ entity.atcl_idx }>
+<input type = "hidden" class = "write_type" name = "write_type" value = ${ entity.write_type }>
+<input type = "hidden" class = "atcl_idx" name = "atcl_idx" value = ${ entity.atcl_idx }>

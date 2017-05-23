@@ -27,15 +27,17 @@ function editorwrite() {
 	var prjt_idx = $(".prjt_idx").val();
 	var strt_date = $(".start-date").val();
 	var comp_date = $(".end-date").val();
-	var atcl_typ = $(".atcl_typ").val();
+	var atcl_type = $(".atcl_typ").val();
+	var atcl_idx = $(".atcl_idx").val();
 	
-	if($("#write_type").val() == 1){
+	if($(".write_type").val() == 1){
 		
 		$("#editorcreateform").ajaxForm ({
 			method   : "post",
 			url: "/issue/mdf/send",
 			enctype: "multipart/form-data",
-			data	: {atcl_sbjt : subject, atcl_conts : context, prjt_idx : prjt_idx, atcl_idx : atcl_idx},
+			data	: {atcl_idx : atcl_idx, atcl_sbjt : subject, atcl_conts : context, prjt_idx : prjt_idx, 
+				strt_date : strt_date, comp_date : comp_date, atcl_typ : atcl_type},
 			success: function(result)	{
 				alert("success");
 			}
@@ -48,7 +50,7 @@ function editorwrite() {
 			url: "/issue/reg/send",
 			enctype: "multipart/form-data",
 			data	: {atcl_sbjt : subject, atcl_conts : context, prjt_idx : prjt_idx,
-				strt_date : strt_date, comp_date : comp_date, atcl_typ : atcl_typ},
+				strt_date : strt_date, comp_date : comp_date, atcl_typ : atcl_type},
 			success: function(result)	{
 				alert("success");
 			}

@@ -181,6 +181,7 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.term.ui.editor2.TermDictionaryEditor2" path="/jobll_exerd/JOBll.xdic"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/jobll_exerd/.project"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/jobll_exerd/jobll.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.term.ui.editor2.TermDictionaryEditor2" path="/jobll_exerd/JOBll.xdic"/>
 </editors>
 <item historyLabel=".project" index="0">
 <position/>
@@ -196,6 +197,8 @@
 <item historyLabel=".project" index="5">
 <position/>
 </item>
+<item historyLabel="jobll.exerd" index="6"/>
+<item historyLabel="JOBll.xdic" index="7"/>
 <item active="true" historyLabel="jobll.exerd" index="6"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
