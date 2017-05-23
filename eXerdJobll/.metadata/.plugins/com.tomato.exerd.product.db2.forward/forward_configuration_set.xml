@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <db2fwd:ForwardConfigurationSet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db2fwd="http://exerd.tomato.com/db2/forward">
-  <configurations name="마지막으로 설정한 환경" delimitedIdentifier="Double-quotes( &quot; )" createTable="true" addPrimaryKeyConstraint="true" addForeignKeyConstraint="true" showLogicanNameToDescription="true"/>
+  <configurations name="마지막으로 설정한 환경" delimitedIdentifier="Double-quotes( &quot; )" createTable="true" addForeignKeyConstraint="true" createForeignKeyIndex="true" showLogicanNameToDescription="true"/>
   <configurations name="생성 (기본 설정)" useOwnerPrefix="true" delimitedIdentifier="Double-quotes( &quot; )" createView="true" createTrigger="true" createTable="true" addPrimaryKeyConstraint="true" createPrimaryIndex="true" addUniqueConstraint="true" createLinkedUniqueIndex="true" addCheckConstraint="true" addForeignKeyConstraint="true" createForeignKeyIndex="true" createUniqueIndex="true" createNonUniqueIndex="true" showLogicanNameToDescription="true">
     <userDefineProperties>ALTERNATIVE_COMMENT</userDefineProperties>
   </configurations>

@@ -19,6 +19,14 @@ public class ProjectInfoRepository {
 		int qry = sqlSession.insert("com.jobll.web.projectInfo.ProjectInfo.create", entity);
 		return qry;
 	}
+	public int delete(ProjectInfo entity){
+		int qry = sqlSession.update("com.jobll.web.projectInfo.ProjectInfo.delete", entity);
+		return qry;
+	}
+	public int modify(ProjectInfo entity){
+		int qry = sqlSession.update("com.jobll.web.projectInfo.ProjectInfo.modify", entity);
+		return qry;
+	}
 	
 	public List<ProjectInfo> findList(ProjectInfo entity) throws Exception{
 		List<ProjectInfo> project_list = sqlSession.selectList("com.jobll.web.projectInfo.ProjectInfo.findAll", entity);

@@ -54,6 +54,9 @@ public class UsrInfoService{
 		entity.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
 		return usrInfoRepository.selectOne(entity);
 	}
+	public UsrInfo findOne(UsrInfo entity){
+		return usrInfoRepository.selectOne(entity);
+	}
 	public List<HashMap<String, Object>> read(UsrInfo entity){
 		
 		return usrInfoRepository.read(entity);

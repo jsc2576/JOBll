@@ -34,5 +34,9 @@ public class CmpnyInfoService {
 	public List<CmpnyInfo> findAll(CmpnyInfo entity) {
 		return cmpnyInfoRepository.findAll(entity);
 	}
+	
+	public CmpnyInfo findOne(CmpnyInfo entity) {
+		return cmpnyInfoRepository.findOne(entity);
+	}
 
 }

@@ -18,13 +18,20 @@ public class ProjectInfo implements Serializable{
 	private String prjt_sbjt;				//프로젝트 제목
 	private String prjt_conts;				//프로젝트 내용
 	private String reg_date;				//등록날짜
-	private String prjt_stus;				//프로젝트 상태
+	private Integer prjt_stus;				//프로젝트 상태
 	private Integer prjt_lv;				//프로젝트 레벨
+	private String usr_id;					//프로젝트 담당자
 	
 	private Integer select_typ;
 	
 	
 	
+	public String getUsr_id() {
+		return usr_id;
+	}
+	public void setUsr_id(String usr_id) {
+		this.usr_id = usr_id;
+	}
 	public Integer getSelect_typ() {
 		return select_typ;
 	}
@@ -67,10 +74,10 @@ public class ProjectInfo implements Serializable{
 	public void setReg_date(String reg_date) {
 		this.reg_date = reg_date;
 	}
-	public String getPrjt_stus() {
+	public Integer getPrjt_stus() {
 		return prjt_stus;
 	}
-	public void setPrjt_stus(String prjt_stus) {
+	public void setPrjt_stus(Integer prjt_stus) {
 		this.prjt_stus = prjt_stus;
 	}
 	public Integer getPrjt_lv() {

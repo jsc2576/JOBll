@@ -19,3 +19,8 @@
 	<div class = "col-lg-12 prjt_list">
 	</div>
 </div>
+
+<div class = "row">
+	<form class = "project-form" method = "POST">
+	</form>
+</div>

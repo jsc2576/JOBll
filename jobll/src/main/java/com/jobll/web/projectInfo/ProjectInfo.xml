@@ -12,7 +12,8 @@
 		"PRJT_CONTS",
 		"REG_DATE",
 		"PRJT_STUS",
-		"PRJT_LV"
+		"PRJT_LV",
+		"USR_ID"
 	)
     VALUES (
 				(nextval('public.prjt_info_idx_seq')),
@@ -22,7 +23,8 @@
 				#{prjt_conts},
 				#{reg_date},
 				#{prjt_stus},
-				#{prjt_lv}
+				#{prjt_lv},
+				#{usr_id}
 			)
 	</insert>
 	
@@ -38,7 +40,20 @@
 		</if>
 
 	</select>
-	
+	<update id="delete" parameterType="com.jobll.web.projectInfo.ProjectInfo" useGeneratedKeys="true"
+    keyProperty="prjt_idx">
+		UPDATE "PRJT_INFO" set
+			"PRJT_STUS" = '0'
+		where "PRJT_IDX" = #{prjt_idx}
+	</update>
+	<update id="modify" parameterType="com.jobll.web.projectInfo.ProjectInfo" useGeneratedKeys="true"
+    keyProperty="prjt_idx">
+		UPDATE "PRJT_INFO" set
+			"PRJT_SBJT" = #{prjt_sbjt},
+			"PRJT_CONTS" = #{prjt_conts},
+			"USR_ID" = #{usr_id}
+		where "PRJT_IDX" = #{prjt_idx}
+	</update>
 	<select id="findChildren" resultType="com.jobll.web.projectInfo.ProjectInfo" parameterType="com.jobll.web.projectInfo.ProjectInfo">
 		SELECT * from "PRJT_INFO" WHERE "PRJT_IDX" = #{high_prjt_idx}
 	</select>
