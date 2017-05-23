@@ -2,7 +2,7 @@
 
 <jsp:include page="../../projectInfoMenu.jsp" flush="false" />
 
-<h3 class = "project-subject">Project Name : ${ entity.prjt_sbjt }</h3>
+<h3 class = "project-subject">${ entity.prjt_sbjt }</h3>
 <!-- data table -->
  	<div id="list"></div>
  		

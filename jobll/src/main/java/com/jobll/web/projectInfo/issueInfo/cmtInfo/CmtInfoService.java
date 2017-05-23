@@ -27,7 +27,7 @@ public class CmtInfoService {
 		
 		entity.setReg_date(commonUtil.getCurrentDtime());
 		entity.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
-		entity.setCmt_stus("1");
+		entity.setCmt_stus(1);
 		
 		hsty.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
 		hsty.setPrjt_idx(entity.getPrjt_idx());
@@ -43,18 +43,27 @@ public class CmtInfoService {
 
 	public List<CmtInfo> findAll(CmtInfo entity)  throws Exception{
 		List<CmtInfo> list = cmtInfoRepository.findAll(entity);
+		
+		for(int i = 0; i < list.size(); i++)
+		{
+			list.get(i).setReg_date(commonUtil.getDividedTime(list.get(i).getReg_date()));
+		}
+		
 		return list;
 	}
 
 	public CmtInfo findOne(CmtInfo entity)  throws Exception{
 		entity = cmtInfoRepository.findOne(entity);
+		
+		entity.setReg_date(commonUtil.getDividedTime(entity.getReg_date()));
+		
 		return entity;
 	}
 	public int delete(CmtInfo entity)  throws Exception{
 		int result;
 		HstyInfo hsty = new HstyInfo();
 		
-		entity.setCmt_stus("0");
+		entity.setCmt_stus(0);
 		
 		hsty.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
 		hsty.setPrjt_idx(entity.getPrjt_idx());

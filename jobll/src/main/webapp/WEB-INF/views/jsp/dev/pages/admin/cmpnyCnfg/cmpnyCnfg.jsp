@@ -12,12 +12,14 @@
 		<h3>고객사 선택</h3>
 	</div>
 	<div class = "col-lg-12 cmpny_list">
-		<button onclick = "GetProjectTable(3)">선택</button>
+		<button onclick = "GetProjectTable(2)">선택</button>
 	</div>
 </div>
 <div class ="row">
-	<div class = "col-lg-12 prjt_list">
-	</div>
+	<form id = "projectInfo" action = "/projectInfo/prjt/check/read" method="post">
+		<div class = "col-lg-12 prjt_list">
+		</div>
+	</form>
 </div>
 
 <div class = "row">

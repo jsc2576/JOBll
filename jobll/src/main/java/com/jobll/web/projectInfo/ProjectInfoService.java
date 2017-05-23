@@ -133,7 +133,7 @@ public class ProjectInfoService {
 	
 	public List<ProjectInfo> findList(ProjectInfo entity) throws Exception{
 		
-		if(entity.getSelect_typ() != 3)
+		if(entity.getSelect_typ() > 2)
 		entity.setCmpny_idx(sessionUtil.getSessionBean().getUsr_cmpny_idx());
 		
 		List<ProjectInfo> project_list = projectInfoRepository.findList(entity);
@@ -153,10 +153,11 @@ public class ProjectInfoService {
 	}
 	
 	public List<ProjectInfo> find(ProjectInfo entity) throws Exception{
-		if(entity.getSelect_typ() == 2)
+		if(entity.getSelect_typ() > 2)
 		entity.setCmpny_idx(sessionUtil.getSessionBean().getUsr_cmpny_idx());
-		else if(entity.getSelect_typ() == 3)
-		{}
+		else
+		{
+		}
 		List<ProjectInfo> list = projectInfoRepository.find(entity);
 		for(int i = 0; i < list.size(); i++)
 		{

@@ -15,7 +15,7 @@ public class CmtInfo implements Serializable{
 	private String usr_id;
 	private String cmt_conts;
 	private String reg_date;
-	private String cmt_stus;
+	private Integer cmt_stus;
 	private Integer atcl_idx;
 	
 	private Integer prjt_idx;
@@ -44,10 +44,10 @@ public class CmtInfo implements Serializable{
 	public void setReg_date(String reg_date) {
 		this.reg_date = reg_date;
 	}
-	public String getCmt_stus() {
+	public Integer getCmt_stus() {
 		return cmt_stus;
 	}
-	public void setCmt_stus(String cmt_stus) {
+	public void setCmt_stus(Integer cmt_stus) {
 		this.cmt_stus = cmt_stus;
 	}
 	public Integer getAtcl_idx() {
