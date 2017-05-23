@@ -242,9 +242,12 @@
                                     <a href="morris.html">사용자 관리</a>
                                 </li>
                                 <li>
-                                    <a href="morris.html">문의 관리</a>
+                                    <a href="/qstList/go">문의 관리</a>
                                 </li>
                             </ul>
+                        </li>
+                        <li>
+                            <a href="/qstList/write"><i class="fa fa-question-circle fa-fw"></i> Q & A</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>

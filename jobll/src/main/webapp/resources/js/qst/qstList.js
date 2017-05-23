@@ -1,13 +1,33 @@
-$(document).ready(function(){
-	pagination_mv(page_nm, list_nm*5);
-	findData(page_nm, list_nm);
+$(document).ready (function (){
+	findPrcs(0);
+	pagination_mv();
 });
-
 var page_nm = 0; // 현재 보이는 페이지네이션의 페이지 
-var list_nm = 10; // 리스트 한번에 보여지는 개수
+var list_nm = 5; // 하나의 페이지네이션에 보여지는 개수
+var prcs_stus_nm = 0; // 현재 보여지고 있는 process stus 번호
+var data_limit = 10; // 하나의 페이지에 보여지는 데이터 수
 
-//페이네이션의 페이지가 이동할 때마다 호출하는 함수
-function pagination_mv(offset, limit){ // limit은 5페이지 전체를 체크하기 위한 것  = list_nm * 5를 해줘야 함
+function findPrcs(prcs_stus){
+	prcs_stus_nm = prcs_stus;
+	findData(prcs_stus_nm, 0, data_limit);
+}
+
+function findpage(page){
+	findData(prcs_stus_nm, list_nm * page, data_limit);
+}
+
+function pagination_next(){
+	page_nm++;
+	pagination_mv();
+}
+
+function pagination_prev(){
+	if(page_nm > 0)
+		page_nm--;	
+	pagination_mv();
+}
+
+function pagination_mv(){
 	var str_html = "";
 	if(page_nm<=0){
 		str_html += "<li class='disabled'>";
@@ -15,117 +35,69 @@ function pagination_mv(offset, limit){ // limit은 5페이지 전체를 체크�
 	else{
 		str_html += "<li>";
 	}
-	
 	str_html += "<a onclick='pagination_prev()'><span class='glyphicon glyphicon-chevron-left'></span></a></li>";
+	str_html += "<li><a onclick='findpage(" + (page_nm * list_nm + 1) + ")'>" + (page_nm * list_nm + 1) + "</a></li>";
+	str_html += "<li><a onclick='findpage(" + (page_nm * list_nm + 2) + ")'>" + (page_nm * list_nm + 2) + "</a></li>";
+	str_html += "<li><a onclick='findpage(" + (page_nm * list_nm + 3) + ")'>" + (page_nm * list_nm + 3) + "</a></li>";
+	str_html += "<li><a onclick='findpage(" + (page_nm * list_nm + 4) + ")'>" + (page_nm * list_nm + 4) + "</a></li>";
+	str_html += "<li><a onclick='findpage(" + (page_nm * list_nm + 5) + ")'>" + (page_nm * list_nm + 5) + "</a></li>";
+	str_html += "<li><a onclick='pagination_next()'><span class='glyphicon glyphicon-chevron-right'></span></a></li>";
+	$("#page_nm").html(str_html);	
+}
+function findData(prcs_stus, atcl_offset, atcl_limit){
 	$.ajax({
-		method: "POST",
-		url: "/qstList/read/cnt",
-		data: {offset:offset, limit:limit},
-		success: function(cnt){
-			var i;
-			for(i=0; i<cnt/5; i++){
-				str_html += "<li><a onclick='findpage(" + (page_nm * list_nm + i) + ")'>" + (page_nm * list_nm + i+1) + "</a></li>";				
-			}
-			
-			if(cnt > 20){
-				str_html += "<li><a onclick='pagination_next()'><span class='glyphicon glyphicon-chevron-right'></span></a></li>";
-			}
-			else{
-				str_html += "<li class='disabled'><span class='glyphicon glyphicon-chevron-right'></span></li>";
-			}
-			$("#page_nm").html(str_html);
-			
-		},
-		error: function(){
-			alert("pagination error");
-		}
-	});
-}
-
-function pagination_next(){
-	page_nm++;
-	pagination_mv(page_nm, list_nm);
-}
-
-function findpage(offset){
-	findData(offset, list_nm);
-}
-
-
-//데이터를 찾는 함수
-function findData(offset, limit){
-	$.ajax({
-		method : "POST", 
-		url : "/qstList/read",
-		data : {offset : offset, limit : limit},
-		success : function(list){
-			var idx_list = new Array();
-			
-			var str_html = "<thead>";
-			str_html += "<tr>";
-			str_html += "<td>인덱스</td>";
-			str_html += "<td>제목</td>";
-			str_html += "<td>내용</td>";
-			str_html += "<td>날짜</td>";
-			str_html += "<td>등록자</td>";
-			str_html += "</tr>";
-			str_html += "</thead>";
-			str_html += "<tbody>";
-			
-			$.each(list, function(index, data){
-				str_html += "<tr onclick='readQstOne("+data.qst_idx+")' id='qst"+data.qst_idx+"'>";
-				str_html += "<td>"+data.qst_idx+"</td>";
-				str_html += "<td>"+data.qst_sbjt+"</td>";
-				str_html += "<td>"+data.qst_conts+"</td>";
-				str_html += "<td>"+data.reg_date+"</td>";
-				str_html += "<td>"+data.usr_id+"</td>";
-				str_html += "</tr>";
-				
-				idx_list.push(data.qst_idx);
+		method : "POST",
+		url : "/qstList/listRun",
+		data : {prcs_stus : prcs_stus, atcl_offset : atcl_offset, atcl_limit : atcl_limit},
+		success: function(list){
+	//		var str_html = "<form id='QstInfo' action = '/qstList/read' method='post'>";
+			var	str_html = "<div class='row'><div class='col-lg-12'><h1 class='page-header'>문의 관리</h1></div> </div><div class='row'><div class='col-lg-12'><div class='panel panel-default'><div class='panel-heading'>문의 목록</div><div class='panel-body'>";
+				str_html += "<table width='80%' class='table table-striped table-bordered table-hover' id='qstList'>";
+				str_html += "<thead><tr>";
+				str_html += "<th>No.</th>";
+				str_html += "<th>제목</th>";
+				str_html += "<th>내용</th>";
+				str_html += "<th>등록날짜</th>";
+				str_html += "<th>담당자</th>";
+				str_html += "<th>문의상태</th>";
+				str_html += "</tr></thead>";			
+				str_html += "<tbody>";
+			$.each(list, function(index, value){
+				str_html += "<tr onclick = 'readQstInfo("+value.qst_idx+")'>";
+				str_html += "<td>"+value.qst_idx+"</td>";
+				str_html += "<td>"+value.qst_sbjt+"</td>";
+				str_html += "<td>"+value.qst_conts+"</td>";
+				str_html += "<td>"+value.reg_date+"</td>";
+				str_html += "<td>"+value.usr_id+"</td>";
+				if(value.qst_stus == 1){
+					str_html += "<td>"+"미답변"+"</td>";
+				}
+				else if(value.qst_stus == 2){
+					str_html += "<td>"+"답변완료"+"</td>";
+				}
+				else if(value.qst_stus == 3){
+					str_html += "<td>"+"비공개"+"</td>";
+				}
+				str_html += "</a></tr>";				
 			});
 			
 			str_html += "</tbody>";
-			
-			$("#qst_table").html(str_html);
-			
-			$.each(idx_list, function(index, data){
-				getAnsList(data);
-			});
+			str_html += "</table>";
+			str_html += "</div></div></div></div>"
+	//		str_html += "</form>";
+			$(".qstlist").html(str_html);		
 		},
-		error : function(){
-			alert("QnA list error");
-		}
+		error: function(){alert("ERROR");}
 	});
 }
 
-function readQstOne(qst_idx){
-	input_html = "<input type='hidden' name='qst_idx' value='"+qst_idx+"'/>"; 
-	$("#get_data").html(input_html);
-	$("#qstOneView").submit();
-}
 
-function getAnsList(qst_idx){
-	$.ajax({
-		method: "POST",
-		url: "/qstList/read/ans",
-		data: {high_qst_idx: qst_idx},
-		success: function(list){
-			$.each(list, function(index, data){
-				var str_html = "";
-				str_html += "<tr onclick='readQstOne("+data.qst_idx+")' id='re"+data.qst_idx+"'>";
-				str_html += "<td> RE: "+data.qst_idx+"</td>";
-				str_html += "<td>"+data.qst_sbjt+"</td>";
-				str_html += "<td>"+data.qst_conts+"</td>";
-				str_html += "<td>"+data.reg_date+"</td>";
-				str_html += "<td>"+data.usr_id+"</td>";
-				str_html += "</tr>";
-				
-				var id = "#qst"+data.high_qst_idx;
-				$(id).after(str_html);
-			});
-		},
-		error: function(){
-			alert("answer error");
-		}
-	});
+function readQstInfo(idx){
+	
+	var str_html = "<input type ='hidden' name = 'qst_idx' value = '"+idx+"'>";
+	
+	$(".qstlist").html(str_html);
+	
+	$("#qstList").submit();
+
 }
