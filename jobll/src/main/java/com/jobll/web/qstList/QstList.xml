@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jobll.web.qstList.QstList">
+
+	<insert  id="create" parameterType ="com.jobll.web.qstList.QstList">
+	INSERT INTO "QST_INFO"(
+			"QST_IDX",
+			"QST_SBJT",
+			"QST_CONTS",
+			"REG_DATE",
+			"USR_ID",
+			"QST_STUS",
+			"ANS_CONTS"
+	)
+	VALUES (
+				#{qst_idx},
+				#{qst_sbjt},
+				#{qst_conts},
+				#{reg_date},
+				#{usr_id},
+				#{qst_stus},
+				#{ans_conts}
+			)
+	</insert>
+
+	<select  id="findAll" resultType="com.jobll.web.qstList.QstList" parameterType ="com.jobll.web.qstList.QstList">
+	SELECT * FROM "QST_INFO"
+	</select>
+
+	<select  id="findOne" resultType="com.jobll.web.qstList.QstList" parameterType ="com.jobll.web.qstList.QstList">
+	SELECT * FROM "QST_INFO" WHERE "QST_IDX" = #{qst_idx}
+	</select>
+
+</mapper>
