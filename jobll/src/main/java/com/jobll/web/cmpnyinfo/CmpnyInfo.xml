@@ -22,6 +22,9 @@
 	<select id="findAll" resultType="com.jobll.web.cmpnyinfo.CmpnyInfo">
 		SELECT * from "CMPNY_INFO" where "CMPNY_STUS" = '1'
 	</select>
+	<select id="findOne" resultType="com.jobll.web.cmpnyinfo.CmpnyInfo">
+		SELECT * from "CMPNY_INFO" where "CMPNY_IDX" = #{cmpny_idx} AND "CMPNY_STUS" = '1'
+	</select>
 	
 	<select id="delete" resultType="com.jobll.web.cmpnyinfo.CmpnyInfo">
 		<foreach collection="list" item="item" index="index" separator=";">

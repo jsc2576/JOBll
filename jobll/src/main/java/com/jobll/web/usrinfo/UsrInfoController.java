@@ -37,6 +37,12 @@ public class UsrInfoController {
 	@Autowired
 	private SessionUtil sessionUtil;
 	
+	@RequestMapping("/pagination")
+	public String pagination(){
+		
+		return "pagination";
+	}
+	
 	@RequestMapping(value = "/usrDel/send", method = RequestMethod.POST)
 	public ModelAndView usrDelSend(@ModelAttribute UsrInfo entity) throws Exception {
 		ModelAndView mav = new ModelAndView("login.do");
@@ -52,7 +58,7 @@ public class UsrInfoController {
 	
 	@RequestMapping(value = "/usrDel")
 	public ModelAndView usrDel() throws Exception {
-		ModelAndView mav = new ModelAndView("usrInfo/usrDel/usrDel");
+		ModelAndView mav = new ModelAndView("usrInfo/usrDel/usrDelView");
 		
 		mav.addObject("usr_id",sessionUtil.getSessionBean().getUsr_id());
 		return mav;
@@ -68,13 +74,13 @@ public class UsrInfoController {
 	
 	@RequestMapping(value = "/usrMdf")
 	public ModelAndView usrMdf() throws Exception {
-		ModelAndView mav = new ModelAndView("usrInfo/usrMdf/usrMdf");
+		ModelAndView mav = new ModelAndView("usrInfo/usrMdf/usrMdfView");
 		//mav.addObject("usr_id", entity.getUsr_id());
 		
 		UsrInfo entity = new UsrInfo();
 		
 		entity = usrInfoService.readOne(entity);
-		mav.addObject("entity",entity);
+		mav.addObject("MdfEntity",entity);
 		return mav;
 	}
 	/**
@@ -103,7 +109,7 @@ public class UsrInfoController {
 	@RequestMapping("/join")
 	public String  usrInfoJoinGo(){
 		
-		return "usrInfo/usrInfoJoin/usrInfoJoin";
+		return "usrInfo/usrInfoJoin/usrInfoJoinView";
 	}
 	/**
 	 * 회원 가입 통신입니다.

@@ -208,12 +208,14 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <li><a href="/usrInfo/MyUsrInfo"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        <li><a href="/usrInfo/usrMdf"><i class="fa fa-gear fa-fw"></i> Profile Modify</a>
+                        </li>
+                        <li><a href="/usrInfo/usrDel"><i class="fa fa-gear fa-fw"></i> Withdrwal</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="/logout.do"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -243,6 +245,9 @@
                                 </li>
                                 <li>
                                     <a href="/qstList/go">문의 관리</a>
+                                </li>
+                                <li>
+                                    <a href="/usrInfo/usrInfoList">회원 목록</a>
                                 </li>
                             </ul>
                         </li>
@@ -337,8 +342,10 @@
                 </div>
                 <!-- /.sidebar-collapse -->
             </div>
+            <!-- 
             <form id = "dataSender" method="post">
 				<input type = "hidden" class = "prjt_idx" name = "prjt_idx" value = ${ entity.prjt_idx }>
 			</form>
+			 -->
             <!-- /.navbar-static-side -->
         </nav>

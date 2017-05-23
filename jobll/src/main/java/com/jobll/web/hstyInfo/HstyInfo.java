@@ -13,13 +13,22 @@ public class HstyInfo implements Serializable{
 
 	private Integer hsty_idx;
 	private String usr_id;
+	private Integer cmpny_idx;
 	private Integer prjt_idx;
 	private Integer atcl_idx;
 	private Integer cmt_idx;
 	private String hsty_date;
 	private String hsty_conts;
 	private Integer hsty_typ;
-
+	
+	
+	
+	public Integer getCmpny_idx() {
+		return cmpny_idx;
+	}
+	public void setCmpny_idx(Integer cmpny_idx) {
+		this.cmpny_idx = cmpny_idx;
+	}
 	public Integer getHsty_idx() {
 		return hsty_idx;
 	}

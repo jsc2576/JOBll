@@ -54,6 +54,18 @@ public class CommonUtil {
 
         return today;
 	}
+	public String getDividedTime(String time) {
+		String y = time.substring(0, 4);
+        String m = time.substring(4, 6);
+        String d = time.substring(6, 8);
+        String h = time.substring(8, 10);
+        String mi = time.substring(10, 12);
+        String s = time.substring(12, 14);
+		
+		
+		return y + "-" + m + "-" + d + " " + h + ":" + mi + ":" + s;
+		
+	}
 	
 	/**
 	 * 현재 년월일을 기준으로 년월일을 원하는 값 만큼 변경하는 메소드

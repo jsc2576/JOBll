@@ -82,8 +82,9 @@ function GetProjectTable(select_typ){
 	                        "<tr>" +
 	                            "<th>No.</th>" +
 	                            "<th>사업명</th>" +
-	                            "<th>계약 종류</th>" +
 	                            "<th>등록 날짜</th>" +
+	                            "<th>담당자</th>" +
+	                            "<th>설정</th>" +
 	                        "</tr>" +
 	                    "</thead>" +
 	                    "<tbody>";
@@ -92,8 +93,11 @@ function GetProjectTable(select_typ){
 								str_html += "<tr class="+(i+1)+">" +
 											"<td>"+(i+1)+"</td>" +
 											"<td>"+list[i].prjt_sbjt+"</td>" +
-											"<td>pass</td>" +
-											"<td>0</td>" +
+											"<td>"+list[i].reg_date+"</td>" +
+											"<th>"+list[i].usr_id+"</th>" +
+											"<td>" +
+											"<button onclick = mofidyProjectPop("+list[i].prjt_idx+")>수정</button><button onclick = deleteProject("+list[i].prjt_idx+")>삭제</button>"
+											"</td>" +
 											"</tr>";
 							}
 				
@@ -104,10 +108,10 @@ function GetProjectTable(select_typ){
 	             "<button class = 'btn prjt_create_btn' onclick = 'PjrtCreateTagController()' style = 'margin : 15px'>프로젝트 추가</button>" +
 	     		"<div class='row prjt_create-tag'>" +
 	                "<div class='col-lg-12'>" +
-	                    "<form role='form'>" +
+	                    "<form role='form' class = 'project-create-form' method = 'POST'>" +
 	                        "<div class='form-group'>" +
 	                            "<label>사업명</label>" +
-	                            "<input class='form-control' name = 'prjt_sbjt'>" +
+	                            "<input class='form-control prjt-sbjt' name = 'prjt_sbjt'>" +
 	                        "</div>" +
 	                        "<div class='form-group'>" +
                             "<label>관리자</label>" +
@@ -116,32 +120,16 @@ function GetProjectTable(select_typ){
                             "</div>" +
 	                        "<div class='form-group'>" +
 	                            "<label>상세 내용</label>" +
-	                            "<textarea class='form-control' rows='8'>" +
-	                            	"납품상세 :" +
-	                            	"																																																																																																		" +
-	                            	"제품 :" +
-	                            	"																																																																																																		" +
-	                            	"계약금 :" +
-	                            	"																																																																																																		" +
-	                            	"계약서 유무 :" +
-	                            	"																																																																																																		" +
-	                            	
-	                            	"사업 실적 처리 :" +
+	                            "<textarea class='form-control' rows='8' name = 'prjt_conts'>" +
+	                            	"납품상세 :\n" +
+	                            	"제품 :\n" +
+	                            	"계약금 :\n" +	
+	                            	"계약서 유무 :\n" +
+	                            	"사업 실적 처리 :\n" +
 	                            "</textarea>" +
 	                        "</div>" +
-	                        "<div class='form-group'>" +
-                            "<label>계약 종류</label><br>" +
-                            "<select>" +
-                            	"<option value = '1'>1(제품/분리발주/쇼핑몰)</option>" +
-                            	"<option value = '2'>2(통합사업 + 제품)</option>" +
-                            	"<option value = '3'>3(제품/SI)</option>" +
-                            	"<option value = '4'>4(SI)</option>" +
-                            	"<option value = '5'>5(BPR/ISP/컨설팅)</option>" +
-                            	"<option value = '6'>6(IOT)</option>" +
-                            "</select>" +
-                            "</div>" +
                             "<div class='form-group'>" +
-                            	"<button type = 'submit' class = 'btn'>추가</button>" +
+                            	"<button onclick = 'createPorject()' class = 'btn'>추가</button>" +
                             "</div>" +
 	                    "</form>" +
 	                "</div>" +
@@ -178,9 +166,8 @@ function GetUsrList(select_typ){
 		success: function(list){
 			
 			var str_html = "<select class='selectpicker usr_value' data-live-search='true' onChange = ''>";
-			str_html += "<option selected>선택</option>";
 			for(var i = 0; i < list.length; i++)
-				str_html += "<option value = "+list[i].usr_id+">"+list[i].usr_nm+"</option>";
+				str_html += "<option value = "+list[i].usr_id+">"+list[i].usr_nm+"("+list[i].usr_id+")</option>";
 				str_html += "</select>";
 			
 			$(".usr_list").prepend(str_html);	

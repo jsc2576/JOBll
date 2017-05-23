@@ -6,6 +6,7 @@
 	INSERT INTO "HSTY_INFO"(
 			"HSTY_IDX",
 			"USR_ID",
+			"CMPNY_IDX",
 			"PRJT_IDX",
 			"ATCL_IDX",
 			"CMT_IDX",
@@ -16,6 +17,7 @@
 	VALUES (
 				(nextval('public.hsty_idx_seq')),
 				#{usr_id},
+				#{cmpny_idx},
 				#{prjt_idx},
 				#{atcl_idx},
 				#{cmt_idx},

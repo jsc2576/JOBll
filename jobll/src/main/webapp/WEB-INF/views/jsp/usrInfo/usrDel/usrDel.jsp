@@ -1,18 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html><head>
+<html>
+<!-- <head>
 <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
 <title>회원탈퇴</title>
   <link href="/resources/css/usrInfo/usrInfoJoin.css" rel="stylesheet">
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+ 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
   <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script>
 
 
-</head>
+</head> -->
 <body>
 
       <div class="container">
