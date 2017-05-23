@@ -98,6 +98,6 @@ function readQstInfo(idx){
 	
 	$(".qstlist").html(str_html);
 	
-	$("#qstList").submit();
+	$("#qstInfo").submit();
 
 }
