@@ -1,16 +1,10 @@
 Manifest-Version: 1.0
+Implementation-Vendor: Pivotal Software, Inc.
 Implementation-Title: jobll
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: dhtmd
 Implementation-Vendor-Id: com.jobll.web
-<<<<<<< HEAD
 Build-Jdk: 1.7.0_80
 Built-By: lsy
 Created-By: Maven Integration for Eclipse
-=======
-Build-Jdk: 1.8.0_121
->>>>>>> 37a1a92d131e2f77cfcd17f3bae1cdd4036e9bf6
 Implementation-URL: http://projects.spring.io/spring-boot/jobll/
-Created-By: Maven Integration for Eclipse
-Implementation-Vendor: Pivotal Software, Inc.
 
