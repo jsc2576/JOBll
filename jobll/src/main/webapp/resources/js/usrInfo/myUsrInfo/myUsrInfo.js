@@ -53,7 +53,7 @@ function myUsrInfo() {
 				str_html ="<section id=\"MyUsrInfo-tag\">"
 				str_html +="<table class = \"table table-striped custom-table\">";
 				str_html +="<tr><th colspan = '5'>회원정보</th></tr>";
-				str_html +="<tr><th colspan = '1' rowspan = '4'><img src=\"../resources/images/usrInfo/myUsrInfo/baseprofile.png\" style=\"max-width: 100%; height: 30%;\"></th>";
+				str_html +="<tr><th colspan = '1' rowspan = '4'><img src=\"../resources/images/usrInfo/myUsrInfo/baseprofile.png\" style=\"max-width: 50%; height: 30%;\"></th>";
 				
 				str_html +="<th class = 'th-15'>ID</th>";
 				str_html +="<td colspan = '2'>";
