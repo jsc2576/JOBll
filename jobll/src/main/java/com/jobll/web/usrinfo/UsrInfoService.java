@@ -24,7 +24,11 @@ public class UsrInfoService{
 	
 	@Autowired
 	private CommonUtil commonUtil;
-
+	
+	public List<UsrInfo> selectUserByCmpny(UsrInfo entity) {
+		return usrInfoRepository.selectUserByCmpny(entity);
+	}
+	
 	public List<UsrInfo> selectAllUser() {
 		return usrInfoRepository.selectAllUser();
 	}

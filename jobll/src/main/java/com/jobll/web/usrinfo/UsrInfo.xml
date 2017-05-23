@@ -2,9 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jobll.web.usrinfo.UsrInfo">
 
+	<select id="selectUserByCmpny" parameterType ="com.jobll.web.usrinfo.UsrInfo" resultType="com.jobll.web.usrinfo.UsrInfo">
+		SELECT "USR_ID","USR_NM","USR_LV",
+			(select "CMPNY_NM" as "usr_pwd" from "CMPNY_INFO" where "CMPNY_IDX" = p."USR_CMPNY_IDX") 
+		from "USR_INFO" p
+		WHERE "USR_CMPNY_IDX" = #{usr_cmpny_idx}
+	</select>
 	<select id="readPrjtSbjt" parameterType ="com.jobll.web.usrinfo.UsrInfo" resultType="com.jobll.web.projectInfo.ProjectInfo">
 		SELECT p."PRJT_IDX",
-				(select "PRJT_SBJT" from "PRJT_INFO" where "PRJT_IDX" = p."PRJT_IDX")
+			(select "PRJT_SBJT" from "PRJT_INFO" where "PRJT_IDX" = p."PRJT_IDX"),
+			(select "REG_DATE" from "PRJT_INFO" where "PRJT_IDX" = p."PRJT_IDX"),
+			(select "USR_ID" from "PRJT_INFO"  where "PRJT_IDX" = p."PRJT_IDX")
+
 		FROM "PRJT_CNET_LIST" p 
 		WHERE "USR_ID" = #{usr_id}
 

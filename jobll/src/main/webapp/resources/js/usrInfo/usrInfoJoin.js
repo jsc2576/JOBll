@@ -48,13 +48,9 @@ $(document).ready(function(){
     },
     usr_pwd: {
      required: true,
-     minlength: 6,
-     maxlength: 12
     },
     chk_pwd: {
      required: true,
-     minlength: 6,
-     maxlength: 12,
      equalTo: "#usr_pwd"
     },
     usr_nm: {
