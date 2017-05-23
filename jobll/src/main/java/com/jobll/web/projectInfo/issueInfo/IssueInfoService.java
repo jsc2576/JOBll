@@ -10,6 +10,7 @@ import com.jobll.web.CommonUtil;
 import com.jobll.web.SessionUtil;
 import com.jobll.web.cmpnyinfo.*;
 import com.jobll.web.hstyInfo.*;
+import com.jobll.web.projectInfo.*;
 
 @Service
 public class IssueInfoService {
@@ -26,7 +27,9 @@ public class IssueInfoService {
 	@Autowired
 	private HstyInfoService hstyInfoService;
 	@Autowired
-	private CmpnyInfoService cmpnyinfoService;
+	private CmpnyInfoService cmpnyInfoService;
+	@Autowired
+	private ProjectInfoService projectInfoService;
 	
 	/**
 	 * 모든 데이터 검색 
@@ -39,7 +42,8 @@ public class IssueInfoService {
 		
 		int result;
 		HstyInfo hsty = new HstyInfo();
-		HstyInfo cmpny_idx = new HstyInfo();
+		CmpnyInfo cmpny_nm = new CmpnyInfo();
+		ProjectInfo prjt_sbjt = new ProjectInfo();
 		
 		entity.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
 	    entity.setReg_date(commonUtil.getCurrentDtime());
@@ -48,10 +52,25 @@ public class IssueInfoService {
 	    result = issueInfoRepository.create(entity);
 	    
 		hsty.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
+		hsty.setCmpny_idx(sessionUtil.getSessionBean().getUsr_cmpny_idx());
 		hsty.setPrjt_idx(entity.getPrjt_idx());
-		hsty.setHsty_date(commonUtil.getCurrentDtime());
-		hsty.setHsty_typ(1);
 		hsty.setAtcl_idx(entity.getAtcl_idx());
+		hsty.setHsty_date(commonUtil.getCurrentDtime());
+		hsty.setHsty_typ(2);
+		
+		
+		cmpny_nm.setCmpny_idx(sessionUtil.getSessionBean().getUsr_cmpny_idx());
+		
+		cmpny_nm = cmpnyInfoService.findOne(cmpny_nm);
+		
+		prjt_sbjt.setPrjt_idx(entity.getPrjt_idx());
+		prjt_sbjt = projectInfoService.findOne(prjt_sbjt);
+		
+		String conts_val = sessionUtil.getSessionBean().getUsr_nm() + "(" + sessionUtil.getSessionBean().getUsr_id() +
+							") 가 "+ cmpny_nm.getCmpny_nm() + " 고객사의 " + prjt_sbjt.getPrjt_sbjt() + " 프로젝트의" +
+							entity.getAtcl_sbjt() + "이슈를 등록함";
+		
+		hsty.setHsty_conts(conts_val);
 		result = hstyInfoService.create(hsty);
 		
 		
@@ -90,40 +109,74 @@ public class IssueInfoService {
 	public int delete(IssueInfo entity) throws Exception{
 		int result;
 		HstyInfo hsty = new HstyInfo();
+		CmpnyInfo cmpny_nm = new CmpnyInfo();
+		ProjectInfo prjt_sbjt = new ProjectInfo();
 		
 		entity.setAtcl_stus(0);
 		
+		result = issueInfoRepository.delete(entity);
+
 		hsty.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
+		hsty.setCmpny_idx(sessionUtil.getSessionBean().getUsr_cmpny_idx());
 		hsty.setPrjt_idx(entity.getPrjt_idx());
-		hsty.setHsty_date(commonUtil.getCurrentDtime());
-		hsty.setHsty_typ(1);
 		hsty.setAtcl_idx(entity.getAtcl_idx());
+		hsty.setHsty_date(commonUtil.getCurrentDtime());
+		hsty.setHsty_typ(2);
+		
+		
+		cmpny_nm.setCmpny_idx(sessionUtil.getSessionBean().getUsr_cmpny_idx());
+		
+		cmpny_nm = cmpnyInfoService.findOne(cmpny_nm);
+		
+		prjt_sbjt.setPrjt_idx(entity.getPrjt_idx());
+		prjt_sbjt = projectInfoService.findOne(prjt_sbjt);
+		
+		String conts_val = sessionUtil.getSessionBean().getUsr_nm() + "(" + sessionUtil.getSessionBean().getUsr_id() +
+							") 가 "+ cmpny_nm.getCmpny_nm() + " 고객사의 " + prjt_sbjt.getPrjt_sbjt() + " 프로젝트의" +
+							entity.getAtcl_sbjt() + "이슈를 삭제함";
+		
+		hsty.setHsty_conts(conts_val);
 		result = hstyInfoService.create(hsty);
 		
-		int qry = issueInfoRepository.delete(entity);
-		return qry;
+		return result;
 	}
 	
 	public int update(IssueInfo entity) throws Exception{
 		int result;
 		HstyInfo hsty = new HstyInfo();
+		CmpnyInfo cmpny_nm = new CmpnyInfo();
+		ProjectInfo prjt_sbjt = new ProjectInfo();
 		
-		IssueInfo update_data = this.findOne(entity);
+		IssueInfo prev_data = new IssueInfo();
 		
-		update_data.setReg_date(commonUtil.getCurrentDtime());
-		update_data.setAtcl_sbjt(entity.getAtcl_sbjt());
-		update_data.setAtcl_conts(entity.getAtcl_conts());
-	    
+		prev_data = issueInfoRepository.findOne(entity);
+		
+		result = issueInfoRepository.update(entity);
+
 		hsty.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
+		hsty.setCmpny_idx(sessionUtil.getSessionBean().getUsr_cmpny_idx());
 		hsty.setPrjt_idx(entity.getPrjt_idx());
-		hsty.setHsty_date(commonUtil.getCurrentDtime());
-		hsty.setHsty_typ(1);
 		hsty.setAtcl_idx(entity.getAtcl_idx());
-		result = hstyInfoService.create(hsty);
+		hsty.setHsty_date(commonUtil.getCurrentDtime());
+		hsty.setHsty_typ(2);
 		
+		
+		cmpny_nm.setCmpny_idx(sessionUtil.getSessionBean().getUsr_cmpny_idx());
+		
+		cmpny_nm = cmpnyInfoService.findOne(cmpny_nm);
+		
+		prjt_sbjt.setPrjt_idx(entity.getPrjt_idx());
+		prjt_sbjt = projectInfoService.findOne(prjt_sbjt);
+		
+		String conts_val = sessionUtil.getSessionBean().getUsr_nm() + "(" + sessionUtil.getSessionBean().getUsr_id() +
+							") 가 "+ cmpny_nm.getCmpny_nm() + " 고객사의 " + prjt_sbjt.getPrjt_sbjt() + " 프로젝트의" +
+							prev_data.getAtcl_sbjt() + "이슈를"+entity.getAtcl_sbjt()+"로(으로) 수정함";
+		
+		hsty.setHsty_conts(conts_val);
+		result = hstyInfoService.create(hsty);
 	   
-		int qry = issueInfoRepository.update(update_data);
-		return qry;
+		
+		return result;
 	}
 }
 

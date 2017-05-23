@@ -44,16 +44,21 @@
 		SELECT * from "ATCL_INFO" WHERE "ATCL_IDX" = #{atcl_idx} and "ATCL_STUS" = '1'
 	</select>
 	
-	<update id="delete" parameterType="com.jobll.web.projectInfo.issueInfo.IssueInfo">
+	<update id="delete" parameterType="com.jobll.web.projectInfo.issueInfo.IssueInfo" useGeneratedKeys="true"
+    keyProperty="atcl_idx">
 		UPDATE "ATCL_INFO" set
 			"ATCL_STUS" = #{atcl_stus}
 		where "ATCL_IDX" = #{atcl_idx}
 	</update>
-	<update id="update" parameterType="com.jobll.web.projectInfo.issueInfo.IssueInfo">
+	<update id="update" parameterType="com.jobll.web.projectInfo.issueInfo.IssueInfo" useGeneratedKeys="true"
+    keyProperty="atcl_idx">
 		UPDATE "ATCL_INFO" set
 			"ATCL_SBJT" = #{atcl_sbjt},
 			"ATCL_CONTS" = #{atcl_conts},
-			"REG_DATE" = #{reg_date}
+			"REG_DATE" = #{reg_date},
+			"STRT_DATE" = #{strt_date}, 
+			"COMP_DATE" = #{comp_date}, 
+			"ATCL_TYP" = #{atcl_typ}
 		where "ATCL_IDX" = #{atcl_idx}
 	</update>
 </mapper>
