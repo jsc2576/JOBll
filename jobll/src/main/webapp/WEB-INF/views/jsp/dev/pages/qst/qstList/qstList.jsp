@@ -2,7 +2,9 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="row">	
-	<div class="qstlist"></div>
+	<form id = "qstInfo" action="/qstList/read" method="post">
+		<div class="qstlist"></div>	
+	</form>
 	
 	<div class="jb-center">
 	  	<ul class="pagination" id="page_nm"></ul>

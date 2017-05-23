@@ -36,7 +36,7 @@ public class QstListController {
 	
 	@RequestMapping(value = "/qstListWrite", method = RequestMethod.POST)
 	public ModelAndView qstListServiceWrite (@ModelAttribute QstList entity) throws Exception {
-		ModelAndView mav = new ModelAndView(	"dev/pages/qst/qstList/qstListView");
+		ModelAndView mav = new ModelAndView("dev/pages/qst/qstList/qstListView");
 		
 		qstListService.create(entity);
 		
@@ -53,10 +53,9 @@ public class QstListController {
 	@RequestMapping(value="/read", method=RequestMethod.POST)
 	@ResponseBody
 	public ModelAndView qstListView(@ModelAttribute QstList entity)throws Exception{
-		ModelAndView mav = new ModelAndView("qst/qstView");
+		ModelAndView mav = new ModelAndView("dev/pages/qst/qstView");
 		entity = qstListService.findOne(entity);
 		mav.addObject("entity", entity);
 		return mav;
 	}
-	
 }
