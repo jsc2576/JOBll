@@ -1,6 +1,6 @@
 $(document).ready (function (){
 	writeQst();
-	GetMyQstList();
+	GetMyQstList(0,0);
 
 });
 
@@ -21,11 +21,11 @@ function writeQst(){
 	});
 }
 
-function GetMyQstList(){
+function GetMyQstList(off,page_off){
 	$.ajax({
 		method : "POST",
 		url : "/qstList/GetMyQstList",
-		data : {},
+		data : {off : off, page_off : page_off},
 		success: function(list){
 			var str_html = "<div class='row'>" +
 	            "<div class='panel-body'>" +
@@ -56,34 +56,37 @@ function GetMyQstList(){
 											}
 											str_html += "</tr>";
 							}
-							/*
-							var page_html =  
-								"<div class=\"container\">"+
-								"<ul class=\"pagination\">";
-						
-								if(page_off==0)
-									page_html += "<li class=\"disabled\">"; 
-								else 
-									page_html += "<li>";
-								page_html += "<a onclick = \"GetHstyTable("+prjt_idx+","+(page_off-1)+","+(page_off-5)+")\"><span class=\"glyphicon glyphicon-chevron-left\"></span></a></li>";
-								for(i=0; i<5; i++){
-									if(i==(off-page_off))
-										page_html += "<li class=\"active\">";
-									else
-										page_html += "<li>";
-									page_html+="<a onclick = \"GetHstyTable("+prjt_idx+","+(page_off+i)+","+(page_off)+")\">"+(page_off+i+1)+"</a></li>";
-								}
-								page_html +="<li>"+ 
-									"<a onclick = \"GetHstyTable("+prjt_idx+","+(page_off+5)+","+(page_off+5)+")\">" + 
-									"<span class=\"glyphicon glyphicon-chevron-right\"></span></a></li>"+
-							  	"</ul>"+
-							  	"</div>";
-								$("#pagination").html(page_html);*/
+							
 				str_html += "</tbody>" +
 	                "</table>" +
 	            "</div>" +
 				
 				$(".myQstList").html(str_html);	
+				
+				var page_html =  
+					"<div class=\"container\">"+
+					"<ul class=\"pagination\">";
+					
+					
+					if(page_off==0)
+						page_html += "<li class=\"disabled\">"; 
+					else 
+						page_html += "<li>";
+					page_html += "<a onclick = \"GetMyQstList("+(page_off-1)+","+(page_off-5)+")\"><span class=\"glyphicon glyphicon-chevron-left\"></span></a></li>";
+					for(i=0; i<5; i++){
+						if(i==(off-page_off))
+							page_html += "<li class=\"active\">";
+						else
+							page_html += "<li>";
+						page_html+="<a onclick = \"GetMyQstList("+(page_off+i)+","+(page_off)+")\">"+(page_off+i+1)+"</a></li>";
+					}
+					page_html +="<li>"+ 
+						"<a onclick = \"GetMyQstList("+(page_off+5)+","+(page_off+5)+")\">" + 
+						"<span class=\"glyphicon glyphicon-chevron-right\"></span></a></li>"+
+				    	
+				  	"</ul>"+
+				  	"</div>";
+					$("#pagination").html(page_html);
 		//}
 	},
 	error: function(){alert("ERROR");}

@@ -25,10 +25,12 @@
 
 	<select  id="findAll" resultType="com.jobll.web.qstList.QstList" parameterType ="com.jobll.web.qstList.QstList">
 	SELECT * FROM "QST_INFO"
+	LIMIT #{lim} OFFSET #{off}
 	</select>
 	
 	<select  id="findMyQst" resultType="com.jobll.web.qstList.QstList" parameterType ="com.jobll.web.qstList.QstList">
 	SELECT * FROM "QST_INFO" WHERE "USR_ID" = #{usr_id}
+	LIMIT #{lim} OFFSET #{off}
 	</select>
 
 	<select  id="findOne" resultType="com.jobll.web.qstList.QstList" parameterType ="com.jobll.web.qstList.QstList">

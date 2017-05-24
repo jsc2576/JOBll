@@ -56,6 +56,7 @@ public class QstListController {
 	@RequestMapping(value = "/listRun", method= RequestMethod.POST)
 	@ResponseBody
 	public List<QstList> QstListgo(@ModelAttribute QstList entity)throws Exception{
+		entity.setOff(entity.getLim()*entity.getOff());
 		List<QstList> list = qstListService.findAll(entity);
 		return list;
 	}
@@ -63,6 +64,7 @@ public class QstListController {
 	@RequestMapping(value = "/GetMyQstList", method= RequestMethod.POST)
 	@ResponseBody
 	public List<QstList> GetMyQstList(@ModelAttribute QstList entity)throws Exception{
+		entity.setOff(entity.getLim()*entity.getOff());
 		List<QstList> list = qstListService.findMyQst(entity);
 		return list;
 	}

@@ -55,6 +55,7 @@
         <h3 class="page-header">나의 문의 내역</h3>
     </div>
     <div class = 'myQstList'></div>
+    <div id="pagination"></div>
     <!-- /.col-lg-12 -->
 </div>
 

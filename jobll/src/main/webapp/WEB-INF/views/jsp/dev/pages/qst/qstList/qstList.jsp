@@ -5,8 +5,6 @@
 	<form id = "qstInfo" action="/qstList/read" method="post">
 		<div class="qstlist"></div>	
 	</form>
-	
-	<div class="jb-center">
-	  	<ul class="pagination" id="page_nm"></ul>
-	</div>
+<div id="pagination"></div>
+
 </div>
