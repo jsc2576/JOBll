@@ -29,8 +29,8 @@ public class UsrInfoService{
 		return usrInfoRepository.selectUserByCmpny(entity);
 	}
 	
-	public List<UsrInfo> selectAllUser() {
-		return usrInfoRepository.selectAllUser();
+	public List<UsrInfo> selectAllUser(UsrInfo entity) {
+		return usrInfoRepository.selectAllUser(entity);
 	}
 	public List<CmpnyInfo> selectCmpny(){
 		return usrInfoRepository.selectCmpny();

@@ -21,8 +21,8 @@ public class UsrInfoRepository {
 		List<UsrInfo> selectList = sqlSession.selectList("com.jobll.web.usrinfo.UsrInfo.selectUserByCmpny", entity);	
 		return selectList ;
 	}
-	public List<UsrInfo> selectAllUser() {
-		List<UsrInfo> selectList = sqlSession.selectList("com.jobll.web.usrinfo.UsrInfo.selectAllUser");	
+	public List<UsrInfo> selectAllUser(UsrInfo entity) {
+		List<UsrInfo> selectList = sqlSession.selectList("com.jobll.web.usrinfo.UsrInfo.selectAllUser", entity);	
 		return selectList ;
 	}
 	public List<CmpnyInfo> selectCmpny() {

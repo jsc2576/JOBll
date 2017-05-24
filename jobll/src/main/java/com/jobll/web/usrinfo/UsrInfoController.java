@@ -47,19 +47,7 @@ public class UsrInfoController {
 		return "pagination";
 	}
 	
-	@RequestMapping(value = "/readUserInfoByCmpny", method = RequestMethod.POST)
-	@ResponseBody
-	public List<UsrInfo> UsrInfoListByCmpny(@ModelAttribute UsrInfo entity) {
-		
-		List<UsrInfo> List;
-		if(entity.getUsr_cmpny_idx()==-1){
-			List= usrInfoService.selectAllUser();	
-		}
-		else
-			List=usrInfoService.selectUserByCmpny(entity);
-		
-		return List;
-	}
+
 	
 	@RequestMapping(value = "/usrDel/send", method = RequestMethod.POST)
 	public ModelAndView usrDelSend(@ModelAttribute UsrInfo entity) throws Exception {
@@ -120,8 +108,38 @@ public class UsrInfoController {
 	 * 회원목록 리스트 페이지로 이동합니다.(추후 사이트 관리자 계정에서만 보이게 할 것)
 	**/
 	@RequestMapping("/usrInfoList")
-	public String usrInfoListGo(){
-		return "usrInfo/usrInfoList/usrInfoListView";
+	public ModelAndView usrInfoListGo(@ModelAttribute UsrInfo entity){
+		ModelAndView mav = new ModelAndView("usrInfo/usrInfoList/usrInfoListView");
+		mav.addObject("lim", entity.getLim());
+		mav.addObject("off", entity.getOff());
+		return mav;
+	}
+	
+	/**
+	 * 모든 유저 정보를 리스트 형식으로 반환
+	 * @return
+	 */
+	@RequestMapping(value = "/allPersonInfo/check/read", method = RequestMethod.POST)
+	@ResponseBody
+	public List<UsrInfo> UsrInfoList(UsrInfo entity) {
+		entity.setOff(entity.getLim()*entity.getOff());
+		List<UsrInfo> List;
+		List= usrInfoService.selectAllUser(entity);
+		return List;
+	}
+	@RequestMapping(value = "/readUserInfoByCmpny", method = RequestMethod.POST)
+	@ResponseBody
+	public List<UsrInfo> UsrInfoListByCmpny(@ModelAttribute UsrInfo entity) {
+		
+		List<UsrInfo> List;
+		entity.setOff(entity.getLim()*entity.getOff());
+		if(entity.getUsr_cmpny_idx()==-1){
+			List= usrInfoService.selectAllUser(entity);	
+		}
+		else{
+			List=usrInfoService.selectUserByCmpny(entity);
+		}
+		return List;
 	}
 	/**
 	 * 회원 가입 페이지로 이동합니다.
@@ -179,17 +197,7 @@ public class UsrInfoController {
 		return sel;
 	}
 	
-	/**
-	 * 모든 유저 정보를 리스트 형식으로 반환
-	 * @return
-	 */
-	@RequestMapping(value = "/allPersonInfo/check/read", method = RequestMethod.POST)
-	@ResponseBody
-	public List<UsrInfo> UsrInfoList() {
-		List<UsrInfo> List;
-		List= usrInfoService.selectAllUser();
-		return List;
-		}
+	
 	
 	@RequestMapping(value = "/prjt/read", method = RequestMethod.POST)
 	@ResponseBody
