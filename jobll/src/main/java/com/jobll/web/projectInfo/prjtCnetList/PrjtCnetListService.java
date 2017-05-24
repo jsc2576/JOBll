@@ -64,6 +64,16 @@ public class PrjtCnetListService{
 		return sample;
 
 	}
+	public int createOne(PrjtCnetList entity) {
+		int result = prjtCnetListRepository.createOne(entity);
+		return result;
+		
+	}
+	public int deleteOne(PrjtCnetList entity) {
+		int result = prjtCnetListRepository.deleteOne(entity);
+		return result;
+		
+	}
 
 	
 	//유저 리스트 출력

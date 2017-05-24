@@ -1,6 +1,7 @@
 
 package com.jobll.web.projectInfo.issueInfo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,7 @@ public class IssueInfoService {
 	private CmpnyInfoService cmpnyInfoService;
 	@Autowired
 	private ProjectInfoService projectInfoService;
+
 	
 	/**
 	 * 모든 데이터 검색 
@@ -105,6 +107,19 @@ public class IssueInfoService {
 		
 		return entity;
 	}
+	public ArrayList<String> findToTypCnt(IssueInfo entity) throws Exception{
+		
+		ArrayList<String> count = new ArrayList<String>();
+
+		for(int i = 0; i < 5; i ++)
+		{
+			entity.setAtcl_typ(i+1);
+			count.add(issueInfoRepository.findToTypCnt(entity));
+		}
+		
+		return count;
+	}
+	
 	
 	public int delete(IssueInfo entity) throws Exception{
 		int result;

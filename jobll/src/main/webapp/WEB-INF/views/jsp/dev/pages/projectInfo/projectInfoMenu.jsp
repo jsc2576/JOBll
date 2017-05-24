@@ -14,4 +14,3 @@
 <form id = "dataSender" method="post">
 	<input type = "hidden" class = "prjt_idx" name = "prjt_idx" value = ${ entity.prjt_idx }>
 </form>
-	

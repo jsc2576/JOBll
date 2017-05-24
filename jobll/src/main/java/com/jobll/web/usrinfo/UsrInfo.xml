@@ -52,7 +52,7 @@
 		AND "USR_CMPNY_IDX" = #{usr_cmpny_idx} 
 		</if>
 		<if test="select_typ == 3">
-		AND "USR_CMPNY_IDX" = #{usr_cmpny_idx} AND "USR_LV" = '3'
+		AND "USR_CMPNY_IDX" = #{usr_cmpny_idx} AND "USR_LV" = '2'
 		</if>
 	</select>
 	<update id="edit" parameterType ="com.jobll.web.usrinfo.UsrInfo">

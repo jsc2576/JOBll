@@ -12,6 +12,7 @@ import com.jobll.web.atclInfo.AtclInfo;
 import com.jobll.web.usrinfo.UsrInfo;
 import com.jobll.web.hstyInfo.*;
 import com.jobll.web.cmpnyinfo.*;
+import com.jobll.web.projectInfo.prjtCnetList.*;
 
 @Service
 public class ProjectInfoService {
@@ -29,16 +30,21 @@ public class ProjectInfoService {
 	private HstyInfoService hstyInfoService;
 	@Autowired
 	private CmpnyInfoService cmpnyInfoService;
+	@Autowired
+	private PrjtCnetListService prjtCnetListService;
 	
 
 	public int create(ProjectInfo entity) throws Exception{
 		int result;
 		HstyInfo hsty = new HstyInfo();
+		PrjtCnetList cnet = new PrjtCnetList();
 		
 		entity.setPrjt_stus(1);
 		entity.setReg_date(commonUtil.getCurrentDtime());
 		
 		result = projectInfoRepository.create(entity);
+		
+		
 				
 		hsty.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
 		hsty.setPrjt_idx(entity.getPrjt_idx());
@@ -58,7 +64,12 @@ public class ProjectInfoService {
 		hsty.setHsty_conts(conts_val);
 		result = hstyInfoService.create(hsty);
 		
+		cnet.setCmpny_idx(entity.getCmpny_idx());
+		cnet.setPrjt_cnet_list_stus(1);
+		cnet.setPrjt_idx(entity.getPrjt_idx());
+		cnet.setUsr_id(entity.getUsr_id());
 		
+		result = prjtCnetListService.createOne(cnet);
 		
 		return result;
 	}
@@ -97,10 +108,18 @@ public class ProjectInfoService {
 	public int modify (ProjectInfo entity) throws Exception{
 		
 		int result;
-		
+		PrjtCnetList cnet = new PrjtCnetList();
 		ProjectInfo temp = new ProjectInfo();
 		
+		
+		
 		temp = projectInfoRepository.findOne(entity);
+		
+		cnet.setUsr_id(temp.getUsr_id());
+		cnet.setPrjt_idx(temp.getPrjt_idx());
+		cnet.setPrjt_cnet_list_stus(0);
+		
+		result = prjtCnetListService.deleteOne(cnet);
 		
 		commonUtil.getDividedTime(temp.getReg_date());
 		
@@ -127,6 +146,12 @@ public class ProjectInfoService {
 		hsty.setHsty_conts(conts_val);
 		result = hstyInfoService.create(hsty);
 		
+		cnet.setCmpny_idx(cmpny_nm.getCmpny_idx());
+		cnet.setPrjt_cnet_list_stus(1);
+		cnet.setPrjt_idx(entity.getPrjt_idx());
+		cnet.setUsr_id(entity.getUsr_id());
+		
+		result = prjtCnetListService.createOne(cnet);
 		
 		return result;
 	}

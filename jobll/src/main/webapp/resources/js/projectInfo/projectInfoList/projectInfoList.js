@@ -28,14 +28,5 @@ function readProjectList(){
 		error: function(){alert("ERROR");}
 	});
 }
-function readProjectInfo(idx){
-	
-	var str_html = "<input type ='hidden' name = 'prjt_idx' value = '"+idx+"'>";
-	
-	$(".list").html(str_html);
-	
-	$("#projectInfo").submit();
-
-}
 
 
