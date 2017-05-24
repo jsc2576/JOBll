@@ -201,15 +201,16 @@ function GetUsrList(select_typ){
 		error: function(){alert("ERROR");}
 	});
 }
-
-function GetHstyTable(prjt_idx){
+//GetHstyTable(prjt_idx); : 본래 코드, 페이징을 위해 변경 - OSC
+function GetHstyTable(prjt_idx,off,page_off){
 	$.ajax({
 		method : "POST",
 		url : "/allPersonInfo/GetHstyLog",
-		data : {prjt_idx : prjt_idx},
+		data : {prjt_idx : prjt_idx,off : off, page_off : page_off},
 		success: function(list){
-			for(var i = 0; i < list.length; i++)
-			{	
+
+			//for(var i = 0; i < list.length; i++)
+			//{
 				var str_html = "<div class='row'>" +
 			    "<div class='col-lg-12'>" +
 		          "<div class='panel panel-default'>" +
@@ -227,15 +228,35 @@ function GetHstyTable(prjt_idx){
 		                        "</tr>" +
 		                    "</thead>" +
 		                    "<tbody>";
-								for(var i = 0; i < list.length; i++)
+								for(var j = 0; j < list.length; j++)
 								{
-									str_html += "<tr class="+(i+1)+">" +
-												"<td>"+(i+1)+"</td>" +
-												"<td>"+list[i].hsty_conts+"</td>" +
-												"<th>"+list[i].hsty_date+"</th>" +
+									str_html += "<tr class="+(j+1)+">" +
+												"<td>"+(j+off*10+1)+"</td>" +
+												"<td>"+list[j].hsty_conts+"</td>" +
+												"<th>"+list[j].hsty_date+"</th>" +
 												"</tr>";
 								}
-					
+								var page_html =  
+									"<div class=\"container\">"+
+									"<ul class=\"pagination\">";
+									if(page_off==0)
+										page_html += "<li class=\"disabled\">"; 
+									else 
+										page_html += "<li>";
+									page_html += "<a onclick = \"GetHstyTable("+prjt_idx+","+(page_off-1)+","+(page_off-5)+")\"><span class=\"glyphicon glyphicon-chevron-left\"></span></a></li>";
+									for(i=0; i<5; i++){
+										if(i==(off-page_off))
+											page_html += "<li class=\"active\">";
+										else
+											page_html += "<li>";
+										page_html+="<a onclick = \"GetHstyTable("+prjt_idx+","+(page_off+i)+","+(page_off)+")\">"+(page_off+i+1)+"</a></li>";
+									}
+									page_html +="<li>"+ 
+										"<a onclick = \"GetHstyTable("+prjt_idx+","+(page_off+5)+","+(page_off+5)+")\">" + 
+										"<span class=\"glyphicon glyphicon-chevron-right\"></span></a></li>"+
+								  	"</ul>"+
+								  	"</div>";
+									$("#pagination").html(page_html);
 					str_html += "</tbody>" +
 		                "</table>" +
 		            "</div>" +
@@ -246,8 +267,10 @@ function GetHstyTable(prjt_idx){
 			"</div>";
 					
 					$(".hsty_list").html(str_html);	
-			}
-
+			//}
+		
+			
+			
 		},
 		error: function(){alert("ERROR");}
 	});
@@ -282,5 +305,6 @@ function GetIssueRate(prjt_idx)
 		error: function(){alert("ERROR");}
 	});
 	$(".hsty_list").html("");
-	GetHstyTable(prjt_idx);
+	GetHstyTable(prjt_idx,0,0);
+	//GetHstyTable(prjt_idx); : 본래 코드, 페이징을 위해 변경 - OSC
 }

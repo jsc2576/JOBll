@@ -148,16 +148,11 @@ function usrList(off,page_off) {
 				var page_html =  
 				"<div class=\"container\">"+
 				"<ul class=\"pagination\">";
-				
-				
 				if(page_off==0)
 					page_html += "<li class=\"disabled\">"; 
 				else 
 					page_html += "<li>";
 				page_html += "<a onclick = \"usrList("+(page_off-1)+","+(page_off-5)+")\"><span class=\"glyphicon glyphicon-chevron-left\"></span></a></li>";
-				
-				
-				
 				for(i=0; i<5; i++){
 					if(i==(off-page_off))
 						page_html += "<li class=\"active\">";
@@ -165,20 +160,9 @@ function usrList(off,page_off) {
 						page_html += "<li>";
 					page_html+="<a onclick = \"usrList("+(page_off+i)+","+(page_off)+")\">"+(page_off+i+1)+"</a></li>";
 				}
-				/*
-				page_html += 
-				"<li><a onclick = \"usrList("+(page_off+0)+","+(page_off)+")\">"+(page_off+1)+"</a></li>"+
-				"<li><a onclick = \"usrList("+(page_off+1)+","+(page_off)+")\">"+(page_off+2)+"</a></li>"+
-				"<li><a onclick = \"usrList("+(page_off+2)+","+(page_off)+")\">"+(page_off+3)+"</a></li>"+
-				"<li><a onclick = \"usrList("+(page_off+3)+","+(page_off)+")\">"+(page_off+4)+"</a></li>"+
-				"<li><a onclick = \"usrList("+(page_off+4)+","+(page_off)+")\">"+(page_off+5)+"</a></li>";
-				*/
-					
-					
 				page_html +="<li>"+ 
 					"<a onclick = \"usrList("+(page_off+5)+","+(page_off+5)+")\">" + 
 					"<span class=\"glyphicon glyphicon-chevron-right\"></span></a></li>"+
-			    	
 			  	"</ul>"+
 			  	"</div>";
 				$("#pagination").html(page_html);
