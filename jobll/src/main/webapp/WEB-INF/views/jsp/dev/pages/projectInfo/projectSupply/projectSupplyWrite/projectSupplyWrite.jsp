@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <jsp:include page="../../projectInfoMenu.jsp" flush="false" />
-<input type = "hidden" class = "prjt_idx" name = "prjt_idx" value = ${ entity.prjt_idx }>
+	
 		
 <!-- data table -->
  	<div id="data_list"></div>
@@ -19,6 +19,7 @@
             <!-- /.panel-heading -->
             <div class="panel-body">
 <form action = "/projectSupply/projectSupplyWrite" method="post">
+		<input type = "hidden" class = "prjt_idx" name = "prjt_idx" value = ${ entity.prjt_idx }>	
 		<table width="80%" class="table table-striped table-bordered table-hover" id="dataTables-example">
 					       <colgroup>
 					  			<col style="width:13%">
@@ -27,11 +28,13 @@
 		                        <col style="width:38%">
 		                    </colgroup>
 		                    <tbody>
-		                    
+		                    <input type = "hidden" class = "prjt_idx" name = "prjt_idx" value = ${ entity.prjt_idx }>	
+
 		                    <tr>
 			<th scope="row">지원대상</th>
 		                            <td colspan="3">
-			<div class = "list"></div>
+			<div class = "list">
+			</div>
 		</td></tr>
 		
 		<tr>
@@ -87,7 +90,7 @@
 		</td></tr>
 		</tbody>
 		                </table>
-		<button type = "submit">요청하기</button>
+		<button onclick = "sendRequest()">요청하기</button>
 </form>
 </div>
             <!-- /.panel-body -->

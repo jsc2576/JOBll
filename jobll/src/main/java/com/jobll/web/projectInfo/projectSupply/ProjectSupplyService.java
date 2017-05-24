@@ -28,6 +28,11 @@ public class ProjectSupplyService {
 	    int qry = projectSupplyRepository.create(entity);
 		return qry;
 	}
+	public int modify(ProjectSupply entity) throws Exception{	
+		entity.setAppr_yn(1);
+	    int qry = projectSupplyRepository.modify(entity);
+		return qry;
+	}
 	public List<ProjectInfo> readPrjtSbjtByUsrId(ProjectInfo entity){
 		
 		entity.setCmpny_idx(sessionUtil.getSessionBean().getUsr_cmpny_idx());
@@ -39,6 +44,11 @@ public class ProjectSupplyService {
 		return list;
 		
 	};
+
+	public List<ProjectSupply> findReq(ProjectSupply entity) throws Exception{
+		List<ProjectSupply> list = projectSupplyRepository.findReq(entity);
+		return list;
+	}
 	public List<ProjectSupply> findAll(ProjectSupply entity) throws Exception{
 		List<ProjectSupply> list = projectSupplyRepository.findAll(entity);
 		return list;

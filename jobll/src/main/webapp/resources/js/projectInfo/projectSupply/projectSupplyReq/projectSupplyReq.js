@@ -9,11 +9,11 @@ var data_limit = 10; // 하나의 페이지에 보여지는 데이터 수
 
 function findPrcs(prcs_stus){
 	prcs_stus_nm = prcs_stus;
-	findData(prcs_stus_nm, 0, 0);
+	findData(prcs_stus_nm, 0, data_limit);
 }
 
 function findpage(page){
-	findData(prcs_stus_nm, 0, 0);
+	findData(prcs_stus_nm, list_nm * page, data_limit);
 }
 
 function pagination_next(){
@@ -48,12 +48,12 @@ function findData(prcs_stus, atcl_offset, atcl_limit){
 	var prjt_idx = $(".prjt_idx").val();
 	$.ajax({
 		method : "POST",
-		url : "/projectSupply/listRun",
+		url : "/projectSupply/ReqRun",
 		data : { prjt_idx : prjt_idx, prcs_stus : prcs_stus, atcl_offset : atcl_offset, atcl_limit : atcl_limit},
 		success: function(list){
 		//	var str_html = "<form id='projectSupplyReadOne' action = '/prjectSupply/readOne' method='post'>";
 			var count=0;
-			var str_html = "<div class='row'><div class='col-lg-12'><h1 class='page-header'>지원 요청</h1></div> </div><div class='row'><div class='col-lg-12'><div class='panel panel-default'><div class='panel-heading'>지원 요청 목록</div><div class='panel-body'>";
+			var str_html = "<div class='row'><div class='col-lg-12'><h1 class='page-header'>지원 수신</h1></div> </div><div class='row'><div class='col-lg-12'><div class='panel panel-default'><div class='panel-heading'>지원 수신 목록</div><div class='panel-body'>";
 				str_html += "<table width='80%' class='table table-striped table-bordered table-hover' id='supplyList'>";
 				str_html += "<thead><tr>";
 				str_html += "<th>No.</th>";
@@ -63,11 +63,12 @@ function findData(prcs_stus, atcl_offset, atcl_limit){
 				str_html += "<th>종료날짜</th>";
 				str_html += "<th>요청 상태</th>";
 				str_html += "<th>지원 요청자</th>";
+				str_html += "<th>승인</th>";
 				str_html += "</tr></thead>";			
 				str_html += "<tbody>";
 			$.each(list, function(index, value){
 				count++;
-				str_html += "<tr onclick = 'readProjectSupply("+value.prjt_sup_list_idx+")'>";
+				str_html += "<tr onclick = 'readProjectSupplyReq("+value.prjt_sup_list_idx+")'>";
 				str_html += "<td>"+count+"</td>";
 				str_html += "<td>"+value.sup_conts+"</td>";
 				str_html += "<td>"+value.sup_person+"</td>";
@@ -86,6 +87,10 @@ function findData(prcs_stus, atcl_offset, atcl_limit){
 					str_html += "<td>"+"오류"+"</td>";
 				}
 				str_html += "<td>"+value.usr_id+"</td>";
+				if(value.appr_yn != 1)
+					str_html += "<td><button onclick = 'SuppplyAccept("+value.prjt_sup_list_idx+")'>승인</button></td>";
+				else
+					str_html += "<td></td>";
 				str_html += "</a></tr>";				
 			});
 			str_html += "</tbody>";
@@ -93,19 +98,28 @@ function findData(prcs_stus, atcl_offset, atcl_limit){
 			str_html += "<div id = 'getIdx'></div>";
 			str_html += "</div></div></div></div>"
 	//		str_html += "</form>";
-			$(".list").html(str_html);		
+			$(".Reqlist").html(str_html);		
 		},
 		error: function(){alert("ERROR");}
 	});
 }
 
 
-function readProjectSupply(idx){
+function readProjectSupplyReq(idx){
 	
 	var str_html = "<input type ='hidden' name = 'prjt_idx' value = '"+idx+"'>";
 	
-	$(".list").html(str_html);
+	$(".Reqlist").html(str_html);
 	
 	$("#projectSupply").submit();
+
+}
+function SuppplyAccept(idx){
+	
+	var str_html = "<input type ='hidden' name = 'prjt_sup_list_idx' value = '"+idx+"'>";
+	//
+	$(".Reqlist").html(str_html);
+	$("#projectSupplyReq").attr('action', "/projectSupply/appr");
+	$("#projectSupplyReq").submit();
 
 }
