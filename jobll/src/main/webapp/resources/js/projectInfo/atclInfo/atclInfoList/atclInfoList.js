@@ -50,7 +50,7 @@ function viewIssue() {
 			str_html += "<tbody>";
 			$.each(list, function(index, value){
 				str_html += "<tr onclick = 'atclInfoGetIdx("+value.atcl_idx+")'>";
-				str_html += "<td class = 'tb-No'>"+index+1+"</td>";
+				str_html += "<td class = 'tb-No'>"+index+"</td>";
 				str_html += "<td class = 'tb-sbjt'>"+value.atcl_sbjt+"</td>";
 				str_html += "<td class = 'tb-id'>"+value.usr_id+"</td>";
 				str_html += "<td class = 'tb-reg-date'>"+value.reg_date+"</td>";
