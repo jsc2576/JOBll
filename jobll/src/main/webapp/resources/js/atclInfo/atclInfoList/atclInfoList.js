@@ -68,24 +68,33 @@ function findData(prcs_stus, atcl_offset, atcl_limit){
 		data : {prcs_stus : prcs_stus, atcl_offset : atcl_offset, atcl_limit : atcl_limit},
 		success: function(list){
 
-			var str_html = "<form id='atclInfoReadOne' action = '/atclInfo/readOne' method='post'>";
-				str_html += "<table class = 'type01'>";
-				str_html += "<thead><tr>";
-				str_html += "<th>접수번호</th>";
-				str_html += "<th>제목</th>";
-				str_html += "<th>기관명</th>";
-				str_html += "<th>등록일</th>";
-				str_html += "<th>처리상태</th>";
-				str_html += "</tr></thead>";
-			
-				str_html += "<tbody>";
+			var str_html = "<form id='issueRead' action = '/issue/check/read' method='post'>";
+			str_html += "<table class = 'table'>";
+			str_html += "<thead><tr>";
+			str_html += "<th class = 'tb-No'>No.</th>";
+			str_html += "<th class = 'tb-sbjt'>제목</th>";
+			str_html += "<th class = 'tb-id'>작성자</th>";
+			str_html += "<th class = 'tb-reg-date'>등록일</th>";
+			str_html += "<th class = 'tb-atcl-typ'>유형</th>";
+			str_html += "</tr></thead>";
+		
+			str_html += "<tbody>";
 			$.each(list, function(index, value){
 				str_html += "<tr onclick = 'atclInfoGetIdx("+value.atcl_idx+")'>";
-				str_html += "<td>"+value.atcl_idx+"</td>";
-				str_html += "<td>"+value.atcl_sbjt+"</td>";
-				str_html += "<td>"+value.cmpny_nm+"</td>";
-				str_html += "<td>"+value.reg_date+"</td>";
-				str_html += "<td>"+value.prcs_stus+"</td>";
+				str_html += "<td class = 'tb-No'>"+index+"</td>";
+				str_html += "<td class = 'tb-sbjt'>"+value.atcl_sbjt+"</td>";
+				str_html += "<td class = 'tb-id'>"+value.usr_id+"</td>";
+				str_html += "<td class = 'tb-reg-date'>"+value.reg_date+"</td>";
+				if(value.atcl_typ == 1)
+					str_html += "<th class = 'tb-atcl-typ'>진행중</th>";
+				else if(value.atcl_typ == 2)
+					str_html += "<th class = 'tb-atcl-typ'>진행 완료</th>";
+				else if(value.atcl_typ == 3)
+					str_html += "<th class = 'tb-atcl-typ'>진행 중단</th>";
+				else if(value.atcl_typ == 4)
+					str_html += "<th class = 'tb-atcl-typ'>진행 초과</th>";
+				else if(value.atcl_typ == 5)
+					str_html += "<th class = 'tb-atcl-typ'>협의중</th>";
 				str_html += "</a></tr>";
 				
 			});
