@@ -32,6 +32,18 @@ public class PrjtCnetListRepository {
 
 		return selectList ;
 	}
+	public int createOne(PrjtCnetList entity) {
+		
+		int result = sqlSession.insert("com.jobll.web.projectInfo.prjtCnetList.PrjtCnetList.createOne", entity);
+
+		return result ;
+	}
+	public int deleteOne(PrjtCnetList entity) {
+		
+		int result = sqlSession.update("com.jobll.web.projectInfo.prjtCnetList.PrjtCnetList.deleteOne", entity);
+
+		return result ;
+	}
 
 	public List<UsrInfo> selectCnetList() {
 		

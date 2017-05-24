@@ -24,11 +24,12 @@ function GetProjectList(select_typ){
 	/*select_typ 1: All
 				 2: Find by usr_cmpny
 				 3: Find by selected_cmpny
+				 4: Find by selected_cmpny + graph data func
 	*/
 	
 	var cmpny_idx = "";
 	
-	if(select_typ == 3)
+	if(select_typ > 2)
 	{
 		cmpny_idx = $(".cmpny_value").val();
 	}
@@ -38,7 +39,16 @@ function GetProjectList(select_typ){
 		data : {select_typ : select_typ, cmpny_idx : cmpny_idx},
 		success: function(list){
 			
-			var str_html = "<select class='selectpicker' onChange = ''>";
+			var str_html = "";
+			if(select_typ == 4)
+			{
+				str_html += "<select class='selectpicker' onChange = 'GetIssueRate(this.value)'>";
+			}
+			else
+			{
+				str_html += "<select class='selectpicker' onChange = ''>";
+			}
+			
 			str_html += "<option selected>선택</option>";
 			for(var i = 0; i < list.length; i++)
 				str_html += "<option value = "+list[i].prjt_idx+">"+list[i].prjt_sbjt+"</option>";
@@ -90,7 +100,7 @@ function GetProjectTable(select_typ){
 	                    "<thead>" +
 	                        "<tr>" +
 	                            "<th>No.</th>" +
-	                            "<th>사업명</th>" +
+	                            "<th style='width: 55%;'>사업명</th>" +
 	                            "<th>등록 날짜</th>" +
 	                            "<th>담당자</th>";
 								if(select_typ < 3)
@@ -198,7 +208,27 @@ function readProjectInfo(idx){
 	var str_html = "<input type ='hidden' name = 'prjt_idx' value = '"+idx+"'>";
 	
 	$(".prjt_list").html(str_html);
-	
-	$("#projectInfo").submit();
+	$(".prjt_data").html(str_html);
+	$(".project-form").attr('action', "/projectInfo/prjt/check/read");
+	$(".project-form").submit();
 
+}
+
+function GetIssueRate(prjt_idx)
+{
+	$.ajax({
+		method : "POST",
+		url : "/issue/GetIssueRate",
+		data : {prjt_idx : prjt_idx},
+		success: function(list){
+			for(var i = 0; i < list.length; i++)
+			{
+				if(list[i] == null)
+					list[i] = 0;
+			}
+			graphRefresh(list[0],list[1],list[2],list[3],list[4]);
+
+		},
+		error: function(){alert("ERROR");}
+	});
 }

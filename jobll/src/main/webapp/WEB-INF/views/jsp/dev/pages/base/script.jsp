@@ -16,3 +16,7 @@
 	<script src="/resources/js/projectInfo/projectInfo.js" type="text/javascript"></script>
 	<script src="/resources/js/projectInfo/usrAuthCheck.js" type="text/javascript"></script>
 
+	<!-- Morris Charts CSS -->
+	<script src="/resources/vendor/raphael/raphael.min.js" type="text/javascript"></script>
+	<script src="/resources/vendor/morrisjs/morris.min.js" type="text/javascript"></script>
+	<script src="/resources/data/morris-data.js" type="text/javascript"></script>
