@@ -36,7 +36,7 @@
 	</select>
 	
 	<select id="selectCnetList" resultType="com.jobll.web.usrinfo.UsrInfo">
-		SELECT "USR_ID", "USR_NM" from "USR_INFO"
+		SELECT * from "USR_INFO"
 	</select>
 	
 	<!-- delete -->
