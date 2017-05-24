@@ -50,7 +50,7 @@ function getUserByCmpny(off,page_off){
 				
 			$.each(list, function(index, value){
 				str_html += "<tr>";
-				str_html += "<td>"+(index+1)+"</td>";
+				str_html += "<td>"+(index+off*10+1)+"</td>";
 				str_html += "<td>"+value.usr_nm+"</td>";
 				str_html += "<td>"+value.usr_lv+"</td>";
 				str_html += "<td>"+value.usr_pwd+"</td>";
