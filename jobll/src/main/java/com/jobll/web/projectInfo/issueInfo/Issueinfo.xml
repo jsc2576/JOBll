@@ -37,7 +37,9 @@
 	</insert>
 
 	<select id="findAll" resultType="com.jobll.web.projectInfo.issueInfo.IssueInfo" parameterType="com.jobll.web.projectInfo.issueInfo.IssueInfo">
-		SELECT * from "ATCL_INFO" WHERE "PRJT_IDX" = #{prjt_idx} and "ATCL_STUS" = '1' ORDER BY "ATCL_IDX" DESC OFFSET #{atcl_offset} LIMIT #{atcl_limit} 
+		SELECT * from "ATCL_INFO" WHERE "PRJT_IDX" = #{prjt_idx} and "ATCL_STUS" = '1' 
+		ORDER BY "ATCL_IDX" DESC 
+		LIMIT #{lim} OFFSET #{off}
 	</select>
 	
 	<select id="findOne" resultType="com.jobll.web.projectInfo.issueInfo.IssueInfo" parameterType="com.jobll.web.projectInfo.issueInfo.IssueInfo">
