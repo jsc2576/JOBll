@@ -13,5 +13,6 @@
 	<div class="col-lg-12">
         <h3 class="page-header">최근 내역</h3>
         <div class = "hsty_list"></div>
+        <div id="pagination"></div>
     </div>
 </div>

@@ -60,7 +60,7 @@ public class IssueInfoController {
 	@RequestMapping(value = "/search/read", method = RequestMethod.POST)
 	@ResponseBody
 	public List<IssueInfo> isssueView(@ModelAttribute IssueInfo entity, BindingResult errors) throws Exception {
-		
+		entity.setOff(entity.getLim()*entity.getOff());
 		List<IssueInfo> issue_list = issueInfoService.findList(entity);
 		
 		return issue_list;
