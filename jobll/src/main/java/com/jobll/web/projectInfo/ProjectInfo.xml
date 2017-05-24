@@ -30,7 +30,7 @@
 	
 	<select id="findAll" resultType="com.jobll.web.projectInfo.ProjectInfo" parameterType="com.jobll.web.projectInfo.ProjectInfo">		
 		SELECT * FROM "PRJT_INFO" 
-		<if test="select_typ == 3">
+		<if test="select_typ == 2 || select_typ == 3">
 		WHERE "PRJT_STUS" = '1' AND "CMPNY_IDX" = #{cmpny_idx}
 		</if>
 		<if test="select_typ == 4">

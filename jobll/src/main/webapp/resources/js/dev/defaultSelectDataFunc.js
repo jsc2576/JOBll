@@ -121,7 +121,7 @@ function GetProjectTable(select_typ){
 	            "<!-- /.panel-body -->";
 	            if(select_typ < 3)
             	{
-	            	str_html += "<button class = 'btn prjt_create_btn' onclick = 'PjrtCreateTagController()' style = 'margin : 15px'>프로젝트 추가</button>" +
+	            	str_html += "<button class = 'btn prjt_create_btn' onclick = 'PjrtCreateTagController()' style = 'margin : 15px'>프로젝트 추가</button><br><button>선택</button>" +
 		     		"<div class='row prjt_create-tag'>" +
 		                "<div class='col-lg-12'>" +
 		                    "<form role='form' class = 'project-create-form' method = 'POST'>" +

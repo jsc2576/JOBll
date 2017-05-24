@@ -16,9 +16,7 @@
 	</div>
 </div>
 <div class ="row">
-	<form id = "projectInfo" action = "/projectInfo/prjt/check/read" method="post">
 		<div class = "col-lg-12 prjt_list">
-		</div>
 	</form>
 </div>
 
