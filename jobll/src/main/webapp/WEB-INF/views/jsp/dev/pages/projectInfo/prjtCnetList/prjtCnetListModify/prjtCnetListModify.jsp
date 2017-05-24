@@ -3,8 +3,7 @@
 <jsp:include page="../../projectInfoMenu.jsp" flush="false" />
 
 <h3 class = "project-subject">${ entity.prjt_sbjt }</h3>
-<h3>팀원 초대 제외</h3>
-<p>현재 팀원</p>
+<h4>팀원 초대 제외</h4>
 
 
 	<!-- data table -->
