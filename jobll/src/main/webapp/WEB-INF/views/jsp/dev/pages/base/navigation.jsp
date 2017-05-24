@@ -8,7 +8,7 @@
 			<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
 			<span class="icon-bar"></span> <span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+		<a class="navbar-brand" href="index.html">반응형 웹 기반 서비스데스크</a>
 	</div>
 	<!-- /.navbar-header -->
 
@@ -201,7 +201,7 @@
                         <li>
                             <a href="/projectInfo/projectInfoList/go"><i class="fa fa-th-list fa-fw"></i> Project</a>
                         </li>
-                        <li>
+                        <li class = "AdminLv">
                             <a href="/admin/home"><i class="fa fa-lock fa-fw"></i> Admin</a>
                             <ul class="nav nav-second-level">
                                 <li>

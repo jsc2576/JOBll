@@ -1,5 +1,6 @@
 package com.jobll.web.hstyInfo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +29,14 @@ public class HstyInfoController {
 	public ModelAndView DefaultHstyInfoModelAndView(@ModelAttribute HstyInfo entity) throws Exception{
 		ModelAndView mav = new ModelAndView("default");
 		return mav;
+	}
+	@RequestMapping(value = "/GetHstyLog", method= RequestMethod.POST)
+	@ResponseBody
+	public List<HstyInfo> GetHstyLog(@ModelAttribute HstyInfo entity) throws Exception{
+		
+		List<HstyInfo> list = new ArrayList<HstyInfo>();
+		
+		list = hstyInfoService.findByPrjt(entity);
+		return list;
 	}
 }

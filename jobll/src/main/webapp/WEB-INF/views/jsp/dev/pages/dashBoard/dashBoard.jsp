@@ -12,7 +12,7 @@
 
 <!-- /.row -->
 <div class="row">
-    <div class="col-lg-8">
+    <div class="col-lg-12">
             <!-- /.panel -->
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -20,7 +20,6 @@
             </div>
             <div class="panel-body">
                 <div id="morris-donut-chart"></div>
-                <a href="#" class="btn btn-default btn-block">프로젝트 바로가기</a>
             </div>
             <!-- /.panel-body -->
         </div>
@@ -28,3 +27,9 @@
     <!-- /.col-lg-8 -->
 </div>
 <!-- /.row -->
+<div class = "row">
+	<div class="col-lg-12">
+        <h3 class="page-header">최근 내역</h3>
+        <div class = "hsty_list"></div>
+    </div>
+</div>

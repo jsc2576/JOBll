@@ -9,7 +9,6 @@ function GetCmpnyList(select_typ){
 		success: function(list){
 			
 			var str_html = "<select class='selectpicker cmpny_value' data-live-search='true' onChange = ''>";
-			str_html += "<option selected>선택</option>";
 			for(var i = 0; i < list.length; i++)
 				str_html += "<option value = "+list[i].cmpny_idx+">"+list[i].cmpny_nm+"</option>";
 				str_html += "</select>";
@@ -49,7 +48,6 @@ function GetProjectList(select_typ){
 				str_html += "<select class='selectpicker' onChange = ''>";
 			}
 			
-			str_html += "<option selected>선택</option>";
 			for(var i = 0; i < list.length; i++)
 				str_html += "<option value = "+list[i].prjt_idx+">"+list[i].prjt_sbjt+"</option>";
 				str_html += "</select>";
@@ -178,7 +176,7 @@ function GetProjectTable(select_typ){
 function GetUsrList(select_typ){
 	/*select_typ 1: All
 				 2: Find by Cmpny
-				 3: Find by Cmpny Only lv 3
+				 3: Find by Cmpny Only lv 2
 	*/
 	var cmpny_idx = "";
 	
@@ -203,6 +201,58 @@ function GetUsrList(select_typ){
 		error: function(){alert("ERROR");}
 	});
 }
+
+function GetHstyTable(prjt_idx){
+	$.ajax({
+		method : "POST",
+		url : "/allPersonInfo/GetHstyLog",
+		data : {prjt_idx : prjt_idx},
+		success: function(list){
+			for(var i = 0; i < list.length; i++)
+			{
+				var str_html = "<div class='row'>" +
+			    "<div class='col-lg-12'>" +
+		          "<div class='panel panel-default'>" +
+		            "<div class='panel-heading'>" +
+		            "프로젝트 현황" +
+					"</div>" +
+		            "<!-- /.panel-heading -->" +
+		            "<div class='panel-body'>" +
+		                "<table width='80%' class='prjt-table table table-striped table-bordered table-hover' id='dataTables-example'>" +
+		                    "<thead>" +
+		                        "<tr>" +
+		                            "<th>No.</th>" +
+		                            "<th style='width: 55%;'>내용</th>" +
+		                            "<th>등록 날짜</th>" +
+		                        "</tr>" +
+		                    "</thead>" +
+		                    "<tbody>";
+								for(var i = 0; i < list.length; i++)
+								{
+									str_html += "<tr class="+(i+1)+">" +
+												"<td>"+(i+1)+"</td>" +
+												"<td>"+list[i].hsty_conts+"</td>" +
+												"<th>"+list[i].hsty_date+"</th>" +
+												"</tr>";
+								}
+					
+					str_html += "</tbody>" +
+		                "</table>" +
+		            "</div>" +
+		            "<!-- /.panel-body -->";
+					"</div>" +
+				"</div>" +
+			"</div>" +
+			"</div>";
+					
+					$(".hsty_list").html(str_html);	
+			}
+
+		},
+		error: function(){alert("ERROR");}
+	});
+}
+
 function readProjectInfo(idx){
 	
 	var str_html = "<input type ='hidden' name = 'prjt_idx' value = '"+idx+"'>";
@@ -231,4 +281,5 @@ function GetIssueRate(prjt_idx)
 		},
 		error: function(){alert("ERROR");}
 	});
+	GetHstyTable(prjt_idx);
 }

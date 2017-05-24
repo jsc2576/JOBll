@@ -13,7 +13,6 @@ function GetCmpnyList(type){
 				 "";
 				
 				var str_html = "<select id = 'cmpny' class='selectpicker' data-live-search='true' onChange = 'GetUsrInfoList(this.value)'>";
-				str_html += "<option selected>선택</option>";
 				for(var i = 0; i < list.length; i++)
 					str_html += "<option value = "+list[i].cmpny_idx+">"+list[i].cmpny_nm+"</option>";
 					str_html += "</select>";
@@ -33,7 +32,6 @@ function GetCmpnyList(type){
 				 "";
 				
 				var str_html = "<select class='selectpicker' data-live-search='true' onChange = 'GetCmpnyPrjtList(this.value)'>";
-				str_html += "<option selected>선택</option>";
 				for(var i = 0; i < list.length; i++)
 					str_html += "<option value = "+list[i].cmpny_idx+">"+list[i].cmpny_nm+"</option>";
 					str_html += "</select>";
@@ -53,7 +51,6 @@ function GetCmpnyList(type){
 				 "";
 				
 				var str_html = "<select class='selectpicker' data-live-search='true'>";
-				str_html += "<option selected>선택</option>";
 				for(var i = 0; i < list.length; i++)
 					str_html += "<option value = "+list[i].cmpny_idx+">"+list[i].cmpny_nm+"</option>";
 					str_html += "</select>";

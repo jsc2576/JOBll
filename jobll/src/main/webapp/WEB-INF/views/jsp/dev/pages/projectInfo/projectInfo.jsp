@@ -9,4 +9,9 @@
   <div class="panel-heading">세부 정보</div>
   <pre class="panel-body">${ entity.prjt_conts }</pre>
 </div>
-	
+<div class = "row">
+	<div class="col-lg-12">
+        <h3 class="page-header">최근 내역</h3>
+        <div class = "hsty_list"></div>
+    </div>
+</div>

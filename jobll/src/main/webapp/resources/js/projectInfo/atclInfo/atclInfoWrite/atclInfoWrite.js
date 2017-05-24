@@ -39,7 +39,7 @@ function editorwrite() {
 			data	: {atcl_idx : atcl_idx, atcl_sbjt : subject, atcl_conts : context, prjt_idx : prjt_idx, 
 				strt_date : strt_date, comp_date : comp_date, atcl_typ : atcl_type},
 			success: function(result)	{
-				alert("success");
+				viewIssue();
 			}
 		});
 		
@@ -52,7 +52,7 @@ function editorwrite() {
 			data	: {atcl_sbjt : subject, atcl_conts : context, prjt_idx : prjt_idx,
 				strt_date : strt_date, comp_date : comp_date, atcl_typ : atcl_type},
 			success: function(result)	{
-				alert("success");
+				viewIssue();
 			}
 		});
 	}

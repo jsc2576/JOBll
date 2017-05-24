@@ -34,5 +34,9 @@
 	<select  id="findOne" resultType="com.jobll.web.hstyInfo.HstyInfo" parameterType ="com.jobll.web.hstyInfo.HstyInfo">
 	SELECT * FROM "HSTY_INFO" WHERE "HSTY_IDX" = #{hsty_idx}
 	</select>
+	
+	<select  id="findByPrjt" resultType="com.jobll.web.hstyInfo.HstyInfo" parameterType ="com.jobll.web.hstyInfo.HstyInfo">
+	SELECT * FROM "HSTY_INFO" WHERE "PRJT_IDX" = #{prjt_idx}
+	</select>
 
 </mapper>
