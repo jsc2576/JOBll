@@ -23,6 +23,10 @@ public class HstyInfoRepository {
 		List<HstyInfo> list = sqlSession.selectList("com.jobll.web.hstyInfo.HstyInfo.findAll", entity);
 		return list;
 	}
+	public List<HstyInfo> findByPrjt(HstyInfo entity)  throws Exception{
+		List<HstyInfo> list = sqlSession.selectList("com.jobll.web.hstyInfo.HstyInfo.findByPrjt", entity);
+		return list;
+	}
 
 	public HstyInfo findOne(HstyInfo entity)  throws Exception{
 		HstyInfo data = sqlSession.selectOne("com.jobll.web.hstyInfo.HstyInfo.findOne", entity);

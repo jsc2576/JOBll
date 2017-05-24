@@ -3,19 +3,41 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <jsp:include page="../../projectInfoMenu.jsp" flush="false" />
-
+<input type = "hidden" class = "prjt_idx" name = "prjt_idx" value = ${ entity.prjt_idx }>
+		
 <!-- data table -->
  	<div id="data_list"></div>
-
-<h3 class = "project-subject">${ entity.prjt_idx }</h3>  
-프로젝트 지원요청
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">프로젝트 지원요청</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+ <div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <!-- /.panel-heading -->
+            <div class="panel-body">
 <form action = "/projectSupply/projectSupplyWrite" method="post">
-		<div>
-			<input type = "hidden" class = "prjt_idx" name = "prjt_idx" value = ${ entity.prjt_idx }>
-		</div>
-		<div>
-			인원
-			<select class = "sup_person" name = "sup_person">
+		<table width="80%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+					       <colgroup>
+					  			<col style="width:13%">
+		                        <col style="width:37%">
+		                        <col style="width:12%">
+		                        <col style="width:38%">
+		                    </colgroup>
+		                    <tbody>
+		                    
+		                    <tr>
+			<th scope="row">지원대상</th>
+		                            <td colspan="3">
+			<div class = "list"></div>
+		</td></tr>
+		
+		<tr>
+			<th scope="row">인원</th>
+		                            <td colspan="3">
+			<select style="width:631px" class = "sup_person" name = "sup_person">
 				<option value = "1">1</option>
 				<option value = "2">2</option>
 				<option value = "3">3</option>
@@ -47,19 +69,31 @@
 				<option value = "29">29</option>
 				<option value = "30">30</option>
 			</select>
-		</div>
-		<div>
-			지원시작날짜
-			<input type = "date" class = "sup_strt_date" name = "sup_strt_date">
-		</div>
-		<div>
-			지원종료날짜
-			<input type = "date" class = "sup_end_date" name = "sup_end_date">
-		</div>
-		<div>
-			설명
-			<textarea class = "sup_conts" name = "sup_conts" ></textarea>
-		</div>
-	</div>
-  <button type = "submit">요청하기</button> 	
+		</td></tr>
+		<tr>
+			<th scope="row">지원시작날짜</th>
+		                            <td colspan="3">
+			<input style="width:631px" type = "date" class = "sup_strt_date" name = "sup_strt_date">
+		</td></tr>
+		<tr>
+			<th scope="row">지원종료날짜</th>
+		                            <td colspan="3">
+			<input style="width:631px" type = "date" class = "sup_end_date" name = "sup_end_date">
+		</td></tr>
+		<tr>
+			<th scope="row">설명</th>
+		                            <td colspan="3">
+			<textarea style="height:200px; width:631px" class = "sup_conts" name = "sup_conts" ></textarea>
+		</td></tr>
+		</tbody>
+		                </table>
+		<button type = "submit">요청하기</button>
 </form>
+</div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-6 -->
+</div>
+<!-- /.row -->

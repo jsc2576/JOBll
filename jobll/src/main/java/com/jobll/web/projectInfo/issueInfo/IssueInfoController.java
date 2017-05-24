@@ -129,6 +129,15 @@ public class IssueInfoController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/GetIssueRate", method = RequestMethod.POST)
+	@ResponseBody
+	public ArrayList<String> GetIssueRate(@ModelAttribute IssueInfo entity, BindingResult errors) throws Exception {
+		
+		ArrayList<String> conut = issueInfoService.findToTypCnt(entity);
+		
+		return conut;
+	}
+	
 	@RequestMapping(value = "/del")
 	public ModelAndView IssueInfoInfoDel (@ModelAttribute IssueInfo entity, BindingResult errors) throws Exception {
 		ModelAndView mav = new ModelAndView("dev/pages/projectInfo/atclInfo/atclInfoList/atclInfoListView");

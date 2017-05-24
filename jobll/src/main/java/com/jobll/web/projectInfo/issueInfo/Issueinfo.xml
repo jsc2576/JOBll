@@ -43,6 +43,9 @@
 	<select id="findOne" resultType="com.jobll.web.projectInfo.issueInfo.IssueInfo" parameterType="com.jobll.web.projectInfo.issueInfo.IssueInfo">
 		SELECT * from "ATCL_INFO" WHERE "ATCL_IDX" = #{atcl_idx} and "ATCL_STUS" = '1'
 	</select>
+	<select id="findToTypCnt" resultType="String" parameterType="com.jobll.web.projectInfo.issueInfo.IssueInfo">
+		SELECT count(*) from "ATCL_INFO" WHERE "ATCL_STUS" = '1' AND "PRJT_IDX" = #{prjt_idx} AND "ATCL_TYP" = #{atcl_typ}
+	</select>
 	
 	<update id="delete" parameterType="com.jobll.web.projectInfo.issueInfo.IssueInfo" useGeneratedKeys="true"
     keyProperty="atcl_idx">

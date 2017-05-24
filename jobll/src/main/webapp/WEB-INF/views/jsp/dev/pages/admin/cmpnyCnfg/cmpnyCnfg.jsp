@@ -17,10 +17,11 @@
 </div>
 <div class ="row">
 		<div class = "col-lg-12 prjt_list">
-	</form>
+		</div>
 </div>
 
 <div class = "row">
 	<form class = "project-form" method = "POST">
+		<div class = "prjt_data"></div>
 	</form>
 </div>

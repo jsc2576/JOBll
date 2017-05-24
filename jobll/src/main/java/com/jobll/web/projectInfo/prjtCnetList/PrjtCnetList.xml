@@ -24,6 +24,31 @@
 		</foreach>
 	</insert>
 	
+	<insert  id="createOne" parameterType ="com.jobll.web.projectInfo.prjtCnetList.PrjtCnetList" useGeneratedKeys="true"
+    keyProperty="prjt_cnet_list_idx">
+	INSERT INTO "PRJT_CNET_LIST"(
+		"PRJT_CNET_LIST_IDX",
+		"USR_ID", 
+		"PRJT_IDX", 
+		"CMPNY_IDX",
+		"PRJT_CNET_LIST_STUS"
+	)
+    VALUES (
+				(nextval('public.prjt_cnet_list_idx_seq')),
+			#{usr_id},
+			#{prjt_idx},
+			#{cmpny_idx},
+			#{prjt_cnet_list_stus}
+			)
+	</insert>
+	
+	<update id="deleteOne" parameterType="com.jobll.web.projectInfo.prjtCnetList.PrjtCnetList" useGeneratedKeys="true"
+    keyProperty="prjt_cnet_list_idx">
+		UPDATE "PRJT_CNET_LIST" set
+			"PRJT_CNET_LIST_STUS" = #{prjt_cnet_list_stus}
+		where "USR_ID" = #{usr_id} AND "PRJT_IDX" = #{prjt_idx}
+	</update>
+	
 	
 	<!-- 팀원 리스트 선택 -->
 	<select id="selectPrjtCnetList" resultType="com.jobll.web.projectInfo.prjtCnetList.PrjtCnetList">

@@ -17,6 +17,7 @@ public class ProjectSupply implements Serializable{
 	private String sup_end_date;		// 지원종료날짜
 	private Integer appr_yn;				// 승인여부
 	private String usr_id;				// 사용자아이디
+	private Integer req_prjt_idx;
 	
 	public Integer getPrjt_sup_list_idx() {
 		return prjt_sup_list_idx;
@@ -65,5 +66,11 @@ public class ProjectSupply implements Serializable{
 	}
 	public void setUsr_id(String usr_id) {
 		this.usr_id = usr_id;
+	}
+	public Integer getReq_prjt_idx() {
+		return req_prjt_idx;
+	}
+	public void setReq_prjt_idx(Integer req_prjt_idx) {
+		this.req_prjt_idx = req_prjt_idx;
 	}
 }

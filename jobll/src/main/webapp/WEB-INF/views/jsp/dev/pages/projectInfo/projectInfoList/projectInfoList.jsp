@@ -10,7 +10,7 @@
 </div>
 
 <div class ="row">
-	<form id = "projectInfo" action = "/projectInfo/prjt/check/read" method="post">
+	<form class = "project-form" method="post">
 		<div class = "prjt_list"></div>
 	</form>
 </div>

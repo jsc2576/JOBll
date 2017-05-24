@@ -1,7 +1,13 @@
+$(document).ready(function() {
+	
+	var prjt_idx = $(".prjt_idx").val();
+
+	GetHstyTable(prjt_idx);
+});
 function viewIssue() {
 	$("#dataSender").attr('action', "/issue/view");
 	$("#dataSender").submit();
-}
+}//GetHstyTable(prjt_idx)
 
 function viewProject() {
 	$("#dataSender").attr('action', "/projectInfo/prjt/check/read");

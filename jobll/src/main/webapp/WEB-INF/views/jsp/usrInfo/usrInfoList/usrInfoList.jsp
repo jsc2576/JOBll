@@ -7,11 +7,13 @@
 		<h3>고객사 검색</h3>
 	</div>
 	<div class = "col-lg-12 cmpny_list">
-		<button onclick = "getUserByCmpny(2)">검색</button>
+		<button onclick = "getUserByCmpny(0,0)">검색</button>
 	</div>
 </div>
  	<div id="list"></div>
-<div class="container">
+	
+<!-- 
+ <div class="container">
 	<ul class="pagination">
 		<li class="previous"><a href="#">First</a></li>
 		<li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
@@ -19,14 +21,10 @@
 		<li><a href="#">2</a></li>
 		<li class="active"><a href="#">3</a></li>
 		<li><a href="#">4</a></li>
-		<li><a href="#">5</a></li>
+		<li><a onclick = "usrList(2)">5</a></li>
 		<li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
     	<li class="next"><a href="#">Last</a></li>
   	</ul>
 </div>
- <div class="jb-center">
-  	<ul class="pagination" id="page_nm">
-	</ul>
-</div>
-
-
+ -->
+<div id="pagination"></div>
