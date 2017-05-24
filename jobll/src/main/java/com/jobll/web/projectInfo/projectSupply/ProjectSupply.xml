@@ -12,7 +12,8 @@
 		"SUP_STRT_DATE",
 		"SUP_END_DATE",
 		"APPR_YN",
-		"USR_ID"
+		"USR_ID",
+		"REQ_PRJT_IDX"
 	)
     VALUES (
 				#{prjt_sup_list_idx},
@@ -22,10 +23,19 @@
 				#{sup_strt_date},
 				#{sup_end_date},
 				#{appr_yn},
-				#{usr_id}
+				#{usr_id},
+				#{req_prjt_idx}
 			)
 	</insert>
-
+	
+	<select id="readPrjtSbjt" parameterType ="com.jobll.web.projectInfo.ProjectInfo" resultType="com.jobll.web.projectInfo.ProjectInfo">
+		SELECT * FROM "PRJT_INFO" WHERE "CMPNY_IDX" = #{cmpny_idx} AND "PRJT_STUS" = '1'
+	</select>
+	
+	<select id="findEnty" resultType="com.jobll.web.projectInfo.projectSupply.ProjectSupply" parameterType="com.jobll.web.projectInfo.projectSupply.ProjectSupply">
+		SELECT * FROM "PRJT_SUP_LIST"
+	</select>
+	
 	<select id="findAll" resultType="com.jobll.web.projectInfo.projectSupply.ProjectSupply" parameterType="com.jobll.web.projectInfo.projectSupply.ProjectSupply">
 		SELECT * FROM "PRJT_SUP_LIST" WHERE "PRJT_IDX" = #{prjt_idx}
 	</select>

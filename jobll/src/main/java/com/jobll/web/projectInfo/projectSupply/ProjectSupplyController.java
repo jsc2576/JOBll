@@ -22,9 +22,17 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.jobll.web.CommonUtil;
+import com.jobll.web.SessionUtil;
+import com.jobll.web.admin.AdminService;
 import com.jobll.web.atclInfo.AtclInfo;
 import com.jobll.web.attchfile.AttchFile;
 import com.jobll.web.attchfile.AttchFileService;
+import com.jobll.web.cmpnyinfo.CmpnyInfoService;
+import com.jobll.web.projectInfo.ProjectInfo;
+import com.jobll.web.projectInfo.ProjectInfoService;
+import com.jobll.web.usrinfo.UsrInfo;
+import com.jobll.web.usrinfo.UsrInfoService;
 
 @Controller
 @RequestMapping(value="/projectSupply")
@@ -32,7 +40,19 @@ public class ProjectSupplyController {
 
 	@Autowired
 	private ProjectSupplyService projectSupplyService;
-	
+	@Autowired
+	private CommonUtil commonUtil;
+	@Autowired
+	private SessionUtil sessionUtil;
+	@Autowired
+	private AdminService adminService;
+	@Autowired
+	private CmpnyInfoService cmpnyInfoService;
+	@Autowired
+	private UsrInfoService usrInfoService;
+	@Autowired
+	private ProjectInfoService projectInfoService;
+
 	@RequestMapping("/projectSupplyList/go")
 	public ModelAndView projectSupplyListGo (@ModelAttribute ProjectSupply entity) throws Exception {
 		ModelAndView mav = new ModelAndView("dev/pages/projectInfo/projectSupply/projectSupplyList/projectSupplyListView");
@@ -60,7 +80,13 @@ public class ProjectSupplyController {
 		
 		return mav;
 	}
-	
+	@RequestMapping(value = "/prjt/read", method = RequestMethod.POST)
+	@ResponseBody
+	public List<ProjectInfo> ProjectInfolistRun(@ModelAttribute ProjectInfo entity) throws Exception{
+		List<ProjectInfo> List = projectSupplyService.readPrjtSbjtByUsrId(entity);
+		
+		return List;
+	}
 	@RequestMapping(value = "/listRun", method= RequestMethod.POST)
 	@ResponseBody
 	public List<ProjectSupply> projectSupplylistRun(@ModelAttribute ProjectSupply entity) throws Exception{

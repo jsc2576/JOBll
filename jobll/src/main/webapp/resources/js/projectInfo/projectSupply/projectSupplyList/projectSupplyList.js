@@ -51,35 +51,48 @@ function findData(prcs_stus, atcl_offset, atcl_limit){
 		url : "/projectSupply/listRun",
 		data : { prjt_idx : prjt_idx, prcs_stus : prcs_stus, atcl_offset : atcl_offset, atcl_limit : atcl_limit},
 		success: function(list){
-			var str_html = "<form id='projectSupplyReadOne' action = '/prjectSupply/readOne' method='post'>";
-				str_html += "<table class ='table'>";
+		//	var str_html = "<form id='projectSupplyReadOne' action = '/prjectSupply/readOne' method='post'>";
+			var count=0;
+			var str_html = "<div class='row'><div class='col-lg-12'><h1 class='page-header'>프로젝트 지원</h1></div> </div><div class='row'><div class='col-lg-12'><div class='panel panel-default'><div class='panel-heading'>프로젝트 지원 목록</div><div class='panel-body'>";
+				str_html += "<table width='80%' class='table table-striped table-bordered table-hover' id='supplyList'>";
 				str_html += "<thead><tr>";
-				str_html += "<th>지원목록번호</th>";
-				str_html += "<th>프로젝트번호</th>";
+				str_html += "<th>No.</th>";
 				str_html += "<th>내용</th>";
 				str_html += "<th>해당인원</th>";
 				str_html += "<th>시작날짜</th>";
 				str_html += "<th>종료날짜</th>";
-				str_html += "<th>상태</th>";
-				str_html += "<th>아이디</th>";
+				str_html += "<th>요청 상태</th>";
+				str_html += "<th>지원 요청자</th>";
 				str_html += "</tr></thead>";			
 				str_html += "<tbody>";
 			$.each(list, function(index, value){
+				count++;
 				str_html += "<tr onclick = 'readProjectSupply("+value.prjt_sup_list_idx+")'>";
-				str_html += "<td>"+value.prjt_sup_list_idx+"</td>";
-				str_html += "<td>"+value.prjt_idx+"</td>";
+				str_html += "<td>"+count+"</td>";
 				str_html += "<td>"+value.sup_conts+"</td>";
 				str_html += "<td>"+value.sup_person+"</td>";
 				str_html += "<td>"+value.sup_strt_date+"</td>";
 				str_html += "<td>"+value.sup_end_date+"</td>";
-				str_html += "<td>"+value.appr_yn+"</td>";
+				if(value.appr_yn == 1){
+					str_html += "<td>"+"승인완료"+"</td>";
+				}
+				else if(value.appr_yn == 2){
+					str_html += "<td>"+"승인대기"+"</td>";
+				}
+				else if(value.appr_yn == 1){
+					str_html += "<td>"+"승인거부"+"</td>";
+				}
+				else{
+					str_html += "<td>"+"오류"+"</td>";
+				}
 				str_html += "<td>"+value.usr_id+"</td>";
 				str_html += "</a></tr>";				
 			});
 			str_html += "</tbody>";
 			str_html += "</table>";
 			str_html += "<div id = 'getIdx'></div>";
-			str_html += "</form>";
+			str_html += "</div></div></div></div>"
+	//		str_html += "</form>";
 			$(".list").html(str_html);		
 		},
 		error: function(){alert("ERROR");}
