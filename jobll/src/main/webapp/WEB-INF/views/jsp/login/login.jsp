@@ -130,7 +130,7 @@
       <form role="form" action="${actionUrl}" method="post">
          <div class="login-form form-group">
           	<p>
-          		<label for="username">   ID  </label>
+          		<label for="username">Username</label>
 				<input type="text" id="username" name="username" value="1"/>	
 			</p>
 			<p>
