@@ -12,8 +12,10 @@ function checkAuth(){
 		url : "/projectInfo/checkAuth",
 		data : {},
 		success: function(data){
-			if(data < 3)
+			if(data < 2)
 			$(".ManagerLv").remove();
+			if(data < 3)
+			$(".AdminLv").remove();
 		},
 		error: function(){alert("ERROR");}
 	});

@@ -130,7 +130,7 @@
       <form role="form" action="${actionUrl}" method="post">
          <div class="login-form form-group">
           	<p>
-          		<label for="username">Username</label>
+          		<label for="username">   ID  </label>
 				<input type="text" id="username" name="username" value="1"/>	
 			</p>
 			<p>
@@ -146,7 +146,7 @@
 						You have been logged out.
 					</p>
 				</c:if>	
-				<a class="login-link" href="#">Lost your password?</a>
+				<!-- <a class="login-link" href="#">Lost your password?</a> -->
 				<a class="login-link" href="/usrInfo/join">Join Us</a>
 			</p>
 		
@@ -154,13 +154,17 @@
 			<button type="submit" class="btn">Log in</button>
          </div>
       </form>
-	         <div class="form-group">
+	         <!-- 
+	          <div class="form-group">
+		        
 		         <form action="/signin/facebook" method="POST">
 		         	<a class="SNS-login"><img onclick="submit()" class="img-responsive SignWithSNS" alt="Signup with Facebook" src="/resources/images/SignFacebook.jpg"></a>
 		         </form>
 		         	<a class="SNS-login" href="#"><img class="img-responsive SignWithSNS" alt="Signup with Twitter" src="/resources/images/SignTwitter.jpg"></a>
 		         	<a class="SNS-login" href="#"><img class="img-responsive SignWithSNS" alt="Signup with Google" src="/resources/images/SignGoogle.jpg"></a>
 	         </div>
+	         	소셜로그인 제외
+	         -->
       </div>
    </div>
    <form action="/logout.do" method="POST">

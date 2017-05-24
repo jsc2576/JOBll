@@ -1,5 +1,5 @@
 $(document).ready (function (){
-	usrList();
+	usrList(0,0);
 	
 });
 function GetCmpnyList(select_typ){
@@ -21,12 +21,12 @@ function GetCmpnyList(select_typ){
 		error: function(){alert("ERROR");}
 	});
 }
-function getUserByCmpny(){
+function getUserByCmpny(off,page_off){
 	usr_cmpny_idx = $(".cmpny_value").val();
 	$.ajax ({
 		method	: "post",
 		url		: "/usrInfo/readUserInfoByCmpny",
-		data 	: {usr_cmpny_idx : usr_cmpny_idx},
+		data 	: {usr_cmpny_idx : usr_cmpny_idx,off : off, page_off : page_off},
 		success	: function (list) {
 			var str_html = "<form id='usrInfoRead' action = '/usrInfo/usrInfo' method='get'>";
 			str_html += " <div class=\"row\">";
@@ -65,47 +65,48 @@ function getUserByCmpny(){
 			str_html +="</tbody></table></div></div></div></div>";
 			str_html += "</form>";
 			$("#list").html(str_html);
+			
+			var page_html =  
+				"<div class=\"container\">"+
+				"<ul class=\"pagination\">";
+				
+				
+				if(page_off==0)
+					page_html += "<li class=\"disabled\">"; 
+				else 
+					page_html += "<li>";
+				page_html += "<a onclick = \"getUserByCmpny("+(page_off-1)+","+(page_off-5)+")\"><span class=\"glyphicon glyphicon-chevron-left\"></span></a></li>";
+				
+				
+				
+				for(i=0; i<5; i++){
+					if(i==(off-page_off))
+						page_html += "<li class=\"active\">";
+					else
+						page_html += "<li>";
+					page_html+="<a onclick = \"getUserByCmpny("+(page_off+i)+","+(page_off)+")\">"+(page_off+i+1)+"</a></li>";
+				}
+				
+					
+					
+				page_html +="<li>"+ 
+					"<a onclick = \"getUserByCmpny("+(page_off+5)+","+(page_off+5)+")\">" + 
+					"<span class=\"glyphicon glyphicon-chevron-right\"></span></a></li>"+
+			    	
+			  	"</ul>"+
+			  	"</div>";
+				$("#pagination").html(page_html);
 		}
 	})
 }
 
-function usrList() {
+function usrList(off,page_off) {
 		$.ajax ({
 			method	: "post",
 			url		: "/usrInfo/allPersonInfo/check/read",
-			
+			data : {off : off, page_off : page_off},
 			success	: function (list) {
-				/*var str_html = "<form id='usrInfoRead' action = '/usrInfo/MyUsrInfo' method='get'>";
-				str_html += "<table class = 'table'>";
-				str_html += "<thead><tr>";
-				str_html += "<th class = 'tb-typ'>번호</th>";
-				str_html += "<th class = 'tb-sbjt'>이름</th>";
-				str_html += "<th class = 'tb-id'>등급</th>";
-				str_html += "<th class = 'tb-reg-date'>기관</th>";
-				str_html += "</tr></thead>";
-			
-				str_html += "<tbody>";
-				$.each(list, function(index, value){
-					str_html += "<tr>";
-					str_html += "<td>"+(index+1)+"</td>";
-					str_html += "<td>"+value.usr_nm+"</td>";
-					str_html += "<td>"+value.usr_lv+"</td>";
-					str_html += "<td>"+value.usr_pwd+"</td>";
-					str_html += "<td>"+"<button onclick='submit()'  name = 'usr_id'";
-					
-					str_html += " id = 'usr_id'";
-					str_html += " value = '"+value.usr_id+"'";
-					str_html += ">상세열람</button>"+"</td>";
-					
-					str_html += "</a></tr>";
-					
-				});
-				str_html += "</tbody>";
-				str_html += "</table>";
-				str_html += "<div id = 'getIdx'></div>";
-				str_html += "</form>";*/
-				
-				
+
 				var str_html = "<form id='usrInfoRead' action = '/usrInfo/usrInfo' method='get'>";
 				str_html += " <div class=\"row\">";
 				str_html += "<div class=\"col-lg-12\">";
@@ -127,7 +128,7 @@ function usrList() {
 					
 				$.each(list, function(index, value){
 					str_html += "<tr>";
-					str_html += "<td>"+(index+1)+"</td>";
+					str_html += "<td>"+(index+off*10+1)+"</td>";
 					str_html += "<td>"+value.usr_nm+"</td>";
 					str_html += "<td>"+value.usr_lv+"</td>";
 					str_html += "<td>"+value.usr_pwd+"</td>";
@@ -143,6 +144,45 @@ function usrList() {
 				str_html +="</tbody></table></div></div></div></div>";
 				str_html += "</form>";
 				$("#list").html(str_html);
+				
+				var page_html =  
+				"<div class=\"container\">"+
+				"<ul class=\"pagination\">";
+				
+				
+				if(page_off==0)
+					page_html += "<li class=\"disabled\">"; 
+				else 
+					page_html += "<li>";
+				page_html += "<a onclick = \"usrList("+(page_off-1)+","+(page_off-5)+")\"><span class=\"glyphicon glyphicon-chevron-left\"></span></a></li>";
+				
+				
+				
+				for(i=0; i<5; i++){
+					if(i==(off-page_off))
+						page_html += "<li class=\"active\">";
+					else
+						page_html += "<li>";
+					page_html+="<a onclick = \"usrList("+(page_off+i)+","+(page_off)+")\">"+(page_off+i+1)+"</a></li>";
+				}
+				/*
+				page_html += 
+				"<li><a onclick = \"usrList("+(page_off+0)+","+(page_off)+")\">"+(page_off+1)+"</a></li>"+
+				"<li><a onclick = \"usrList("+(page_off+1)+","+(page_off)+")\">"+(page_off+2)+"</a></li>"+
+				"<li><a onclick = \"usrList("+(page_off+2)+","+(page_off)+")\">"+(page_off+3)+"</a></li>"+
+				"<li><a onclick = \"usrList("+(page_off+3)+","+(page_off)+")\">"+(page_off+4)+"</a></li>"+
+				"<li><a onclick = \"usrList("+(page_off+4)+","+(page_off)+")\">"+(page_off+5)+"</a></li>";
+				*/
+					
+					
+				page_html +="<li>"+ 
+					"<a onclick = \"usrList("+(page_off+5)+","+(page_off+5)+")\">" + 
+					"<span class=\"glyphicon glyphicon-chevron-right\"></span></a></li>"+
+			    	
+			  	"</ul>"+
+			  	"</div>";
+				$("#pagination").html(page_html);
+				
 			},
 			complete	: function () {
 				

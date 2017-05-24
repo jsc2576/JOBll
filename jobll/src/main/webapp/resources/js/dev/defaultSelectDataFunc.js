@@ -9,7 +9,6 @@ function GetCmpnyList(select_typ){
 		success: function(list){
 			
 			var str_html = "<select class='selectpicker cmpny_value' data-live-search='true' onChange = ''>";
-			str_html += "<option selected>선택</option>";
 			for(var i = 0; i < list.length; i++)
 				str_html += "<option value = "+list[i].cmpny_idx+">"+list[i].cmpny_nm+"</option>";
 				str_html += "</select>";
@@ -24,11 +23,12 @@ function GetProjectList(select_typ){
 	/*select_typ 1: All
 				 2: Find by usr_cmpny
 				 3: Find by selected_cmpny
+				 4: Find by selected_cmpny + graph data func
 	*/
 	
 	var cmpny_idx = "";
 	
-	if(select_typ == 3)
+	if(select_typ > 2)
 	{
 		cmpny_idx = $(".cmpny_value").val();
 	}
@@ -38,8 +38,16 @@ function GetProjectList(select_typ){
 		data : {select_typ : select_typ, cmpny_idx : cmpny_idx},
 		success: function(list){
 			
-			var str_html = "<select class='selectpicker' onChange = ''>";
-			str_html += "<option selected>선택</option>";
+			var str_html = "";
+			if(select_typ == 4)
+			{
+				str_html += "<select class='selectpicker' onChange = 'GetIssueRate(this.value)'>";
+			}
+			else
+			{
+				str_html += "<select class='selectpicker' onChange = ''>";
+			}
+			
 			for(var i = 0; i < list.length; i++)
 				str_html += "<option value = "+list[i].prjt_idx+">"+list[i].prjt_sbjt+"</option>";
 				str_html += "</select>";
@@ -90,7 +98,7 @@ function GetProjectTable(select_typ){
 	                    "<thead>" +
 	                        "<tr>" +
 	                            "<th>No.</th>" +
-	                            "<th>사업명</th>" +
+	                            "<th style='width: 55%;'>사업명</th>" +
 	                            "<th>등록 날짜</th>" +
 	                            "<th>담당자</th>";
 								if(select_typ < 3)
@@ -100,9 +108,9 @@ function GetProjectTable(select_typ){
 	                    "<tbody>";
 							for(var i = 0; i < list.length; i++)
 							{
-								str_html += "<tr class="+(i+1)+" onclick = 'readProjectInfo("+list[i].prjt_idx+")'>" +
+								str_html += "<tr class="+(i+1)+">" +
 											"<td>"+(i+1)+"</td>" +
-											"<td>"+list[i].prjt_sbjt+"</td>" +
+											"<td onclick = 'readProjectInfo("+list[i].prjt_idx+")'>"+list[i].prjt_sbjt+"</td>" +
 											"<td>"+list[i].reg_date+"</td>" +
 											"<th>"+list[i].usr_id+"</th>";
 											if(select_typ < 3)
@@ -121,7 +129,7 @@ function GetProjectTable(select_typ){
 	            "<!-- /.panel-body -->";
 	            if(select_typ < 3)
             	{
-	            	str_html += "<button class = 'btn prjt_create_btn' onclick = 'PjrtCreateTagController()' style = 'margin : 15px'>프로젝트 추가</button>" +
+	            	str_html += "<button class = 'btn prjt_create_btn' onclick = 'PjrtCreateTagController()' style = 'margin : 15px'>프로젝트 추가</button><br><button>선택</button>" +
 		     		"<div class='row prjt_create-tag'>" +
 		                "<div class='col-lg-12'>" +
 		                    "<form role='form' class = 'project-create-form' method = 'POST'>" +
@@ -168,7 +176,7 @@ function GetProjectTable(select_typ){
 function GetUsrList(select_typ){
 	/*select_typ 1: All
 				 2: Find by Cmpny
-				 3: Find by Cmpny Only lv 3
+				 3: Find by Cmpny Only lv 2
 	*/
 	var cmpny_idx = "";
 	
@@ -193,12 +201,85 @@ function GetUsrList(select_typ){
 		error: function(){alert("ERROR");}
 	});
 }
+
+function GetHstyTable(prjt_idx){
+	$.ajax({
+		method : "POST",
+		url : "/allPersonInfo/GetHstyLog",
+		data : {prjt_idx : prjt_idx},
+		success: function(list){
+			for(var i = 0; i < list.length; i++)
+			{
+				var str_html = "<div class='row'>" +
+			    "<div class='col-lg-12'>" +
+		          "<div class='panel panel-default'>" +
+		            "<div class='panel-heading'>" +
+		            "프로젝트 현황" +
+					"</div>" +
+		            "<!-- /.panel-heading -->" +
+		            "<div class='panel-body'>" +
+		                "<table width='80%' class='prjt-table table table-striped table-bordered table-hover' id='dataTables-example'>" +
+		                    "<thead>" +
+		                        "<tr>" +
+		                            "<th>No.</th>" +
+		                            "<th style='width: 55%;'>내용</th>" +
+		                            "<th>등록 날짜</th>" +
+		                        "</tr>" +
+		                    "</thead>" +
+		                    "<tbody>";
+								for(var i = 0; i < list.length; i++)
+								{
+									str_html += "<tr class="+(i+1)+">" +
+												"<td>"+(i+1)+"</td>" +
+												"<td>"+list[i].hsty_conts+"</td>" +
+												"<th>"+list[i].hsty_date+"</th>" +
+												"</tr>";
+								}
+					
+					str_html += "</tbody>" +
+		                "</table>" +
+		            "</div>" +
+		            "<!-- /.panel-body -->";
+					"</div>" +
+				"</div>" +
+			"</div>" +
+			"</div>";
+					
+					$(".hsty_list").html(str_html);	
+			}
+
+		},
+		error: function(){alert("ERROR");}
+	});
+}
+
 function readProjectInfo(idx){
 	
 	var str_html = "<input type ='hidden' name = 'prjt_idx' value = '"+idx+"'>";
 	
 	$(".prjt_list").html(str_html);
-	
-	$("#projectInfo").submit();
+	$(".prjt_data").html(str_html);
+	$(".project-form").attr('action', "/projectInfo/prjt/check/read");
+	$(".project-form").submit();
 
+}
+
+function GetIssueRate(prjt_idx)
+{
+	$.ajax({
+		method : "POST",
+		url : "/issue/GetIssueRate",
+		data : {prjt_idx : prjt_idx},
+		success: function(list){
+			for(var i = 0; i < list.length; i++)
+			{
+				if(list[i] == null)
+					list[i] = 0;
+			}
+			graphRefresh(list[0],list[1],list[2],list[3],list[4]);
+
+		},
+		error: function(){alert("ERROR");}
+	});
+	GetHstyTable(prjt_idx);
 }

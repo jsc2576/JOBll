@@ -1,3 +1,5 @@
+
+
 function viewIssue() {
 	$("#dataSender").attr('action', "/issue/view");
 	$("#dataSender").submit();

@@ -37,6 +37,11 @@ public class IssueInfoRepository {
 		return entity;
 	}
 	
+	public String findToTypCnt (IssueInfo entity) throws Exception{
+		String count = sqlSession.selectOne("com.jobll.web.projectInfo.issueInfo.IssueInfo.findToTypCnt", entity);
+		return count;
+	}
+	
 	public int delete(IssueInfo entity){
 		int qry = sqlSession.update("com.jobll.web.projectInfo.issueInfo.IssueInfo.delete", entity);
 		return qry;
