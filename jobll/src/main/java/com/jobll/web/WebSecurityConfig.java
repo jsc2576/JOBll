@@ -40,7 +40,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .formLogin()//로그인 옵션
                 .loginPage("/login.do")
                 .loginProcessingUrl("/authLogin.do")
-                .defaultSuccessUrl("/",true)
+                .defaultSuccessUrl("/dev",true)
                 .permitAll()
                 .and()
             .logout()//로그아웃 옵션
@@ -51,7 +51,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
            .authorizeRequests()//권한요청
-            	.antMatchers("/").permitAll()
+            	//.antMatchers("/").permitAll()
             	.antMatchers("/signin/facebook").permitAll()
                 .antMatchers("/resources/**").permitAll()
             	.antMatchers("/usrInfo/usrInfoJoin/go").permitAll()

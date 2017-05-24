@@ -26,7 +26,22 @@ public class UsrInfo implements Serializable{
 	
 	private Integer select_typ;
 	
+	private int lim=10;
+	private int off=0;
 	
+	
+	public int getLim() {
+		return lim;
+	}
+	public void setLim(int lim) {
+		this.lim = lim;
+	}
+	public int getOff() {
+		return off;
+	}
+	public void setOff(int off) {
+		this.off = off;
+	}
 	
 	
 	public String getUsr_id() {
