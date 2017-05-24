@@ -40,7 +40,7 @@ public class DashbrdController {
 	
 	@RequestMapping("/rcnt_atcl/read")
 	@ResponseBody
-	public List<Dashbrd> findRcntAtclList(@ModelAttribute Dashbrd entity){ // 차트 통계
+	public List<Dashbrd> findRcntAtclList(@ModelAttribute Dashbrd entity){ // 최근 이슈 읽기
 		return dashbrdService.findRcntAtclList(entity);
 	}
 	

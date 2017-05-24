@@ -17,7 +17,8 @@ public class Dashbrd implements Serializable{
 	private String usr_id;
 	private String prjt_sbjt;
 	private Integer prjt_idx;
-	private List<String> cnet_prjt_sbjt;
+	private Integer atcl_idx;
+	private String cnet_prjt_sbjt;
 	
 	public String getUsr_id() {
 		return usr_id;
@@ -31,10 +32,10 @@ public class Dashbrd implements Serializable{
 	public void setPrjt_sbjt(String prjt_sbjt) {
 		this.prjt_sbjt = prjt_sbjt;
 	}
-	public List<String> getCnet_prjt_sbjt() {
+	public String getCnet_prjt_sbjt() {
 		return cnet_prjt_sbjt;
 	}
-	public void setCnet_prjt_sbjt(List<String> cnet_prjt_sbjt) {
+	public void setCnet_prjt_sbjt(String cnet_prjt_sbjt) {
 		this.cnet_prjt_sbjt = cnet_prjt_sbjt;
 	}
 	public Integer getPrjt_idx() {
@@ -42,6 +43,12 @@ public class Dashbrd implements Serializable{
 	}
 	public void setPrjt_idx(Integer prjt_idx) {
 		this.prjt_idx = prjt_idx;
+	}
+	public Integer getActl_idx() {
+		return atcl_idx;
+	}
+	public void setActl_idx(Integer actl_idx) {
+		this.atcl_idx = actl_idx;
 	}
 	
 }

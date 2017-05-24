@@ -89,7 +89,7 @@ function Tot_Prcs(prjt_idx){
 function Circle_chart(tot, rmn, end){
 	var options = {
 			'dataset':{
-				title: 'Web accessibility status',
+				[title: 'Web accessibility status',
 				values:[end, tot-end-rmn, rmn],
 				colorset: ['#2EB400', '#2BC8C9', "#666666"],
 				fields: ['종료 이슈', '진행 이슈',  '남은 이슈'],
@@ -97,7 +97,7 @@ function Circle_chart(tot, rmn, end){
 			'donut_width' : 100,
 			'core_circle_radius':0,
 			'chartDiv': 'Nwagon',
-			'chartType': 'pie',
+			'chartType': 'pie',	
 			'chartSize': {width:500, height:200}
 		};
 	$("#Nwagon").html("");
