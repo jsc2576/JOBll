@@ -37,6 +37,7 @@
 	
 	<select  id="findByPrjt" resultType="com.jobll.web.hstyInfo.HstyInfo" parameterType ="com.jobll.web.hstyInfo.HstyInfo">
 	SELECT * FROM "HSTY_INFO" WHERE "PRJT_IDX" = #{prjt_idx}
+	LIMIT #{lim} OFFSET #{off}
 	</select>
 
 </mapper>

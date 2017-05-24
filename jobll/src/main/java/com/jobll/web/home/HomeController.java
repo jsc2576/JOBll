@@ -23,9 +23,13 @@ public class HomeController {
 	@RequestMapping("/")
 	public String home(Locale locale, Model model) {
 
+		return "dev/pages/dashBoard/dashBoardView";
+	}
+	@RequestMapping("/preHome")
+	public String preHome(Locale locale, Model model) {
+
 		return "homeView";
 	}
-	
 	@RequestMapping("/dev")
 	public String dev(Locale locale, Model model) {
 
