@@ -100,9 +100,9 @@ function GetProjectTable(select_typ){
 	                    "<tbody>";
 							for(var i = 0; i < list.length; i++)
 							{
-								str_html += "<tr class="+(i+1)+" onclick = 'readProjectInfo("+list[i].prjt_idx+")'>" +
+								str_html += "<tr class="+(i+1)+">" +
 											"<td>"+(i+1)+"</td>" +
-											"<td>"+list[i].prjt_sbjt+"</td>" +
+											"<td onclick = 'readProjectInfo("+list[i].prjt_idx+")'>"+list[i].prjt_sbjt+"</td>" +
 											"<td>"+list[i].reg_date+"</td>" +
 											"<th>"+list[i].usr_id+"</th>";
 											if(select_typ < 3)

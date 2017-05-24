@@ -4,7 +4,7 @@ $(document).ready (function (){
 
 function PjrtCreateTagController(){
 	$('.prjt_create-tag').toggle(500);
-	GetUsrList(3);
+	//GetUsrList(3);
 }
 
 function createPorject() {
