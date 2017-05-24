@@ -19,6 +19,10 @@ function viewSupplyList() {
 	$("#dataSender").attr('action', "/projectSupply/projectSupplyList/go");
 	$("#dataSender").submit();
 }
+function viewSupplyReq() {
+	$("#dataSender").attr('action', "/projectSupply/projectSupplyReq/go");
+	$("#dataSender").submit();
+}
 
 function viewSupplyWrite() {
 	$("#dataSender").attr('action', "/projectSupply/projectSupplyWrite/go");

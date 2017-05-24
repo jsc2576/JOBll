@@ -7,7 +7,8 @@
         <li><a class = "menu-a-tag" onclick="viewProject()">프로젝트 정보</a></li>
         <li><a class = "menu-a-tag" onclick="viewIssue()">게시판(이슈)</a></li>
         <li><a class = "menu-a-tag" onclick="viewTeamInv()">팀원 조회</a></li>
-        <li class = "ManagerLv"><a class = "menu-a-tag" onclick="viewSupplyList()">프로젝트 지원</a></li>
+        <li class = "ManagerLv"><a class = "menu-a-tag" onclick="viewSupplyList()">지원 요청</a></li>
+        <li class = "ManagerLv"><a class = "menu-a-tag" onclick="viewSupplyReq()">지원 수신</a></li>
       </ul>
 </div>
 
