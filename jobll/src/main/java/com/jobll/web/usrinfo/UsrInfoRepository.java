@@ -68,7 +68,12 @@ public class UsrInfoRepository {
 		int test = sqlSession.update("com.jobll.web.usrinfo.UsrInfo.edit",entity);
 		return test;
 	}
-
+	
+	public int changeUsrLv(UsrInfo entity){
+		int test = sqlSession.update("com.jobll.web.usrinfo.UsrInfo.changeUsrLv",entity);
+		return test;
+	}
+	
 	public int delete(UsrInfo entity){
 	
 	int test = sqlSession.update("com.jobll.web.usrinfo.UsrInfo.delete",entity);

@@ -21,7 +21,22 @@ public class HstyInfo implements Serializable{
 	private String hsty_conts;
 	private Integer hsty_typ;
 	
+	private int lim=10;
+	private int off=0;
+	// for pagination
 	
+	public int getLim() {
+		return lim;
+	}
+	public void setLim(int lim) {
+		this.lim = lim;
+	}
+	public int getOff() {
+		return off;
+	}
+	public void setOff(int off) {
+		this.off = off;
+	}
 	
 	public Integer getCmpny_idx() {
 		return cmpny_idx;

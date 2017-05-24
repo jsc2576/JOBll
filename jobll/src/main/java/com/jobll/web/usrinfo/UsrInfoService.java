@@ -83,6 +83,11 @@ public class UsrInfoService{
 		return test;
 	}
 	
+	public int changeUsrLv(UsrInfo entity){
+		int test = usrInfoRepository.changeUsrLv(entity);
+		return test;
+	}
+	
 	public int delete(UsrInfo entity){
 		int test = usrInfoRepository.delete(entity);
 		return test;

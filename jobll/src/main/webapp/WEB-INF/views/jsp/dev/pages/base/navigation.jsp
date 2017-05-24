@@ -20,9 +20,9 @@
 			<ul class="dropdown-menu dropdown-user">
 				<li><a href="/usrInfo/MyUsrInfo"><i
 						class="fa fa-user fa-fw"></i> 내 프로필</a></li>
-				<li><a href="/usrInfo/usrMdf"><i class="fa fa-gear fa-fw"></i>
+				<li><a href="/usrInfo/usrMdf"><i class="fa fa-medium fa-fw"></i>
 						프로필 수정</a></li>
-				<li><a href="/usrInfo/usrDel"><i class="fa fa-gear fa-fw"></i>
+				<li><a href="/usrInfo/usrDel"><i class="fa fa-frown-o fa-fw"></i>
 						회원 탈퇴</a></li>
 				<li class="divider"></li>
 				<li><a href="/logout.do"><i class="fa fa-sign-out fa-fw"></i>

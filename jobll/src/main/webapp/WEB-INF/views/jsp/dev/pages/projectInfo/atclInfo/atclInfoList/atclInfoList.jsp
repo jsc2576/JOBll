@@ -4,11 +4,8 @@
 
 <!-- data table -->
  	<div id="list"></div>
- 		
- <div class="jb-center">
-  	<ul class="pagination" id="page_nm">
-	</ul>
-</div>
+	<div id="pagination"></div>
+
 <form id="atclInfoWrite" action = "/issue/reg" method="post">
 	<input type = "hidden" name = "prjt_idx" id = "prjt_idx" value = ${ entity.prjt_idx }>
 	<button onclick = "submit()">글쓰기</button>

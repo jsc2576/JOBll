@@ -1,58 +1,44 @@
 $(document).ready (function (){
-	viewIssue();
-	pagination_mv();
+	viewIssue(0,0);
 
 });
 
-var page_nm = 0; // 현재 보이는 페이지네이션의 페이지 
-var list_nm = 5; // 하나의 페이지네이션에 보여지는 개수
-var prcs_stus_nm = 0; // 현재 보여지고 있는 process stus 번호
-var data_limit = 10; // 하나의 페이지에 보여지는 데이터 수
-
-//public method 
-function findpage(page){
-	findData(prcs_stus_nm, list_nm * page, data_limit);
-}
-
-
-function pagination_next(){
-	page_nm++;
-	pagination_mv();
-}
-
-function pagination_prev(){
-	if(page_nm > 0)
-		page_nm--;
-	
-	pagination_mv();
-}
-
-
-function viewIssue() {
+function viewIssue(off,page_off) {
 	var prjt_idx = $("#prjt_idx").val();
 	
 	$.ajax({
 		method : "POST",
 		url : "/issue/search/read",
-		data : {"prjt_idx" : prjt_idx},
+		data : {"prjt_idx" : prjt_idx, off : off, page_off : page_off},
 		success: function(list){
 			
 			var str_html = "<form id='issueRead' action = '/issue/check/read' method='post'>";
 			str_html += "<table class = 'table'>";
 			str_html += "<thead><tr>";
-			str_html += "<th class = 'tb-typ'>유형</th>";
+			str_html += "<th class = 'tb-No'>No.</th>";
 			str_html += "<th class = 'tb-sbjt'>제목</th>";
 			str_html += "<th class = 'tb-id'>작성자</th>";
 			str_html += "<th class = 'tb-reg-date'>등록일</th>";
+			str_html += "<th class = 'tb-atcl-typ'>유형</th>";
 			str_html += "</tr></thead>";
 		
 			str_html += "<tbody>";
 			$.each(list, function(index, value){
 				str_html += "<tr onclick = 'atclInfoGetIdx("+value.atcl_idx+")'>";
-				str_html += "<td class = 'tb-typ'>"+value.atcl_typ+"</td>";
+				str_html += "<td class = 'tb-No'>"+index+"</td>";
 				str_html += "<td class = 'tb-sbjt'>"+value.atcl_sbjt+"</td>";
 				str_html += "<td class = 'tb-id'>"+value.usr_id+"</td>";
 				str_html += "<td class = 'tb-reg-date'>"+value.reg_date+"</td>";
+				if(value.atcl_typ == 1)
+					str_html += "<th class = 'tb-atcl-typ'>진행중</th>";
+				else if(value.atcl_typ == 2)
+					str_html += "<th class = 'tb-atcl-typ'>진행 완료</th>";
+				else if(value.atcl_typ == 3)
+					str_html += "<th class = 'tb-atcl-typ'>진행 중단</th>";
+				else if(value.atcl_typ == 4)
+					str_html += "<th class = 'tb-atcl-typ'>진행 초과</th>";
+				else if(value.atcl_typ == 5)
+					str_html += "<th class = 'tb-atcl-typ'>협의중</th>";
 				str_html += "</a></tr>";
 				
 			});
@@ -62,32 +48,33 @@ function viewIssue() {
 			str_html += "</form>";
 		
 			$("#list").html(str_html);
+			
+			var page_html =  
+				"<div class=\"container\">"+
+				"<ul class=\"pagination\">";
+				if(page_off==0)
+					page_html += "<li class=\"disabled\">"; 
+				else 
+					page_html += "<li>";
+				page_html += "<a onclick = \"viewIssue("+(page_off-1)+","+(page_off-5)+")\"><span class=\"glyphicon glyphicon-chevron-left\"></span></a></li>";
+				for(i=0; i<5; i++){
+					if(i==(off-page_off))
+						page_html += "<li class=\"active\">";
+					else
+						page_html += "<li>";
+					page_html+="<a onclick = \"viewIssue("+(page_off+i)+","+(page_off)+")\">"+(page_off+i+1)+"</a></li>";
+				}
+				page_html +="<li>"+ 
+					"<a onclick = \"viewIssue("+(page_off+5)+","+(page_off+5)+")\">" + 
+					"<span class=\"glyphicon glyphicon-chevron-right\"></span></a></li>"+
+			  	"</ul>"+
+			  	"</div>";
+				$("#pagination").html(page_html);
 		},
 		error: function(){}
 	});
 }
 
-// 페이네이션의 페이지가 이동할 때마다 호출하는 함수
-function pagination_mv(){
-	var str_html = "";
-	if(page_nm<=0){
-		str_html += "<li class='disabled'>";
-	}
-	else{
-		str_html += "<li>";
-	}
-	
-	str_html += "<a onclick='pagination_prev()'><span class='glyphicon glyphicon-chevron-left'></span></a></li>";
-	str_html += "<li><a onclick='findpage(" + (page_nm * list_nm + 1) + ")'>" + (page_nm * list_nm + 1) + "</a></li>";
-	str_html += "<li><a onclick='findpage(" + (page_nm * list_nm + 2) + ")'>" + (page_nm * list_nm + 2) + "</a></li>";
-	str_html += "<li><a onclick='findpage(" + (page_nm * list_nm + 3) + ")'>" + (page_nm * list_nm + 3) + "</a></li>";
-	str_html += "<li><a onclick='findpage(" + (page_nm * list_nm + 4) + ")'>" + (page_nm * list_nm + 4) + "</a></li>";
-	str_html += "<li><a onclick\='findpage(" + (page_nm * list_nm + 5) + ")'>" + (page_nm * list_nm + 5) + "</a></li>";
-	
-	str_html += "<li><a onclick='pagination_next()'><span class='glyphicon glyphicon-chevron-right'></span></a></li>";
-	$("#page_nm").html(str_html);
-	
-}
 
 //게시글을 클릭할때 form 전송 data(atcl_idx)를 생성해주는 함수
 function atclInfoGetIdx(idx) {

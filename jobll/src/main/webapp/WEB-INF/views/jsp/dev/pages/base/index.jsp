@@ -250,9 +250,9 @@
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="/usrInfo/MyUsrInfo"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
-                        <li><a href="/usrInfo/usrMdf"><i class="fa fa-gear fa-fw"></i> Profile Modify</a>
+                        <li><a href="/usrInfo/usrMdf"><i class="fa fa-medium fa-fw"></i> Profile Modify</a>
                         </li>
-                        <li><a href="/usrInfo/usrDel"><i class="fa fa-gear fa-fw"></i> Withdrwal</a>
+                        <li><a href="/usrInfo/usrDel"><i class="fa fa-frown-o fa-fw"></i> Withdrwal</a>
                         </li>
                         <li class="divider"></li>
                         

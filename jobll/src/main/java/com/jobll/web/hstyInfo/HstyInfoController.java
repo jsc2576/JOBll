@@ -35,7 +35,7 @@ public class HstyInfoController {
 	public List<HstyInfo> GetHstyLog(@ModelAttribute HstyInfo entity) throws Exception{
 		
 		List<HstyInfo> list = new ArrayList<HstyInfo>();
-		
+		entity.setOff(entity.getLim()*entity.getOff());
 		list = hstyInfoService.findByPrjt(entity);
 		return list;
 	}

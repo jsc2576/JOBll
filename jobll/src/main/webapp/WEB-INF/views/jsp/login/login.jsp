@@ -130,12 +130,12 @@
       <form role="form" action="${actionUrl}" method="post">
          <div class="login-form form-group">
           	<p>
-          		<label for="username">   ID  </label>
-				<input type="text" id="username" name="username" value="1"/>	
+          		<label for="username">Username</label>
+				<input type="text" id="username" name="username" />	
 			</p>
 			<p>
 				<label for="password">Password</label>
-				<input type="password" id="password" name="password" value="1"/>
+				<input type="password" id="password" name="password" />
 				<c:if test="${param.error != null}">        
 					<p>
 						Invalid username and password.
