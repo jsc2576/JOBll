@@ -54,6 +54,9 @@
                                 <li>
                                     <a href="/usrInfo/usrInfoList">사용자 관리</a>
                                 </li>
+                                <li>
+                                    <a href="cmpny/add">고객사 추가/삭제</a>
+                                </li>
                             </ul>
                         </li>
                         <li>

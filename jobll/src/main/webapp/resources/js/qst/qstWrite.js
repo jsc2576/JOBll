@@ -42,7 +42,7 @@ function GetMyQstList(off,page_off){
 							for(var j = 0; j < list.length; j++)
 							{
 								str_html += "<tr class="+(j+1)+">" +
-											"<td>"+(j+1)+"</td>" +
+											"<td>"+(j+off*10+1)+"</td>" +
 											"<td onclick = 'qstView("+list[j].qst_idx+")'>"+list[j].qst_sbjt+"</td>" +
 											"<th>"+list[j].reg_date+"</th>";
 											if(list[j].qst_stus == 1){

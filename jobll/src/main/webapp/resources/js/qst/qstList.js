@@ -1,5 +1,5 @@
 $(document).ready (function (){
-	findPrcs(0);
+	findData(0,0,0);
 });
 
 function findData(prcs_stus, off, page_off){
@@ -22,7 +22,7 @@ function findData(prcs_stus, off, page_off){
 				str_html += "<tbody>";
 			$.each(list, function(index, value){
 				str_html += "<tr onclick = 'readQstInfo("+value.qst_idx+")'>";
-				str_html += "<td>"+index+"</td>";
+				str_html += "<td>"+(index+off*10+1)+"</td>";
 				str_html += "<td>"+value.qst_sbjt+"</td>";
 				str_html += "<td>"+value.qst_conts+"</td>";
 				str_html += "<td>"+value.reg_date+"</td>";
