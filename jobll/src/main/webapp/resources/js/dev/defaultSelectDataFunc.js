@@ -209,7 +209,7 @@ function GetHstyTable(prjt_idx){
 		data : {prjt_idx : prjt_idx},
 		success: function(list){
 			for(var i = 0; i < list.length; i++)
-			{
+			{	
 				var str_html = "<div class='row'>" +
 			    "<div class='col-lg-12'>" +
 		          "<div class='panel panel-default'>" +
@@ -281,5 +281,6 @@ function GetIssueRate(prjt_idx)
 		},
 		error: function(){alert("ERROR");}
 	});
+	$(".hsty_list").html("");
 	GetHstyTable(prjt_idx);
 }

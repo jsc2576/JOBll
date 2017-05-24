@@ -248,4 +248,10 @@ public class UsrInfoController {
 		usrInfoService.delete(entity);
 		return ;
 		}
+	@RequestMapping(value = "/changeUsrLv", method = RequestMethod.POST)
+	@ResponseBody
+	public int changeUsrLv(UsrInfo entity) {
+		int result = usrInfoService.changeUsrLv(entity);
+		return result;
+	}
 }

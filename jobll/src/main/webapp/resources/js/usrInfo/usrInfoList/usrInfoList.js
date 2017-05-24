@@ -31,10 +31,10 @@ function getUserByCmpny(off,page_off){
 			var str_html = "<form id='usrInfoRead' action = '/usrInfo/usrInfo' method='get'>";
 			str_html += " <div class=\"row\">";
 			str_html += "<div class=\"col-lg-12\">";
-			str_html += "<h1 class=\"page-header\">회원 목록</h1></div></div>";
+			str_html += "<h1 class=\"page-header\">사용자 목록</h1></div></div>";
 
 			str_html += "<div class=\"row\"><div class=\"col-lg-12\"><div class=\"panel panel-default\"><div class=\"panel-heading\">";
-			str_html += "전체 회원 목록 리스트";
+			str_html += "전체 사용자 리스트";
 			str_html += "</div><div class=\"panel-body\">";
 			str_html += "<table width=\"80%\" class=\"table table-striped table-bordered table-hover\" id=\"dataTables-example\">";
 			str_html += "<thead><tr>";
@@ -53,7 +53,7 @@ function getUserByCmpny(off,page_off){
 				str_html += "<td>"+value.usr_nm+"</td>";
 				str_html += "<td>"+value.usr_lv+"</td>";
 				str_html += "<td>"+value.usr_pwd+"</td>";
-				str_html += "<td>"+"<button onclick='submit()'  name = 'usr_id'";
+				str_html += "<td style ='text-align : center;'>"+"<button onclick='submit()'  name = 'usr_id'";
 				
 				str_html += " id = 'usr_id'";
 				str_html += " value = '"+value.usr_id+"'";
@@ -110,10 +110,10 @@ function usrList(off,page_off) {
 				var str_html = "<form id='usrInfoRead' action = '/usrInfo/usrInfo' method='get'>";
 				str_html += " <div class=\"row\">";
 				str_html += "<div class=\"col-lg-12\">";
-				str_html += "<h1 class=\"page-header\">회원 목록</h1></div></div>";
+				str_html += "<h1 class=\"page-header\">사용자 목록</h1></div></div>";
 
 				str_html += "<div class=\"row\"><div class=\"col-lg-12\"><div class=\"panel panel-default\"><div class=\"panel-heading\">";
-				str_html += "전체 회원 목록 리스트";
+				str_html += "전체 사용자 리스트";
 				str_html += "</div><div class=\"panel-body\">";
 				str_html += "<table width=\"80%\" class=\"table table-striped table-bordered table-hover\" id=\"dataTables-example\">";
 				str_html += "<thead><tr>";
@@ -132,7 +132,7 @@ function usrList(off,page_off) {
 					str_html += "<td>"+value.usr_nm+"</td>";
 					str_html += "<td>"+value.usr_lv+"</td>";
 					str_html += "<td>"+value.usr_pwd+"</td>";
-					str_html += "<td>"+"<button onclick='submit()'  name = 'usr_id'";
+					str_html += "<td style ='text-align : center;'>"+"<button onclick='submit()'  name = 'usr_id'";
 					
 					str_html += " id = 'usr_id'";
 					str_html += " value = '"+value.usr_id+"'";

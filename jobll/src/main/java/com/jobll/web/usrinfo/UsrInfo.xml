@@ -71,6 +71,12 @@
 		where "USR_ID" = #{usr_id} and "USR_PWD" = #{usr_pwd}
 	</update>
 	
+	<update id="changeUsrLv" parameterType ="com.jobll.web.usrinfo.UsrInfo">
+		update "USR_INFO" set
+			"USR_LV" =  #{usr_lv}
+		where "USR_ID" = #{usr_id}
+	</update>
+	
 	<insert  id="create" parameterType ="com.jobll.web.usrinfo.UsrInfo">
 	INSERT INTO "USR_INFO"(
           	"USR_ID",

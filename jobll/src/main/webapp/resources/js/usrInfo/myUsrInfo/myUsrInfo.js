@@ -126,7 +126,16 @@ function myUsrInfo() {
 				str_html +="</td></tr>";
 				str_html +="<tr><th class ='th-15'>권한";
 				str_html +="</th><td>";
-				str_html +=list.usr_lv;
+				str_html += "<select class ='usr_lv' name = 'usr_lv'>";
+				for(var i = 1; i < 4; i++)
+				{	
+					if(list.usr_lv == i)
+					str_html += "<option selected value = "+i+">"+i+"</option>";
+					else
+						str_html += "<option value = "+i+">"+i+"</option>";
+				}
+				str_html += "</select>"
+				str_html += "<button onclick = 'changeUsrLv()'>변경</button>";
 				str_html +="</td>";
 				str_html +="<th class = 'th-15'>회사</th>";
 				str_html +="<td>";
@@ -154,4 +163,24 @@ function myUsrInfo() {
 				console.log(a);
 			}
 		});
+}
+function changeUsrLv() {
+	var usr_id = $("#usr_id").val();
+	var usr_lv = $(".usr_lv").val();
+	
+	$.ajax ({
+		method	: "post",
+		url		: "/usrInfo/changeUsrLv",
+		data : {usr_id : usr_id, usr_lv : usr_lv},
+		success	: function (list) {
+			alert("변경되었습니다.")
+		},
+		complete	: function () {
+			
+		},
+		error		: function (a) {
+			console.log(a);
+		}
+	});
+	
 }
