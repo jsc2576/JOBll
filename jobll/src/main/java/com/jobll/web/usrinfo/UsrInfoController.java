@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.jobll.web.CommonUtil;
 import com.jobll.web.SessionUtil;
 import com.jobll.web.attchfile.AttchFile;
 import com.jobll.web.cmpnyinfo.CmpnyInfo;
@@ -30,6 +31,9 @@ import com.jobll.web.projectInfo.issueInfo.IssueInfo;
 @Controller
 @RequestMapping(value="/usrInfo")
 public class UsrInfoController {
+	@Autowired
+	private CommonUtil commonUtil;
+	
 	
 	@Autowired
 	private UsrInfoService usrInfoService;
@@ -41,6 +45,20 @@ public class UsrInfoController {
 	public String pagination(){
 		
 		return "pagination";
+	}
+	
+	@RequestMapping(value = "/readUserInfoByCmpny", method = RequestMethod.POST)
+	@ResponseBody
+	public List<UsrInfo> UsrInfoListByCmpny(@ModelAttribute UsrInfo entity) {
+		
+		List<UsrInfo> List;
+		if(entity.getUsr_cmpny_idx()==-1){
+			List= usrInfoService.selectAllUser();	
+		}
+		else
+			List=usrInfoService.selectUserByCmpny(entity);
+		
+		return List;
 	}
 	
 	@RequestMapping(value = "/usrDel/send", method = RequestMethod.POST)
@@ -89,13 +107,15 @@ public class UsrInfoController {
 	@RequestMapping(value = "/MyUsrInfo")
 	public ModelAndView myUsrInfoGo(@ModelAttribute UsrInfo entity) throws Exception {
 		ModelAndView mav = new ModelAndView("usrInfo/myUsrInfo/myUsrInfoView");
-		
-		mav.addObject("usr_id", entity.getUsr_id());
-		//일반적으로 Null이나, 관리자의 특정 유저정보 접근시 열람할 유저의 아이디가 존재
-		
+		mav.addObject("usr_id", sessionUtil.getSessionBean().getUsr_id());
 		return mav;
 	}
-	
+	@RequestMapping(value = "/usrInfo")
+	public ModelAndView UsrInfoGo(@ModelAttribute UsrInfo entity) throws Exception {
+		ModelAndView mav = new ModelAndView("usrInfo/myUsrInfo/myUsrInfoView");
+		mav.addObject("usr_id", entity.getUsr_id());
+		return mav;
+	}
 	/**
 	 * 회원목록 리스트 페이지로 이동합니다.(추후 사이트 관리자 계정에서만 보이게 할 것)
 	**/
@@ -176,6 +196,11 @@ public class UsrInfoController {
 	public List<ProjectInfo> PrjtInfoList(UsrInfo entity) {
 		List<ProjectInfo> List;
 		List= usrInfoService.readPrjtSbjtByUsrId(entity);
+		for(int i = 0; i < List.size(); i++)
+		{
+			List.get(i).setReg_date(commonUtil.getDividedTime(List.get(i).getReg_date()));
+		}
+		
 		return List;
 		}
 	//basic instruction :

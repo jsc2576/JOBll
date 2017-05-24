@@ -17,6 +17,10 @@ public class UsrInfoRepository {
 	@Autowired
     SqlSession sqlSession;
 	
+	public List<UsrInfo> selectUserByCmpny(UsrInfo entity) {
+		List<UsrInfo> selectList = sqlSession.selectList("com.jobll.web.usrinfo.UsrInfo.selectUserByCmpny", entity);	
+		return selectList ;
+	}
 	public List<UsrInfo> selectAllUser() {
 		List<UsrInfo> selectList = sqlSession.selectList("com.jobll.web.usrinfo.UsrInfo.selectAllUser");	
 		return selectList ;

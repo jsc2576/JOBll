@@ -13,5 +13,6 @@
 <form id="prjtCnetListModify" class = "ManagerLv" action = "/teamPerson/inv" method="post">
 	<input type = "hidden" name = "prjt_idx" id = "prjt_idx" value = ${ entity.prjt_idx }>
 	<input type = "hidden" class = "prjt_sbjt" name = "prjt_sbjt" value = ${ entity.prjt_sbjt }>
+	<input type = "hidden" class = "prjt_cmpny" name = "prjt_cmpny" value = ${ entity.prjt_cmpny }>
 	<button onclick = "submit()">팀원 초대/제외</button>
 </form>

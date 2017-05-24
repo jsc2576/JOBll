@@ -26,5 +26,6 @@
 
 <form id = "dataSender" method="post">
 	<input type = "hidden" class = "prjt_idx" name = "prjt_idx" value = ${ entity.prjt_idx }>
+	<input type = "hidden" class = "prjt_cmpny" name = "prjt_cmpny" value = ${ entity.prjt_cmpny }>
 </form>
 	
