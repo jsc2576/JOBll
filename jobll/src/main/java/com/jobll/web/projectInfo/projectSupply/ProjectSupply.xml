@@ -28,6 +28,13 @@
 			)
 	</insert>
 	
+	<update id="modify" parameterType="com.jobll.web.projectInfo.projectSupply.ProjectSupply" useGeneratedKeys="true"
+    keyProperty="prjt_sup_list_idx">
+		UPDATE "PRJT_SUP_LIST" set
+			"APPR_YN" = '1'
+		where "PRJT_SUP_LIST_IDX" = #{prjt_sup_list_idx}
+	</update>
+	
 	<select id="readPrjtSbjt" parameterType ="com.jobll.web.projectInfo.ProjectInfo" resultType="com.jobll.web.projectInfo.ProjectInfo">
 		SELECT * FROM "PRJT_INFO" WHERE "CMPNY_IDX" = #{cmpny_idx} AND "PRJT_STUS" = '1'
 	</select>
@@ -40,8 +47,12 @@
 		SELECT * FROM "PRJT_SUP_LIST" WHERE "PRJT_IDX" = #{prjt_idx}
 	</select>
 	
+	<select id="findReq" resultType="com.jobll.web.projectInfo.projectSupply.ProjectSupply" parameterType="com.jobll.web.projectInfo.projectSupply.ProjectSupply">
+		SELECT * FROM "PRJT_SUP_LIST" WHERE "REQ_PRJT_IDX" = #{prjt_idx}
+	</select>
+	
 	<select id="findOne" resultType="com.jobll.web.projectInfo.projectSupply.ProjectSupply" parameterType="com.jobll.web.projectInfo.projectSupply.ProjectSupply">
-		SELECT * FROM "PRJT_SUP_LIST" WHERE "PRJT_SUP_LIST_IDX" = #{prjt_sup_list_idx}
+		SELECT * FROM "PRJT_SUP_LIST" WHERE "PRJT_SUP_LIST_IDX" = #{prjt_sup_list_idx} 
 	</select>
 	
 </mapper>

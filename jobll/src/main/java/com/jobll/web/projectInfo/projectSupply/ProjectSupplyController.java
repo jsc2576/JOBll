@@ -61,7 +61,14 @@ public class ProjectSupplyController {
 		
 		return mav;
 	}
-	
+	@RequestMapping("/projectSupplyReq/go")
+	public ModelAndView projectSupplyReq (@ModelAttribute ProjectSupply entity) throws Exception {
+		ModelAndView mav = new ModelAndView("dev/pages/projectInfo/projectSupply/projectSupplyReq/projectSupplyReqView");
+		
+		mav.addObject("entity", entity);
+		
+		return mav;
+	}
 	@RequestMapping("/projectSupplyWrite/go")
 	public ModelAndView projectSupplyWriteGo(@ModelAttribute ProjectSupply entity) throws Exception {
 		ModelAndView mav = new ModelAndView("dev/pages/projectInfo/projectSupply/projectSupplyWrite/projectSupplyWriteView");
@@ -87,13 +94,28 @@ public class ProjectSupplyController {
 		
 		return List;
 	}
+	@RequestMapping(value = "/appr", method= RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView projectSupplyappr(@ModelAttribute ProjectSupply entity) throws Exception{
+		ModelAndView mav = new ModelAndView("dev/pages/projectInfo/projectSupply/projectSupplyReq/projectSupplyReqView");
+		entity = projectSupplyService.findOne(entity);
+		projectSupplyService.modify(entity);
+		mav.addObject("entity", entity);
+		return mav;
+	}
+	
 	@RequestMapping(value = "/listRun", method= RequestMethod.POST)
 	@ResponseBody
 	public List<ProjectSupply> projectSupplylistRun(@ModelAttribute ProjectSupply entity) throws Exception{
 		List<ProjectSupply> list = projectSupplyService.findAll(entity);
 		return list;
 	}
-	
+	@RequestMapping(value = "/ReqRun", method= RequestMethod.POST)
+	@ResponseBody
+	public List<ProjectSupply> projectSupplyReqRun(@ModelAttribute ProjectSupply entity) throws Exception{
+		List<ProjectSupply> list = projectSupplyService.findReq(entity);
+		return list;
+	}
 	@RequestMapping(value = "/readOne", method= RequestMethod.POST)
 	public ModelAndView projectSupplyView (@ModelAttribute ProjectSupply entity) throws Exception {
 		ModelAndView mav = new ModelAndView("dev/pages/projectInfo/projectSupply/projectSupplyView");
@@ -101,4 +123,5 @@ public class ProjectSupplyController {
 		mav.addObject("entity", entity);
 		return mav;
 	}
+	
 }

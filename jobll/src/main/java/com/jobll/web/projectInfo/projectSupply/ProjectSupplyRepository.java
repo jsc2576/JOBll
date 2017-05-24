@@ -21,6 +21,10 @@ public class ProjectSupplyRepository {
 		int qry = sqlSession.insert("com.jobll.web.projectInfo.projectSupply.ProjectSupply.create", entity);
 		return qry;
 	}
+	public int modify(ProjectSupply entity)throws Exception{
+		int qry = sqlSession.update("com.jobll.web.projectInfo.projectSupply.ProjectSupply.modify", entity);	
+		return qry;
+	}
 public List<ProjectInfo> readPrjtSbjtByUsrId(ProjectInfo entity) {
 		
 		List<ProjectInfo> selectList = new ArrayList<ProjectInfo>();
@@ -29,6 +33,12 @@ public List<ProjectInfo> readPrjtSbjtByUsrId(ProjectInfo entity) {
 	}
 	public List<ProjectSupply> findAll(ProjectSupply entity) throws Exception{
 		List<ProjectSupply> list = sqlSession.selectList("com.jobll.web.projectInfo.projectSupply.ProjectSupply.findAll", entity);
+		
+		return list;
+	}
+
+	public List<ProjectSupply> findReq(ProjectSupply entity) throws Exception{
+		List<ProjectSupply> list = sqlSession.selectList("com.jobll.web.projectInfo.projectSupply.ProjectSupply.findReq", entity);
 		
 		return list;
 	}
