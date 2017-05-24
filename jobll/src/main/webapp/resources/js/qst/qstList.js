@@ -58,13 +58,13 @@ function findData(prcs_stus, atcl_offset, atcl_limit){
 				str_html += "<th>제목</th>";
 				str_html += "<th>내용</th>";
 				str_html += "<th>등록날짜</th>";
-				str_html += "<th>담당자</th>";
+				str_html += "<th>문의자</th>";
 				str_html += "<th>문의상태</th>";
 				str_html += "</tr></thead>";			
 				str_html += "<tbody>";
 			$.each(list, function(index, value){
 				str_html += "<tr onclick = 'readQstInfo("+value.qst_idx+")'>";
-				str_html += "<td>"+value.qst_idx+"</td>";
+				str_html += "<td>"+index+"</td>";
 				str_html += "<td>"+value.qst_sbjt+"</td>";
 				str_html += "<td>"+value.qst_conts+"</td>";
 				str_html += "<td>"+value.reg_date+"</td>";

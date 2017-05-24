@@ -28,8 +28,18 @@ public class QstListRepository {
 		return list;
 	}
 	
+	public List<QstList> findMyQst(QstList entity)throws Exception {
+		List<QstList> list = sqlSession.selectList("com.jobll.web.qstList.QstList.findMyQst", entity); 
+		
+		return list;
+	}
+	
 	public QstList findOne (QstList entity) throws Exception{
 		QstList data = sqlSession.selectOne("com.jobll.web.qstList.QstList.findOne", entity);
+		return data;
+	}
+	public int update (QstList entity) throws Exception{
+		int data = sqlSession.update("com.jobll.web.qstList.QstList.modify", entity);
 		return data;
 	}
 }

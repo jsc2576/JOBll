@@ -7,6 +7,7 @@
     </div>
     <!-- /.col-lg-12 -->
 </div>
+<form class = 'qst-form' action = "/qstList/req" method = "POST">
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">
@@ -45,15 +46,17 @@
 		                            </td>
 		                        </tr>
 								<tr>
+								
 		                            <th scope="row">답변</th>
+		                            
 		                            <td colspan="3">
-		                            	<div style="height:200px; width:100%;" class = "qst_conts" name = "qst_conts" >
-		                            	${ entity.ans_conts }
-		                            	</div>
+		                            	<textarea style="height:200px; width:100%;" class = "ans_conts" name = "ans_conts" ></textarea>
 		                            </td>
+		                        
 		                        </tr>
 		                    </tbody>
 		                </table>
+		                <button onclick = "submit()">답변하기</button>
 						<div class = "Writeqst"></div>	
 
 </div>
@@ -63,3 +66,5 @@
     </div>
     <!-- /.col-lg-6 -->
 </div>
+<input type = "hidden" name = 'qst_idx' value = '${ entity.qst_idx }'>
+</form>
