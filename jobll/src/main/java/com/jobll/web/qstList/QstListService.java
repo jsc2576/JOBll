@@ -30,11 +30,37 @@ public class QstListService {
 
 	public List<QstList> findAll(QstList entity)throws Exception{
 		List<QstList> list = qstListRepository.findAll(entity);
+		for(int i = 0; i < list.size(); i++)
+		{
+			list.get(i).setReg_date(commonUtil.getDividedTime(list.get(i).getReg_date()));
+		}
+		return list;
+	}
+	
+	public List<QstList> findMyQst(QstList entity)throws Exception{
+		
+		entity.setUsr_id(sessionUtil.getSessionBean().getUsr_id());
+		
+		List<QstList> list = qstListRepository.findMyQst(entity);
+		
+		for(int i = 0; i < list.size(); i++)
+		{
+			list.get(i).setReg_date(commonUtil.getDividedTime(list.get(i).getReg_date()));
+		}
 		return list;
 	}
 
 	public QstList findOne(QstList entity) throws Exception{
 		entity = qstListRepository.findOne(entity);
+		
+		entity.setReg_date(commonUtil.getDividedTime(entity.getReg_date()));
 		return entity;
+	}
+	
+	public int update(QstList entity) throws Exception{
+		entity.setQst_stus(2);
+		int result = qstListRepository.update(entity);
+		
+		return result;
 	}
 }

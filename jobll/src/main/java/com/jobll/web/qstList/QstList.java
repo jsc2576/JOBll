@@ -19,6 +19,22 @@ public class QstList implements Serializable{
 	private Integer qst_stus;
 	private String ans_conts;
 	
+	private int lim=10;
+	private int off=0;
+	// for pagination
+	
+	public int getLim() {
+		return lim;
+	}
+	public void setLim(int lim) {
+		this.lim = lim;
+	}
+	public int getOff() {
+		return off;
+	}
+	public void setOff(int off) {
+		this.off = off;
+	}
 	public Integer getQst_idx() {
 		return qst_idx;
 	}

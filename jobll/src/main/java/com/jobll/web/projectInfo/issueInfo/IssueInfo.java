@@ -27,6 +27,24 @@ public class IssueInfo implements Serializable{
 	private Integer atcl_limit;
 	private Integer write_type;		//게시글을 쓸때 수정인경우 1 아닌 경우 0
 	
+	
+	private int lim=10;
+	private int off=0;
+	// for pagination
+	
+	public int getLim() {
+		return lim;
+	}
+	public void setLim(int lim) {
+		this.lim = lim;
+	}
+	public int getOff() {
+		return off;
+	}
+	public void setOff(int off) {
+		this.off = off;
+	}
+	
 	public int getAtcl_idx() {
 		return atcl_idx;
 	}

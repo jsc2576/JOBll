@@ -26,13 +26,13 @@
 		                        <tr>
 		                            <th scope="row">제목</th>
 		                            <td colspan="3">
-		                                <input type="text" class="qst_sbjt" name="qst_sbjt" style="width:631px">
+		                                <input type="text" class="qst_sbjt" name="qst_sbjt" style="width:100%;">
 		                            </td>
 		                        </tr>
 		                        <tr>
 		                            <th scope="row">내용</th>
 		                            <td colspan="3">
-		                            	<textarea style="height:200px; width:631px" class = "qst_conts" name = "qst_conts" ></textarea>
+		                            	<textarea style="height:200px; width:100%;" class = "qst_conts" name = "qst_conts" ></textarea>
 		                            </td>
 		                        </tr>
 		
@@ -50,3 +50,15 @@
     <!-- /.col-lg-6 -->
 </div>
 <!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="page-header">나의 문의 내역</h3>
+    </div>
+    <div class = 'myQstList'></div>
+    <div id="pagination"></div>
+    <!-- /.col-lg-12 -->
+</div>
+
+<form class = 'qst-form' method = 'POST'>
+	<div class = 'qst-data'></div>
+</form>

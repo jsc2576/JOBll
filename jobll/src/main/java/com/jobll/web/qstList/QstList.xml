@@ -25,10 +25,24 @@
 
 	<select  id="findAll" resultType="com.jobll.web.qstList.QstList" parameterType ="com.jobll.web.qstList.QstList">
 	SELECT * FROM "QST_INFO"
+	LIMIT #{lim} OFFSET #{off}
+	</select>
+	
+	<select  id="findMyQst" resultType="com.jobll.web.qstList.QstList" parameterType ="com.jobll.web.qstList.QstList">
+	SELECT * FROM "QST_INFO" WHERE "USR_ID" = #{usr_id}
+	LIMIT #{lim} OFFSET #{off}
 	</select>
 
 	<select  id="findOne" resultType="com.jobll.web.qstList.QstList" parameterType ="com.jobll.web.qstList.QstList">
 	SELECT * FROM "QST_INFO" WHERE "QST_IDX" = #{qst_idx}
 	</select>
+	
+	<update id="modify" parameterType="com.jobll.web.qstList.QstList" useGeneratedKeys="true"
+    keyProperty="qst_idx">
+		UPDATE "QST_INFO" set
+			"ANS_CONTS" = #{ans_conts},
+			"QST_STUS" = #{qst_stus}
+			WHERE "QST_IDX" = #{qst_idx}
+	</update>
 
 </mapper>

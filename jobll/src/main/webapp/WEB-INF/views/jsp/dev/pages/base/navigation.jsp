@@ -20,9 +20,9 @@
 			<ul class="dropdown-menu dropdown-user">
 				<li><a href="/usrInfo/MyUsrInfo"><i
 						class="fa fa-user fa-fw"></i> 내 프로필</a></li>
-				<li><a href="/usrInfo/usrMdf"><i class="fa fa-gear fa-fw"></i>
+				<li><a href="/usrInfo/usrMdf"><i class="fa fa-medium fa-fw"></i>
 						프로필 수정</a></li>
-				<li><a href="/usrInfo/usrDel"><i class="fa fa-gear fa-fw"></i>
+				<li><a href="/usrInfo/usrDel"><i class="fa fa-frown-o fa-fw"></i>
 						회원 탈퇴</a></li>
 				<li class="divider"></li>
 				<li><a href="/logout.do"><i class="fa fa-sign-out fa-fw"></i>
@@ -33,7 +33,7 @@
 	<!-- /.navbar-top-links -->
 
  <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
+                <div class="joinNonDis sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
                             <a href="/dev"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
@@ -53,6 +53,9 @@
                                 </li>
                                 <li>
                                     <a href="/usrInfo/usrInfoList">사용자 관리</a>
+                                </li>
+                                <li>
+                                    <a href="cmpny/add">고객사 추가/삭제</a>
                                 </li>
                             </ul>
                         </li>

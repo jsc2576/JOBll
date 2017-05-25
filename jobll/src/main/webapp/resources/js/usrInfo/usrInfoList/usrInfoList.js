@@ -1,12 +1,12 @@
 $(document).ready (function (){
 	usrList(0,0);
-	
+	getCmpnyList();
 });
-function GetCmpnyList(select_typ){
+function getCmpnyList(){
 	$.ajax({
 		method : "POST",
 		url : "/cmpny/GetCmpnyList",
-		data : {select_typ : select_typ},
+		//data : {select_typ : select_typ},
 		success: function(list){
 			
 			var str_html = "<select class='selectpicker cmpny_value' data-live-search='true' onChange = ''>";
@@ -15,8 +15,9 @@ function GetCmpnyList(select_typ){
 				str_html += "<option value = "+list[i].cmpny_idx+">"+list[i].cmpny_nm+"</option>";
 				str_html += "</select>";
 			
-			$(".cmpny_list").prepend(str_html);	
-
+				str_html += "<button onclick = \"getUserByCmpny(0,0)\">검색</button>";
+			$("#cmpnyList").html(str_html);	
+			
 		},
 		error: function(){alert("ERROR");}
 	});
@@ -49,7 +50,7 @@ function getUserByCmpny(off,page_off){
 				
 			$.each(list, function(index, value){
 				str_html += "<tr>";
-				str_html += "<td>"+(index+1)+"</td>";
+				str_html += "<td>"+(index+off*10+1)+"</td>";
 				str_html += "<td>"+value.usr_nm+"</td>";
 				str_html += "<td>"+value.usr_lv+"</td>";
 				str_html += "<td>"+value.usr_pwd+"</td>";

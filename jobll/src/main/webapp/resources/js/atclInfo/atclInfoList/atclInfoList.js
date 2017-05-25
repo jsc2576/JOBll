@@ -13,11 +13,11 @@ var data_limit = 10; // 하나의 페이지에 보여지는 데이터 수
 
 function findPrcs(prcs_stus){
 	prcs_stus_nm = prcs_stus;
-	findData(prcs_stus_nm, 0, data_limit);
+	findData(prcs_stus_nm, 0, 0);
 }
 
 function findpage(page){
-	findData(prcs_stus_nm, list_nm * page, data_limit);
+	findData(prcs_stus_nm, 0, 0);
 }
 
 
