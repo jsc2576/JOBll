@@ -3,12 +3,12 @@
 <mapper namespace="com.jobll.web.dashbrd">
 
 	<select id="findCuntPrjtIdx" parameterType="com.jobll.web.dashbrd.Dashbrd" resultType="com.jobll.web.dashbrd.Dashbrd">
-		SELECT "PRJT_IDX"
+		SELECT DISTINCT "PRJT_IDX"
 		FROM "HSTY_INFO"
 		WHERE "USR_ID" = #{usr_id}
 		LIMIT 10 
 	</select>
-
+	
 	<select id="findPrjtSbjt" parameterType="integer" resultType="com.jobll.web.dashbrd.Dashbrd">
 		SELECT "PRJT_SBJT"
 		FROM "PRJT_INFO"
@@ -51,5 +51,11 @@
 		WHERE "HSTY_TYP" = 2 
 		and "USR_ID" = #{usr_id}
 		LIMIT 5
+	</select>
+	
+	<select id ="findAtcl" parameterType="com.jobll.web.dashbrd.Dashbrd" resultType="com.jobll.web.dashbrd.Dashbrd">
+		SELECT *
+		FROM "ATCL_INFO"
+		WHERE "ATCL_IDX" = #{atcl_idx}
 	</select>
 </mapper>

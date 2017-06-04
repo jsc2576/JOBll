@@ -49,6 +49,12 @@ public class DashbrdRepository {
 	}
 	
 	public List<Dashbrd> findRcntAtclList(Dashbrd entity){
-		return sqlSession.selectList("com.jobll.web.dashbrd.findRcntAtclList", entity);
+		List<Dashbrd> data = sqlSession.selectList("com.jobll.web.dashbrd.findRcntAtclList", entity);
+		List<Dashbrd> result = new ArrayList<>();
+		for(int i=0; i<data.size(); i++){
+			Dashbrd data_one = sqlSession.selectOne("com.jobll.web.dashbrd.findAtcl", data.get(i));
+			result.add(data_one);
+		}
+		return result;
 	}
 }
