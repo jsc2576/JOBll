@@ -2,7 +2,7 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- <head>
+<head>
 <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
 <title>회원가입</title>
   <link href="/resources/css/usrInfo/usrInfoJoin.css" rel="stylesheet">
@@ -13,7 +13,7 @@
   <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script>
   <script src="/resources/js/usrInfo/usrInfoJoin.js" type="text/javascript"></script>
 
-</head> -->
+</head>
 <body>
 
       <div class="container">
