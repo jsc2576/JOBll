@@ -8,7 +8,7 @@ JSON (JavaScript Object Notation)은 경량의 DATA-교환 형식이다. 이 형
 아래와 같이 일련의 키와 값의 매핑 데이터들을 각각 보내주는 것이 아니라 하나의 오브젝트화를 하여 오직 하나의 데이터로 전송 한다.
 json과 ajax를 view에서 뿐만 아니라 모든 통신에서 활용하였다 비동기이기 때문에 화면의 전환(새로고침 등) 없이도 출력 데이터, 형식 등을 바꿔줌으로써 불필요한 화면전환을 막았고 기본적으로 데이터 통신의 성능을 올림으로써 속도의 퍼포먼스 상승을 얻는다.
 
-##database
+## database
 
 ![alt tag](https://lh6.googleusercontent.com/LO-G-fBXLuRgNTUNpqKDCqd7thgPl9gtJO-4OCjT8E60mp7j_3j4FJ6FpFGuOm5cbsKR9V_oWro9OTwewi-v=w1918-h982)
 
